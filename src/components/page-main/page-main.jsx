@@ -302,3 +302,5 @@ const PageMain = (props) => {
     </React.Fragment>
   );
 };
+
+export default PageMain;
