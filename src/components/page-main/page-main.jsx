@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const PageMain = (props) => {
-  const {TITLE: title, GENRE: genre, YEAR: year} = props.details;
+  const {title, genre, year} = props;
   return (
     <React.Fragment>
       <section className="movie-card">

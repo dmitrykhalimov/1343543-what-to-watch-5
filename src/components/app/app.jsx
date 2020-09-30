@@ -3,10 +3,12 @@ import PropTypes from "prop-types";
 import PageMain from "../page-main/page-main";
 
 const App = (props) => {
-  const details = props.details;
+  const {title, genre, year} = props;
   return (
     <PageMain
-      details = {details}
+      title = {title}
+      genre = {genre}
+      year = {year}
     />
   );
 };

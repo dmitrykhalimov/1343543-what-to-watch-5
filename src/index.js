@@ -10,7 +10,9 @@ const DetailsPromo = {
 
 ReactDOM.render(
     <App
-      details={DetailsPromo}
+      title = {DetailsPromo.TITLE}
+      genre = {DetailsPromo.GENRE}
+      year = {DetailsPromo.YEAR}
     />,
     document.querySelector(`#root`)
 );
