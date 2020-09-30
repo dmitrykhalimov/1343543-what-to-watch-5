@@ -306,11 +306,9 @@ const PageMain = (props) => {
 };
 
 PageMain.propTypes = {
-  details: PropTypes.shape({
-    TITLE: PropTypes.string.isRequired,
-    GENRE: PropTypes.string.isRequired,
-    YEAR: PropTypes.string.isRequired,
-  })
+  title: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired,
 };
 
 export default PageMain;
