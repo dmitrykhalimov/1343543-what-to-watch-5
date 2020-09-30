@@ -1,9 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const PageMain = (props) => {
   const {TITLE: title, GENRE: genre, YEAR: year} = props.details;
-  console.log(props.details);
-  console.log(title);
   return (
     <React.Fragment>
       <section className="movie-card">
@@ -304,6 +303,14 @@ const PageMain = (props) => {
       </div>
     </React.Fragment>
   );
+};
+
+PageMain.propTypes = {
+  details: PropTypes.shape({
+    TITLE: PropTypes.string.isRequired,
+    GENRE: PropTypes.string.isRequired,
+    YEAR: PropTypes.string.isRequired,
+  })
 };
 
 export default PageMain;
