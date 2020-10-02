@@ -5,6 +5,8 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 import SignIn from "../sign-in/sign-in";
 import MyList from "../my-list/my-list";
 import Film from "../film/film";
+import AddReview from "../add-review/add-review";
+import Player from "../player/player";
 
 const App = (props) => {
   const {title, genre, year} = props;
@@ -24,7 +26,10 @@ const App = (props) => {
         <Route exact path="/mylist">
           <MyList />
         </Route>
-        <Route path="/film/:ydear?" exact component={Film} />
+        {/* TODO: понятно, что в будущем потребуется что-то передать, но пока я решил не заморачиваться и передать через comopnent */}
+        <Route path="/films/:id" exact component={Film} />
+        <Route path="/films/:id/review" exact component={AddReview} />
+        <Route path="/player/:id" exact component={Player} />
       </Switch>
     </BrowserRouter>
   );
