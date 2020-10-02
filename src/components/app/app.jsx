@@ -24,7 +24,7 @@ const App = (props) => {
         <Route exact path="/mylist">
           <MyList />
         </Route>
-        <Route exact path="/film/:year?" component={Film} />
+        <Route path="/film/:ydear?" exact component={Film} />
       </Switch>
     </BrowserRouter>
   );
