@@ -26,10 +26,15 @@ const App = (props) => {
         <Route exact path="/mylist">
           <MyList />
         </Route>
-        {/* TODO: понятно, что в будущем потребуется что-то передать, но пока я решил не заморачиваться и передать через comopnent */}
-        <Route path="/films/:id" exact component={Film} />
-        <Route path="/films/:id/review" exact component={AddReview} />
-        <Route path="/player/:id" exact component={Player} />
+        <Route path="/films/:id" exact>
+          <Film />
+        </Route>
+        <Route path="/films/:id/review" exact>
+          <AddReview />
+        </Route>
+        <Route path="/player/:id" exact>
+          <Player />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
