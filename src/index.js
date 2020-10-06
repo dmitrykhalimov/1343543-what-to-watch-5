@@ -15,6 +15,8 @@ ReactDOM.render(
       title = {DetailsPromo.TITLE}
       genre = {DetailsPromo.GENRE}
       year = {DetailsPromo.YEAR}
+      films = {films}
+      review = {reviews}
     />,
     document.querySelector(`#root`)
 );
