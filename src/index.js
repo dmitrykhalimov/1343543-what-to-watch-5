@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app";
+import films from "../src/mocks/films";
 
+console.log(films);
 const DetailsPromo = {
   TITLE: `The Grand Budapest Hotel`,
   GENRE: `Drama`,
