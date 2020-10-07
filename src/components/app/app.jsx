@@ -9,7 +9,7 @@ import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 
 const App = (props) => {
-  const {title, genre, year} = props;
+  const {title, genre, year, films} = props;
   return (
     <BrowserRouter>
       <Switch>
@@ -18,6 +18,7 @@ const App = (props) => {
             title = {title}
             genre = {genre}
             year = {year}
+            films = {films}
           />
         </Route>
         <Route exact path="/login">
