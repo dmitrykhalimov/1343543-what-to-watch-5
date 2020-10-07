@@ -34,7 +34,9 @@ const App = (props) => {
           <AddReview />
         </Route>
         <Route path="/player/:id" exact>
-          <Player />
+          <Player
+            video = {films[0].video}
+          />
         </Route>
       </Switch>
     </BrowserRouter>

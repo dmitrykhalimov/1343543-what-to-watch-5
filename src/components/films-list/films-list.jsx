@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import PropTypes, { exact } from "prop-types";
+import PropTypes from "prop-types";
 import SmallFilmCard from "../small-movie-card/smaill-movie-card";
 
 // не предусмотрена кнопка Load More
