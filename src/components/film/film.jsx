@@ -1,9 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
 const Film = (props) => {
-  const {film, reviews, history, handlePlay} = props;
-  console.log(film.id);
+  // по ДЗ нужно передать reviews в Film, но "табы будем делать потом", а линтер ругается сейчас. >:-E
+  // eslint-disable-next-line
+  const {film, reviews, handlePlay} = props;
+
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -44,7 +47,7 @@ const Film = (props) => {
                   type="button"
                   onClick={(evt) => {
                     evt.preventDefault();
-                    handlePlay(`22`);
+                    handlePlay(film.id);
                   }}
                 >
                   <svg viewBox="0 0 19 19" width="19" height="19">
@@ -169,3 +172,9 @@ const Film = (props) => {
 };
 
 export default Film;
+
+Film.propTypes = {
+  film: PropTypes.array.isRequired,
+  review: PropTypes.array.isRequired,
+  handlePlay: PropTypes.func.isRequired,
+};

@@ -35,12 +35,8 @@ const App = (props) => {
             <Film
               film = {films[0]}
               reviews = {reviews[0]}
-              history = {history}
               handlePlay = {(id) => {
                 history.push(`/player/${id}`);
-              }}
-              handleAddReview = {(id) => {
-                history.push(`/films/:${id}/review/`);
               }}
             />
           )}
@@ -65,4 +61,5 @@ App.propTypes = {
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
   films: PropTypes.array.isRequired,
+  reviews: PropTypes.array.isRequired
 };

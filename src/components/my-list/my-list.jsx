@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import SmallFilmCard from "../small-movie-card/smaill-movie-card";
 
 const MyList = (props) => {
@@ -60,3 +61,7 @@ const MyList = (props) => {
 };
 
 export default MyList;
+
+MyList.propTypes = {
+  films: PropTypes.array.isRequired,
+};
