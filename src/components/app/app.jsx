@@ -25,7 +25,9 @@ const App = (props) => {
           <SignIn />
         </Route>
         <Route exact path="/mylist">
-          <MyList />
+          <MyList
+            films = {films}
+          />
         </Route>
         <Route path="/films/:id" exact>
           <Film />
@@ -35,7 +37,7 @@ const App = (props) => {
         </Route>
         <Route path="/player/:id" exact>
           <Player
-            video = {films[0].video}
+            video = {films[0].video} // по ДЗ нужно добавить по одному произвольному моку в каждый раздел
           />
         </Route>
       </Switch>
