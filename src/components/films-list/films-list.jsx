@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import SmallMovieCard from "../small-movie-card/smaill-movie-card";
+import SmallFilmCard from "../small-movie-card/smaill-movie-card";
+
+// не предусмотрена кнопка Load More
+const MAX_FILMS_QUANTITY = 8;
 
 const FilmsList = (props) => {
   const {films} = props;
-  console.log(films);
-  const elements = []
-  for (let i = 0; i < 5; i++) {
-    elements.push(<SmallMovieCard key = {films[i].id} preview = {films[i].preview} title = {films[i].title} />)
+  const elements = [];
+  for (let i = 0; i < MAX_FILMS_QUANTITY; i++) {
+    elements.push(<SmallFilmCard key = {films[i].id} preview = {films[i].preview} title = {films[i].title} id = {films[i].id}/>);
   }
 
   return (
@@ -15,6 +17,14 @@ const FilmsList = (props) => {
       {elements}
     </div>
   );
+};
+
+FilmsList.propTypes = {
+  films: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    preview: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }))
 };
 
 export default FilmsList;

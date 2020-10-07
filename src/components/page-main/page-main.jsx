@@ -4,7 +4,6 @@ import FilmsList from "../films-list/films-list";
 
 const PageMain = (props) => {
   const {title, genre, year, films} = props;
-  console.log(films);
   return (
     <React.Fragment>
       <section className="movie-card">
@@ -313,6 +312,7 @@ PageMain.propTypes = {
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
+  films: PropTypes.array.isRequired
 };
 
 export default PageMain;
