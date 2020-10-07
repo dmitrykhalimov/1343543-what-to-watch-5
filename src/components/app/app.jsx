@@ -29,12 +29,22 @@ const App = (props) => {
             films = {films}
           />
         </Route>
-        <Route path="/films/:id" exact>
-          <Film
-            film = {films[0]}
-            reviews = {reviews[0]}
-          />
-        </Route>
+        <Route exact
+          path="/films/:id"
+          render={({history}) => (
+            <Film
+              film = {films[0]}
+              reviews = {reviews[0]}
+              history = {history}
+              handlePlay = {(id) => {
+                history.push(`/player/${id}`);
+              }}
+              handleAddReview = {(id) => {
+                history.push(`/films/:${id}/review/`);
+              }}
+            />
+          )}
+        />
         <Route path="/films/:id/review" exact>
           <AddReview />
         </Route>

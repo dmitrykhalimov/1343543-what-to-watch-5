@@ -1,8 +1,9 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Film = (props) => {
-  const {film, reviews} = props;
-  console
+  const {film, reviews, history, handlePlay} = props;
+  console.log(film.id);
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -15,7 +16,7 @@ const Film = (props) => {
 
           <header className="page-header movie-card__head">
             <div className="logo">
-              <a href="main.html" className="logo__link">
+              <a href="/" className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
@@ -38,7 +39,14 @@ const Film = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <button
+                  className="btn btn--play movie-card__button"
+                  type="button"
+                  onClick={(evt) => {
+                    evt.preventDefault();
+                    handlePlay(`22`);
+                  }}
+                >
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
@@ -50,7 +58,7 @@ const Film = (props) => {
                   </svg>
                   <span>My list</span>
                 </button>
-                <a href="add-review.html" className="btn movie-card__button">Add review</a>
+                <Link className="btn movie-card__button" to={`${film.id}/review`}>Add review</Link>
               </div>
             </div>
           </div>
