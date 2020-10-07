@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
+import PropTypes, { exact } from "prop-types";
 import SmallFilmCard from "../small-movie-card/smaill-movie-card";
 
 // не предусмотрена кнопка Load More
@@ -11,14 +11,22 @@ class FilmsList extends PureComponent {
 
     this.state = {
       activeFilmId: null
-    }
+    };
+
+    this.handleHover = this.handleHover.bind(this);
+  }
+
+  handleHover(id) {
+    this.setState({
+      activeFilmId: id,
+    });
   }
 
   render() {
     const {films} = this.props;
     const elements = [];
     for (let i = 0; i < MAX_FILMS_QUANTITY; i++) {
-      elements.push(<SmallFilmCard key = {films[i].id} preview = {films[i].preview} title = {films[i].title} id = {films[i].id}/>);
+      elements.push(<SmallFilmCard key = {films[i].id} preview = {films[i].preview} title = {films[i].title} id = {films[i].id} handleHover= {this.handleHover}/>);
     }
 
     return (
