@@ -9,7 +9,7 @@ import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 
 const App = (props) => {
-  const {title, genre, year, films} = props;
+  const {title, genre, year, films, reviews} = props;
   return (
     <BrowserRouter>
       <Switch>
@@ -30,7 +30,10 @@ const App = (props) => {
           />
         </Route>
         <Route path="/films/:id" exact>
-          <Film />
+          <Film
+            film = {films[0]}
+            reviews = {reviews[0]}
+          />
         </Route>
         <Route path="/films/:id/review" exact>
           <AddReview />

@@ -3,7 +3,6 @@ import SmallFilmCard from "../small-movie-card/smaill-movie-card";
 
 const MyList = (props) => {
   const {films} = props;
-  console.log(films);
   return (
     <div className="user-page">
       <header className="page-header user-page__head">

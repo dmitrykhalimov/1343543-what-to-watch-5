@@ -88,7 +88,7 @@ const makeMocks = () => {
       id: index,
       title: TITLES[index],
       preview: PREVIEWS[index],
-      poster: `https://loremflickr.com/273/410`,
+      poster: `https://loremflickr.com/218/327`,
       background: `https://loremflickr.com/1300/552`,
       description: DESCRIPTION,
       genre: GENRES[index],
