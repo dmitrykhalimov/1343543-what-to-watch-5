@@ -37,7 +37,7 @@ const App = (props) => {
               film = {films[0]}
               reviews = {reviews[0]}
               handlePlay = {(id) => {
-                history.push(`/player/${id}`);
+                history.push(`/player/${id}`); // неясно как связать этот {id} с Player - в который передается в любом случае films[0]
               }}
             />
           )}
