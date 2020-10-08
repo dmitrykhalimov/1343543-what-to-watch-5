@@ -37,7 +37,7 @@ const MyList = (props) => {
               title = {film.title}
               id = {film.id}
               // неясно должен ли быть предпросмотр в MyList, поэтому отправил пустую функцию, чтобы не переписывать этот компонент под классовый
-              handleHover = {() => {
+              onFilmCardHover = {() => {
                 return ``;
               }} />;
           })}
