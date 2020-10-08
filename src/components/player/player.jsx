@@ -39,8 +39,9 @@ const Player = (props) => {
   );
 };
 
-export default Player;
-
 Player.propTypes = {
   video: PropTypes.string.isRequired,
 };
+
+export default Player;
+

@@ -55,8 +55,6 @@ const App = (props) => {
   );
 };
 
-export default App;
-
 App.propTypes = {
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
@@ -64,3 +62,6 @@ App.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
   reviews: PropTypes.arrayOf(validReview).isRequired
 };
+
+export default App;
+

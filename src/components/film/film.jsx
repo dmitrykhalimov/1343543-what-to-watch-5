@@ -7,7 +7,6 @@ const Film = (props) => {
   // по ДЗ нужно передать reviews в Film, но "табы будем делать потом", а линтер ругается сейчас. >:-E
   // eslint-disable-next-line
   const {film, review, onPlayClick} = props;
-  console.log(props);
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -172,10 +171,12 @@ const Film = (props) => {
   );
 };
 
-export default Film;
-
 Film.propTypes = {
   film: validFilm,
   review: validReview,
   onPlayClick: PropTypes.func.isRequired,
 };
+
+export default Film;
+
+

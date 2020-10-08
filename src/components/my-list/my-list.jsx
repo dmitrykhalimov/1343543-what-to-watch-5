@@ -61,8 +61,9 @@ const MyList = (props) => {
   );
 };
 
-export default MyList;
-
 MyList.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
 };
+
+export default MyList;
+
