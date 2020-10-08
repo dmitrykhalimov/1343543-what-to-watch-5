@@ -57,18 +57,16 @@ const NAMES = [
 ];
 
 
-const makeComments = (qunatity, filmId) => {
-  const comments = [];
-  for (let i = 0; i < qunatity; i++) {
-    comments.push({
+const makeComments = (quantity, filmId) => {
+  return new Array(quantity).map(() => {
+    return {
       commentId: `${filmId}-c${i}`,
       comment: COMMENTS[getRandomInteger(0, COMMENTS.length - 1)],
       rank: Number(`${getRandomInteger(1, 9)}.${getRandomInteger(1, 9)}`),
       name: NAMES[getRandomInteger(0, NAMES.length - 1)],
       date: `December 20, 2016`
-    });
-  }
-  return comments;
+    };
+  });
 };
 
 const makeMocks = () => {
