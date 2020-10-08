@@ -79,8 +79,6 @@ const Duration = {
   MAX: 230,
 };
 
-// т.к. моки носят абсолютно утилитарный характер, и будут удалены я не стал захламлять проект созданием utils/mocks, для общих методов, а все запихнул в один файл.
-
 const makeMocks = () => {
   return TITLES.map((item, index) => {
     const rank = Number(`${getRandomInteger(1, 9)}.${getRandomInteger(1, 9)}`);
