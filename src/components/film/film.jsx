@@ -6,8 +6,8 @@ import {validFilm, validReview} from "../../utils/props";
 const Film = (props) => {
   // по ДЗ нужно передать reviews в Film, но "табы будем делать потом", а линтер ругается сейчас. >:-E
   // eslint-disable-next-line
-  const {film, reviews, handlePlay} = props;
-
+  const {film, review, onPlayClick} = props;
+  console.log(props);
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -48,7 +48,7 @@ const Film = (props) => {
                   type="button"
                   onClick={(evt) => {
                     evt.preventDefault();
-                    handlePlay(film.id);
+                    onPlayClick(film.id);
                   }}
                 >
                   <svg viewBox="0 0 19 19" width="19" height="19">
@@ -177,5 +177,5 @@ export default Film;
 Film.propTypes = {
   film: validFilm,
   review: validReview,
-  handlePlay: PropTypes.func.isRequired,
+  onPlayClick: PropTypes.func.isRequired,
 };
