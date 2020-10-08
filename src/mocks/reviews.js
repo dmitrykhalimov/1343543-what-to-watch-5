@@ -58,9 +58,9 @@ const NAMES = [
 
 
 const makeComments = (quantity, filmId) => {
-  return new Array(quantity).map(() => {
+  return new Array(quantity).map((item, index) => {
     return {
-      commentId: `${filmId}-c${i}`,
+      commentId: `${filmId}-c${index}`,
       comment: COMMENTS[getRandomInteger(0, COMMENTS.length - 1)],
       rank: Number(`${getRandomInteger(1, 9)}.${getRandomInteger(1, 9)}`),
       name: NAMES[getRandomInteger(0, NAMES.length - 1)],
