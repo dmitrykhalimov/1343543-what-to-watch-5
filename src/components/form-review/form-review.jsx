@@ -46,6 +46,7 @@ class FormReview extends PureComponent {
                 .map((item, index) => {
                   const mark = index + 1;
                   return (
+                    // item + index не самый изящный способ избежать обвинений линтера в неиспользовании item, без которого не запустить map :)
                     <React.Fragment key={item + index}>
                       <input
                         className="rating__input"
