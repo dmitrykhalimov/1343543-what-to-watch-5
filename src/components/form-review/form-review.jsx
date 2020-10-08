@@ -6,7 +6,6 @@ class FormReview extends PureComponent {
   constructor(props) {
     super(props);
 
-    // есть большие сомнения что стейт нужно поместить именно на этом уровне, а не на уровне страницы AddReview, или даже табы Reviews, но т.к. неясна архитектура и дальнейшая логика оставил здесь
     this.state = {
       rating: RATING_QUANTITY,
       comment: ``,
@@ -18,12 +17,12 @@ class FormReview extends PureComponent {
   }
 
   handleRatingChange(evt) {
+
     this.setState({
       rating: evt.target.value,
     });
   }
 
-  // не очень понятно зачем вешать onChange на текстовое поле, но так было в демонстрации к лекции :/
   handleCommentChange(evt) {
     this.setState({
       comment: evt.target.value,
@@ -32,7 +31,6 @@ class FormReview extends PureComponent {
 
   handleFormSubmit(evt) {
     evt.preventDefault();
-    // отправить на сервер state
   }
 
   render() {
@@ -66,7 +64,7 @@ class FormReview extends PureComponent {
           </div>
 
           <div className="add-review__text">
-            <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" onChange={this.handleCommentChange}></textarea>
+            <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" onChange={this.handleCommentChange} value={this.state.comment}></textarea>
             <div className="add-review__submit">
               <button className="add-review__btn" type="submit">Post</button>
             </div>
