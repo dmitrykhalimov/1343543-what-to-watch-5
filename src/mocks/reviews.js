@@ -72,14 +72,12 @@ const makeComments = (qunatity, filmId) => {
 };
 
 const makeMocks = () => {
-  const reviews = [];
-  for (let i = 0; i < FILMS_QUANTITY; i++) {
-    reviews.push({
-      filmId: i,
-      reviews: makeComments(getRandomInteger(CommentsQuantity.MIN, CommentsQuantity.MAX), i)
-    });
-  }
-  return reviews;
+  return new Array(FILMS_QUANTITY).map((item, index) => {
+    return {
+      filmId: index,
+      reviews: makeComments(getRandomInteger(CommentsQuantity.MIN, CommentsQuantity.MAX), index)
+    };
+  });
 };
 
 export default makeMocks();
