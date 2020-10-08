@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import {validFilm, validReview} from "../../utils/props";
 
 const Film = (props) => {
   // по ДЗ нужно передать reviews в Film, но "табы будем делать потом", а линтер ругается сейчас. >:-E
@@ -174,7 +175,7 @@ const Film = (props) => {
 export default Film;
 
 Film.propTypes = {
-  film: PropTypes.array.isRequired,
-  review: PropTypes.array.isRequired,
+  film: validFilm,
+  review: validReview,
   handlePlay: PropTypes.func.isRequired,
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import FilmsList from "../films-list/films-list";
+import {validFilm} from "../../utils/props";
 
 const PageMain = (props) => {
   const {title, genre, year, films} = props;
@@ -127,7 +128,7 @@ PageMain.propTypes = {
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
-  films: PropTypes.array.isRequired,
+  films: PropTypes.arrayOf(validFilm).isRequired,
 };
 
 export default PageMain;

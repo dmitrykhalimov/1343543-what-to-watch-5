@@ -7,6 +7,7 @@ import MyList from "../my-list/my-list";
 import Film from "../film/film";
 import AddReview from "../add-review/add-review";
 import Player from "../player/player";
+import {validFilm, validReview} from "../../utils/props";
 
 const App = (props) => {
   const {title, genre, year, films, reviews} = props;
@@ -60,6 +61,6 @@ App.propTypes = {
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
-  films: PropTypes.array.isRequired,
-  reviews: PropTypes.array.isRequired
+  films: PropTypes.arrayOf(validFilm).isRequired,
+  reviews: PropTypes.arrayOf(validReview).isRequired
 };

@@ -1,5 +1,4 @@
 import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
 
 const RATING_QUANTITY = 5;
 
@@ -77,13 +76,5 @@ class FormReview extends PureComponent {
     );
   }
 }
-
-FormReview.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    preview: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }))
-};
 
 export default FormReview;
