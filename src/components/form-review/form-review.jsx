@@ -8,7 +8,7 @@ class FormReview extends PureComponent {
 
     // есть большие сомнения что стейт нужно поместить именно на этом уровне, а не на уровне страницы AddReview, или даже табы Reviews, но т.к. неясна архитектура и дальнейшая логика оставил здесь
     this.state = {
-      rating: 5,
+      rating: RATING_QUANTITY,
       comment: ``,
     };
 
