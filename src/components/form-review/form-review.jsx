@@ -7,7 +7,7 @@ class FormReview extends PureComponent {
     super(props);
 
     this.state = {
-      rating: RATING_QUANTITY,
+      rating: 3,
       comment: ``,
     };
 
@@ -19,7 +19,7 @@ class FormReview extends PureComponent {
   handleRatingChange(evt) {
 
     this.setState({
-      rating: evt.target.value,
+      rating: Number(evt.target.value),
     });
   }
 
@@ -44,8 +44,7 @@ class FormReview extends PureComponent {
                 .map((item, index) => {
                   const mark = index + 1;
                   return (
-                    // item + index не самый изящный способ избежать обвинений линтера в неиспользовании item, без которого не запустить map :)
-                    <React.Fragment key={item + index}>
+                    <React.Fragment key={index}>
                       <input
                         className="rating__input"
                         id={`star-${mark}`}
@@ -57,7 +56,6 @@ class FormReview extends PureComponent {
                       />
                       <label className="rating__label" htmlFor={`star-${mark}`}>{`star-${mark}`}</label>
                     </React.Fragment>
-                    // TODO: хотелось добавить тернарный оператор {mark === 3 ? defaultChecked : ``), чтобы 3 звезды стояли по умолчанию но JSX в упор не понимает такую конструкцию. Надо будет пофиксить.
                   );
                 })
               }

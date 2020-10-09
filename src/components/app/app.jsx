@@ -11,7 +11,6 @@ import {validFilm, validReview} from "../../utils/props";
 
 const App = (props) => {
   const {title, genre, year, films, reviews} = props;
-  console.log(reviews)
   return (
     <BrowserRouter>
       <Switch>

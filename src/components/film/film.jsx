@@ -7,7 +7,6 @@ const Film = (props) => {
   // по ДЗ нужно передать reviews в Film, но "табы будем делать потом", а линтер ругается сейчас. >:-E
   // eslint-disable-next-line
   const {film, review, onPlayClick} = props;
-  console.log(film)
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
