@@ -1,5 +1,5 @@
 import {ratingRanks} from "../const.js";
-// Функции случайного поиска
+
 const MINS_IN_HOUR = 60;
 
 export const getRandomInteger = (min = 0, max = 1) => {
@@ -10,12 +10,9 @@ export const getRandomInteger = (min = 0, max = 1) => {
 };
 
 export const translateRatingToText = (rating) => {
-  for (const ratingRank of ratingRanks) {
-    if (rating <= Object.values(ratingRank)) {
-      return Object.keys(ratingRank)[0];
-    }
-  }
-  return ``;
+  return ratingRanks.find((item) => {
+    return rating >= item.min && rating < item.max;
+  });
 };
 
 export const translateMinutesToText = (duration) => {
@@ -24,6 +21,8 @@ export const translateMinutesToText = (duration) => {
   return `${hours}h ${minutes}m`;
 };
 
+
+// тиснул из предыдущего проекта, а вдруг пригодится?
 export const getRandomBoolean = () => {
   return Math.random() >= 0.5;
 };

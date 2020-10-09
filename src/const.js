@@ -1,17 +1,27 @@
 export const ratingRanks = [
   {
-    'Bad': 2.9
+    name: `Bad`,
+    min: 0,
+    max: 1.9,
   },
   {
-    'Normal': 4.9
+    name: `Normal`,
+    min: 2,
+    max: 4.9,
   },
   {
-    'Good': 7.9
+    name: `Good`,
+    min: 5,
+    max: 7.9,
   },
   {
-    'Very good': 9.9
+    name: `Very good`,
+    min: 8,
+    max: 9.9,
   },
   {
-    'Awesome': 10
-  }
+    name: `Awesome`,
+    min: 10,
+    max: Infinity,
+  },
 ];
