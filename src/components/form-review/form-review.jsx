@@ -52,6 +52,7 @@ class FormReview extends PureComponent {
                         type="radio"
                         name="rating"
                         value={mark}
+                        checked={this.state.rating === mark}
                         onChange={this.handleRatingChange}
                       />
                       <label className="rating__label" htmlFor={`star-${mark}`}>{`star-${mark}`}</label>

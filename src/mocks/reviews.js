@@ -58,7 +58,7 @@ const NAMES = [
 
 
 const makeComments = (quantity, filmId) => {
-  return new Array(quantity).map((item, index) => {
+  return Array(quantity).fill(``).map((item, index) => {
     return {
       commentId: `${filmId}-c${index}`,
       comment: COMMENTS[getRandomInteger(0, COMMENTS.length - 1)],
@@ -70,12 +70,13 @@ const makeComments = (quantity, filmId) => {
 };
 
 const makeMocks = () => {
-  return new Array(FILMS_QUANTITY).map((item, index) => {
+  return Array(FILMS_QUANTITY).fill(``).map((item, index) => {
     return {
       filmId: index,
       reviews: makeComments(getRandomInteger(CommentsQuantity.MIN, CommentsQuantity.MAX), index)
     };
   });
+
 };
 
 export default makeMocks();

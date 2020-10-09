@@ -10,9 +10,11 @@ export const getRandomInteger = (min = 0, max = 1) => {
 };
 
 export const translateRatingToText = (rating) => {
-  return ratingRanks.find((item) => {
-    return rating >= item.min && rating < item.max;
-  });
+  const result = ratingRanks
+    .find((item) => {
+      return rating >= item.min && rating < item.max;
+    });
+  return result.name;
 };
 
 export const translateMinutesToText = (duration) => {
