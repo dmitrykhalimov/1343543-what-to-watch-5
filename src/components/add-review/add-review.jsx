@@ -1,7 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import FormReview from "../form-review/form-review";
 
-const AddReview = () => {
+const AddReview = (props) => {
+  const {onFormSubmit} = props;
   return (
     <section className="movie-card movie-card--full">
       <div className="movie-card__header">
@@ -43,10 +45,16 @@ const AddReview = () => {
         </div>
       </div>
 
-      <FormReview />
+      <FormReview
+        onFormSubmit = {onFormSubmit}
+      />
 
     </section>
   );
+};
+
+AddReview.propTypes = {
+  onFormSubmit: PropTypes.func.isRequired,
 };
 
 export default AddReview;

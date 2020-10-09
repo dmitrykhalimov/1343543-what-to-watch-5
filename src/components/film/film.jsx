@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import {validFilm, validReview} from "../../utils/props";
 
 const Film = (props) => {
-  // по ДЗ нужно передать reviews в Film, но "табы будем делать потом", а линтер ругается сейчас. >:-E
   // eslint-disable-next-line
   const {film, review, onPlayClick} = props;
   return (

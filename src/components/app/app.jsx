@@ -37,17 +37,26 @@ const App = (props) => {
               film = {films[0]}
               review = {reviews[0]}
               onPlayClick = {(id) => {
-                history.push(`/player/${id}`); // неясно как связать этот {id} с Player - в который передается в любом случае films[0]
+                history.push(`/player/${id}`);
               }}
             />
           )}
         />
         <Route path="/films/:id/review" exact>
-          <AddReview />
+          <AddReview
+            onFormSubmit = {(textComment, givenRating) => {
+              // eslint-disable-next-line no-console
+              console.log(`Мой расчудесный комментарий`);
+              // eslint-disable-next-line no-console
+              console.log(textComment);
+              // eslint-disable-next-line no-console
+              console.log(givenRating);
+            }}
+          />
         </Route>
         <Route path="/player/:id" exact>
           <Player
-            video = {films[0].video} // по ДЗ нужно добавить по одному произвольному моку в каждый раздел
+            video = {films[0].video}
           />
         </Route>
       </Switch>

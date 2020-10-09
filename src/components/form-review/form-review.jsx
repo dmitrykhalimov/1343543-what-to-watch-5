@@ -1,4 +1,5 @@
 import React, {PureComponent} from "react";
+import PropTypes from "prop-types";
 
 const RATING_QUANTITY = 5;
 
@@ -11,13 +12,14 @@ class FormReview extends PureComponent {
       comment: ``,
     };
 
+    this.onFormSubmit = this.props.onFormSubmit;
+
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleRatingChange(evt) {
-
     this.setState({
       rating: Number(evt.target.value),
     });
@@ -31,6 +33,7 @@ class FormReview extends PureComponent {
 
   handleFormSubmit(evt) {
     evt.preventDefault();
+    this.onFormSubmit(this.state.comment, this.state.rating);
   }
 
   render() {
@@ -74,5 +77,10 @@ class FormReview extends PureComponent {
     );
   }
 }
+
+FormReview.propTypes = {
+  onFormSubmit: PropTypes.func.isRequired,
+};
+
 
 export default FormReview;
