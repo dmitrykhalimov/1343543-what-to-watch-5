@@ -1,9 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const Player = () => {
+const Player = (props) => {
+  const {video} = props;
   return (
     <div className="player">
-      <video src="#" className="player__video" poster="/img/player-poster.jpg"></video>
+      <video src={video} className="player__video" poster="/img/player-poster.jpg"></video>
 
       <button type="button" className="player__exit">Exit</button>
 
@@ -37,4 +39,9 @@ const Player = () => {
   );
 };
 
+Player.propTypes = {
+  video: PropTypes.string.isRequired,
+};
+
 export default Player;
+

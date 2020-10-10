@@ -1,19 +1,24 @@
 import React from "react";
+import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
+import {validFilm, validReview} from "../../utils/props";
 
-const Film = () => {
+const Film = (props) => {
+  // eslint-disable-next-line
+  const {film, review, onPlayClick} = props;
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src="/img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+            <img src={film.background} alt={film.title} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
 
           <header className="page-header movie-card__head">
             <div className="logo">
-              <a href="main.html" className="logo__link">
+              <a href="/" className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
@@ -29,14 +34,21 @@ const Film = () => {
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="movie-card__title">{film.title}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">Drama</span>
-                <span className="movie-card__year">2014</span>
+                <span className="movie-card__genre">{film.genre}</span>
+                <span className="movie-card__year">{film.year}</span>
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <button
+                  className="btn btn--play movie-card__button"
+                  type="button"
+                  onClick={(evt) => {
+                    evt.preventDefault();
+                    onPlayClick(film.id);
+                  }}
+                >
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
@@ -48,7 +60,7 @@ const Film = () => {
                   </svg>
                   <span>My list</span>
                 </button>
-                <a href="add-review.html" className="btn movie-card__button">Add review</a>
+                <Link className="btn movie-card__button" to={`${film.id}/review`}>Add review</Link>
               </div>
             </div>
           </div>
@@ -57,7 +69,7 @@ const Film = () => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src="/img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={film.poster} alt="The Grand Budapest Hotel poster" width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
@@ -76,21 +88,21 @@ const Film = () => {
               </nav>
 
               <div className="movie-rating">
-                <div className="movie-rating__score">8,9</div>
+                <div className="movie-rating__score">{film.rankNumber}</div>
                 <p className="movie-rating__meta">
-                  <span className="movie-rating__level">Very good</span>
-                  <span className="movie-rating__count">240 ratings</span>
+                  <span className="movie-rating__level">{film.rankText}</span>
+                  <span className="movie-rating__count">{film.votes} ratings</span>
                 </p>
               </div>
 
               <div className="movie-card__text">
-                <p>In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.</p>
+                {film.description.map((paragraph, index) => {
+                  return <p key = {index}>{paragraph}</p>;
+                })}
 
-                <p>Gustave prides himself on providing first-class service to the hotel&apos;s guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.</p>
+                <p className="movie-card__director"><strong>Director: {film.director}</strong></p>
 
-                <p className="movie-card__director"><strong>Director: Wes Andreson</strong></p>
-
-                <p className="movie-card__starring"><strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other</strong></p>
+                <p className="movie-card__starring"><strong>Starring: {film.cast}</strong></p>
               </div>
             </div>
           </div>
@@ -158,4 +170,12 @@ const Film = () => {
   );
 };
 
+Film.propTypes = {
+  film: validFilm,
+  review: validReview,
+  onPlayClick: PropTypes.func.isRequired,
+};
+
 export default Film;
+
+
