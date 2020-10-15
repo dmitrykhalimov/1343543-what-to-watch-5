@@ -23,6 +23,12 @@ class VideoPlayer extends PureComponent {
     video.load();
   }
 
+  componentWillUnmount() {
+    if (this.filmTimeout) {
+      clearTimeout(this.filmTimeout);
+    }
+  }
+
   render() {
     const {preview, src} = this.props;
 
