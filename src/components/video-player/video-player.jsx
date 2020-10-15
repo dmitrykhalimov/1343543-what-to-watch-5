@@ -27,7 +27,6 @@ class VideoPlayer extends PureComponent {
           autoPlay={false}
           poster={`img/${preview}`}
           src={src}
-          preload="false"
           width="280"
           height="175"
           muted
