@@ -6,21 +6,11 @@ class VideoPlayer extends PureComponent {
     super(props);
 
     this._videoRef = createRef();
-  }
 
-  handleHoverPlayer() {
-    const video = this._videoRef.current;
-    this.filmTimeout = setTimeout(() => {
-      video.play();
-    }, 1000);
-  }
+    this.state = {
+      isActive: false
+    };
 
-  handleUnhoverPlayer() {
-    const video = this._videoRef.current;
-    if (this.filmTimeout) {
-      clearTimeout(this.filmTimeout);
-    }
-    video.load();
   }
 
   render() {
@@ -29,8 +19,8 @@ class VideoPlayer extends PureComponent {
     return (
       <div
         className="small-movie-card__image"
-        onMouseEnter={() => this.handleHoverPlayer()}
-        onMouseLeave={() => this.handleUnhoverPlayer()}
+        onMouseEnter={() => this.setState({isActive: true})}
+        onMouseLeave={() => this.setState({isActive: false})}
       >
         <video
           ref={this._videoRef}
@@ -46,6 +36,18 @@ class VideoPlayer extends PureComponent {
 
       </div>
     );
+  }
+
+  componentDidUpdate() {
+    const video = this._videoRef.current;
+    if (this.state.isActive) {
+      this.filmTimeout = setTimeout(() => {
+        video.play();
+      }, 1000);
+    } else {
+      clearTimeout(this.filmTimeout);
+      video.load();
+    }
   }
 }
 
