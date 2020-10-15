@@ -12,7 +12,7 @@ const SmallFilmCard = (props) => {
       onMouseEnter={() => onFilmCardHover(id)}
       onMouseLeave={() => onFilmCardHover(null)}
     >
-      <Link className="small-movie-card__link" to={`films/${id}`}>
+      <Link className="small-movie-card__link" to={`films/${id}`} >
         <VideoPlayer
           id = {id}
           preview = {preview}

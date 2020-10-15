@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {validFilm, validReview} from "../../utils/props";
+import FilmOverview from "../film-overview/film-overview";
 
 const Film = (props) => {
   // eslint-disable-next-line
@@ -87,23 +88,14 @@ const Film = (props) => {
                 </ul>
               </nav>
 
-              <div className="movie-rating">
-                <div className="movie-rating__score">{film.rankNumber}</div>
-                <p className="movie-rating__meta">
-                  <span className="movie-rating__level">{film.rankText}</span>
-                  <span className="movie-rating__count">{film.votes} ratings</span>
-                </p>
-              </div>
-
-              <div className="movie-card__text">
-                {film.description.map((paragraph, index) => {
-                  return <p key = {index}>{paragraph}</p>;
-                })}
-
-                <p className="movie-card__director"><strong>Director: {film.director}</strong></p>
-
-                <p className="movie-card__starring"><strong>Starring: {film.cast}</strong></p>
-              </div>
+              <FilmOverview
+                rankNumber = {film.rankNumber}
+                rankText = {film.rankText}
+                votes = {film.votes}
+                description = {film.description}
+                director = {film.director}
+                cast = {film.cast}
+              />
             </div>
           </div>
         </div>
