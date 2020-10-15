@@ -38,36 +38,14 @@ class VideoPlayer extends PureComponent {
     );
   }
 
-  componentDidMount() {
-    const video = this._videoRef.current;
-
-    if (this.state.isActive) {
-      setTimeout(() => {
-        video.play();
-      }, 1000);
-    } else {
-      video.load();
-    }
-  }
-
   componentDidUpdate() {
     const video = this._videoRef.current;
     if (this.state.isActive) {
-      setTimeout(() => {
+      this.filmTimeout = setTimeout(() => {
         video.play();
       }, 1000);
     } else {
-      video.load();
-    }
-  }
-
-  componentDidUpdate() {
-    const video = this._videoRef.current;
-    if (this.state.isActive) {
-      setTimeout(() => {
-        video.play();
-      }, 1000);
-    } else {
+      clearTimeout(this.filmTimeout);
       video.load();
     }
   }

@@ -13,10 +13,10 @@ class FilmsList extends PureComponent {
       activeFilmId: null
     };
 
-    this.onFilmCardHover = this.onFilmCardHover.bind(this);
+    this.handleFilmCardHover = this.handleFilmCardHover.bind(this);
   }
 
-  onFilmCardHover(id) {
+  handleFilmCardHover(id) {
     this.setState({
       activeFilmId: id,
     });
@@ -29,7 +29,7 @@ class FilmsList extends PureComponent {
         {films
           .slice(0, MAX_FILMS_QUANTITY)
           .map((film) => {
-            return <SmallFilmCard key = {film.id} preview = {film.preview} title = {film.title} id = {film.id} src = {film.video} onFilmCardHover= {this.onFilmCardHover}/>;
+            return <SmallFilmCard key = {film.id} preview = {film.preview} title = {film.title} id = {film.id} src = {film.video} onFilmCardHover= {this.handleFilmCardHover}/>;
           })}
       </div>
     );
