@@ -14,7 +14,7 @@ class VideoPlayer extends PureComponent {
   }
 
   render() {
-    const {preview} = this.props;
+    const {preview, src} = this.props;
 
     return (
       <div
@@ -24,12 +24,13 @@ class VideoPlayer extends PureComponent {
       >
         <video
           ref={this._videoRef}
-          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
           autoPlay={false}
           poster={`img/${preview}`}
+          src={src}
           preload="false"
           width="280"
           height="175"
+          muted
         >
 
         </video>
@@ -38,18 +39,44 @@ class VideoPlayer extends PureComponent {
     );
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
     const video = this._videoRef.current;
-    function sayHi() {
-      alert('Привет');
-    }
 
     if (this.state.isActive) {
-      setTimeout(sayHi(), 50000);
+      setTimeout(() => {
+        video.play();
+      }, 1000);
+    } else {
+      video.load();
+    }
+  }
+
+  componentDidUpdate() {
+    const video = this._videoRef.current;
+    if (this.state.isActive) {
+      setTimeout(() => {
+        video.play();
+      }, 1000);
+    } else {
+      video.load();
+    }
+  }
+
+  componentDidUpdate() {
+    const video = this._videoRef.current;
+    if (this.state.isActive) {
+      setTimeout(() => {
+        video.play();
+      }, 1000);
     } else {
       video.load();
     }
   }
 }
+
+VideoPlayer.propTypes = {
+  src: PropTypes.string.isRequired,
+  preview: PropTypes.string.isRequired,
+};
 
 export default VideoPlayer;
