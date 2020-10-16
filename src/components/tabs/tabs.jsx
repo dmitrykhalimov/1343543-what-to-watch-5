@@ -17,9 +17,10 @@ class Tabs extends PureComponent {
   }
 
   handleSwitchTab(evt) {
-    console.log(evt);
+    evt.preventDefault();
+    console.log(evt.target);
     this.setState({
-      activeTab: (evt.getAttribute(`data-name`).toUpperCase())
+      activeTab: (evt.target.getAttribute(`data-name`).toUpperCase())
     });
   }
 
@@ -64,17 +65,14 @@ class Tabs extends PureComponent {
             <ul className="movie-nav__list">
               <li
                 className="movie-nav__item movie-nav__item--active"
-                onClick={(evt) => {
-                  evt.preventDefault();
-                  this.handleSwitchTab(evt.target);
-                }}
+                onClick={this.handleSwitchTab}
               >
                 <a href="#" data-name="OVERVIEW" className="movie-nav__link">Overview</a>
               </li>
-              <li className="movie-nav__item" onClick={(evt) => this.handleSwitchTab(evt.target)}>
+              <li className="movie-nav__item" onClick={this.handleSwitchTab}>
                 <a href="#" data-name="details" className="movie-nav__link">Details</a>
               </li>
-              <li className="movie-nav__item" onClick={(evt) => this.handleSwitchTab(evt.target)}>
+              <li className="movie-nav__item" onClick={this.handleSwitchTab}>
                 <a href="#" data-name="reviews" className="movie-nav__link">Reviews</a>
               </li>
             </ul>
