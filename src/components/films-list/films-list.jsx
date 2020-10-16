@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import SmallFilmCard from "../small-movie-card/smaill-movie-card";
+import SmallFilmCard from "../small-film-card/small-film-card";
 
 // не предусмотрена кнопка Load More
 const MAX_FILMS_QUANTITY = 8;
@@ -8,18 +8,6 @@ const MAX_FILMS_QUANTITY = 8;
 class FilmsList extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.state = {
-      activeFilmId: null
-    };
-
-    this.onFilmCardHover = this.onFilmCardHover.bind(this);
-  }
-
-  onFilmCardHover(id) {
-    this.setState({
-      activeFilmId: id,
-    });
   }
 
   render() {
@@ -29,7 +17,7 @@ class FilmsList extends PureComponent {
         {films
           .slice(0, MAX_FILMS_QUANTITY)
           .map((film) => {
-            return <SmallFilmCard key = {film.id} preview = {film.preview} title = {film.title} id = {film.id} onFilmCardHover= {this.onFilmCardHover}/>;
+            return <SmallFilmCard key = {film.id} preview = {film.preview} title = {film.title} id = {film.id} src = {film.video}/>;
           })}
       </div>
     );
