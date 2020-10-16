@@ -1,5 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
+import {translateMinutesToText} from "../../utils/common";
+import {validFilm} from "../../utils/props";
 
 const FilmDetails = (props) => {
   // eslint-disable-next-line
@@ -10,23 +11,21 @@ const FilmDetails = (props) => {
         <div className="movie-card__text-col">
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Director</strong>
-            <span className="movie-card__details-value">Wes Andreson</span>
+            <span className="movie-card__details-value">{film.director}</span>
           </p>
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Starring</strong>
             <span className="movie-card__details-value">
-              Bill Murray, <br/>
-              Edward Norton, <br/>
-              Jude Law, <br/>
-              Willem Dafoe, <br/>
-              Saoirse Ronan, <br/>
-              Tony Revoloru, <br/>
-              Tilda Swinton, <br/>
-              Tom Wilkinson, <br/>
-              Owen Wilkinson, <br/>
-              Adrien Brody, <br/>
-              Ralph Fiennes, <br/>
-              Jeff Goldblum
+              {film.cast
+                .split(`,`)
+                .map((item, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      {`${item},`}
+                      <br />
+                    </React.Fragment>
+                  );
+                })}
             </span>
           </p>
         </div>
@@ -34,15 +33,15 @@ const FilmDetails = (props) => {
         <div className="movie-card__text-col">
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Run Time</strong>
-            <span className="movie-card__details-value">1h 39m</span>
+            <span className="movie-card__details-value">{translateMinutesToText(film.duration)}</span>
           </p>
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Genre</strong>
-            <span className="movie-card__details-value">Comedy</span>
+            <span className="movie-card__details-value">{film.genre}</span>
           </p>
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Released</strong>
-            <span className="movie-card__details-value">2014</span>
+            <span className="movie-card__details-value">{film.year}</span>
           </p>
         </div>
       </div>
@@ -51,7 +50,7 @@ const FilmDetails = (props) => {
 };
 
 FilmDetails.propTypes = {
-  description: PropTypes.arrayOf(PropTypes.string.isRequired),
+  film: validFilm,
 };
 
 export default FilmDetails;

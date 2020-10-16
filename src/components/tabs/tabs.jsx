@@ -86,7 +86,7 @@ class Tabs extends PureComponent {
   }
 }
 
-Tabs.PropTypes = {
+Tabs.propTypes = {
   film: validFilm,
   review: validReview,
 };
