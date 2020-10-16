@@ -3,25 +3,25 @@ import PropTypes from "prop-types";
 
 const FilmOverview = (props) => {
   // eslint-disable-next-line
-  const {rankNumber, rankText, votes, description, director, cast} = props;
+  const {film} = props;
   return (
     <React.Fragment>
       <div className="movie-rating">
-        <div className="movie-rating__score">{rankNumber}</div>
+        <div className="movie-rating__score">{film.rankNumber}</div>
         <p className="movie-rating__meta">
-          <span className="movie-rating__level">{rankText}</span>
-          <span className="movie-rating__count">{votes} ratings</span>
+          <span className="movie-rating__level">{film.rankText}</span>
+          <span className="movie-rating__count">{film.votes} ratings</span>
         </p>
       </div>
 
       <div className="movie-card__text">
-        {description.map((paragraph, index) => {
+        {film.description.map((paragraph, index) => {
           return <p key = {index}>{paragraph}</p>;
         })}
 
-        <p className="movie-card__director"><strong>Director: {director}</strong></p>
+        <p className="movie-card__director"><strong>Director: {film.director}</strong></p>
 
-        <p className="movie-card__starring"><strong>Starring: {cast}</strong></p>
+        <p className="movie-card__starring"><strong>Starring: {film.cast}</strong></p>
       </div>
     </React.Fragment>
   );

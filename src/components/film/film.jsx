@@ -1,33 +1,16 @@
-import React, {PureComponent, createRef} from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {validFilm, validReview} from "../../utils/props";
-import FilmOverview from "../film-overview/film-overview";
+import Tabs from "../tabs/tabs";
 
 class Film extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.state = {
-      activeTab: `OVERVIEW`,
-    };
-
-    this.handleSwitchTab = this.handleSwitchTab.bind(this);
-  }
-
-  handleSwitchTab(evt) {
-    this.setState({
-      activeTab: (evt.getAttribute(`data-name`).toUpperCase())
-    });
   }
 
   render() {
     const {film, review, onPlayClick} = this.props;
-    const Tab = {
-      OVERVIEW: `OVERVIEW`,
-      DETAILS: `DETAILS`,
-      REVIEWS: `REVIEWS`,
-    };
 
     return (
       <React.Fragment>
@@ -90,41 +73,10 @@ class Film extends PureComponent {
           </div>
 
           <div className="movie-card__wrap movie-card__translate-top">
-            <div className="movie-card__info">
-              <div className="movie-card__poster movie-card__poster--big">
-                <img src={film.poster} alt="The Grand Budapest Hotel poster" width="218" height="327" />
-              </div>
-
-              <div className="movie-card__desc">
-                <nav className="movie-nav movie-card__nav">
-                  <ul className="movie-nav__list">
-                    <li
-                      className="movie-nav__item movie-nav__item--active"
-                      onClick={(evt) => {
-                        evt.preventDefault();
-                        this.handleSwitchTab(evt.target);
-                      }}>
-                      <a href="#" data-name="overview" className="movie-nav__link">Overview</a>
-                    </li>
-                    <li className="movie-nav__item" onClick={(evt) => this.handleSwitchTab(evt.target)}>
-                      <a href="#" data-name="details" className="movie-nav__link">Details</a>
-                    </li>
-                    <li className="movie-nav__item" onClick={(evt) => this.handleSwitchTab(evt.target)}>
-                      <a href="#" data-name="reviews" className="movie-nav__link">Reviews</a>
-                    </li>
-                  </ul>
-                </nav>
-
-                <FilmOverview
-                  rankNumber = {film.rankNumber}
-                  rankText = {film.rankText}
-                  votes = {film.votes}
-                  description = {film.description}
-                  director = {film.director}
-                  cast = {film.cast}
-                />
-              </div>
-            </div>
+            <Tabs
+              film = {film}
+              review = {review}
+            />
           </div>
         </section>
 
