@@ -9,7 +9,7 @@ class Film extends PureComponent {
     super(props);
 
     this.state = {
-      activeTab: `Overview`,
+      activeTab: `OVERVIEW`,
     };
 
     this.handleSwitchTab = this.handleSwitchTab.bind(this);
@@ -17,13 +17,18 @@ class Film extends PureComponent {
 
   handleSwitchTab(evt) {
     this.setState({
-      activeTab: evt.getAttribute(`data-name`)
+      activeTab: (evt.getAttribute(`data-name`).toUpperCase())
     });
   }
 
   render() {
-
     const {film, review, onPlayClick} = this.props;
+    const Tab = {
+      OVERVIEW: `OVERVIEW`,
+      DETAILS: `DETAILS`,
+      REVIEWS: `REVIEWS`,
+    };
+
     return (
       <React.Fragment>
         <section className="movie-card movie-card--full">
@@ -93,7 +98,12 @@ class Film extends PureComponent {
               <div className="movie-card__desc">
                 <nav className="movie-nav movie-card__nav">
                   <ul className="movie-nav__list">
-                    <li className="movie-nav__item movie-nav__item--active" onClick={(evt) => this.handleSwitchTab(evt.target)}>
+                    <li
+                      className="movie-nav__item movie-nav__item--active"
+                      onClick={(evt) => {
+                        evt.preventDefault();
+                        this.handleSwitchTab(evt.target);
+                      }}>
                       <a href="#" data-name="overview" className="movie-nav__link">Overview</a>
                     </li>
                     <li className="movie-nav__item" onClick={(evt) => this.handleSwitchTab(evt.target)}>
