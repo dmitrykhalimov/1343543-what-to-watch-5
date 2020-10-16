@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import {validFilm} from "../../utils/props";
 
 const FilmOverview = (props) => {
   // eslint-disable-next-line
@@ -28,7 +28,7 @@ const FilmOverview = (props) => {
 };
 
 FilmOverview.propTypes = {
-  description: PropTypes.arrayOf(PropTypes.string.isRequired),
+  film: validFilm,
 };
 
 export default FilmOverview;

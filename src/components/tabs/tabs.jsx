@@ -1,5 +1,4 @@
 import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
 import {validFilm, validReview} from "../../utils/props";
 import FilmOverview from "../film-overview/film-overview";
 import FilmDetails from "../film-details/film-details";
@@ -18,14 +17,13 @@ class Tabs extends PureComponent {
 
   handleSwitchTab(evt) {
     evt.preventDefault();
-    console.log(evt.target);
     this.setState({
       activeTab: (evt.target.getAttribute(`data-name`).toUpperCase())
     });
   }
 
   renderSwitch() {
-    const {film} = this.props;
+    const {film, review} = this.props;
     const activeTab = this.state.activeTab;
     switch (activeTab) {
       case `OVERVIEW`:
@@ -38,7 +36,7 @@ class Tabs extends PureComponent {
         />;
       case `REVIEWS`:
         return <FilmReviews
-          film={film}
+          review={review}
         />;
     }
     return null;
