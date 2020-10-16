@@ -47,9 +47,7 @@ class VideoPlayer extends PureComponent {
           height="175"
           muted
         >
-
         </video>
-
       </div>
     );
   }
