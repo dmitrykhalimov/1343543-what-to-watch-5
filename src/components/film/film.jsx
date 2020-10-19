@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {validFilm, validReview} from "../../utils/props";
 import Tabs from "../tabs/tabs";
+import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
+
+const TabsWrapped = withActiveTab(Tabs);
 
 class Film extends PureComponent {
   constructor(props) {
@@ -73,7 +76,7 @@ class Film extends PureComponent {
           </div>
 
           <div className="movie-card__wrap movie-card__translate-top">
-            <Tabs
+            <TabsWrapped
               film = {film}
               review = {review}
             />

@@ -1,82 +1,45 @@
 import React, {PureComponent} from "react";
-import {validFilm, validReview} from "../../utils/props";
-import FilmOverview from "../film-overview/film-overview";
-import FilmDetails from "../film-details/film-details";
-import FilmReviews from "../film-reviews/film-reviews";
+import PropTypes from "prop-types";
+
+const Tab = {
+  OVERVIEW: `OVERVIEW`,
+  DETAILS: `DETAILS`,
+  REVIEWS: `REVIEWS`,
+};
 
 class Tabs extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.state = {
-      activeTab: `OVERVIEW`,
-    };
-
-    this.handleSwitchTab = this.handleSwitchTab.bind(this);
-  }
-
-  handleSwitchTab(evt) {
-    evt.preventDefault();
-    this.setState({
-      activeTab: (evt.target.getAttribute(`data-name`).toUpperCase())
-    });
-  }
-
-  renderSwitch() {
-    const {film, review} = this.props;
-    const activeTab = this.state.activeTab;
-    switch (activeTab) {
-      case `OVERVIEW`:
-        return <FilmOverview
-          film={film}
-        />;
-      case `DETAILS`:
-        return <FilmDetails
-          film={film}
-        />;
-      case `REVIEWS`:
-        return <FilmReviews
-          review={review}
-        />;
-    }
-    return null;
   }
 
   render() {
-    const {film, review, onPlayClick} = this.props;
-    const activeTab = this.state.activeTab;
-
-    const Tab = {
-      OVERVIEW: `OVERVIEW`,
-      DETAILS: `DETAILS`,
-      REVIEWS: `REVIEWS`,
-    };
+    const {handleSwitchTab, tabToRender, poster, activeTab} = this.props;
 
     return (
       <div className="movie-card__info">
         <div className="movie-card__poster movie-card__poster--big">
-          <img src={film.poster} alt="The Grand Budapest Hotel poster" width="218" height="327" />
+          <img src={poster} alt="The Grand Budapest Hotel poster" width="218" height="327" />
         </div>
 
         <div className="movie-card__desc">
           <nav className="movie-nav movie-card__nav">
             <ul className="movie-nav__list">
               <li
-                className="movie-nav__item movie-nav__item--active"
-                onClick={this.handleSwitchTab}
+                className={activeTab === Tab.OVERVIEW ? `movie-nav__item movie-nav__item--active` : `movie-nav__item` }
+                onClick={handleSwitchTab}
               >
                 <a href="#" data-name="OVERVIEW" className="movie-nav__link">Overview</a>
               </li>
-              <li className="movie-nav__item" onClick={this.handleSwitchTab}>
-                <a href="#" data-name="details" className="movie-nav__link">Details</a>
+              <li className={activeTab === Tab.DETAILS ? `movie-nav__item movie-nav__item--active` : `movie-nav__item` } onClick={handleSwitchTab}>
+                <a href="#" data-name="DETAILS" className="movie-nav__link">Details</a>
               </li>
-              <li className="movie-nav__item" onClick={this.handleSwitchTab}>
-                <a href="#" data-name="reviews" className="movie-nav__link">Reviews</a>
+              <li className={activeTab === Tab.REVIEWS ? `movie-nav__item movie-nav__item--active` : `movie-nav__item` } onClick={handleSwitchTab}>
+                <a href="#" data-name="REVIEWS" className="movie-nav__link">Reviews</a>
               </li>
             </ul>
           </nav>
 
-          {this.renderSwitch()}
+          {tabToRender}
         </div>
       </div>
 
@@ -85,8 +48,9 @@ class Tabs extends PureComponent {
 }
 
 Tabs.propTypes = {
-  film: validFilm,
-  review: validReview,
+  handleSwitchTab: PropTypes.func.isRequired,
+  tabToRender: PropTypes.element.isRequired,
+  poster: PropTypes.string.isRequired
 };
 
 export default Tabs;
