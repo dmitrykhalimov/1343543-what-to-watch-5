@@ -11,13 +11,12 @@ class FilmsList extends PureComponent {
 
   render() {
     const {films, maxQuantity} = this.props;
-
     return (
       <div className="catalog__movies-list">
         {films
           .slice(0, Math.min(films.length, maxQuantity))
           .map((film) => {
-            return <SmallFilmCard key = {film.id} preview = {film.preview} title = {film.title} id = {film.id} src = {film.video}/>;
+            return <SmallFilmCard key = {film.id} preview = {`${film.preview}`} title = {film.title} id = {film.id} src = {film.video}/>;
           })}
       </div>
     );
@@ -29,8 +28,8 @@ FilmsList.propTypes = {
     id: PropTypes.number.isRequired,
     preview: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    maxQuantity: PropTypes.number.isRequired
-  }))
+  })),
+  maxQuantity: PropTypes.number.isRequired,
 };
 
 export default FilmsList;

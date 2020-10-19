@@ -49,7 +49,7 @@ Tabs.propTypes = {
   tabs: PropTypes.shape({
     OVERVIEW: PropTypes.string.isRequired,
     DETAILS: PropTypes.string.isRequired,
-    REVIEW: PropTypes.string.isRequired,
+    REVIEWS: PropTypes.string.isRequired,
   }).isRequired,
 };
 

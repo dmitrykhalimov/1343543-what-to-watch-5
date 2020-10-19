@@ -12,11 +12,19 @@ const TabsWrapped = withActiveTab(Tabs);
 class Film extends PureComponent {
   constructor(props) {
     super(props);
+
+    this.films = this.props.films;
+  }
+
+  filterFilms(film) {
+    return this.films.filter((item) => {
+      return item.genre === film.genre;
+    });
   }
 
   render() {
-    const {film, films, review, onPlayClick} = this.props;
-    console.log(films);
+    const {film, review, onPlayClick} = this.props;
+    // очень некрасиво смотрится film, films - когда нормальную перелинковку сделаю, это уберу
     return (
       <React.Fragment>
         <section className="movie-card movie-card--full">
@@ -90,7 +98,7 @@ class Film extends PureComponent {
             <h2 className="catalog__title">More like this</h2>
 
             <FilmsList
-              films = {films}
+              films = {this.filterFilms(film)}
               maxQuantity = {MAX_FILMS_QUANTITY}
             />
           </section>
@@ -117,6 +125,7 @@ Film.propTypes = {
   film: validFilm,
   review: validReview,
   onPlayClick: PropTypes.func.isRequired,
+  films: PropTypes.arrayOf(validFilm).isRequired,
 };
 
 export default Film;

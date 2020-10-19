@@ -16,9 +16,9 @@ const TITLES = [
 const GENRES = [
   `Fantasy`,
   `Biography`,
-  `Historical`,
+  `Fantasy`,
   `Drama`,
-  `Horror`,
+  `Fantasy`,
   `Adventure`,
   `Comedy`,
   `Crime`
