@@ -53,6 +53,7 @@ const withActiveTab = (Component) => {
       const {film} = this.props;
       return <Component
         {...this.props}
+        tabs = {Tab}
         poster = {film.poster}
         activeTab = {this.state.activeTab}
         tabToRender = {this.renderSwitch()}
