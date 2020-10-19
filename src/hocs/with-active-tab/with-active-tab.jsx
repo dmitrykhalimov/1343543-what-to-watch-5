@@ -29,7 +29,7 @@ const withActiveTab = (Component) => {
       });
     }
 
-    renderSwitch() {
+    renderTab() {
       const {film, review} = this.props;
       const activeTab = this.state.activeTab;
       switch (activeTab) {
@@ -56,7 +56,7 @@ const withActiveTab = (Component) => {
         tabs = {Tab}
         poster = {film.poster}
         activeTab = {this.state.activeTab}
-        tabToRender = {this.renderSwitch()}
+        tabToRender = {this.renderTab()}
         handleSwitchTab = {this.handleSwitchTab}
       />;
     }

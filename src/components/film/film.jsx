@@ -4,7 +4,9 @@ import {Link} from "react-router-dom";
 import {validFilm, validReview} from "../../utils/props";
 import Tabs from "../tabs/tabs";
 import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
+import FilmsList from "../films-list/films-list";
 
+const MAX_FILMS_QUANTITY = 4;
 const TabsWrapped = withActiveTab(Tabs);
 
 class Film extends PureComponent {
@@ -13,8 +15,8 @@ class Film extends PureComponent {
   }
 
   render() {
-    const {film, review, onPlayClick} = this.props;
-
+    const {film, films, review, onPlayClick} = this.props;
+    console.log(films);
     return (
       <React.Fragment>
         <section className="movie-card movie-card--full">
@@ -87,43 +89,10 @@ class Film extends PureComponent {
           <section className="catalog catalog--like-this">
             <h2 className="catalog__title">More like this</h2>
 
-            <div className="catalog__movies-list">
-              <article className="small-movie-card catalog__movies-card">
-                <div className="small-movie-card__image">
-                  <img src="/img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-                </div>
-                <h3 className="small-movie-card__title">
-                  <a className="small-movie-card__link" href="movie-page.html">Fantastic Beasts: The Crimes of Grindelwald</a>
-                </h3>
-              </article>
-
-              <article className="small-movie-card catalog__movies-card">
-                <div className="small-movie-card__image">
-                  <img src="/img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175" />
-                </div>
-                <h3 className="small-movie-card__title">
-                  <a className="small-movie-card__link" href="movie-page.html">Bohemian Rhapsody</a>
-                </h3>
-              </article>
-
-              <article className="small-movie-card catalog__movies-card">
-                <div className="small-movie-card__image">
-                  <img src="/img/macbeth.jpg" alt="Macbeth" width="280" height="175" />
-                </div>
-                <h3 className="small-movie-card__title">
-                  <a className="small-movie-card__link" href="movie-page.html">Macbeth</a>
-                </h3>
-              </article>
-
-              <article className="small-movie-card catalog__movies-card">
-                <div className="small-movie-card__image">
-                  <img src="/img/aviator.jpg" alt="Aviator" width="280" height="175" />
-                </div>
-                <h3 className="small-movie-card__title">
-                  <a className="small-movie-card__link" href="movie-page.html">Aviator</a>
-                </h3>
-              </article>
-            </div>
+            <FilmsList
+              films = {films}
+              maxQuantity = {MAX_FILMS_QUANTITY}
+            />
           </section>
 
           <footer className="page-footer">
