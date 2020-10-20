@@ -41,15 +41,13 @@ class VideoPlayer extends PureComponent {
         <video
           ref={this._videoRef}
           autoPlay={false}
-          poster={`img/${preview}`}
+          poster={`../../img/${preview}`}
           src={src}
           width="280"
           height="175"
           muted
         >
-
         </video>
-
       </div>
     );
   }

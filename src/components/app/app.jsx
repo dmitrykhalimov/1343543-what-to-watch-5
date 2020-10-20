@@ -34,6 +34,7 @@ const App = (props) => {
           path="/films/:id"
           render={({history}) => (
             <Film
+              films = {films}
               film = {films[0]}
               review = {reviews[0]}
               onPlayClick = {(id) => {

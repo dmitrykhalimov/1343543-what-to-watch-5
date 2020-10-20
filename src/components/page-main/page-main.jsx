@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import FilmsList from "../films-list/films-list";
 import {validFilm} from "../../utils/props";
 
+const MAX_FILMS_QUANTITY = 8;
+
 const PageMain = (props) => {
   const {title, genre, year, films} = props;
   return (
@@ -100,6 +102,7 @@ const PageMain = (props) => {
           </ul>
           <FilmsList
             films = {films}
+            maxQuantity = {MAX_FILMS_QUANTITY}
           />
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

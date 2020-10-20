@@ -4,15 +4,13 @@ import {Link} from "react-router-dom";
 import VideoPlayer from "../video-player/video-player";
 
 const SmallFilmCard = (props) => {
-  const {id, preview, title, onFilmCardHover, src} = props;
+  const {id, preview, title, src} = props;
 
   return (
     <article
       className="small-movie-card catalog__movies-card"
-      onMouseEnter={() => onFilmCardHover(id)}
-      onMouseLeave={() => onFilmCardHover(null)}
     >
-      <Link className="small-movie-card__link" to={`films/${id}`}>
+      <Link className="small-movie-card__link" to={`films/${id}`} >
         <VideoPlayer
           id = {id}
           preview = {preview}
@@ -33,7 +31,6 @@ SmallFilmCard.propTypes = {
   preview: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
-  onFilmCardHover: PropTypes.func.isRequired,
 };
 
 export default SmallFilmCard;

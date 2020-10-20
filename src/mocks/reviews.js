@@ -1,9 +1,10 @@
 import {getRandomInteger} from "../utils/common";
 
+
 const FILMS_QUANTITY = 8;
 const CommentsQuantity = {
-  MIN: 1, // в целях отладки
-  MAX: 5
+  MIN: 6, // в целях компенсации унылой верстки (не приходит в голову изящное решение, как разбить комментарии по двум колонкам - потом отрефакторю)
+  MAX: 11
 };
 
 // https://www.commments.com/
@@ -73,7 +74,7 @@ const makeMocks = () => {
   return Array(FILMS_QUANTITY).fill(``).map((item, index) => {
     return {
       filmId: index,
-      reviews: makeComments(getRandomInteger(CommentsQuantity.MIN, CommentsQuantity.MAX), index)
+      comments: makeComments(getRandomInteger(CommentsQuantity.MIN, CommentsQuantity.MAX), index)
     };
   });
 

@@ -18,13 +18,17 @@ export const validFilm = PropTypes.shape({
   year: PropTypes.number.isRequired,
 }).isRequired;
 
+export const validComment = PropTypes.shape({
+  comment: PropTypes.string.isRequired,
+  commentId: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  rank: PropTypes.number.isRequired,
+}).isRequired;
+
+
 export const validReview = PropTypes.shape({
   filmId: PropTypes.number.isRequired,
-  reviews: PropTypes.arrayOf(PropTypes.shape({
-    comment: PropTypes.string.isRequired,
-    commentId: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    rank: PropTypes.number.isRequired,
-  })).isRequired,
+  comments: PropTypes.arrayOf(validComment).isRequired,
 }).isRequired;
+
