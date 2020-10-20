@@ -10,7 +10,7 @@ const FilmReviews = (props) => {
   let cnt = 0;
 
   const makeCommentColumn = (comments) => {
-
+    // TODO исключительно неудачное решение по разделению комментариев на столбцы, когда буду причесывать код - поправлю, пока чего-то ничего лаконичного не придумывается.
     const resultArray = comments
       .slice(cnt, cnt + COMMENTS_IN_COLUMN)
       .map((item) => {
