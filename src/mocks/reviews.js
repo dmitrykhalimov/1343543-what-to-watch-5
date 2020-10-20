@@ -74,7 +74,7 @@ const makeMocks = () => {
   return Array(FILMS_QUANTITY).fill(``).map((item, index) => {
     return {
       filmId: index,
-      reviews: makeComments(getRandomInteger(CommentsQuantity.MIN, CommentsQuantity.MAX), index)
+      comments: makeComments(getRandomInteger(CommentsQuantity.MIN, CommentsQuantity.MAX), index)
     };
   });
 

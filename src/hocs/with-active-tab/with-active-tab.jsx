@@ -58,6 +58,7 @@ const withActiveTab = (Component) => {
         activeTab = {this.state.activeTab}
         tabToRender = {this.renderTab()}
         handleSwitchTab = {this.handleSwitchTab}
+        // не очень понятно с именованием - если это HOC, должно быть handle или on?
       />;
     }
   }

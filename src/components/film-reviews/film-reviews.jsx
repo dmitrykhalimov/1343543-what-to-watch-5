@@ -9,15 +9,15 @@ const FilmReviews = (props) => {
   const {review} = props;
   let cnt = 0;
 
-  const makeCommentColumn = (reviews) => {
+  const makeCommentColumn = (comments) => {
 
-    const resultArray = reviews
+    const resultArray = comments
       .slice(cnt, cnt + COMMENTS_IN_COLUMN)
       .map((item) => {
         cnt++;
         return <Review
           key={item.commentId}
-          review={item}
+          comment={item}
         />;
 
       });
@@ -30,8 +30,8 @@ const FilmReviews = (props) => {
 
   return (
     <div className="movie-card__reviews movie-card__row">
-      {makeCommentColumn(review.reviews)}
-      {makeCommentColumn(review.reviews)}
+      {makeCommentColumn(review.comments)}
+      {makeCommentColumn(review.comments)}
     </div>
   );
 };
