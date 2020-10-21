@@ -11,7 +11,7 @@ const ReviewColumn = (props) => {
 };
 
 ReviewColumn.propTypes = {
-  children: PropTypes.array.isRequired
+  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired
 };
 
 export default ReviewColumn;
