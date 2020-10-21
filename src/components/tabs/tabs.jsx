@@ -4,10 +4,11 @@ import PropTypes from "prop-types";
 class Tabs extends PureComponent {
   constructor(props) {
     super(props);
+
   }
 
   render() {
-    const {handleSwitchTab, tabToRender, poster, activeTab, tabs} = this.props;
+    const {onSwitchTab, tabToRender, poster, activeTab, tabs} = this.props;
 
     const tabValues = Object.values(tabs);
     return (
@@ -24,9 +25,12 @@ class Tabs extends PureComponent {
                   <li
                     key = {index}
                     className={activeTab === item ? `movie-nav__item movie-nav__item--active` : `movie-nav__item` }
-                    onClick={handleSwitchTab}
+                    onClick={(evt) => {
+                      evt.preventDefault();
+                      onSwitchTab(item);
+                    }}
                   >
-                    <a href="#" data-name={item} className="movie-nav__link">{item.charAt(0) + item.slice(1).toLowerCase()}</a>
+                    <a href="#" className="movie-nav__link">{item.charAt(0) + item.slice(1).toLowerCase()}</a>
                   </li>
                 );
               })}
@@ -43,7 +47,7 @@ class Tabs extends PureComponent {
 
 Tabs.propTypes = {
   activeTab: PropTypes.string.isRequired,
-  handleSwitchTab: PropTypes.func.isRequired,
+  onSwitchTab: PropTypes.func.isRequired,
   tabToRender: PropTypes.element.isRequired,
   poster: PropTypes.string.isRequired,
   tabs: PropTypes.shape({
