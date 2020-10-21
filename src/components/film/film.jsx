@@ -22,6 +22,8 @@ class Film extends PureComponent {
 
   render() {
     const {film, review, onPlayClick} = this.props;
+    const similarFilms = this.filterFilms(film);
+
     return (
       <React.Fragment>
         <section className="movie-card movie-card--full">
@@ -95,7 +97,7 @@ class Film extends PureComponent {
             <h2 className="catalog__title">More like this</h2>
 
             <FilmsList
-              films = {this.filterFilms(film)}
+              films = {similarFilms}
               maxQuantity = {MAX_FILMS_QUANTITY}
             />
           </section>
