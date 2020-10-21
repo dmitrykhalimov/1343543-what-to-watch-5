@@ -12,19 +12,16 @@ const TabsWrapped = withActiveTab(Tabs);
 class Film extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.films = this.props.films;
   }
 
   filterFilms(film) {
-    return this.films.filter((item) => {
-      return item.genre === film.genre;
+    return this.props.films.filter((item) => {
+      return (item.genre === film.genre) && (item.id !== film.id);
     });
   }
 
   render() {
     const {film, review, onPlayClick} = this.props;
-    // очень некрасиво смотрится film, films - когда нормальную перелинковку сделаю, это уберу
     return (
       <React.Fragment>
         <section className="movie-card movie-card--full">
