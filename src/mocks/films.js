@@ -11,6 +11,17 @@ const TITLES = [
   `Revenant`,
   `Johnny English`,
   `Pulp Fiction`,
+  `We need to talk about Kevin`,
+  `Shutter Island`,
+  `No Country for Old Men`,
+  `Snatch`,
+  `Moonrise Kingdom`,
+  `Seven Years in Tibet`,
+  `War of the Worlds`,
+  `Dardjeling Limited`,
+  `Orlando`,
+  `Mindhunter`,
+  `Midnight Special`
 ];
 
 const GENRES = [
@@ -21,7 +32,18 @@ const GENRES = [
   `Fantasy`,
   `Adventure`,
   `Comedy`,
-  `Crime`
+  `Crime`,
+  `Fantasy`,
+  `Biography`,
+  `Fantasy`,
+  `Drama`,
+  `Fantasy`,
+  `Adventure`,
+  `Comedy`,
+  `Crime`,
+  `Fantasy`,
+  `Biography`,
+  `Fantasy`,
 ];
 
 const DIRECTORS = [
@@ -32,10 +54,20 @@ const DIRECTORS = [
   `Jemaine Clement`,
   `Alejandro González Iñárritu`,
   `Peter Howitt`,
-  `‎Quentin Tarantino‎`
+  `‎Quentin Tarantino‎`,
+  `David Yates`,
+  `Bryan Singer`,
+  `Justin Kurzel`,
+  `Martin Scorsese`,
+  `Jemaine Clement`,
+  `Alejandro González Iñárritu`,
+  `Peter Howitt`,
+  `‎Quentin Tarantino‎`,
+  `‎Quentin Tarantino‎`,
+  `‎Quentin Tarantino‎`,
+  `‎Quentin Tarantino‎`,
 ];
 
-// вероятнее всего должен быть объект, но для упрощения сделал массив
 const PREVIEWS = [
   `fantastic-beasts-the-crimes-of-grindelwald.jpg`,
   `bohemian-rhapsody.jpg`,
@@ -44,7 +76,18 @@ const PREVIEWS = [
   `what-we-do-in-the-shadows.jpg`,
   `revenant.jpg`,
   `johnny-english.jpg`,
-  `pulp-fiction.jpg`
+  `pulp-fiction.jpg`,
+  `we-need-to-talk-about-kevin.jpg`,
+  `shutter-island.jpg`,
+  `no-country-for-old-men.jpg`,
+  `snatch.jpg`,
+  `moonrise-kingdom.jpg`,
+  `seven-years-in-tibet.jpg`,
+  `war-of-the-worlds.jpg`,
+  `dardjeeling-limited.jpg`,
+  `orlando.jpg`,
+  `mindhunter.jpg`,
+  `midnight-special.jpg`,
 ];
 
 // каждый состав вероятно должен быть отдельным массивом, но для упрощения сделал одной строкой
@@ -56,6 +99,17 @@ const CAST = [
   `Rami Malek as Mercury, with Lucy Boynton, Gwilym Lee, Ben Hardy, Joe Mazzello, Aidan Gillen, Tom Hollander, Allen Leech, Mike Myers`,
   `Michael Fassbender, Marion Cotillard, Paddy Considine, Sean Harris, Jack Reynor, Elizabeth Debicki, David Thewlis`,
   `Eddie Redmayne, Katherine Waterston, Dan Fogler, Alison Sudol, Ezra Miller, Samantha Morton, Jon Voight, Carmen Ejogo, Colin Farrell`,
+  `Rami Malek as Mercury, with Lucy Boynton, Gwilym Lee, Ben Hardy, Joe Mazzello, Aidan Gillen, Tom Hollander, Allen Leech, Mike Myers`,
+  `Eddie Redmayne, Katherine Waterston, Dan Fogler, Alison Sudol, Ezra Miller, Samantha Morton, Jon Voight, Carmen Ejogo, Colin Farrell`,
+  `Rami Malek as Mercury, with Lucy Boynton, Gwilym Lee, Ben Hardy, Joe Mazzello, Aidan Gillen, Tom Hollander, Allen Leech, Mike Myers`,
+  `Michael Fassbender, Marion Cotillard, Paddy Considine, Sean Harris, Jack Reynor, Elizabeth Debicki, David Thewlis`,
+  `Eddie Redmayne, Katherine Waterston, Dan Fogler, Alison Sudol, Ezra Miller, Samantha Morton, Jon Voight, Carmen Ejogo, Colin Farrell`,
+  `Rami Malek as Mercury, with Lucy Boynton, Gwilym Lee, Ben Hardy, Joe Mazzello, Aidan Gillen, Tom Hollander, Allen Leech, Mike Myers`,
+  `Michael Fassbender, Marion Cotillard, Paddy Considine, Sean Harris, Jack Reynor, Elizabeth Debicki, David Thewlis`,
+  `Eddie Redmayne, Katherine Waterston, Dan Fogler, Alison Sudol, Ezra Miller, Samantha Morton, Jon Voight, Carmen Ejogo, Colin Farrell`,
+  `Rami Malek as Mercury, with Lucy Boynton, Gwilym Lee, Ben Hardy, Joe Mazzello, Aidan Gillen, Tom Hollander, Allen Leech, Mike Myers`,
+  `Rami Malek as Mercury, with Lucy Boynton, Gwilym Lee, Ben Hardy, Joe Mazzello, Aidan Gillen, Tom Hollander, Allen Leech, Mike Myers`,
+  `Rami Malek as Mercury, with Lucy Boynton, Gwilym Lee, Ben Hardy, Joe Mazzello, Aidan Gillen, Tom Hollander, Allen Leech, Mike Myers`,
   `Rami Malek as Mercury, with Lucy Boynton, Gwilym Lee, Ben Hardy, Joe Mazzello, Aidan Gillen, Tom Hollander, Allen Leech, Mike Myers`,
 ];
 

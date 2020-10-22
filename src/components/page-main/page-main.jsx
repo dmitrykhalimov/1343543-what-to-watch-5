@@ -87,8 +87,8 @@ const PageMain = (props) => {
 
           <Filter
             genres = {genresList}
-            onFilterSelect = {filterChange}
             activeGenre = {activeGenre}
+            onFilterSelect = {filterChange}
           />
           <FilmsList
             films = {films}
@@ -127,6 +127,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.filterFilms(filterFilms(genre)));
   }
 });
-// export default PageMain;
 
+// export default PageMain;
 export default connect(mapStateToProps, mapDispatchToProps)(PageMain);
