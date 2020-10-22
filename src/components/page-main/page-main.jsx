@@ -128,5 +128,5 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-// export default PageMain;
+// export {PageMain};
 export default connect(mapStateToProps, mapDispatchToProps)(PageMain);

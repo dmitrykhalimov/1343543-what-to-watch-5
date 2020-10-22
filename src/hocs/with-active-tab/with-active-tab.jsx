@@ -52,7 +52,7 @@ const withActiveTab = (Component) => {
       const {film} = this.props;
       return <Component
         {...this.props}
-        tabs = {Tab}
+        tabs = {Object.values(Tab)}
         poster = {film.poster}
         activeTab = {this.state.activeTab}
         tabToRender = {this.renderTab()}

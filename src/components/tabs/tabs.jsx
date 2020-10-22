@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 const Tabs = (props) => {
   const {onSwitchTab, tabToRender, poster, activeTab, tabs} = props;
 
-  const tabValues = Object.values(tabs);
   return (
     <div className="movie-card__info">
       <div className="movie-card__poster movie-card__poster--big">
@@ -13,7 +12,7 @@ const Tabs = (props) => {
       <div className="movie-card__desc">
         <nav className="movie-nav movie-card__nav">
           <ul className="movie-nav__list">
-            {tabValues.map((item, index) => {
+            {tabs.map((item, index) => {
               return (
                 <li
                   key = {index}
@@ -40,11 +39,7 @@ Tabs.propTypes = {
   onSwitchTab: PropTypes.func.isRequired,
   tabToRender: PropTypes.element.isRequired,
   poster: PropTypes.string.isRequired,
-  tabs: PropTypes.shape({
-    OVERVIEW: PropTypes.string.isRequired,
-    DETAILS: PropTypes.string.isRequired,
-    REVIEWS: PropTypes.string.isRequired,
-  }).isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };
 
 export default Tabs;
