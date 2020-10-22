@@ -11,6 +11,7 @@ import {ActionCreator} from "../../store/action";
 import {filterFilms} from "../../core";
 import {validFilm} from "../../utils/props";
 import ShowMore from "../show-more/show-more";
+import FilmsCatalog from "../films-catalog/films-catalog";
 
 const PageMain = (props) => {
   const {
@@ -83,14 +84,13 @@ const PageMain = (props) => {
       </section>
 
       <div className="page-content">
-        <section className="catalog">
-          <h2 className="catalog__title visually-hidden">Catalog</h2>
-
+        <FilmsCatalog>
           <Filter
             genres = {genresList}
             activeGenre = {activeGenre}
             onFilterSelect = {filterChange}
           />
+
           <FilmsList
             films = {films}
             maxQuantity = {rendered}
@@ -101,8 +101,10 @@ const PageMain = (props) => {
               filmsQuantity = {films.length}
               onShowMore = {incrementRendered}
             /> : ``}
-        </section>
+        </FilmsCatalog>
+
         <Footer />
+
       </div>
     </React.Fragment>
   );
