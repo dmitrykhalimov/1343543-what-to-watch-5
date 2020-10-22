@@ -1,4 +1,5 @@
 import films from "../mocks/films";
+import {buildGenres} from "../core";
 import {extend} from "../utils/utils";
 import {ActionType} from "./action";
 import {ALL_GENRES} from "../const";
@@ -6,6 +7,7 @@ import {ALL_GENRES} from "../const";
 const initialState = {
   activeGenre: ALL_GENRES,
   filteredFilms: films,
+  genresList: buildGenres(films)
 };
 
 const reducer = (state = initialState, action) => {

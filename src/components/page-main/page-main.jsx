@@ -1,26 +1,29 @@
 import React from "react";
+import {connect} from "react-redux";
+
 import PropTypes from "prop-types";
+
 import FilmsList from "../films-list/films-list";
 import Filter from "../filter/filter";
 import Footer from "../footer/footer";
+
+import {ActionCreator} from "../../store/action";
+import {filterFilms} from "../../core";
 import {validFilm} from "../../utils/props";
-import {connect} from "react-redux";
-import {ALL_GENRES} from "../../const";
-import {buildGenres, filterFilms} from "../../core";
-import { ActionCreator } from "../../store/action";
 
 const MAX_FILMS_QUANTITY = 8;
 
 const PageMain = (props) => {
-  const {title, genre, year, films, activeGenre, filterChange} = props;
+  const {
+    title,
+    genre,
+    year,
+    films,
+    activeGenre,
+    filterChange,
+    genresList,
+  } = props;
 
-  const handleFilterSelect = (genre) => {
-    console.log(genre);
-  };
-  // console.log('Исходный массив');
-  // console.log(films);
-  // console.log('Отфильтрованный масив');
-  // console.log(filterFilms('Fantasy', films));
   return (
     <React.Fragment>
       <section className="movie-card">
@@ -83,7 +86,7 @@ const PageMain = (props) => {
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
           <Filter
-            genres = {buildGenres(films)}
+            genres = {genresList}
             onFilterSelect = {filterChange}
             activeGenre = {activeGenre}
           />
@@ -107,11 +110,15 @@ PageMain.propTypes = {
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(validFilm).isRequired,
+  activeGenre: PropTypes.string.isRequired,
+  filterChange: PropTypes.func.isRequired,
+  genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
 };
 
 const mapStateToProps = (state) => ({
   activeGenre: state.activeGenre,
   films: state.filteredFilms,
+  genresList: state.genresList,
 });
 
 const mapDispatchToProps = (dispatch) => ({

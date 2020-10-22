@@ -23,7 +23,9 @@ const Filter = (props) => {
 };
 
 Filter.propTypes = {
-  genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+  genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  activeGenre: PropTypes.string.isRequired,
+  onFilterSelect: PropTypes.func.isRequired,
 };
 
 export default Filter;
