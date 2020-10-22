@@ -110,12 +110,14 @@ PageMain.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  activeGenre: state.activeGenre
+  activeGenre: state.activeGenre,
+  films: state.filteredFilms,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   filterChange(genre) {
     dispatch(ActionCreator.changeGenre(genre));
+    dispatch(ActionCreator.filterFilms(filterFilms(genre)));
   }
 });
 // export default PageMain;

@@ -19,7 +19,6 @@ const App = (props) => {
             title = {title}
             genre = {genre}
             year = {year}
-            films = {films}
           />
         </Route>
         <Route exact path="/login">

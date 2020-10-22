@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 const Filter = (props) => {
   const {genres, activeGenre, onFilterSelect} = props;
-  console.log(activeGenre);
   return (
     <ul className="catalog__genres-list">
       {genres.map((genre, index) => {
@@ -13,7 +12,6 @@ const Filter = (props) => {
             className={genre === activeGenre ? `catalog__genres-item catalog__genres-item--active` : `catalog__genres-item`}
             onClick={(evt) => {
               evt.preventDefault();
-              console.log(onFilterSelect);
               onFilterSelect(genre);
             }}
           >
