@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {copmuteIncrement} from "../../core";
+import {computeIncrement} from "../../core";
 
 const ShowMore = (props) => {
   const {rendered, filmsQuantity, onShowMore} = props;
-  const increment = copmuteIncrement(rendered, filmsQuantity);
+  const increment = computeIncrement(rendered, filmsQuantity);
   return (
     <div className="catalog__more">
       <button

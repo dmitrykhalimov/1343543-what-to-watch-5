@@ -12,7 +12,9 @@ const Filter = (props) => {
             className={genre === activeGenre ? `catalog__genres-item catalog__genres-item--active` : `catalog__genres-item`}
             onClick={(evt) => {
               evt.preventDefault();
-              onFilterSelect(genre);
+              if (genre !== activeGenre) {
+                onFilterSelect(genre);
+              }
             }}
           >
             <a href="#" className="catalog__genres-link">{genre}</a>

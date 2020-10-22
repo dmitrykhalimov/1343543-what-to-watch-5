@@ -17,6 +17,6 @@ export const buildGenres = () => {
   return genresList;
 };
 
-export const copmuteIncrement = (currentRendered, filmsQuantity) => {
+export const computeIncrement = (currentRendered, filmsQuantity) => {
   return Math.min(QUANTITY_FILMS_RENDER, filmsQuantity - currentRendered);
 };
