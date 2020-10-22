@@ -8,8 +8,9 @@ import Filter from "../filter/filter";
 import Footer from "../footer/footer";
 
 import {ActionCreator} from "../../store/action";
-import {filterFilms} from "../../core";
+import {filterFilms, copmuteIncrement} from "../../core";
 import {validFilm} from "../../utils/props";
+import ShowMore from "../show-more/show-more";
 
 const MAX_FILMS_QUANTITY = 8;
 
@@ -22,6 +23,8 @@ const PageMain = (props) => {
     activeGenre,
     filterChange,
     genresList,
+    rendered,
+    incrementRendered,
   } = props;
 
   return (
@@ -94,9 +97,11 @@ const PageMain = (props) => {
             films = {films}
             maxQuantity = {MAX_FILMS_QUANTITY}
           />
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          <ShowMore
+            rendered = {rendered}
+            filmsQuantity = {films.length}
+            onShowMore = {incrementRendered}
+          />
         </section>
 
         <Footer />
@@ -119,12 +124,17 @@ const mapStateToProps = (state) => ({
   activeGenre: state.activeGenre,
   films: state.filteredFilms,
   genresList: state.genresList,
+  rendered: state.rendered,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   filterChange(genre) {
     dispatch(ActionCreator.changeGenre(genre));
     dispatch(ActionCreator.filterFilms(filterFilms(genre)));
+  },
+
+  incrementRendered(increment) {
+    dispatch(ActionCreator.incrementRendered(increment));
   }
 });
 

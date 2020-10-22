@@ -27,3 +27,4 @@ export const ratingRanks = [
 ];
 
 export const ALL_GENRES = `All genres`;
+export const QUANTITY_FILMS_RENDER = 8;

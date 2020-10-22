@@ -1,4 +1,4 @@
-import {ALL_GENRES} from "./const";
+import {ALL_GENRES, QUANTITY_FILMS_RENDER} from "./const";
 import films from "./mocks/films";
 
 export const filterFilms = (genre) => {
@@ -15,4 +15,8 @@ export const buildGenres = () => {
     .sort()
     .unshift(ALL_GENRES);
   return genresList;
+};
+
+export const copmuteIncrement = (currentRendered, filmsQuantity) => {
+  return Math.min(QUANTITY_FILMS_RENDER, filmsQuantity - currentRendered);
 };

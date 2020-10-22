@@ -2,12 +2,13 @@ import films from "../mocks/films";
 import {buildGenres} from "../core";
 import {extend} from "../utils/utils";
 import {ActionType} from "./action";
-import {ALL_GENRES} from "../const";
+import {ALL_GENRES, QUANTITY_FILMS_RENDER} from "../const";
 
 const initialState = {
   activeGenre: ALL_GENRES,
   filteredFilms: films,
-  genresList: buildGenres(films)
+  genresList: buildGenres(films),
+  rendered: QUANTITY_FILMS_RENDER,
 };
 
 const reducer = (state = initialState, action) => {
@@ -20,6 +21,11 @@ const reducer = (state = initialState, action) => {
     case ActionType.FILTER_FILMS:
       return extend(state, {
         filteredFilms: action.payload,
+      });
+
+    case ActionType.INCREMENT_RENDERED:
+      return extend(state, {
+        rendered: state.rendered + action.payload,
       });
   }
 
