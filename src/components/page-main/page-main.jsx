@@ -8,11 +8,9 @@ import Filter from "../filter/filter";
 import Footer from "../footer/footer";
 
 import {ActionCreator} from "../../store/action";
-import {filterFilms, copmuteIncrement} from "../../core";
+import {filterFilms} from "../../core";
 import {validFilm} from "../../utils/props";
 import ShowMore from "../show-more/show-more";
-
-const MAX_FILMS_QUANTITY = 8;
 
 const PageMain = (props) => {
   const {
@@ -117,7 +115,9 @@ PageMain.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
   activeGenre: PropTypes.string.isRequired,
   filterChange: PropTypes.func.isRequired,
-  genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+  genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  rendered: PropTypes.number.isRequired,
+  incrementRendered: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
