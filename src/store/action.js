@@ -9,7 +9,7 @@ export const ActionCreator = {
     payload: genre,
   }),
   filterFilms: (filteredFilms) => ({
-    type: ActionType.CHANGE_GENRE,
+    type: ActionType.FILTER_FILMS,
     payload: filteredFilms,
   })
 };

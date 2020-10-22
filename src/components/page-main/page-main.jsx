@@ -2,11 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import FilmsList from "../films-list/films-list";
 import {validFilm} from "../../utils/props";
+import {ALL_GENRES} from "../../const";
+import {filterFilms} from "../../core";
 
 const MAX_FILMS_QUANTITY = 8;
 
 const PageMain = (props) => {
   const {title, genre, year, films} = props;
+  console.log('Исходный массив');
+  console.log(films);
+  console.log('Отфильтрованный масив');
+  console.log(filterFilms('Fantasy', films));
   return (
     <React.Fragment>
       <section className="movie-card">

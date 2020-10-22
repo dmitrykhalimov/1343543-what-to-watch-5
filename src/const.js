@@ -25,3 +25,5 @@ export const ratingRanks = [
     max: Infinity,
   },
 ];
+
+export const ALL_GENRES = `All genres`;
