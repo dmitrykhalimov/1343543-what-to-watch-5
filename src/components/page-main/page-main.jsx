@@ -95,15 +95,15 @@ const PageMain = (props) => {
           />
           <FilmsList
             films = {films}
-            maxQuantity = {MAX_FILMS_QUANTITY}
+            maxQuantity = {rendered}
           />
-          <ShowMore
-            rendered = {rendered}
-            filmsQuantity = {films.length}
-            onShowMore = {incrementRendered}
-          />
+          {films.length > rendered ?
+            <ShowMore
+              rendered = {rendered}
+              filmsQuantity = {films.length}
+              onShowMore = {incrementRendered}
+            /> : ``}
         </section>
-
         <Footer />
       </div>
     </React.Fragment>
@@ -131,6 +131,7 @@ const mapDispatchToProps = (dispatch) => ({
   filterChange(genre) {
     dispatch(ActionCreator.changeGenre(genre));
     dispatch(ActionCreator.filterFilms(filterFilms(genre)));
+    dispatch(ActionCreator.resetRendered());
   },
 
   incrementRendered(increment) {

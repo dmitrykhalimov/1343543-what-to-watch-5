@@ -2,6 +2,7 @@ export const ActionType = {
   CHANGE_GENRE: `CHANGE_GENRE`,
   FILTER_FILMS: `FILTER_FILMS`,
   INCREMENT_RENDERED: `INCREMENT_RENDERED`,
+  RESET_RENDERED: `RESET_RENDERED`,
 };
 
 export const ActionCreator = {
@@ -16,5 +17,8 @@ export const ActionCreator = {
   incrementRendered: (increment) => ({
     type: ActionType.INCREMENT_RENDERED,
     payload: increment,
+  }),
+  resetRendered: () => ({
+    type: ActionType.RESET_RENDERED,
   })
 };

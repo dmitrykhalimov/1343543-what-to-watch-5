@@ -27,6 +27,10 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         rendered: state.rendered + action.payload,
       });
+    case ActionType.RESET_RENDERED:
+      return extend(state, {
+        rendered: QUANTITY_FILMS_RENDER,
+      });
   }
 
   return state;
