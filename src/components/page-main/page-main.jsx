@@ -4,13 +4,15 @@ import FilmsList from "../films-list/films-list";
 import Filter from "../filter/filter";
 import Footer from "../footer/footer";
 import {validFilm} from "../../utils/props";
+import {connect} from "react-redux";
 import {ALL_GENRES} from "../../const";
 import {buildGenres, filterFilms} from "../../core";
+import { ActionCreator } from "../../store/action";
 
 const MAX_FILMS_QUANTITY = 8;
 
 const PageMain = (props) => {
-  const {title, genre, year, films} = props;
+  const {title, genre, year, films, activeGenre} = props;
 
   const handleFilterSelect = (genre) => {
     console.log(genre);
@@ -83,6 +85,7 @@ const PageMain = (props) => {
           <Filter
             genres = {buildGenres(films)}
             onFilterSelect = {handleFilterSelect}
+            activeGenre = {activeGenre}
           />
           <FilmsList
             films = {films}
@@ -106,4 +109,15 @@ PageMain.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
 };
 
-export default PageMain;
+const mapStateToProps = (state) => ({
+  activeGenre: state.activeGenre
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  filterChange(genre) {
+    dispatch(ActionCreator.changeGenre(genre));
+  }
+});
+// export default PageMain;
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageMain);

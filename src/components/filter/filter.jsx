@@ -2,12 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Filter = (props) => {
-  const {genres, onFilterSelect} = props;
+  const {genres, activeGenre, onFilterSelect} = props;
+  console.log(activeGenre);
   return (
     <ul className="catalog__genres-list">
       {genres.map((genre, index) => {
         return (
-          <li key={index} className="catalog__genres-item catalog__genres-item--active" onClick={() => onFilterSelect(genre)}>
+          <li
+            key={index}
+            className={genre === activeGenre ? `catalog__genres-item catalog__genres-item--active` : `catalog__genres-item`}
+            onClick={() => onFilterSelect(genre)}
+          >
             <a href="#" className="catalog__genres-link">{genre}</a>
           </li>);
       })}
