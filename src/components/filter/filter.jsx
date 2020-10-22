@@ -11,7 +11,11 @@ const Filter = (props) => {
           <li
             key={index}
             className={genre === activeGenre ? `catalog__genres-item catalog__genres-item--active` : `catalog__genres-item`}
-            onClick={() => onFilterSelect(genre)}
+            onClick={(evt) => {
+              evt.preventDefault();
+              console.log(onFilterSelect);
+              onFilterSelect(genre);
+            }}
           >
             <a href="#" className="catalog__genres-link">{genre}</a>
           </li>);

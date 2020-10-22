@@ -12,7 +12,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_GENRE:
       return extend(state, {
-        genre: action.payload,
+        activeGenre: action.payload,
       });
 
     case ActionType.FILTER_FILMS:

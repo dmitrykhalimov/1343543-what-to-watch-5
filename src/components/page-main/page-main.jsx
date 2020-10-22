@@ -12,7 +12,7 @@ import { ActionCreator } from "../../store/action";
 const MAX_FILMS_QUANTITY = 8;
 
 const PageMain = (props) => {
-  const {title, genre, year, films, activeGenre} = props;
+  const {title, genre, year, films, activeGenre, filterChange} = props;
 
   const handleFilterSelect = (genre) => {
     console.log(genre);
@@ -84,7 +84,7 @@ const PageMain = (props) => {
 
           <Filter
             genres = {buildGenres(films)}
-            onFilterSelect = {handleFilterSelect}
+            onFilterSelect = {filterChange}
             activeGenre = {activeGenre}
           />
           <FilmsList
