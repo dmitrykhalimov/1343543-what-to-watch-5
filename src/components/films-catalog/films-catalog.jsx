@@ -12,7 +12,7 @@ const FilmsCatalog = (props) => {
 };
 
 FilmsCatalog.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired
+  children: PropTypes.array.isRequired
 };
 
 export default FilmsCatalog;
