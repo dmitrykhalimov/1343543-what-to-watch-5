@@ -29,7 +29,7 @@ const GENRES = [
   `Biography`,
   `Fantasy`,
   `Drama`,
-  `Fantasy`,
+  `Comedy`,
   `Adventure`,
   `Comedy`,
   `Crime`,
@@ -41,9 +41,9 @@ const GENRES = [
   `Adventure`,
   `Comedy`,
   `Crime`,
-  `Fantasy`,
+  `Comedy`,
   `Biography`,
-  `Fantasy`,
+  `Crime`,
 ];
 
 const DIRECTORS = [
