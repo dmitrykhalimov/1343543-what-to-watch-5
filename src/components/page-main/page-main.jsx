@@ -1,18 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import FilmsList from "../films-list/films-list";
+import Filter from "../filter/filter";
 import {validFilm} from "../../utils/props";
 import {ALL_GENRES} from "../../const";
-import {filterFilms} from "../../core";
+import {buildGenres, filterFilms} from "../../core";
 
 const MAX_FILMS_QUANTITY = 8;
 
 const PageMain = (props) => {
   const {title, genre, year, films} = props;
-  console.log('Исходный массив');
-  console.log(films);
-  console.log('Отфильтрованный масив');
-  console.log(filterFilms('Fantasy', films));
+
+  const handleFilterSelect = (genre) => {
+    console.log(genre);
+  };
+  // console.log('Исходный массив');
+  // console.log(films);
+  // console.log('Отфильтрованный масив');
+  // console.log(filterFilms('Fantasy', films));
   return (
     <React.Fragment>
       <section className="movie-card">
@@ -74,38 +79,10 @@ const PageMain = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <ul className="catalog__genres-list">
-            <li className="catalog__genres-item catalog__genres-item--active">
-              <a href="#" className="catalog__genres-link">All genres</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Comedies</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Crime</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Documentary</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Dramas</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Horror</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Kids & Family</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Romance</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Sci-Fi</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Thrillers</a>
-            </li>
-          </ul>
+          <Filter
+            genres = {buildGenres(films)}
+            onFilterSelect = {handleFilterSelect}
+          />
           <FilmsList
             films = {films}
             maxQuantity = {MAX_FILMS_QUANTITY}
