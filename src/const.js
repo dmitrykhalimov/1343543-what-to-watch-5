@@ -26,4 +26,13 @@ export const ratingRanks = [
   },
 ];
 
+export const Path = {
+  index: `/`,
+  login: `/login`,
+  mylist: `/mylist`,
+  film: `/films/:id`,
+  player: `/player/:id`,
+  review: `/films/:id/review`
+};
+
 export const ALL_GENRES = `All genres`;

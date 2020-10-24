@@ -8,27 +8,28 @@ import Film from "../film/film";
 import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 import {validReview} from "../../utils/props";
+import {Path} from "../../const";
 
 const App = (props) => {
   const {title, genre, year, reviews} = props;
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
+        <Route exact path={Path.index}>
           <PageMain
             title = {title}
             genre = {genre}
             year = {year}
           />
         </Route>
-        <Route exact path="/login">
+        <Route exact path={Path.login}>
           <SignIn />
         </Route>
-        <Route exact path="/mylist">
+        <Route exact path={Path.mylist}>
           <MyList/>
         </Route>
         <Route exact
-          path="/films/:id"
+          path={Path.film}
           render={({history}) => (
             <Film
               review = {reviews[0]}
@@ -38,7 +39,7 @@ const App = (props) => {
             />
           )}
         />
-        <Route path="/films/:id/review" exact>
+        <Route path={Path.review} exact>
           <AddReview
             onFormSubmit = {(textComment, givenRating) => {
               // eslint-disable-next-line no-console
@@ -50,7 +51,7 @@ const App = (props) => {
             }}
           />
         </Route>
-        <Route path="/player/:id" exact>
+        <Route path={Path.player} exact>
           <Player/>
         </Route>
       </Switch>
