@@ -5,16 +5,16 @@ import {validReview} from "../../utils/props";
 
 const FilmReviews = (props) => {
 
-  const COMMENTS_IN_COLUMN = 3;
+  const MAX_COMMENTS = 6;
   const {review} = props;
-  let cnt = 0;
+  const commentsToRender = review.comments.slice(0, MAX_COMMENTS);
+  const halfLength = Math.ceil(commentsToRender.length / 2);
 
-  const makeCommentColumn = (comments) => {
-    // TODO исключительно неудачное решение по разделению комментариев на столбцы, когда буду причесывать код - поправлю, пока чего-то ничего лаконичного не придумывается.
-    const resultArray = comments
-      .slice(cnt, cnt + COMMENTS_IN_COLUMN)
+
+  const makeCommentColumn = (firstComment, lastComment) => {
+    const resultArray = commentsToRender
+      .slice(firstComment, lastComment)
       .map((item) => {
-        cnt++;
         return <Review
           key={item.commentId}
           comment={item}
@@ -30,8 +30,8 @@ const FilmReviews = (props) => {
 
   return (
     <div className="movie-card__reviews movie-card__row">
-      {makeCommentColumn(review.comments)}
-      {makeCommentColumn(review.comments)}
+      {makeCommentColumn(0, halfLength)}
+      {makeCommentColumn(halfLength, commentsToRender.length)}
     </div>
   );
 };
