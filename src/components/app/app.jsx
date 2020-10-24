@@ -7,10 +7,10 @@ import MyList from "../my-list/my-list";
 import Film from "../film/film";
 import AddReview from "../add-review/add-review";
 import Player from "../player/player";
-import {validFilm, validReview} from "../../utils/props";
+import {validReview} from "../../utils/props";
 
 const App = (props) => {
-  const {title, genre, year, films, reviews} = props;
+  const {title, genre, year, reviews} = props;
   return (
     <BrowserRouter>
       <Switch>
@@ -31,8 +31,6 @@ const App = (props) => {
           path="/films/:id"
           render={({history}) => (
             <Film
-              films = {films}
-              film = {films[0]}
               review = {reviews[0]}
               onPlayClick = {(id) => {
                 history.push(`/player/${id}`);
@@ -53,9 +51,7 @@ const App = (props) => {
           />
         </Route>
         <Route path="/player/:id" exact>
-          <Player
-            video = {films[0].video}
-          />
+          <Player/>
         </Route>
       </Switch>
     </BrowserRouter>
@@ -66,7 +62,6 @@ App.propTypes = {
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
-  films: PropTypes.arrayOf(validFilm).isRequired,
   reviews: PropTypes.arrayOf(validReview).isRequired
 };
 
