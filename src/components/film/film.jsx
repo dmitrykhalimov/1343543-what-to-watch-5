@@ -125,7 +125,6 @@ class Film extends PureComponent {
   }
 }
 Film.propTypes = {
-  film: validFilm,
   review: validReview,
   onPlayClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(validFilm).isRequired,

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import SmallFilmCard from "../small-film-card/small-film-card";
 import {validFilm} from "../../utils/props";
+import {connect} from "react-redux";
 
 const MyList = (props) => {
   const {films} = props;
@@ -65,5 +66,10 @@ MyList.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
 };
 
-export default MyList;
+const mapStateToProps = (state) => ({
+  films: state.films,
+});
+
+export default connect(mapStateToProps)(MyList);
+
 
