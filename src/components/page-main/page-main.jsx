@@ -24,6 +24,8 @@ const PageMain = (props) => {
     genresList,
   } = props;
 
+  const filteredFilms = filterFilms(activeGenre, films);
+
   return (
     <React.Fragment>
       <section className="movie-card">
@@ -91,7 +93,7 @@ const PageMain = (props) => {
             onFilterSelect = {filterChange}
           />
           <FilmsList
-            films = {films}
+            films = {filteredFilms}
             maxQuantity = {MAX_FILMS_QUANTITY}
           />
           <div className="catalog__more">
@@ -117,14 +119,13 @@ PageMain.propTypes = {
 
 const mapStateToProps = (state) => ({
   activeGenre: state.activeGenre,
-  films: state.filteredFilms,
+  films: state.films,
   genresList: state.genresList,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   filterChange(genre) {
     dispatch(ActionCreator.changeGenre(genre));
-    dispatch(ActionCreator.filterFilms(filterFilms(genre)));
   }
 });
 

@@ -6,6 +6,7 @@ import {ALL_GENRES} from "../const";
 
 const initialState = {
   activeGenre: ALL_GENRES,
+  films,
   filteredFilms: films,
   genresList: buildGenres(films)
 };
