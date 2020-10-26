@@ -95,9 +95,10 @@ const PageMain = (props) => {
 
           <FilmsList
             films = {filteredFilms}
-            maxQuantity = {MAX_FILMS_QUANTITY}
+            maxQuantity = {rendered}
           />
-          {films.length > rendered ?
+          {/* Не смог однозначно выбрать, должна ли кнопка решать рендериться ли, или сам список фильмов должен это сделать за нее? Решил, что второе логичнее */}
+          {filteredFilms.length > rendered ?
             <ShowMore
               rendered = {rendered}
               filmsQuantity = {films.length}
