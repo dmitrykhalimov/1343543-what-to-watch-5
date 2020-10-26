@@ -22,10 +22,9 @@ const withActiveTab = (Component) => {
       this.handleSwitchTab = this.handleSwitchTab.bind(this);
     }
 
-    handleSwitchTab(evt) {
-      evt.preventDefault();
+    handleSwitchTab(tabName) {
       this.setState({
-        activeTab: (evt.target.getAttribute(`data-name`).toUpperCase())
+        activeTab: tabName
       });
     }
 
@@ -53,12 +52,11 @@ const withActiveTab = (Component) => {
       const {film} = this.props;
       return <Component
         {...this.props}
-        tabs = {Tab}
+        tabs = {Object.values(Tab)}
         poster = {film.poster}
         activeTab = {this.state.activeTab}
         tabToRender = {this.renderTab()}
-        handleSwitchTab = {this.handleSwitchTab}
-        // не очень понятно с именованием - если это HOC, должно быть handle или on?
+        onSwitchTab = {this.handleSwitchTab}
       />;
     }
   }

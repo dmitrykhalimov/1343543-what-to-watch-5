@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
 const Player = (props) => {
@@ -43,5 +44,8 @@ Player.propTypes = {
   video: PropTypes.string.isRequired,
 };
 
-export default Player;
+const mapStateToProps = (state) => ({
+  films: state.films,
+});
 
+export default connect(mapStateToProps)(Player);

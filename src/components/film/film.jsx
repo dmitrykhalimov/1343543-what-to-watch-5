@@ -1,4 +1,6 @@
 import React, {PureComponent} from "react";
+import {connect} from "react-redux";
+
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {validFilm, validReview} from "../../utils/props";
@@ -12,19 +14,20 @@ const TabsWrapped = withActiveTab(Tabs);
 class Film extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.films = this.props.films;
   }
 
   filterFilms(film) {
-    return this.films.filter((item) => {
-      return item.genre === film.genre;
+    return this.props.films.filter((item) => {
+      return (item.genre === film.genre) && (item.id !== film.id);
     });
   }
 
   render() {
-    const {film, review, onPlayClick} = this.props;
-    // очень некрасиво смотрится film, films - когда нормальную перелинковку сделаю, это уберу
+    const {films, review, onPlayClick} = this.props;
+    // Спасибо, понял идею! Пока не стал реализовывать, чтобы не забегать вперед, потом вставлю здесь процедуру получения номера фильма. Redux - мощь!
+    const film = films[0];
+    const similarFilms = this.filterFilms(film);
+
     return (
       <React.Fragment>
         <section className="movie-card movie-card--full">
@@ -98,7 +101,7 @@ class Film extends PureComponent {
             <h2 className="catalog__title">More like this</h2>
 
             <FilmsList
-              films = {this.filterFilms(film)}
+              films = {similarFilms}
               maxQuantity = {MAX_FILMS_QUANTITY}
             />
           </section>
@@ -122,12 +125,15 @@ class Film extends PureComponent {
   }
 }
 Film.propTypes = {
-  film: validFilm,
   review: validReview,
   onPlayClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(validFilm).isRequired,
 };
 
-export default Film;
+const mapStateToProps = (state) => ({
+  films: state.films,
+});
+
+export default connect(mapStateToProps)(Film);
 
 

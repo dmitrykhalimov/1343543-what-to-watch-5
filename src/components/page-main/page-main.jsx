@@ -1,12 +1,31 @@
 import React from "react";
+import {connect} from "react-redux";
+
 import PropTypes from "prop-types";
+
 import FilmsList from "../films-list/films-list";
+import Filter from "../filter/filter";
+import Footer from "../footer/footer";
+
+import {ActionCreator} from "../../store/action";
+import {filterFilms} from "../../core";
 import {validFilm} from "../../utils/props";
 
 const MAX_FILMS_QUANTITY = 8;
 
 const PageMain = (props) => {
-  const {title, genre, year, films} = props;
+  const {
+    title,
+    genre,
+    year,
+    films,
+    activeGenre,
+    filterChange,
+    genresList,
+  } = props;
+
+  const filteredFilms = filterFilms(activeGenre, films);
+
   return (
     <React.Fragment>
       <section className="movie-card">
@@ -68,40 +87,13 @@ const PageMain = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <ul className="catalog__genres-list">
-            <li className="catalog__genres-item catalog__genres-item--active">
-              <a href="#" className="catalog__genres-link">All genres</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Comedies</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Crime</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Documentary</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Dramas</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Horror</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Kids & Family</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Romance</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Sci-Fi</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Thrillers</a>
-            </li>
-          </ul>
+          <Filter
+            genres = {genresList}
+            activeGenre = {activeGenre}
+            onFilterSelect = {filterChange}
+          />
           <FilmsList
-            films = {films}
+            films = {filteredFilms}
             maxQuantity = {MAX_FILMS_QUANTITY}
           />
           <div className="catalog__more">
@@ -109,19 +101,7 @@ const PageMain = (props) => {
           </div>
         </section>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <a className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </React.Fragment>
   );
@@ -132,6 +112,22 @@ PageMain.propTypes = {
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(validFilm).isRequired,
+  activeGenre: PropTypes.string.isRequired,
+  filterChange: PropTypes.func.isRequired,
+  genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
 };
 
-export default PageMain;
+const mapStateToProps = (state) => ({
+  activeGenre: state.activeGenre,
+  films: state.films,
+  genresList: state.genresList,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  filterChange(genre) {
+    dispatch(ActionCreator.changeGenre(genre));
+  }
+});
+
+// export {PageMain};
+export default connect(mapStateToProps, mapDispatchToProps)(PageMain);

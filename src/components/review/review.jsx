@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {validComment} from "../../utils/props";
 
 const Review = (props) => {
@@ -23,7 +22,7 @@ const Review = (props) => {
 };
 
 Review.propTypes = {
-  comment: PropTypes.shape(validComment),
+  comment: validComment,
 };
 
 export default Review;
