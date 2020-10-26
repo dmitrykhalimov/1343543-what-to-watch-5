@@ -1,4 +1,4 @@
-import {ALL_GENRES} from "./const";
+import {ALL_GENRES, QUANTITY_FILMS_RENDER} from "./const";
 
 export const filterFilms = (genre, films) => {
   if (genre === ALL_GENRES) {
@@ -14,4 +14,8 @@ export const buildGenres = (films) => {
     .sort()
     .unshift(ALL_GENRES);
   return genresList;
+};
+
+export const computeIncrement = (currentRendered, filmsQuantity) => {
+  return Math.min(QUANTITY_FILMS_RENDER, filmsQuantity - currentRendered);
 };

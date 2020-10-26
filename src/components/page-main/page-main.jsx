@@ -10,8 +10,8 @@ import Footer from "../footer/footer";
 import {ActionCreator} from "../../store/action";
 import {filterFilms} from "../../core";
 import {validFilm} from "../../utils/props";
-
-const MAX_FILMS_QUANTITY = 8;
+import ShowMore from "../show-more/show-more";
+import FilmsCatalog from "../films-catalog/films-catalog";
 
 const PageMain = (props) => {
   const {
@@ -22,6 +22,8 @@ const PageMain = (props) => {
     activeGenre,
     filterChange,
     genresList,
+    rendered,
+    incrementRendered,
   } = props;
 
   const filteredFilms = filterFilms(activeGenre, films);
@@ -84,24 +86,27 @@ const PageMain = (props) => {
       </section>
 
       <div className="page-content">
-        <section className="catalog">
-          <h2 className="catalog__title visually-hidden">Catalog</h2>
-
+        <FilmsCatalog>
           <Filter
             genres = {genresList}
             activeGenre = {activeGenre}
             onFilterSelect = {filterChange}
           />
+
           <FilmsList
             films = {filteredFilms}
             maxQuantity = {MAX_FILMS_QUANTITY}
           />
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
-        </section>
+          {films.length > rendered ?
+            <ShowMore
+              rendered = {rendered}
+              filmsQuantity = {films.length}
+              onShowMore = {incrementRendered}
+            /> : ``}
+        </FilmsCatalog>
 
         <Footer />
+
       </div>
     </React.Fragment>
   );
@@ -114,18 +119,26 @@ PageMain.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
   activeGenre: PropTypes.string.isRequired,
   filterChange: PropTypes.func.isRequired,
-  genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+  genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  rendered: PropTypes.number.isRequired,
+  incrementRendered: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   activeGenre: state.activeGenre,
   films: state.films,
   genresList: state.genresList,
+  rendered: state.rendered,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   filterChange(genre) {
     dispatch(ActionCreator.changeGenre(genre));
+    dispatch(ActionCreator.resetRendered());
+  },
+
+  incrementRendered(increment) {
+    dispatch(ActionCreator.incrementRendered(increment));
   }
 });
 
