@@ -1,7 +1,7 @@
 import {getRandomInteger} from "../utils/common";
 
 
-const FILMS_QUANTITY = 8;
+const FILMS_QUANTITY = 19;
 const CommentsQuantity = {
   MIN: 6, // в целях компенсации унылой верстки (не приходит в голову изящное решение, как разбить комментарии по двум колонкам - потом отрефакторю)
   MAX: 11
