@@ -8,6 +8,7 @@ const withActivePlayer = (Component) => {
       this._videoRef = createRef();
       this._progressRef = createRef();
       this._pinProgressRef = createRef();
+      this._elapsedTimeRef = createRef();
 
       this.state = {
         isPlaying: true,
@@ -29,6 +30,12 @@ const withActivePlayer = (Component) => {
       }
     }
 
+    changeElapsedTime() {
+      const elapsed = this.video.duration - this.video.currentTime;
+      this.elapsedTime.textContent = new Date(elapsed * 1000).toISOString().substr(11, 8);
+
+    }
+
     handlePlayPauseClick() {
       this.setState({isPlaying: !this.state.isPlaying}, this.changeAction);
     }
@@ -45,6 +52,7 @@ const withActivePlayer = (Component) => {
       if (this.state.isPlaying === true) {
         this.progress.value = this.computePercentage();
         this.pinProgress.style.left = `${this.computePercentage()}% `;
+        this.changeElapsedTime();
         requestAnimationFrame(this.progressLoop);
       }
     }
@@ -53,10 +61,15 @@ const withActivePlayer = (Component) => {
       this.video = this._videoRef.current;
       this.progress = this._progressRef.current;
       this.pinProgress = this._pinProgressRef.current;
+      this.elapsedTime = this._elapsedTimeRef.current;
 
       this.video.oncanplay = () => {
         this.changeAction();
         this.progressLoop();
+      };
+
+      this.video.onended = () => {
+        this.handlePlayPauseClick();
       };
     }
 
@@ -70,6 +83,7 @@ const withActivePlayer = (Component) => {
         videoRef = {this._videoRef}
         progressRef = {this._progressRef}
         pinProgressRef = {this._pinProgressRef}
+        elapsedTimeRef = {this._elapsedTimeRef}
         isPlaying = {this.state.isPlaying}
         onPlayPauseClick = {this.handlePlayPauseClick}
         onFullscreenClick = {this.handleFullScreenClick}

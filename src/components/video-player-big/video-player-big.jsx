@@ -10,9 +10,10 @@ const VideoPlayerBig = (props) => {
     videoRef,
     progressRef,
     pinProgressRef,
+    elapsedTimeRef,
     onPlayPauseClick,
     onFullscreenClick} = props;
-  console.log(film);
+
   return (
     <React.Fragment>
       <video
@@ -28,10 +29,10 @@ const VideoPlayerBig = (props) => {
       <div className="player__controls">
         <div className="player__controls-row">
           <div className="player__time">
-            <progress className="player__progress" value="30" max="100" ref={progressRef}></progress>
-            <div className="player__toggler" style={{left: `30%`}} ref={pinProgressRef}>Toggler</div>
+            <progress className="player__progress" value="0" max="100" ref={progressRef}></progress>
+            <div className="player__toggler" style={{left: `0%`}} ref={pinProgressRef}>Toggler</div>
           </div>
-          <div className="player__time-value">1:30:29</div>
+          <div className="player__time-value" ref={elapsedTimeRef}>1:30:29</div>
         </div>
 
         <div className="player__controls-row">
