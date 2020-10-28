@@ -12,12 +12,12 @@ class Player extends PureComponent {
       isPlaying: true
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handlePlayPauseClick = this.handlePlayPauseClick.bind(this);
+    this.handleFullScreenClick = this.handleFullScreenClick.bind(this);
   }
 
   actionPlayer() {
     const video = this._videoRef.current;
-    console.log(this.state.isPlaying);
     switch (this.state.isPlaying) {
       case true:
         video.play();
@@ -28,8 +28,13 @@ class Player extends PureComponent {
     }
   }
 
-  handleClick() {
+  handlePlayPauseClick() {
     this.setState({isPlaying: !this.state.isPlaying}, this.actionPlayer);
+  }
+
+  handleFullScreenClick() {
+    const video = this._videoRef.current;
+    video.requestFullscreen();
   }
 
   componentDidMount() {
@@ -64,7 +69,7 @@ class Player extends PureComponent {
             <button
               type="button"
               className="player__play"
-              onClick={this.handleClick}
+              onClick={this.handlePlayPauseClick}
             >
               <svg viewBox="0 0 19 19" width="19" height="19">
                 <use xlinkHref={isPlaying ? `#pause` : `#play-s`}></use>
@@ -73,7 +78,11 @@ class Player extends PureComponent {
             </button>
             <div className="player__name">Transpotting</div>
 
-            <button type="button" className="player__full-screen">
+            <button
+              type="button"
+              className="player__full-screen"
+              onClick={this.handleFullScreenClick}
+            >
               <svg viewBox="0 0 27 27" width="27" height="27">
                 <use xlinkHref="#full-screen"></use>
               </svg>
