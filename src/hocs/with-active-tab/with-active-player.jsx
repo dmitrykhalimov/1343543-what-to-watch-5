@@ -78,6 +78,11 @@ const withActivePlayer = (Component) => {
       this.progressLoop();
     }
 
+    componentWillUnmount() {
+      // console.log('Все удалилось');
+      // раз оно все анмаунтится я решил ничего не обнулять принудительно
+    }
+
     render() {
       return <Component
         {...this.props}
@@ -88,6 +93,7 @@ const withActivePlayer = (Component) => {
         isPlaying = {this.state.isPlaying}
         onPlayPauseClick = {this.handlePlayPauseClick}
         onFullscreenClick = {this.handleFullScreenClick}
+        onEscClick = {this.handleEscClick}
       />;
     }
   }

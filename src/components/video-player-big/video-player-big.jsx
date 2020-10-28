@@ -2,9 +2,11 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {validFilm} from "../../utils/props";
+import {Link} from "react-router-dom";
 
 const VideoPlayerBig = (props) => {
   const {
+    id,
     film,
     isPlaying,
     videoRef,
@@ -24,7 +26,7 @@ const VideoPlayerBig = (props) => {
         ref={videoRef}>
       </video>
 
-      <button type="button" className="player__exit">Exit</button>
+      <Link type="button" className="player__exit" to={`/films/${id}`}>Exit</Link>
 
       <div className="player__controls">
         <div className="player__controls-row">
@@ -65,6 +67,7 @@ const VideoPlayerBig = (props) => {
 };
 
 VideoPlayerBig.propTypes = {
+  id: PropTypes.number.isRequired,
   isPlaying: PropTypes.bool.isRequired,
   film: validFilm,
   // служебные объекты же не нужно расписывать полностью?
