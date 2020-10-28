@@ -1,13 +1,22 @@
 import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import {validFilm} from "../../utils/props";
 
 const VideoPlayerBig = (props) => {
-  const {isPlaying, videoRef, progressRef, pinProgressRef, onPlayPauseClick, onFullscreenClick} = props;
+  const {
+    film,
+    isPlaying,
+    videoRef,
+    progressRef,
+    pinProgressRef,
+    onPlayPauseClick,
+    onFullscreenClick} = props;
+  console.log(film);
   return (
     <React.Fragment>
       <video
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+        src={film.video}
         className="player__video"
         poster="/img/player-poster.jpg"
         muted={true}
@@ -36,7 +45,7 @@ const VideoPlayerBig = (props) => {
             </svg>
             <span>Play</span>
           </button>
-          <div className="player__name">Transpotting</div>
+          <div className="player__name">{film.title}</div>
 
           <button
             type="button"
@@ -56,6 +65,7 @@ const VideoPlayerBig = (props) => {
 
 VideoPlayerBig.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
+  film: validFilm,
   // служебные объекты же не нужно расписывать полностью?
   videoRef: PropTypes.object.isRequired,
   progressRef: PropTypes.object.isRequired,

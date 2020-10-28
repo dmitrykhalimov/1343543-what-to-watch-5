@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
-
+import {withRouter} from "react-router";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {validFilm, validReview} from "../../utils/props";
@@ -27,8 +27,8 @@ class Film extends PureComponent {
 
   render() {
     const {films, review, onPlayClick} = this.props;
-    // Спасибо, понял идею! Пока не стал реализовывать, чтобы не забегать вперед, потом вставлю здесь процедуру получения номера фильма. Redux - мощь!
-    const film = films[0];
+    const id = this.props.match.params.id;
+    const film = films[id];
     const similarFilms = this.filterFilms(film);
 
     return (
@@ -116,12 +116,17 @@ Film.propTypes = {
   review: validReview,
   onPlayClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(validFilm).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }).isRequired,
 };
 
 const mapStateToProps = (state) => ({
   films: state.films,
 });
 
-export default connect(mapStateToProps)(Film);
+export default withRouter(connect(mapStateToProps)(Film));
 
 
