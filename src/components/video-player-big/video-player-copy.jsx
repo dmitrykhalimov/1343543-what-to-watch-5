@@ -1,7 +1,7 @@
 import React, {PureComponent, createRef} from "react";
 import PropTypes from "prop-types";
 
-class VideoPlayer extends PureComponent {
+class VideoPlayerBig extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -51,9 +51,9 @@ class VideoPlayer extends PureComponent {
   }
 }
 
-VideoPlayer.propTypes = {
+VideoPlayerBig.propTypes = {
   src: PropTypes.string.isRequired,
   preview: PropTypes.string.isRequired,
 };
 
-export default VideoPlayer;
+export default VideoPlayerBig;
