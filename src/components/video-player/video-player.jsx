@@ -6,6 +6,9 @@ class VideoPlayer extends PureComponent {
     super(props);
 
     this._videoRef = createRef();
+
+    this.handleHoverPlayer = this.handleHoverPlayer.bind(this);
+    this.handleUnhoverPlayer = this.handleUnhoverPlayer.bind(this);
   }
 
   handleHoverPlayer() {
@@ -35,8 +38,8 @@ class VideoPlayer extends PureComponent {
     return (
       <div
         className="small-movie-card__image"
-        onMouseEnter={() => this.handleHoverPlayer()}
-        onMouseLeave={() => this.handleUnhoverPlayer()}
+        onMouseEnter={this.handleHoverPlayer}
+        onMouseLeave={this.handleUnhoverPlayer}
       >
         <video
           ref={this._videoRef}

@@ -1,19 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const FilmsCatalog = (props) => {
+const MoreLikeThis = (props) => {
   return (
-    <section className="catalog">
-      <h2 className="catalog__title visually-hidden">Catalog</h2>
+    <section className="catalog catalog--like-this">
+      <h2 className="catalog__title">More like this</h2>
       {props.children}
     </section>
   );
 };
 
-FilmsCatalog.propTypes = {
+MoreLikeThis.propTypes = {
   children: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.element.isRequired,
     PropTypes.string.isRequired]).isRequired
   )};
 
-export default FilmsCatalog;
+export default MoreLikeThis;

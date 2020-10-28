@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import VideoPlayer from "../video-player/video-player";
 
+
 const SmallFilmCard = (props) => {
   const {id, preview, title, src} = props;
 
@@ -10,7 +11,7 @@ const SmallFilmCard = (props) => {
     <article
       className="small-movie-card catalog__movies-card"
     >
-      <Link className="small-movie-card__link" to={`films/${id}`} >
+      <Link className="small-movie-card__link" to={`../films/${id}`} >
         <VideoPlayer
           id = {id}
           preview = {preview}
