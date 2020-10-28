@@ -12,6 +12,7 @@ import {filterFilms} from "../../core";
 import {validFilm} from "../../utils/props";
 import ShowMore from "../show-more/show-more";
 import FilmsCatalog from "../films-catalog/films-catalog";
+import PageContent from "../page-content/page-content";
 
 const PageMain = (props) => {
   const {
@@ -85,7 +86,7 @@ const PageMain = (props) => {
         </div>
       </section>
 
-      <div className="page-content">
+      <PageContent>
         <FilmsCatalog>
           <Filter
             genres = {genresList}
@@ -97,7 +98,6 @@ const PageMain = (props) => {
             films = {filteredFilms}
             maxQuantity = {rendered}
           />
-          {/* Не смог однозначно выбрать, должна ли кнопка решать рендериться ли, или сам список фильмов должен это сделать за нее? Решил, что второе логичнее */}
           {filteredFilms.length > rendered ?
             <ShowMore
               rendered = {rendered}
@@ -105,10 +105,8 @@ const PageMain = (props) => {
               onShowMore = {incrementRendered}
             /> : ``}
         </FilmsCatalog>
-
         <Footer />
-
-      </div>
+      </PageContent>
     </React.Fragment>
   );
 };

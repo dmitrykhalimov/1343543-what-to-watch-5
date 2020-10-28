@@ -8,6 +8,8 @@ import Tabs from "../tabs/tabs";
 import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
 import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
+import PageContent from "../page-content/page-content";
+import MoreLikeThis from "../more-like-this/more-like-this";
 
 const MAX_FILMS_QUANTITY = 4;
 const TabsWrapped = withActiveTab(Tabs);
@@ -97,18 +99,15 @@ class Film extends PureComponent {
           </div>
         </section>
 
-        <div className="page-content">
-          <section className="catalog catalog--like-this">
-            <h2 className="catalog__title">More like this</h2>
-
+        <PageContent>
+          <MoreLikeThis>
             <FilmsList
               films = {similarFilms}
               maxQuantity = {MAX_FILMS_QUANTITY}
             />
-          </section>
-
-          <Footer />
-        </div>
+          </MoreLikeThis>
+          <Footer/>
+        </PageContent>
       </React.Fragment>
     );
   }
