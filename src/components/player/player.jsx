@@ -15,13 +15,25 @@ class Player extends PureComponent {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  actionPlayer() {
+    const video = this._videoRef.current;
+    console.log(this.state.isPlaying);
+    switch (this.state.isPlaying) {
+      case true:
+        video.play();
+        break;
+      case false:
+        video.pause();
+        break;
+    }
+  }
+
   handleClick() {
-    this.setState({isPlaying: !this.state.isPlaying});
+    this.setState({isPlaying: !this.state.isPlaying}, this.actionPlayer);
   }
 
   componentDidMount() {
-    const video = this._videoRef.current;
-    video.play();
+    this.actionPlayer();
   }
 
   render() {
@@ -55,7 +67,7 @@ class Player extends PureComponent {
               onClick={this.handleClick}
             >
               <svg viewBox="0 0 19 19" width="19" height="19">
-                <use xlinkHref={isPlaying ? `#play-s` : `#pause`}></use>
+                <use xlinkHref={isPlaying ? `#pause` : `#play-s`}></use>
               </svg>
               <span>Play</span>
             </button>
