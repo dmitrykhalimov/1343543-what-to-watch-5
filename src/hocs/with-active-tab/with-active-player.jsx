@@ -19,6 +19,31 @@ const withActivePlayer = (Component) => {
       this.progressLoop = this.progressLoop.bind(this);
     }
 
+    componentDidMount() {
+      this.video = this._videoRef.current;
+      this.progress = this._progressRef.current;
+      this.pinProgress = this._pinProgressRef.current;
+      this.elapsedTime = this._elapsedTimeRef.current;
+
+      this.video.oncanplay = () => {
+        this.handlePlayPauseClick();
+        this.progressLoop();
+      };
+
+      this.video.onended = () => {
+        this.handlePlayPauseClick();
+      };
+    }
+
+    componentDidUpdate() {
+      this.progressLoop();
+    }
+
+    componentWillUnmount() {
+      // console.log('Все удалилось');
+      // раз оно все анмаунтится я решил ничего не обнулять принудительно
+    }
+
     changeAction() {
       switch (this.state.isPlaying) {
         case true:
@@ -56,31 +81,6 @@ const withActivePlayer = (Component) => {
 
     handleFullScreenClick() {
       this.video.requestFullscreen();
-    }
-
-    componentDidMount() {
-      this.video = this._videoRef.current;
-      this.progress = this._progressRef.current;
-      this.pinProgress = this._pinProgressRef.current;
-      this.elapsedTime = this._elapsedTimeRef.current;
-
-      this.video.oncanplay = () => {
-        this.handlePlayPauseClick();
-        this.progressLoop();
-      };
-
-      this.video.onended = () => {
-        this.handlePlayPauseClick();
-      };
-    }
-
-    componentDidUpdate() {
-      this.progressLoop();
-    }
-
-    componentWillUnmount() {
-      // console.log('Все удалилось');
-      // раз оно все анмаунтится я решил ничего не обнулять принудительно
     }
 
     render() {
