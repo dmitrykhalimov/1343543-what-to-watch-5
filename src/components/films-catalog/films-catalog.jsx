@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const FilmsCatalog = (props) => {
-
   return (
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
@@ -12,7 +11,9 @@ const FilmsCatalog = (props) => {
 };
 
 FilmsCatalog.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired
-};
+  children: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.element.isRequired,
+    PropTypes.string.isRequired]).isRequired
+  )};
 
 export default FilmsCatalog;
