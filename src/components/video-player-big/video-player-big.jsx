@@ -71,8 +71,10 @@ VideoPlayerBig.propTypes = {
   videoRef: PropTypes.object.isRequired,
   progressRef: PropTypes.object.isRequired,
   pinProgressRef: PropTypes.object.isRequired,
+  elapsedTimeRef: PropTypes.object.isRequired,
   onPlayPauseClick: PropTypes.func.isRequired,
   onFullscreenClick: PropTypes.func.isRequired,
+
 };
 
 const mapStateToProps = (state) => ({

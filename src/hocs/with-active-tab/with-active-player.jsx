@@ -11,7 +11,7 @@ const withActivePlayer = (Component) => {
       this._elapsedTimeRef = createRef();
 
       this.state = {
-        isPlaying: true,
+        isPlaying: false,
       };
 
       this.handlePlayPauseClick = this.handlePlayPauseClick.bind(this);
@@ -32,8 +32,22 @@ const withActivePlayer = (Component) => {
 
     changeElapsedTime() {
       const elapsed = this.video.duration - this.video.currentTime;
+      // StackOverFlow - чемпион!
       this.elapsedTime.textContent = new Date(elapsed * 1000).toISOString().substr(11, 8);
+    }
 
+    computePercentage() {
+      return Math.round((this.video.currentTime / this.video.duration) * 100);
+    }
+
+    progressLoop() {
+      if (this.state.isPlaying === true) {
+        const percentage = this.computePercentage();
+        this.progress.value = percentage;
+        this.pinProgress.style.left = `${percentage}% `;
+        this.changeElapsedTime();
+        requestAnimationFrame(this.progressLoop);
+      }
     }
 
     handlePlayPauseClick() {
@@ -44,19 +58,6 @@ const withActivePlayer = (Component) => {
       this.video.requestFullscreen();
     }
 
-    computePercentage() {
-      return Math.round((this.video.currentTime / this.video.duration) * 100);
-    }
-
-    progressLoop() {
-      if (this.state.isPlaying === true) {
-        this.progress.value = this.computePercentage();
-        this.pinProgress.style.left = `${this.computePercentage()}% `;
-        this.changeElapsedTime();
-        requestAnimationFrame(this.progressLoop);
-      }
-    }
-
     componentDidMount() {
       this.video = this._videoRef.current;
       this.progress = this._progressRef.current;
@@ -64,7 +65,7 @@ const withActivePlayer = (Component) => {
       this.elapsedTime = this._elapsedTimeRef.current;
 
       this.video.oncanplay = () => {
-        this.changeAction();
+        this.handlePlayPauseClick();
         this.progressLoop();
       };
 
@@ -91,7 +92,6 @@ const withActivePlayer = (Component) => {
     }
   }
 
-  WithActivePlayer.propTypes = {};
   return WithActivePlayer;
 };
 
