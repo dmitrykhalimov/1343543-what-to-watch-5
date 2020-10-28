@@ -26,9 +26,10 @@ class Film extends PureComponent {
   }
 
   render() {
-    const {films, review, onPlayClick} = this.props;
+    const {films, reviews, onPlayClick} = this.props;
     const id = this.props.match.params.id;
     const film = films[id];
+    const review = reviews[id];
     const similarFilms = this.filterFilms(film);
 
     return (
@@ -113,18 +114,19 @@ class Film extends PureComponent {
   }
 }
 Film.propTypes = {
-  review: validReview,
+  reviews: PropTypes.arrayOf(validReview).isRequired,
   onPlayClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(validFilm).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string.isRequired,
     }),
   }).isRequired,
 };
 
 const mapStateToProps = (state) => ({
   films: state.films,
+  reviews: state.reviews,
 });
 
 export default withRouter(connect(mapStateToProps)(Film));

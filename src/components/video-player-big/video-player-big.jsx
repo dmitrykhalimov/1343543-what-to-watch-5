@@ -66,7 +66,7 @@ const VideoPlayerBig = (props) => {
 };
 
 VideoPlayerBig.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   isPlaying: PropTypes.bool.isRequired,
   film: validFilm,
   // служебные объекты же не нужно расписывать полностью?
