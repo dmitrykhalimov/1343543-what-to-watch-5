@@ -7,13 +7,16 @@ class Player extends PureComponent {
     super(props);
 
     this._videoRef = createRef();
+    this._progressRef = createRef();
+    this._pinProgressRef = createRef();
 
     this.state = {
-      isPlaying: true
+      isPlaying: true,
     };
 
     this.handlePlayPauseClick = this.handlePlayPauseClick.bind(this);
     this.handleFullScreenClick = this.handleFullScreenClick.bind(this);
+    this.progressLoop = this.progressLoop.bind(this);
   }
 
   actionPlayer() {
@@ -37,8 +40,26 @@ class Player extends PureComponent {
     video.requestFullscreen();
   }
 
+  progressLoop() {
+    const video = this._videoRef.current;
+    const progress = this._progressRef.current;
+    const pinProgress = this._pinProgressRef.current;
+
+    if (this.state.isPlaying === true) {
+      progress.value = Math.round((video.currentTime / video.duration) * 100);
+      pinProgress.style.left = `${(video.currentTime / video.duration) * 100}% `;
+      requestAnimationFrame(this.progressLoop);
+    }
+  }
+
   componentDidMount() {
-    this.actionPlayer();
+    const video = this._videoRef.current;
+    const progress = this._progressRef.current;
+
+    video.oncanplay = () => {
+      this.actionPlayer();
+      this.progressLoop();
+    };
   }
 
   render() {
@@ -51,6 +72,7 @@ class Player extends PureComponent {
           src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
           className="player__video"
           poster="/img/player-poster.jpg"
+          muted="true"
           ref={this._videoRef}>
         </video>
 
@@ -59,8 +81,8 @@ class Player extends PureComponent {
         <div className="player__controls">
           <div className="player__controls-row">
             <div className="player__time">
-              <progress className="player__progress" value="30" max="100"></progress>
-              <div className="player__toggler" style={{left: `30%`}}>Toggler</div>
+              <progress className="player__progress" value="30" max="100" ref={this._progressRef}></progress>
+              <div className="player__toggler" style={{left: `30%`}} ref={this._pinProgressRef}>Toggler</div>
             </div>
             <div className="player__time-value">1:30:29</div>
           </div>
