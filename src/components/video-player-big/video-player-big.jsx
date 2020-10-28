@@ -22,7 +22,6 @@ const VideoPlayerBig = (props) => {
         src={film.video}
         className="player__video"
         poster="/img/player-poster.jpg"
-        muted={true}
         ref={videoRef}>
       </video>
 
