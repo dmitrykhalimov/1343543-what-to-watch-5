@@ -1,4 +1,4 @@
-import React, {PureComponent, createRef} from "react";
+import React, {PureComponent} from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
@@ -62,7 +62,15 @@ class VideoPlayerBig extends PureComponent {
   }
 }
 
-VideoPlayerBig.propTypes = {};
+VideoPlayerBig.propTypes = {
+  isPlaying: PropTypes.bool.isRequired,
+  // служебные объекты же не нужно расписывать полностью?
+  videoRef: PropTypes.object.isRequired,
+  progressRef: PropTypes.object.isRequired,
+  pinProgressRef: PropTypes.object.isRequired,
+  onPlayPauseClick: PropTypes.func.isRequired,
+  onFullscreenClick: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   films: state.films,
