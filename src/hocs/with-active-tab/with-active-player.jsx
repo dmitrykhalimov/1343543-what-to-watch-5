@@ -61,13 +61,9 @@ const withActivePlayer = (Component) => {
       this.elapsedTime.textContent = new Date(elapsed * 1000).toISOString().substr(11, 8);
     }
 
-    computePercentage() {
-      return Math.round((this.video.currentTime / this.video.duration) * 100);
-    }
-
     progressLoop() {
       if (this.state.isPlaying === true) {
-        const percentage = this.computePercentage();
+        const percentage = Math.round((this.video.currentTime / this.video.duration) * 100);
         this.progress.value = percentage;
         this.pinProgress.style.left = `${percentage}% `;
         this.changeElapsedTime();
