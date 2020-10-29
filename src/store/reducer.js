@@ -1,4 +1,5 @@
 import films from "../mocks/films";
+import reviews from "../mocks/reviews";
 import {buildGenres} from "../core";
 import {extend} from "../utils/utils";
 import {ActionType} from "./action";
@@ -7,6 +8,7 @@ import {ALL_GENRES, QUANTITY_FILMS_RENDER} from "../const";
 const initialState = {
   activeGenre: ALL_GENRES,
   films,
+  reviews,
   genresList: buildGenres(films),
   rendered: QUANTITY_FILMS_RENDER,
 };

@@ -11,7 +11,7 @@ import {validReview} from "../../utils/props";
 import {Path} from "../../const";
 
 const App = (props) => {
-  const {title, genre, year, reviews} = props;
+  const {title, genre, year} = props;
   return (
     <BrowserRouter>
       <Switch>
@@ -32,7 +32,6 @@ const App = (props) => {
           path={Path.film}
           render={({history}) => (
             <Film
-              review = {reviews[0]}
               onPlayClick = {(id) => {
                 history.push(`/player/${id}`);
               }}
