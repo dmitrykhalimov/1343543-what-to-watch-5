@@ -11,9 +11,6 @@ const MoreLikeThis = (props) => {
 };
 
 MoreLikeThis.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.element.isRequired,
-    PropTypes.string.isRequired]).isRequired
-  )};
+  children: PropTypes.element.isRequired};
 
 export default MoreLikeThis;

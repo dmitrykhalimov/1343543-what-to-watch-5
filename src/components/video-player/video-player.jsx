@@ -11,6 +11,12 @@ class VideoPlayer extends PureComponent {
     this.handleUnhoverPlayer = this.handleUnhoverPlayer.bind(this);
   }
 
+  componentWillUnmount() {
+    if (this.filmTimeout) {
+      clearTimeout(this.filmTimeout);
+    }
+  }
+
   handleHoverPlayer() {
     const video = this._videoRef.current;
     this.filmTimeout = setTimeout(() => {
@@ -24,12 +30,6 @@ class VideoPlayer extends PureComponent {
       clearTimeout(this.filmTimeout);
     }
     video.load();
-  }
-
-  componentWillUnmount() {
-    if (this.filmTimeout) {
-      clearTimeout(this.filmTimeout);
-    }
   }
 
   render() {
