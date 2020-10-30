@@ -7,7 +7,7 @@ import FilmsList from "../films-list/films-list";
 import Filter from "../filter/filter";
 import Footer from "../footer/footer";
 
-import {ActionCreator} from "../../store/action";
+import {changeGenre, incrementRendered, resetRendered} from "../../store/action";
 import {filterFilms} from "../../core";
 import {validFilm} from "../../utils/props";
 import ShowMore from "../show-more/show-more";
@@ -25,7 +25,7 @@ const PageMain = (props) => {
     filterChange,
     genresList,
     rendered,
-    incrementRendered,
+    incrementRenderedFilms,
   } = props;
 
   const filteredFilms = filterFilms(activeGenre, films);
@@ -103,7 +103,7 @@ const PageMain = (props) => {
             <ShowMore
               rendered = {rendered}
               filmsQuantity = {films.length}
-              onShowMore = {incrementRendered}
+              onShowMore = {incrementRenderedFilms}
             /> : ``}
         </FilmsCatalog>
         <Footer />
@@ -121,7 +121,7 @@ PageMain.propTypes = {
   filterChange: PropTypes.func.isRequired,
   genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   rendered: PropTypes.number.isRequired,
-  incrementRendered: PropTypes.func.isRequired,
+  incrementRenderedFilms: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -133,12 +133,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   filterChange(genre) {
-    dispatch(ActionCreator.changeGenre(genre));
-    dispatch(ActionCreator.resetRendered());
+    dispatch(changeGenre(genre));
+    dispatch(resetRendered());
   },
 
-  incrementRendered(increment) {
-    dispatch(ActionCreator.incrementRendered(increment));
+  incrementRenderedFilms(increment) {
+    dispatch(incrementRendered(increment));
   }
 });
 
