@@ -5,10 +5,10 @@ import {Provider} from "react-redux";
 import App from "./components/app/app";
 import films from "../src/mocks/films";
 import reviews from "../src/mocks/reviews";
-import {reducer} from "./store/reducer";
+import rootReducer from "./store/reducers/root-reducer";
 
 const store = createStore(
-    reducer,
+    rootReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
 );
 
