@@ -5,7 +5,7 @@ const SubstringElapsed = {
   END: 11,
 };
 const MS_IN_S = 1000;
-
+console.log('Исправь меня!')
 const withActivePlayer = (Component) => {
   class WithActivePlayer extends PureComponent {
     constructor(props) {
