@@ -1,5 +1,11 @@
 import React, {PureComponent, createRef} from 'react';
 
+const SubstringElapsed = {
+  START: 8,
+  END: 11,
+};
+const MS_IN_S = 1000;
+
 const withActivePlayer = (Component) => {
   class WithActivePlayer extends PureComponent {
     constructor(props) {
@@ -57,8 +63,7 @@ const withActivePlayer = (Component) => {
 
     changeElapsedTime() {
       const elapsed = this.video.duration - this.video.currentTime;
-      // StackOverFlow - чемпион!
-      this.elapsedTime.textContent = new Date(elapsed * 1000).toISOString().substr(11, 8);
+      this.elapsedTime.textContent = new Date(elapsed * MS_IN_S).toISOString().substr(SubstringElapsed.END, SubstringElapsed.START);
     }
 
     progressLoop() {
