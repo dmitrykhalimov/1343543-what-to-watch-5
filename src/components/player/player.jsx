@@ -25,8 +25,8 @@ Player.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  films: state.films,
+const mapStateToProps = ({data}) => ({
+  films: data.films,
 });
 
 export default connect(mapStateToProps)(Player);

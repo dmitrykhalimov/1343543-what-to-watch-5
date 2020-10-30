@@ -124,11 +124,11 @@ PageMain.propTypes = {
   incrementRenderedFilms: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  activeGenre: state.activeGenre,
-  films: state.films,
-  genresList: state.genresList,
-  rendered: state.rendered,
+const mapStateToProps = ({data, filter, showMore}) => ({
+  activeGenre: filter.activeGenre,
+  films: data.films,
+  genresList: data.genresList,
+  rendered: showMore.rendered,
 });
 
 const mapDispatchToProps = (dispatch) => ({

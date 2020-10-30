@@ -124,9 +124,9 @@ Film.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  films: state.films,
-  reviews: state.reviews,
+const mapStateToProps = ({data}) => ({
+  films: data.films,
+  reviews: data.reviews,
 });
 
 export default withRouter(connect(mapStateToProps)(Film));
