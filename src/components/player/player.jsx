@@ -7,7 +7,7 @@ import {validFilm} from "../../utils/props";
 import {useParams} from "react-router-dom";
 
 const Player = (props) => {
-  let {id} = useParams();
+  const {id} = useParams();
   const VideoPlayerBigWrapped = withActivePlayer(VideoPlayerBig);
   const {films} = props;
   const film = films[id];
