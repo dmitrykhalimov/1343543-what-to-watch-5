@@ -6,7 +6,7 @@ import {ActionType} from "../../action";
 import {buildGenres} from "../../../core";
 
 const initialState = {
-  films,
+  films: [],
   reviews,
   genresList: buildGenres(films),
 };
