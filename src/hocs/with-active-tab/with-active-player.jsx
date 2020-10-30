@@ -22,7 +22,6 @@ const withActivePlayer = (Component) => {
 
       this.handlePlayPauseClick = this.handlePlayPauseClick.bind(this);
       this.handleFullScreenClick = this.handleFullScreenClick.bind(this);
-      this.progressLoop = this.progressLoop.bind(this);
     }
 
     componentDidMount() {
@@ -33,16 +32,17 @@ const withActivePlayer = (Component) => {
 
       this.video.oncanplay = () => {
         this.handlePlayPauseClick();
-        this.progressLoop();
+        this.video.play();
       };
 
       this.video.onended = () => {
         this.handlePlayPauseClick();
       };
-    }
 
-    componentDidUpdate() {
-      this.progressLoop();
+      this.video.ontimeupdate = () => {
+        this.changeProgressBar();
+        this.changeElapsedTime();
+      };
     }
 
     componentWillUnmount() {
@@ -66,14 +66,11 @@ const withActivePlayer = (Component) => {
       this.elapsedTime.textContent = new Date(elapsed * MS_IN_S).toISOString().substr(SubstringElapsed.END, SubstringElapsed.START);
     }
 
-    progressLoop() {
-      if (this.state.isPlaying === true) {
-        const percentage = Math.round((this.video.currentTime / this.video.duration) * 100);
-        this.progress.value = percentage;
-        this.pinProgress.style.left = `${percentage}% `;
-        this.changeElapsedTime();
-        requestAnimationFrame(this.progressLoop);
-      }
+    changeProgressBar() {
+      const percentage = (this.video.currentTime / this.video.duration) * 100;
+
+      this.progress.value = percentage;
+      this.pinProgress.style.left = `${percentage}% `;
     }
 
     handlePlayPauseClick() {
