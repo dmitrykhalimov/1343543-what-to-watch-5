@@ -46,8 +46,8 @@ const withActivePlayer = (Component) => {
     }
 
     componentWillUnmount() {
-      // console.log('Все удалилось');
-      // раз оно все анмаунтится я решил ничего не обнулять принудительно
+      this.handlePlayPauseClick = null;
+      this.handleFullScreenClick = null;
     }
 
     changeAction() {
