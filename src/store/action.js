@@ -4,6 +4,7 @@ export const ActionType = {
   RESET_RENDERED: `RESET_RENDERED`,
   LOAD_FILMS: `LOAD_FILMS`,
   LOAD_REVIEWS: `LOAD_REVIEWS`,
+  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
 };
 
 export const changeGenre = (genre) => ({
@@ -23,4 +24,9 @@ export const resetRendered = () => ({
 export const loadFilms = (films) => ({
   type: ActionType.LOAD_FILMS,
   payload: films,
+});
+
+export const requireAuthorization = (status) => ({
+  type: ActionType.REQUIRED_AUTHORIZATION,
+  payload: status,
 });

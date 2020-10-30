@@ -26,6 +26,11 @@ export const ratingRanks = [
   },
 ];
 
+export const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
+};
+
 export const Path = {
   index: `/`,
   login: `/login`,
