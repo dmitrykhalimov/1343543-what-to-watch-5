@@ -1,4 +1,3 @@
-import films from "../../../mocks/films";
 import reviews from "../../../mocks/reviews";
 
 import {extend} from "../../../utils/utils";
@@ -8,7 +7,7 @@ import {buildGenres} from "../../../core";
 const initialState = {
   films: [],
   reviews,
-  genresList: buildGenres(films),
+  genresList: [],
 };
 
 const filmsData = (state = initialState, action) => {
@@ -20,6 +19,10 @@ const filmsData = (state = initialState, action) => {
     case ActionType.LOAD_REVIEWS:
       return extend(state, {
         reviews: action.payload,
+      });
+    case ActionType.CREATE_GENRES:
+      return extend(state, {
+        genresList: buildGenres(action.payload)
       });
   }
   return state;

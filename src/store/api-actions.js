@@ -1,11 +1,14 @@
-import {loadFilms, requireAuthorization} from "./action";
+import {loadFilms, createGenres, requireAuthorization} from "./action";
 import {filmsAdapter} from "../services/adapter";
 import {AuthorizationStatus} from "../const";
 
 export const fetchFilmsList = () => (dispatch, _getState, api) => (
   api.get(`/films`)
     .then(({data}) => filmsAdapter(data))
-    .then((films) => dispatch(loadFilms(films)))
+    .then((films) => {
+      dispatch(loadFilms(films));
+      dispatch(createGenres(films));
+    })
 );
 
 // задел на будущее

@@ -1,6 +1,7 @@
 export const ActionType = {
   CHANGE_GENRE: `CHANGE_GENRE`,
   INCREMENT_RENDERED: `INCREMENT_RENDERED`,
+  CREATE_GENRES: `CREATE_GENRES`,
   RESET_RENDERED: `RESET_RENDERED`,
   LOAD_FILMS: `LOAD_FILMS`,
   LOAD_REVIEWS: `LOAD_REVIEWS`,
@@ -23,6 +24,11 @@ export const resetRendered = () => ({
 
 export const loadFilms = (films) => ({
   type: ActionType.LOAD_FILMS,
+  payload: films,
+});
+
+export const createGenres = (films) => ({
+  type: ActionType.CREATE_GENRES,
   payload: films,
 });
 
