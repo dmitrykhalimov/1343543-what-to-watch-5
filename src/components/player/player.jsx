@@ -6,6 +6,7 @@ import withActivePlayer from "../../hocs/with-active-player/with-active-player";
 import {validFilm} from "../../utils/props";
 import {useParams} from "react-router-dom";
 import {findByKey} from "../../utils/utils";
+import {getFilms} from "../../store/reducers/selectors";
 
 const Player = (props) => {
   const {id} = useParams();
@@ -26,8 +27,8 @@ Player.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
 };
 
-const mapStateToProps = ({data}) => ({
-  films: data.films,
+const mapStateToProps = (state) => ({
+  films: getFilms(state),
 });
 
 export default connect(mapStateToProps)(Player);

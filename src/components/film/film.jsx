@@ -11,6 +11,7 @@ import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
 import PageContent from "../page-content/page-content";
 import MoreLikeThis from "../more-like-this/more-like-this";
+import {getFilms} from "../../store/reducers/selectors";
 
 const MAX_FILMS_QUANTITY = 4;
 const TabsWrapped = withActiveTab(Tabs);
@@ -129,9 +130,9 @@ Film.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = ({data}) => ({
-  films: data.films,
-  reviews: data.reviews,
+const mapStateToProps = (state) => ({
+  films: getFilms(state),
+  reviews: state.data.reviews,
 });
 
 export default withRouter(connect(mapStateToProps)(Film));
