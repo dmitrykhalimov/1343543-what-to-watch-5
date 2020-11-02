@@ -18,15 +18,11 @@ export const getRendered = (state) => {
   return state.showMore.rendered;
 };
 
-export const getFilms1 = (filter, data) => {
-  console.log('Дата');
-  return filterFilms(filter.activeGenre, data.films);
-};
-
 // reselect
 export const getFilteredFilms = createSelector(
-    getFilms1,
-    (films) => {
-      return films;
+    getActiveGenre,
+    getFilms,
+    (activeGenre, films) => {
+      return filterFilms(activeGenre, films);
     }
 );

@@ -128,7 +128,7 @@ PageMain.propTypes = {
 const mapStateToProps = (state) => ({
   activeGenre: getActiveGenre(state),
   films: getFilms(state),
-  filteredFilms: getFilteredFilms(state.filter, state.data),
+  filteredFilms: getFilteredFilms(state),
   genresList: getGenresList(state),
   rendered: getRendered(state),
 });
