@@ -1,9 +1,11 @@
 import {loadFilms, requireAuthorization} from "./action";
+import {filmsAdapter} from "../services/adapter";
 import {AuthorizationStatus} from "../const";
 
 export const fetchFilmsList = () => (dispatch, _getState, api) => (
   api.get(`/films`)
-    .then(({data}) => dispatch(loadFilms(data)))
+    .then(({data}) => filmsAdapter(data))
+    .then((films) => dispatch(loadFilms(films)))
 );
 
 // задел на будущее
