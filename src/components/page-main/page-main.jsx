@@ -8,12 +8,13 @@ import Filter from "../filter/filter";
 import Footer from "../footer/footer";
 
 import {changeGenre, incrementRendered, resetRendered} from "../../store/action";
-import {filterFilms} from "../../core";
 import {validFilm} from "../../utils/props";
 import ShowMore from "../show-more/show-more";
 import FilmsCatalog from "../films-catalog/films-catalog";
 import PageContent from "../page-content/page-content";
 import {Link} from "react-router-dom";
+import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms} from "../../store/reducers/selectors";
+
 
 const PageMain = (props) => {
   const {
@@ -124,12 +125,12 @@ PageMain.propTypes = {
   incrementRenderedFilms: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({data, filter, showMore}) => ({
-  activeGenre: filter.activeGenre,
-  films: data.films,
-  filteredFilms: filterFilms(filter.activeGenre, data.films),
-  genresList: data.genresList,
-  rendered: showMore.rendered,
+const mapStateToProps = (state) => ({
+  activeGenre: getActiveGenre(state),
+  films: getFilms(state),
+  filteredFilms: getFilteredFilms(state.filter, state.data),
+  genresList: getGenresList(state),
+  rendered: getRendered(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
