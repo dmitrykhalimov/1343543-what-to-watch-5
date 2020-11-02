@@ -6,6 +6,7 @@ import {buildGenres} from "../../../core";
 
 const initialState = {
   films: [],
+  filteredFilms: [],
   reviews,
   genresList: [],
 };

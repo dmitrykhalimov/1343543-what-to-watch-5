@@ -23,12 +23,11 @@ const PageMain = (props) => {
     films,
     activeGenre,
     filterChange,
+    filteredFilms,
     genresList,
     rendered,
     incrementRenderedFilms,
   } = props;
-
-  const filteredFilms = filterFilms(activeGenre, films);
 
   return (
     <React.Fragment>
@@ -117,6 +116,7 @@ PageMain.propTypes = {
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(validFilm).isRequired,
+  filteredFilms: PropTypes.arrayOf(validFilm).isRequired,
   activeGenre: PropTypes.string.isRequired,
   filterChange: PropTypes.func.isRequired,
   genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
@@ -127,6 +127,7 @@ PageMain.propTypes = {
 const mapStateToProps = ({data, filter, showMore}) => ({
   activeGenre: filter.activeGenre,
   films: data.films,
+  filteredFilms: filterFilms(filter.activeGenre, data.films),
   genresList: data.genresList,
   rendered: showMore.rendered,
 });
