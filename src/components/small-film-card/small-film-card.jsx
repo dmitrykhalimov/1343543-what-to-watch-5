@@ -6,8 +6,6 @@ import VideoPlayer from "../video-player/video-player";
 
 const SmallFilmCard = (props) => {
   const {id, preview, title, src} = props;
-
-  console.log(src);
   return (
     <article
       className="small-movie-card catalog__movies-card"

@@ -11,11 +11,12 @@ export const filmsAdapter = (films) => {
       rankNumber: film.rating,
       rankText: translateRatingToText(film.rating),
       year: film.released,
-      video: film.video_link,
-      videoPreview: film.preview_video_link,
+      video: film.preview_video_link,
+      videoMain: film.video_link,
       duration: film.run_time,
-      cast: film.starring,
+      cast: film.starring.join(`, `),
       votes: film.scores_count,
+      description: film.description.split(`. `),
     });
     return adaptedFilm;
   });

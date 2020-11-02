@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 import {validFilm, validReview} from "../../utils/props";
 import Tabs from "../tabs/tabs";
 import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
+import {findByKey} from "../../utils/utils";
 import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
 import PageContent from "../page-content/page-content";
@@ -28,7 +29,7 @@ class Film extends PureComponent {
   render() {
     const {films, reviews, onPlayClick} = this.props;
     const id = this.props.match.params.id;
-    const film = films[id];
+    const film = findByKey(films, id);
     const review = reviews[id];
     const similarFilms = this.filterFilms(film);
 
@@ -100,7 +101,7 @@ class Film extends PureComponent {
           </div>
         </section>
 
-        <PageContent>
+        {/* <PageContent>
           <MoreLikeThis>
             <FilmsList
               films = {similarFilms}
@@ -108,7 +109,7 @@ class Film extends PureComponent {
             />
           </MoreLikeThis>
           <Footer/>
-        </PageContent>
+        </PageContent> */}
       </React.Fragment>
     );
   }
