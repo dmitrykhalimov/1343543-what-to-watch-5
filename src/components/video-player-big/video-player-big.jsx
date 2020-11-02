@@ -19,7 +19,7 @@ const VideoPlayerBig = (props) => {
   return (
     <React.Fragment>
       <video
-        src={film.video}
+        src={film.videoMain}
         className="player__video"
         poster="/img/player-poster.jpg"
         ref={videoRef}>

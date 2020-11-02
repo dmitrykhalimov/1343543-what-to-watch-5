@@ -105,7 +105,7 @@ class Film extends PureComponent {
           </div>
         </section>
 
-        {/* <PageContent>
+        <PageContent>
           <MoreLikeThis>
             <FilmsList
               films = {similarFilms}
@@ -113,7 +113,7 @@ class Film extends PureComponent {
             />
           </MoreLikeThis>
           <Footer/>
-        </PageContent> */}
+        </PageContent>
       </React.Fragment>
     );
   }

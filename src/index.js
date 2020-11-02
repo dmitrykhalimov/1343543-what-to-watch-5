@@ -6,16 +6,17 @@ import App from "./components/app/app";
 import films from "../src/mocks/films";
 import reviews from "../src/mocks/reviews";
 import rootReducer from "./store/reducers/root-reducer";
-import {requireAuthorization} from "./store/action";
-import {fetchFilmsList, checkAuth} from "./store/api-actions";
+// import {requireAuthorization} from "./store/action";
+import {fetchFilmsList} from "./store/api-actions";
 import thunk from "redux-thunk";
 import {createAPI} from "./services/api";
-import {AuthorizationStatus} from "./const";
+// import {AuthorizationStatus} from "./const";
 import {composeWithDevTools} from "redux-devtools-extension";
 
-const api = createAPI(
-    () => store.dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH))
-);
+const api = createAPI();
+// const api = createAPI(
+//     () => store.dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH))
+// );
 
 const store = createStore(
     rootReducer,
