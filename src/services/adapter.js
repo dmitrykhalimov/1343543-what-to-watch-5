@@ -8,6 +8,7 @@ export const filmsAdapter = (films) => {
       poster: film.poster_image,
       preview: film.preview_image,
       background: film.background_image,
+      backgroundColor: film.background_color,
       rankNumber: film.rating,
       rankText: translateRatingToText(film.rating),
       year: film.released,

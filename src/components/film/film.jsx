@@ -33,9 +33,13 @@ class Film extends PureComponent {
     const review = reviews[id];
     const similarFilms = this.filterFilms(film);
 
+    const backgroundStyle = {
+      backgroundColor: film.backgroundColor,
+    };
+
     return (
       <React.Fragment>
-        <section className="movie-card movie-card--full">
+        <section className="movie-card movie-card--full" style={backgroundStyle}>
           <div className="movie-card__hero">
             <div className="movie-card__bg">
               <img src={film.background} alt={film.title} />
