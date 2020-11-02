@@ -26,6 +26,8 @@ export const loadFilms = (films) => ({
   payload: films,
 });
 
+// задел на будущее
+
 export const requireAuthorization = (status) => ({
   type: ActionType.REQUIRED_AUTHORIZATION,
   payload: status,
