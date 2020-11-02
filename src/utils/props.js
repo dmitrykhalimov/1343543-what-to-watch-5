@@ -32,3 +32,7 @@ export const validReview = PropTypes.shape({
   comments: PropTypes.arrayOf(validComment).isRequired,
 }).isRequired;
 
+
+export const validRef = PropTypes.oneOfType([
+  PropTypes.shape({current: PropTypes.instanceOf(Element)})
+]);
