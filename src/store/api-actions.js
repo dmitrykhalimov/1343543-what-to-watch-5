@@ -9,6 +9,9 @@ export const fetchFilmsList = () => (dispatch, _getState, api) => (
       dispatch(loadFilms(films));
       dispatch(createGenres(films));
     })
+    .catch(() => {
+      throw Error(`Ошибка загрузки списка фильмов`);
+    })
 );
 
 // задел на будущее
