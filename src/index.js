@@ -24,8 +24,24 @@ const store = createStore(
     )
 );
 
-store.dispatch(fetchFilmsList());
-store.dispatch(checkAuth());
+Promise.all([
+  store.dispatch(fetchFilmsList()),
+  // store.dispatch(checkAuth()),
+])
+.then(() => {
+  ReactDOM.render(
+      <Provider store={store}>
+        <App
+          title = {DetailsPromo.TITLE}
+          genre = {DetailsPromo.GENRE}
+          year = {DetailsPromo.YEAR}
+          films = {films}
+          reviews = {reviews}
+        />
+      </Provider>,
+      document.querySelector(`#root`)
+  );
+});
 
 const DetailsPromo = {
   TITLE: `The Grand Budapest Hotel`,
@@ -33,15 +49,3 @@ const DetailsPromo = {
   YEAR: `2014`,
 };
 
-ReactDOM.render(
-    <Provider store={store}>
-      <App
-        title = {DetailsPromo.TITLE}
-        genre = {DetailsPromo.GENRE}
-        year = {DetailsPromo.YEAR}
-        films = {films}
-        reviews = {reviews}
-      />
-    </Provider>,
-    document.querySelector(`#root`)
-);
