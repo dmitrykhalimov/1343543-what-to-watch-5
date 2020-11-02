@@ -5,12 +5,13 @@ import VideoPlayerBig from "../video-player-big/video-player-big";
 import withActivePlayer from "../../hocs/with-active-player/with-active-player";
 import {validFilm} from "../../utils/props";
 import {useParams} from "react-router-dom";
+import {findByKey} from "../../utils/utils";
 
 const Player = (props) => {
   const {id} = useParams();
   const VideoPlayerBigWrapped = withActivePlayer(VideoPlayerBig);
   const {films} = props;
-  const film = films[id];
+  const film = findByKey(films, id);
   return (
     <div className="player">
       <VideoPlayerBigWrapped
