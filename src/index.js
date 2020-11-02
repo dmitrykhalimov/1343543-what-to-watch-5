@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
 import App from "./components/app/app";
-import films from "../src/mocks/films";
 import reviews from "../src/mocks/reviews";
 import rootReducer from "./store/reducers/root-reducer";
 // import {requireAuthorization} from "./store/action";
@@ -36,7 +35,6 @@ Promise.all([
           title = {DetailsPromo.TITLE}
           genre = {DetailsPromo.GENRE}
           year = {DetailsPromo.YEAR}
-          films = {films}
           reviews = {reviews}
         />
       </Provider>,
