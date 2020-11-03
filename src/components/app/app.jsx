@@ -31,9 +31,6 @@ const App = (props) => {
           path={Path.mylist}
           render={() => <MyList/>}
         />
-        {/* <Route exact path={Path.mylist}>
-          <MyList/>
-        </Route> */}
         <Route exact
           path={Path.film}
           render={({history}) => (
@@ -44,7 +41,22 @@ const App = (props) => {
             />
           )}
         />
-        <Route path={Path.review} exact>
+        <PrivateRoute
+          exact
+          path={Path.review}
+          render={() => (
+            <AddReview
+              onFormSubmit = {(textComment, givenRating) => {
+                // eslint-disable-next-line no-console
+                console.log(`Мой расчудесный комментарий`);
+                // eslint-disable-next-line no-console
+                console.log(textComment);
+                // eslint-disable-next-line no-console
+                console.log(givenRating);
+              }}
+            />)}
+        />
+        {/* <Route path={Path.review} exact>
           <AddReview
             onFormSubmit = {(textComment, givenRating) => {
               // eslint-disable-next-line no-console
@@ -55,7 +67,7 @@ const App = (props) => {
               console.log(givenRating);
             }}
           />
-        </Route>
+        </Route> */}
         <Route path={Path.player} exact>
           <Player/>
         </Route>
