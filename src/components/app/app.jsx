@@ -9,7 +9,7 @@ import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 import {validReview} from "../../utils/props";
 import {Path} from "../../const";
-import PrivateRoute from "../private-route/private-routes";
+// import PrivateRoute from "../private-route/private-routes";
 
 const App = (props) => {
   const {title, genre, year} = props;

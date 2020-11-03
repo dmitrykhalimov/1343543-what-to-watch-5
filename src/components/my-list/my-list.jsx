@@ -1,21 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import SmallFilmCard from "../small-film-card/small-film-card";
+import Logo from "../logo/logo";
+import FilmsCatalog from "../films-catalog/films-catalog";
+import FilmsList from "../films-list/films-list";
 import {validFilm} from "../../utils/props";
 import {connect} from "react-redux";
+import {getFilms, getRendered} from "../../store/reducers/selectors";
 
 const MyList = (props) => {
-  const {films} = props;
+  const {films, rendered} = props;
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
-        <div className="logo">
-          <a href="main.html" className="logo__link">
-            <span className="logo__letter logo__letter--1">W</span>
-            <span className="logo__letter logo__letter--2">T</span>
-            <span className="logo__letter logo__letter--3">W</span>
-          </a>
-        </div>
+        <Logo></Logo>
 
         <h1 className="page-title user-page__title">My list</h1>
 
@@ -26,24 +23,12 @@ const MyList = (props) => {
         </div>
       </header>
 
-      <section className="catalog">
-        <h2 className="catalog__title visually-hidden">Catalog</h2>
-        {/* по отображению, MyList полностью дублирует FilmsList, но т.к. логика отображения будет другой, я не стал переиспользовать компонент FilmsList*, а вот SmallMovieCard можно переиспользовать вполне */}
-        <div className="catalog__movies-list">
-          {/* т.к. в ТЗ нет ограничений на количество фильмов в MyList, то можно не использовать цикл, а итерироваться по всему массиву */}
-          {films.map((film) => {
-            return <SmallFilmCard
-              key = {film.id}
-              preview = {film.preview}
-              title = {film.title}
-              id = {film.id}
-              // неясно должен ли быть предпросмотр в MyList, поэтому отправил пустую функцию, чтобы не переписывать этот компонент под классовый
-              onFilmCardHover = {() => {
-                return ``;
-              }} />;
-          })}
-        </div>
-      </section>
+      <FilmsCatalog>
+        <FilmsList
+          films = {films}
+          maxQuantity = {rendered}
+        />
+      </FilmsCatalog>
 
       <footer className="page-footer">
         <div className="logo">
@@ -64,10 +49,13 @@ const MyList = (props) => {
 
 MyList.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
+  rendered: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  films: state.films,
+  films: getFilms(state),
+  // временное решение, когда будет нормальная реализация mylist - поправлю
+  rendered: getRendered(state),
 });
 
 export default connect(mapStateToProps)(MyList);
