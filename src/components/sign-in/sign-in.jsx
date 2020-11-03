@@ -1,6 +1,7 @@
 import React, {PureComponent, createRef} from "react";
 import {connect} from "react-redux";
 import Logo from "../logo/logo";
+import Footer from "../footer/footer";
 import {login} from "../../store/api-actions";
 import PropTypes from "prop-types";
 
@@ -57,20 +58,9 @@ class SignIn extends PureComponent {
           </form>
         </div>
 
-        <footer className="page-footer">
-          <div className="logo">
-            {/* todo - управляемое лого */}
-            <a href="main.html" className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer
+          isLight = {true}
+        />
       </div>
     );
   }

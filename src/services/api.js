@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BACKEND_URL = `https://5.react.pages.academy/wtdw`;
+const BACKEND_URL = `https://5.react.pages.academy/wtw`;
 const REQUEST_TIMEOUT = 5000;
 
 const HttpCode = {
