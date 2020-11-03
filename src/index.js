@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
 import App from "./components/app/app";
+import ErrorPage from "./components/error-page/error-page";
 import reviews from "../src/mocks/reviews";
 import rootReducer from "./store/reducers/root-reducer";
 import {requireAuthorization} from "./store/action";
@@ -44,7 +45,10 @@ Promise.all([
   );
 })
 .catch(() => {
-  throw Error(`Ошибка запуска приложения`);
+  ReactDOM.render(
+      <ErrorPage></ErrorPage>,
+      document.querySelector(`#root`)
+  );
 });
 
 const DetailsPromo = {
