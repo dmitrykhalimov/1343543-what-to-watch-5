@@ -30,7 +30,6 @@ Promise.all([
   store.dispatch(fetchFilmsList()),
   store.dispatch(checkAuth()),
 ])
-
 .then(() => {
   ReactDOM.render(
       <Provider store={store}>
