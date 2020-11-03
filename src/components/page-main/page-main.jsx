@@ -30,7 +30,6 @@ const PageMain = (props) => {
     filteredFilms,
     genresList,
     rendered,
-    userData,
     incrementRenderedFilms,
   } = props;
 
@@ -45,9 +44,7 @@ const PageMain = (props) => {
 
         <header className="page-header movie-card__head">
           <Logo/>
-          <UserBlock
-            userData = {userData}
-          />
+          <UserBlock/>
         </header>
 
         <div className="movie-card__wrap">
