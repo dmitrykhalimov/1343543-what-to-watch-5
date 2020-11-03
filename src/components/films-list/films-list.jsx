@@ -11,7 +11,12 @@ const FilmsList = (props) => {
       {films
           .slice(0, Math.min(films.length, maxQuantity))
           .map((film) => {
-            return <SmallFilmCard key = {film.id} preview = {`${film.preview}`} title = {film.title} id = {film.id} src = {film.video}/>;
+            return <SmallFilmCard
+              key = {film.id}
+              preview = {`${film.preview}`}
+              title = {film.title}
+              id = {film.id}
+              src = {film.video}/>;
           })}
     </div>
   );

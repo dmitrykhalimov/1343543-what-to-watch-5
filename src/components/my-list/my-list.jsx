@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Logo from "../logo/logo";
 import FilmsCatalog from "../films-catalog/films-catalog";
 import FilmsList from "../films-list/films-list";
+import Footer from "../footer/footer";
 import {validFilm} from "../../utils/props";
 import {connect} from "react-redux";
 import {getFilms, getRendered} from "../../store/reducers/selectors";
@@ -30,19 +31,9 @@ const MyList = (props) => {
         />
       </FilmsCatalog>
 
-      <footer className="page-footer">
-        <div className="logo">
-          <a href="main.html" className="logo__link logo__link--light">
-            <span className="logo__letter logo__letter--1">W</span>
-            <span className="logo__letter logo__letter--2">T</span>
-            <span className="logo__letter logo__letter--3">W</span>
-          </a>
-        </div>
-
-        <div className="copyright">
-          <p>© 2019 What to watch Ltd.</p>
-        </div>
-      </footer>
+      <Footer
+        isLight={true}
+      />
     </div>
   );
 };

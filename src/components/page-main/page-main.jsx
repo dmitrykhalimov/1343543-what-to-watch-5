@@ -99,7 +99,9 @@ const PageMain = (props) => {
               onShowMore = {incrementRenderedFilms}
             /> : ``}
         </FilmsCatalog>
-        <Footer />
+        <Footer
+          isLight = {true}
+        />
       </PageContent>
     </React.Fragment>
   );
