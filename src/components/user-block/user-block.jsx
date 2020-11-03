@@ -1,17 +1,24 @@
 import React from "react";
-import PropTypes from "prop-types";
+import UserAvatar from "../user-avatar/user-avatar";
+import {AuthorizationStatus} from "../../const";
+import UserSignIn from "../user-sign-in/user-sign-in";
+import {validUserData} from "../../utils/props";
 
 const UserBlock = (props) => {
-
+  const {authorizationStatus, avatarUrl} = props.userData;
   return (
     <div className="user-block">
-      <div className="user-block__avatar">
-        <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-      </div>
+      {authorizationStatus === AuthorizationStatus.AUTH
+        ? <UserAvatar avatarUrl = {avatarUrl}/>
+        : <UserSignIn/>
+      }
     </div>
   );
 };
 
-UserBlock.propTypes = {};
+UserBlock.propTypes = {
+  userData: validUserData,
+};
 
 export default UserBlock;
+

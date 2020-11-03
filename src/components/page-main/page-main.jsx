@@ -13,7 +13,7 @@ import ShowMore from "../show-more/show-more";
 import FilmsCatalog from "../films-catalog/films-catalog";
 import PageContent from "../page-content/page-content";
 import {Link} from "react-router-dom";
-import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms} from "../../store/reducers/selectors";
+import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms, getUserData} from "../../store/reducers/selectors";
 import UserBlock from "../user-block/user-block";
 
 
@@ -28,6 +28,7 @@ const PageMain = (props) => {
     filteredFilms,
     genresList,
     rendered,
+    userData,
     incrementRenderedFilms,
   } = props;
 
@@ -49,7 +50,9 @@ const PageMain = (props) => {
             </a>
           </div>
 
-          <UserBlock></UserBlock>
+          <UserBlock
+            userData = {userData}
+          />
         </header>
 
         <div className="movie-card__wrap">
@@ -129,6 +132,7 @@ const mapStateToProps = (state) => ({
   filteredFilms: getFilteredFilms(state),
   genresList: getGenresList(state),
   rendered: getRendered(state),
+  userData: getUserData(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -17,7 +17,7 @@ export const fetchFilmsList = () => (dispatch, _getState, api) => (
 export const checkAuth = () => (dispatch, _getState, api) => (
   api.get(`/login`)
     .then(() => {
-      dispatch(requireAuthorization(AuthorizationStatus.AUTH));
+      dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH));
     })
     .catch(() => {
       throw Error(`Ошибка связи с сервером`);
