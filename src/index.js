@@ -1,16 +1,49 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
 import App from "./components/app/app";
-import films from "../src/mocks/films";
 import reviews from "../src/mocks/reviews";
-import {reducer} from "./store/reducer";
+import rootReducer from "./store/reducers/root-reducer";
+// import {requireAuthorization} from "./store/action";
+import {fetchFilmsList} from "./store/api-actions";
+import thunk from "redux-thunk";
+import {createAPI} from "./services/api";
+// import {AuthorizationStatus} from "./const";
+import {composeWithDevTools} from "redux-devtools-extension";
+
+const api = createAPI();
+// const api = createAPI(
+//     () => store.dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH))
+// );
 
 const store = createStore(
-    reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+    rootReducer,
+    composeWithDevTools(
+        applyMiddleware(thunk.withExtraArgument(api))
+    )
 );
+
+Promise.all([
+  store.dispatch(fetchFilmsList()),
+  // store.dispatch(checkAuth()),
+])
+.then(() => {
+  ReactDOM.render(
+      <Provider store={store}>
+        <App
+          title = {DetailsPromo.TITLE}
+          genre = {DetailsPromo.GENRE}
+          year = {DetailsPromo.YEAR}
+          reviews = {reviews}
+        />
+      </Provider>,
+      document.querySelector(`#root`)
+  );
+})
+.catch(() => {
+  throw Error(`Ошибка отрисовки`);
+});
 
 const DetailsPromo = {
   TITLE: `The Grand Budapest Hotel`,
@@ -18,15 +51,3 @@ const DetailsPromo = {
   YEAR: `2014`,
 };
 
-ReactDOM.render(
-    <Provider store={store}>
-      <App
-        title = {DetailsPromo.TITLE}
-        genre = {DetailsPromo.GENRE}
-        year = {DetailsPromo.YEAR}
-        films = {films}
-        reviews = {reviews}
-      />
-    </Provider>,
-    document.querySelector(`#root`)
-);

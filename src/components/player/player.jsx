@@ -2,15 +2,17 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import VideoPlayerBig from "../video-player-big/video-player-big";
-import withActivePlayer from "../../hocs/with-active-tab/with-active-player";
+import withActivePlayer from "../../hocs/with-active-player/with-active-player";
 import {validFilm} from "../../utils/props";
 import {useParams} from "react-router-dom";
+import {findByKey} from "../../utils/utils";
+import {getFilms} from "../../store/reducers/selectors";
 
 const Player = (props) => {
-  let {id} = useParams();
+  const {id} = useParams();
   const VideoPlayerBigWrapped = withActivePlayer(VideoPlayerBig);
   const {films} = props;
-  const film = films[id];
+  const film = findByKey(films, id);
   return (
     <div className="player">
       <VideoPlayerBigWrapped
@@ -26,7 +28,7 @@ Player.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  films: state.films,
+  films: getFilms(state),
 });
 
 export default connect(mapStateToProps)(Player);

@@ -6,10 +6,12 @@ import {Link} from "react-router-dom";
 import {validFilm, validReview} from "../../utils/props";
 import Tabs from "../tabs/tabs";
 import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
+import {findByKey} from "../../utils/utils";
 import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
 import PageContent from "../page-content/page-content";
 import MoreLikeThis from "../more-like-this/more-like-this";
+import {getFilms} from "../../store/reducers/selectors";
 
 const MAX_FILMS_QUANTITY = 4;
 const TabsWrapped = withActiveTab(Tabs);
@@ -28,13 +30,17 @@ class Film extends PureComponent {
   render() {
     const {films, reviews, onPlayClick} = this.props;
     const id = this.props.match.params.id;
-    const film = films[id];
+    const film = findByKey(films, id);
     const review = reviews[id];
     const similarFilms = this.filterFilms(film);
 
+    const backgroundStyle = {
+      backgroundColor: film.backgroundColor,
+    };
+
     return (
       <React.Fragment>
-        <section className="movie-card movie-card--full">
+        <section className="movie-card movie-card--full" style={backgroundStyle}>
           <div className="movie-card__hero">
             <div className="movie-card__bg">
               <img src={film.background} alt={film.title} />
@@ -125,8 +131,8 @@ Film.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  films: state.films,
-  reviews: state.reviews,
+  films: getFilms(state),
+  reviews: state.data.reviews,
 });
 
 export default withRouter(connect(mapStateToProps)(Film));

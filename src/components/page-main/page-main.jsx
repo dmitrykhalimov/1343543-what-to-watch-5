@@ -7,13 +7,14 @@ import FilmsList from "../films-list/films-list";
 import Filter from "../filter/filter";
 import Footer from "../footer/footer";
 
-import {ActionCreator} from "../../store/action";
-import {filterFilms} from "../../core";
+import {changeGenre, incrementRendered, resetRendered} from "../../store/action";
 import {validFilm} from "../../utils/props";
 import ShowMore from "../show-more/show-more";
 import FilmsCatalog from "../films-catalog/films-catalog";
 import PageContent from "../page-content/page-content";
 import {Link} from "react-router-dom";
+import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms} from "../../store/reducers/selectors";
+
 
 const PageMain = (props) => {
   const {
@@ -23,12 +24,11 @@ const PageMain = (props) => {
     films,
     activeGenre,
     filterChange,
+    filteredFilms,
     genresList,
     rendered,
-    incrementRendered,
+    incrementRenderedFilms,
   } = props;
-
-  const filteredFilms = filterFilms(activeGenre, films);
 
   return (
     <React.Fragment>
@@ -69,7 +69,7 @@ const PageMain = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <Link className="btn btn--play movie-card__button" type="button" to={`/films/0`}>
+                <Link className="btn btn--play movie-card__button" type="button" to={`/films/1`}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
@@ -103,7 +103,7 @@ const PageMain = (props) => {
             <ShowMore
               rendered = {rendered}
               filmsQuantity = {films.length}
-              onShowMore = {incrementRendered}
+              onShowMore = {incrementRenderedFilms}
             /> : ``}
         </FilmsCatalog>
         <Footer />
@@ -117,28 +117,30 @@ PageMain.propTypes = {
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(validFilm).isRequired,
+  filteredFilms: PropTypes.arrayOf(validFilm).isRequired,
   activeGenre: PropTypes.string.isRequired,
   filterChange: PropTypes.func.isRequired,
   genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   rendered: PropTypes.number.isRequired,
-  incrementRendered: PropTypes.func.isRequired,
+  incrementRenderedFilms: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  activeGenre: state.activeGenre,
-  films: state.films,
-  genresList: state.genresList,
-  rendered: state.rendered,
+  activeGenre: getActiveGenre(state),
+  films: getFilms(state),
+  filteredFilms: getFilteredFilms(state),
+  genresList: getGenresList(state),
+  rendered: getRendered(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   filterChange(genre) {
-    dispatch(ActionCreator.changeGenre(genre));
-    dispatch(ActionCreator.resetRendered());
+    dispatch(changeGenre(genre));
+    dispatch(resetRendered());
   },
 
-  incrementRendered(increment) {
-    dispatch(ActionCreator.incrementRendered(increment));
+  incrementRenderedFilms(increment) {
+    dispatch(incrementRendered(increment));
   }
 });
 
