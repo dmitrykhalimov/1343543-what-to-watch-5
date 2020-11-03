@@ -84,7 +84,6 @@ const PageMain = (props) => {
             activeGenre = {activeGenre}
             onFilterSelect = {filterChange}
           />
-
           <FilmsList
             films = {filteredFilms}
             maxQuantity = {rendered}

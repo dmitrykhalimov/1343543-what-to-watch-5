@@ -7,6 +7,7 @@ import Footer from "../footer/footer";
 import {validFilm} from "../../utils/props";
 import {connect} from "react-redux";
 import {getFilms, getRendered} from "../../store/reducers/selectors";
+import UserBlock from "../user-block/user-block";
 
 const MyList = (props) => {
   const {films, rendered} = props;
@@ -17,11 +18,7 @@ const MyList = (props) => {
 
         <h1 className="page-title user-page__title">My list</h1>
 
-        <div className="user-block">
-          <div className="user-block__avatar">
-            <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-          </div>
-        </div>
+        <UserBlock/>
       </header>
 
       <FilmsCatalog>

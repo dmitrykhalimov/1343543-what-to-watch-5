@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import FormReview from "../form-review/form-review";
 import Logo from "../logo/logo";
+import UserBlock from "../user-block/user-block";
 
 const AddReview = (props) => {
   const {onFormSubmit} = props;
@@ -27,11 +28,7 @@ const AddReview = (props) => {
             </ul>
           </nav>
 
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
+          <UserBlock/>
         </header>
 
         <div className="movie-card__poster movie-card__poster--small">

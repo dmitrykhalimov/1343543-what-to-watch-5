@@ -13,6 +13,7 @@ import PageContent from "../page-content/page-content";
 import MoreLikeThis from "../more-like-this/more-like-this";
 import {getFilms} from "../../store/reducers/selectors";
 import Logo from "../logo/logo";
+import UserBlock from "../user-block/user-block";
 
 const MAX_FILMS_QUANTITY = 4;
 const TabsWrapped = withActiveTab(Tabs);
@@ -51,11 +52,7 @@ class Film extends PureComponent {
 
             <header className="page-header movie-card__head">
               <Logo/>
-              <div className="user-block">
-                <div className="user-block__avatar">
-                  <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63" />
-                </div>
-              </div>
+              <UserBlock/>
             </header>
 
             <div className="movie-card__wrap">
