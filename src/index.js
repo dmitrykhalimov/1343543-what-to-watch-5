@@ -5,17 +5,16 @@ import {Provider} from "react-redux";
 import App from "./components/app/app";
 import reviews from "../src/mocks/reviews";
 import rootReducer from "./store/reducers/root-reducer";
-// import {requireAuthorization} from "./store/action";
-import {fetchFilmsList} from "./store/api-actions";
+import {requireAuthorization} from "./store/action";
+import {fetchFilmsList, checkAuth} from "./store/api-actions";
 import thunk from "redux-thunk";
 import {createAPI} from "./services/api";
-// import {AuthorizationStatus} from "./const";
+import {AuthorizationStatus} from "./const";
 import {composeWithDevTools} from "redux-devtools-extension";
 
-const api = createAPI();
-// const api = createAPI(
-//     () => store.dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH))
-// );
+const api = createAPI(
+    () => store.dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH))
+);
 
 const store = createStore(
     rootReducer,
@@ -26,8 +25,9 @@ const store = createStore(
 
 Promise.all([
   store.dispatch(fetchFilmsList()),
-  // store.dispatch(checkAuth()),
+  store.dispatch(checkAuth()),
 ])
+
 .then(() => {
   ReactDOM.render(
       <Provider store={store}>
@@ -42,7 +42,7 @@ Promise.all([
   );
 })
 .catch(() => {
-  throw Error(`Ошибка отрисовки`);
+  throw Error(`Ошибка запуска приложения`);
 });
 
 const DetailsPromo = {

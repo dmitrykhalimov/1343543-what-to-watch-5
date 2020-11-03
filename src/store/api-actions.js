@@ -14,15 +14,15 @@ export const fetchFilmsList = () => (dispatch, _getState, api) => (
     })
 );
 
-// задел на будущее
-
 export const checkAuth = () => (dispatch, _getState, api) => (
   api.get(`/login`)
     .then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH)))
-    .catch((err) => {
-      throw err;
+    .catch(() => {
+      throw Error(`Ошибка связи с сервером`);
     })
 );
+
+// задел на будущее
 
 export const login = ({login: email, password}) => (dispatch, _getState, api) => (
   api.post(`/login`, {email, password})

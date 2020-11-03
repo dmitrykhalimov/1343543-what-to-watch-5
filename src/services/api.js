@@ -21,10 +21,9 @@ export const createAPI = (onUnauthorized) => {
 
     if (response.status === HttpCode.UNAUTHORIZED) {
       onUnauthorized();
-      throw Error(`Ошибка авторизации`);
+    } else {
+      throw Error(`Другая неопознанная ошибка`);
     }
-
-    throw Error(`Другая неопознанная ошибка`);
   };
 
   api.interceptors.response.use(onSuccess, onFail);
