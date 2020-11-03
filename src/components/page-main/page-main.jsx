@@ -64,7 +64,7 @@ const PageMain = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                {/* TODO: Перерисовывается кнопка воспроизвести фильм, придумать чего делать с этим*/}
+                {/* TODO: Перерисовывается кнопка воспроизвести фильм, придумать чего делать с этим. И вообще неплохо было бы изменить на компонент Button*/}
                 <Link className="btn btn--play movie-card__button" type="button" to={`/films/1`}>
                   <ButtonPlay/>
                 </Link>

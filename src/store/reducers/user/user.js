@@ -13,6 +13,8 @@ const initialState = {
 const user = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.REQUIRED_AUTHORIZATION:
+      console.log('req_auth');
+      console.log(action.payload);
       return extend(state, {
         authorizationStatus: action.payload,
       });

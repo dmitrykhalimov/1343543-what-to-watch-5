@@ -9,7 +9,7 @@ import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 import {validReview} from "../../utils/props";
 import {Path} from "../../const";
-// import PrivateRoute from "../private-route/private-routes";
+import PrivateRoute from "../private-route/private-routes";
 
 const App = (props) => {
   const {title, genre, year} = props;
@@ -26,14 +26,14 @@ const App = (props) => {
         <Route exact path={Path.login}>
           <SignIn />
         </Route>
-        {/* <PrivateRoute
+        <PrivateRoute
           exact
           path={Path.mylist}
           render={() => <MyList/>}
-        /> */}
-        <Route exact path={Path.mylist}>
+        />
+        {/* <Route exact path={Path.mylist}>
           <MyList/>
-        </Route>
+        </Route> */}
         <Route exact
           path={Path.film}
           render={({history}) => (
