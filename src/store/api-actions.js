@@ -1,4 +1,4 @@
-import {loadFilms, createGenres, requireAuthorization, loadUserData} from "./action";
+import {loadFilms, createGenres, requireAuthorization, loadUserData, redirectToRoute} from "./action";
 import {filmsAdapter, userDataToClient} from "../services/adapter";
 import {AuthorizationStatus} from "../const";
 
@@ -34,6 +34,7 @@ export const login = ({email, password}) => (dispatch, _getState, api) => (
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
       dispatch(loadUserData(data));
     })
+    .then(() => dispatch(redirectToRoute(`/`)))
     .catch(() => {
       throw Error(`Ошибка авторизации`);
     })

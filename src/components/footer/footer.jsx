@@ -16,7 +16,7 @@ const Footer = (props) => {
 };
 
 Footer.propTypes = {
-  isLight: PropTypes.func.isRequired,
+  isLight: PropTypes.bool.isRequired,
 };
 
 export default React.memo(Footer);

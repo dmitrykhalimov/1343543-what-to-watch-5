@@ -7,6 +7,7 @@ export const ActionType = {
   LOAD_REVIEWS: `LOAD_REVIEWS`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   LOAD_USER_DATA: `LOAD_USER_DATA`,
+  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
 };
 
 export const changeGenre = (genre) => ({
@@ -33,8 +34,6 @@ export const createGenres = (films) => ({
   payload: films,
 });
 
-// задел на будущее
-
 export const requireAuthorization = (status) => ({
   type: ActionType.REQUIRED_AUTHORIZATION,
   payload: status,
@@ -43,4 +42,9 @@ export const requireAuthorization = (status) => ({
 export const loadUserData = (userData) => ({
   type: ActionType.LOAD_USER_DATA,
   payload: userData,
+});
+
+export const redirectToRoute = (url) => ({
+  type: ActionType.REDIRECT_TO_ROUTE,
+  payload: url,
 });

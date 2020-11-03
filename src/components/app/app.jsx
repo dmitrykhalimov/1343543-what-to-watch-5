@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PageMain from "../page-main/page-main";
-import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {Switch, Route, Router as BrowserRouter} from "react-router-dom";
 import SignIn from "../sign-in/sign-in";
 import MyList from "../my-list/my-list";
 import Film from "../film/film";
@@ -10,11 +10,12 @@ import Player from "../player/player";
 import {validReview} from "../../utils/props";
 import {Path} from "../../const";
 import PrivateRoute from "../private-route/private-routes";
+import browserHistory from "../../browser-history";
 
 const App = (props) => {
   const {title, genre, year} = props;
   return (
-    <BrowserRouter>
+    <BrowserRouter history={browserHistory}>
       <Switch>
         <Route exact path={Path.index}>
           <PageMain

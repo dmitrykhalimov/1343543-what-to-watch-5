@@ -26,8 +26,6 @@ export const ratingRanks = [
   },
 ];
 
-// задел на будущее
-
 export const AuthorizationStatus = {
   AUTH: `AUTH`,
   NO_AUTH: `NO_AUTH`,
