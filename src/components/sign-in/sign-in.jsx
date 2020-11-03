@@ -1,5 +1,7 @@
 import React, {PureComponent, createRef} from "react";
+import {connect} from "react-redux";
 import Logo from "../logo/logo";
+import {login} from "../../store/api-actions";
 
 // чтобы получить 100 баллов, нужно классовые компоненты заменить на хуки, но и так голова кипит - отрефакторю потом.
 
@@ -16,10 +18,15 @@ class SignIn extends PureComponent {
   handleSubmit(evt) {
     evt.preventDefault();
 
-    console.log(this.emailRef.current.value);
-    console.log(this.passwordRef.current.value);
+    const {onFormSubmit} = this.props;
 
+    // console.log(this.emailRef.current.value);
+    // console.log(this.passwordRef.current.value);
 
+    onFormSubmit({
+      email: this.emailRef.current.value,
+      password: this.passwordRef.current.value,
+    });
   }
 
   render() {
@@ -71,4 +78,11 @@ class SignIn extends PureComponent {
   }
 }
 
-export default SignIn;
+const mapDispatchToProps = (dispatch) => ({
+  onFormSubmit(userData) {
+    console.log(userData);
+    dispatch(login(userData));
+  },
+});
+
+export default connect(null, mapDispatchToProps)(SignIn);

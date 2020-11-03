@@ -16,6 +16,8 @@ const user = (state = initialState, action) => {
       return extend(state, {
         authorizationStatus: action.payload,
       });
+    case ActionType.LOAD_USER_DATA:
+      return extend(state, action.payload);
   }
 
   return state;

@@ -1,5 +1,5 @@
-import {loadFilms, createGenres, requireAuthorization} from "./action";
-import {filmsAdapter} from "../services/adapter";
+import {loadFilms, createGenres, requireAuthorization, loadUserData} from "./action";
+import {filmsAdapter, userDataToClient} from "../services/adapter";
 import {AuthorizationStatus} from "../const";
 
 export const fetchFilmsList = () => (dispatch, _getState, api) => (
@@ -26,7 +26,11 @@ export const checkAuth = () => (dispatch, _getState, api) => (
 
 // задел на будущее
 
-export const login = ({login: email, password}) => (dispatch, _getState, api) => (
+export const login = ({email, password}) => (dispatch, _getState, api) => (
   api.post(`/login`, {email, password})
-    .then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH)))
+    .then((response) => userDataToClient(response.data))
+    .then((data) => {
+      dispatch(requireAuthorization(AuthorizationStatus.AUTH));
+      dispatch(loadUserData(data));
+    })
 );

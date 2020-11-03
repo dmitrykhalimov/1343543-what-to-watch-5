@@ -3,7 +3,7 @@ import {translateRatingToText} from "../utils/common";
 
 export const filmsAdapter = (films) => {
   return films.map((film) => {
-    let adaptedFilm = extend(film, {
+    const adaptedFilm = extend(film, {
       title: film.name,
       poster: film.poster_image,
       preview: film.preview_image,
@@ -21,5 +21,12 @@ export const filmsAdapter = (films) => {
     });
     return adaptedFilm;
   });
-
 };
+
+export const userDataToClient = (userData) => {
+  const adaptedUserData = extend(userData, {
+    avatarUrl: userData.avatar_url,
+  });
+  return adaptedUserData;
+};
+
