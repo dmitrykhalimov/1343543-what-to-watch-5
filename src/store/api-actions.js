@@ -2,6 +2,7 @@ import {loadFilms, createGenres, requireAuthorization, loadUserData} from "./act
 import {filmsAdapter, userDataToClient} from "../services/adapter";
 import {AuthorizationStatus} from "../const";
 
+// загрузка списка фильмов
 export const fetchFilmsList = () => (dispatch, _getState, api) => (
   api.get(`/films`)
     .then(({data}) => filmsAdapter(data))
@@ -14,6 +15,7 @@ export const fetchFilmsList = () => (dispatch, _getState, api) => (
     })
 );
 
+// проверка есть ли авторизация
 export const checkAuth = () => (dispatch, _getState, api) => (
   api.get(`/login`)
     .then(() => {
@@ -24,13 +26,15 @@ export const checkAuth = () => (dispatch, _getState, api) => (
     })
 );
 
-// задел на будущее
-
+// авторизация
 export const login = ({email, password}) => (dispatch, _getState, api) => (
   api.post(`/login`, {email, password})
     .then((response) => userDataToClient(response.data))
     .then((data) => {
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
       dispatch(loadUserData(data));
+    })
+    .catch(() => {
+      throw Error(`Ошибка авторизации`);
     })
 );
