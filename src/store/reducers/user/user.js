@@ -3,6 +3,10 @@ import {ActionType} from "../../action";
 import {extend} from "../../../utils/utils";
 
 const initialState = {
+  id: 1,
+  email: `Oliver.conner@gmail.com`,
+  name: `Oliver.conner`,
+  avatarUrl: `avatar.jpg`,
   authorizationStatus: AuthorizationStatus.NO_AUTH,
 };
 

@@ -14,6 +14,7 @@ import FilmsCatalog from "../films-catalog/films-catalog";
 import PageContent from "../page-content/page-content";
 import {Link} from "react-router-dom";
 import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms} from "../../store/reducers/selectors";
+import UserBlock from "../user-block/user-block";
 
 
 const PageMain = (props) => {
@@ -48,11 +49,7 @@ const PageMain = (props) => {
             </a>
           </div>
 
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
+          <UserBlock></UserBlock>
         </header>
 
         <div className="movie-card__wrap">
