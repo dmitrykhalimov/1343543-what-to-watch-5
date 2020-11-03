@@ -8,7 +8,7 @@ import Film from "../film/film";
 import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 import {validReview} from "../../utils/props";
-import {Path} from "../../const";
+import {AppPath} from "../../const";
 import PrivateRoute from "../private-route/private-routes";
 import browserHistory from "../../browser-history";
 
@@ -17,34 +17,34 @@ const App = (props) => {
   return (
     <BrowserRouter history={browserHistory}>
       <Switch>
-        <Route exact path={Path.index}>
+        <Route exact path={AppPath.index}>
           <PageMain
             title = {title}
             genre = {genre}
             year = {year}
           />
         </Route>
-        <Route exact path={Path.login}>
+        <Route exact path={AppPath.login}>
           <SignIn />
         </Route>
         <PrivateRoute
           exact
-          path={Path.mylist}
+          path={AppPath.mylist}
           render={() => <MyList/>}
         />
         <Route exact
-          path={Path.film}
+          path={AppPath.film}
           render={({history}) => (
             <Film
               onPlayClick = {(id) => {
-                history.push(`/player/${id}`);
+                history.push(`${AppPath.player}/${id}`);
               }}
             />
           )}
         />
         <PrivateRoute
           exact
-          path={Path.review}
+          path={AppPath.review}
           render={() => (
             <AddReview
               onFormSubmit = {(textComment, givenRating) => {
@@ -57,19 +57,7 @@ const App = (props) => {
               }}
             />)}
         />
-        {/* <Route path={Path.review} exact>
-          <AddReview
-            onFormSubmit = {(textComment, givenRating) => {
-              // eslint-disable-next-line no-console
-              console.log(`Мой расчудесный комментарий`);
-              // eslint-disable-next-line no-console
-              console.log(textComment);
-              // eslint-disable-next-line no-console
-              console.log(givenRating);
-            }}
-          />
-        </Route> */}
-        <Route path={Path.player} exact>
+        <Route path={AppPath.playerFull} exact>
           <Player/>
         </Route>
       </Switch>

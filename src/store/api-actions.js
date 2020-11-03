@@ -1,10 +1,10 @@
 import {loadFilms, createGenres, requireAuthorization, loadUserData, redirectToRoute} from "./action";
 import {filmsAdapter, userDataToClient} from "../services/adapter";
-import {AuthorizationStatus} from "../const";
+import {AuthorizationStatus, AppPath, APIPath} from "../const";
 
 // загрузка списка фильмов
 export const fetchFilmsList = () => (dispatch, _getState, api) => (
-  api.get(`/films`)
+  api.get(APIPath.films)
     .then(({data}) => filmsAdapter(data))
     .then((films) => {
       dispatch(loadFilms(films));
@@ -17,7 +17,7 @@ export const fetchFilmsList = () => (dispatch, _getState, api) => (
 
 // проверка есть ли авторизация
 export const checkAuth = () => (dispatch, _getState, api) => (
-  api.get(`/login`)
+  api.get(APIPath.login)
     .then(() => {
       dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH));
     })
@@ -28,13 +28,13 @@ export const checkAuth = () => (dispatch, _getState, api) => (
 
 // авторизация
 export const login = ({email, password}) => (dispatch, _getState, api) => (
-  api.post(`/login`, {email, password})
+  api.post(APIPath.login, {email, password})
     .then((response) => userDataToClient(response.data))
     .then((data) => {
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
       dispatch(loadUserData(data));
     })
-    .then(() => dispatch(redirectToRoute(`/`)))
+    .then(() => dispatch(redirectToRoute(AppPath.index)))
     .catch(() => {
       throw Error(`Ошибка авторизации`);
     })
