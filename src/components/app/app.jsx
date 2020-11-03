@@ -9,6 +9,7 @@ import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 import {validReview} from "../../utils/props";
 import {Path} from "../../const";
+// import PrivateRoute from "../private-route/private-routes";
 
 const App = (props) => {
   const {title, genre, year} = props;
@@ -25,6 +26,11 @@ const App = (props) => {
         <Route exact path={Path.login}>
           <SignIn />
         </Route>
+        {/* <PrivateRoute
+          exact
+          path={Path.mylist}
+          render={() => <MyList/>}
+        /> */}
         <Route exact path={Path.mylist}>
           <MyList/>
         </Route>

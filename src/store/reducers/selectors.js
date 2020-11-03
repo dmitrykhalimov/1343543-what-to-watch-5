@@ -18,6 +18,10 @@ export const getRendered = (state) => {
   return state.showMore.rendered;
 };
 
+export const getUserData = (state) => {
+  return state.user;
+};
+
 // reselect
 export const getFilteredFilms = createSelector(
     getActiveGenre,

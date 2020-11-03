@@ -6,6 +6,7 @@ export const ActionType = {
   LOAD_FILMS: `LOAD_FILMS`,
   LOAD_REVIEWS: `LOAD_REVIEWS`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  LOAD_USER_DATA: `LOAD_USER_DATA`,
 };
 
 export const changeGenre = (genre) => ({
@@ -37,4 +38,9 @@ export const createGenres = (films) => ({
 export const requireAuthorization = (status) => ({
   type: ActionType.REQUIRED_AUTHORIZATION,
   payload: status,
+});
+
+export const loadUserData = (userData) => ({
+  type: ActionType.LOAD_USER_DATA,
+  payload: userData,
 });

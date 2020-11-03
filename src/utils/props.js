@@ -36,3 +36,12 @@ export const validReview = PropTypes.shape({
 export const validRef = PropTypes.oneOfType([
   PropTypes.shape({current: PropTypes.instanceOf(Element)})
 ]);
+
+export const validUserData = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+  avatarUrl: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+});
+
