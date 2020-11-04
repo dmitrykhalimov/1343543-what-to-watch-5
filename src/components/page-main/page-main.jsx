@@ -50,6 +50,7 @@ const PageMain = (props) => {
               genre = {filmPromo.genre}
               year = {filmPromo.year}
               id = {filmPromo.id}
+              isPromo = {true}
             />
           </div>
         </div>

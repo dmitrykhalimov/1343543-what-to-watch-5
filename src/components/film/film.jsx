@@ -14,6 +14,8 @@ import {getActiveFilm, getFilms, getComments} from "../../store/reducers/selecto
 import Logo from "../logo/logo";
 import UserBlock from "../user-block/user-block";
 import {fetchComments, fetchSingleFilm} from "../../store/api-actions";
+import FilmHeader from "../film-header/film-header";
+import FilmTitle from "../film-title/film-title";
 
 const MAX_FILMS_QUANTITY = 4;
 const TabsWrapped = withActiveTab(Tabs);
@@ -52,53 +54,21 @@ class Film extends PureComponent {
     const backgroundStyle = {
       backgroundColor: activeFilm.backgroundColor,
     };
-
     return (
       <React.Fragment>
         <section className="movie-card movie-card--full" style={backgroundStyle}>
           <div className="movie-card__hero">
-            <div className="movie-card__bg">
-              <img src={activeFilm.background} alt={activeFilm.title} />
-            </div>
-
-            <h1 className="visually-hidden">WTW</h1>
-
-            <header className="page-header movie-card__head">
-              <Logo/>
-              <UserBlock/>
-            </header>
-
+            <FilmHeader
+              background = {activeFilm.background}
+              title = {activeFilm.title}
+            />
             <div className="movie-card__wrap">
-              <div className="movie-card__desc">
-                <h2 className="movie-card__title">{activeFilm.title}</h2>
-                <p className="movie-card__meta">
-                  <span className="movie-card__genre">{activeFilm.genre}</span>
-                  <span className="movie-card__year">{activeFilm.year}</span>
-                </p>
-
-                <div className="movie-card__buttons">
-                  <button
-                    className="btn btn--play movie-card__button"
-                    type="button"
-                    onClick={(evt) => {
-                      evt.preventDefault();
-                      onPlayClick(activeFilm.id);
-                    }}
-                  >
-                    <svg viewBox="0 0 19 19" width="19" height="19">
-                      <use xlinkHref="#play-s"></use>
-                    </svg>
-                    <span>Play</span>
-                  </button>
-                  <button className="btn btn--list movie-card__button" type="button">
-                    <svg viewBox="0 0 19 20" width="19" height="20">
-                      <use xlinkHref="#add"></use>
-                    </svg>
-                    <span>My list</span>
-                  </button>
-                  <Link className="btn movie-card__button" to={`${activeFilm.id}/review`}>Add review</Link>
-                </div>
-              </div>
+              <FilmTitle
+                title = {activeFilm.title}
+                genre = {activeFilm.genre}
+                year = {activeFilm.year}
+                id = {activeFilm.id}
+              />
             </div>
           </div>
 

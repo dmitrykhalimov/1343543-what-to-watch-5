@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import FilmButtons from "../film-buttons/film-buttons";
 
 const FilmTitle = (props) => {
+  const {year, genre, title, id, isPromo = false} = props;
 
-  const {year, genre, title, id} = props;
   return (
     <div className="movie-card__desc">
       <h2 className="movie-card__title">{title}</h2>
@@ -14,6 +14,7 @@ const FilmTitle = (props) => {
       </p>
       <FilmButtons
         id = {id}
+        isPromo = {isPromo}
       />
     </div>
   );
@@ -24,6 +25,7 @@ FilmTitle.propTypes = {
   year: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  isPromo: PropTypes.bool.isRequired,
 };
 
 export default FilmTitle;
