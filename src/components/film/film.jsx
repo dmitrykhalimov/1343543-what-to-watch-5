@@ -10,7 +10,7 @@ import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
 import PageContent from "../page-content/page-content";
 import MoreLikeThis from "../more-like-this/more-like-this";
-import {getActiveFilm, getFilms} from "../../store/reducers/selectors";
+import {getActiveFilm, getFilms, getComments} from "../../store/reducers/selectors";
 import Logo from "../logo/logo";
 import UserBlock from "../user-block/user-block";
 import {fetchComments, fetchSingleFilm} from "../../store/api-actions";
@@ -47,6 +47,7 @@ class Film extends PureComponent {
     const {reviews, onPlayClick} = this.props;
     const activeFilm = this.props.activeFilm;
     const review = reviews[activeFilm.id];
+    const comments = this.props.comments;
     const similarFilms = this.filterFilms(activeFilm);
 
     const backgroundStyle = {
@@ -105,7 +106,7 @@ class Film extends PureComponent {
           <div className="movie-card__wrap movie-card__translate-top">
             <TabsWrapped
               film = {activeFilm}
-              review = {review}
+              review = {comments}
             />
           </div>
         </section>
@@ -140,6 +141,7 @@ Film.propTypes = {
 
 const mapStateToProps = (state) => ({
   films: getFilms(state),
+  comments: getComments(state),
   reviews: state.data.reviews,
   activeFilm: getActiveFilm(state),
 });

@@ -42,7 +42,7 @@ const withActiveTab = (Component) => {
           />;
         case Tab.REVIEWS:
           return <FilmReviews
-            review={review}
+            comments={review}
           />;
       }
       return null;

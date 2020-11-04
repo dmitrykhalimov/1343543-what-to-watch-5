@@ -32,6 +32,10 @@ export const getActiveFilm = (state) => {
   return state.data.activeFilm;
 };
 
+export const getComments = (state) => {
+  return state.data.activeComments;
+};
+
 // reselect
 export const getFilteredFilms = createSelector(
     getActiveGenre,

@@ -6,8 +6,8 @@ import {validReview} from "../../utils/props";
 const FilmReviews = (props) => {
 
   const MAX_COMMENTS = 6;
-  const {review} = props;
-  const commentsToRender = review.comments.slice(0, MAX_COMMENTS);
+  const {review, comments} = props;
+  const commentsToRender = comments.slice(0, MAX_COMMENTS);
   const halfLength = Math.ceil(commentsToRender.length / 2);
 
 
@@ -16,7 +16,7 @@ const FilmReviews = (props) => {
       .slice(firstComment, lastComment)
       .map((item) => {
         return <Review
-          key={item.commentId}
+          key={item.id}
           comment={item}
         />;
 
