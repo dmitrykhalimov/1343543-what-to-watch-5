@@ -6,7 +6,6 @@ import {Link} from "react-router-dom";
 import {validFilm, validReview} from "../../utils/props";
 import Tabs from "../tabs/tabs";
 import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
-import {findByKey} from "../../utils/utils";
 import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
 import PageContent from "../page-content/page-content";
@@ -23,10 +22,10 @@ class Film extends PureComponent {
   constructor(props) {
     super(props);
 
-    this._onPageLoad = props.onPageLoad;
-
-    this._id = props.match.params.id;
+    this._handlePageLoad = props.handlePageLoad;
   }
+
+  // TODO вынести логику в core
 
   filterFilms(film) {
     return this.props.films.filter((item) => {
@@ -34,23 +33,24 @@ class Film extends PureComponent {
     });
   }
 
-  checkFilter() {
-    console.log(activeFilm);
+  componentDidMount() {
+    this._handlePageLoad(this.props.match.params.id);
   }
 
-  componentDidMount() {
-    this._onPageLoad(this.props.match.params.id);
+  componentDidUpdate() {
+    if (Number(this.props.match.params.id) !== this.props.activeFilm.id) {
+      this._handlePageLoad(this.props.match.params.id);
+    }
   }
 
   render() {
-    const {films, reviews, onPlayClick} = this.props;
-    const film = findByKey(films, this._id);
+    const {reviews, onPlayClick} = this.props;
     const activeFilm = this.props.activeFilm;
-    const review = reviews[this._id];
-    const similarFilms = this.filterFilms(film);
+    const review = reviews[activeFilm.id];
+    const similarFilms = this.filterFilms(activeFilm);
 
     const backgroundStyle = {
-      backgroundColor: film.backgroundColor,
+      backgroundColor: activeFilm.backgroundColor,
     };
 
     return (
@@ -104,7 +104,7 @@ class Film extends PureComponent {
 
           <div className="movie-card__wrap movie-card__translate-top">
             <TabsWrapped
-              film = {film}
+              film = {activeFilm}
               review = {review}
             />
           </div>
@@ -128,7 +128,9 @@ class Film extends PureComponent {
 Film.propTypes = {
   reviews: PropTypes.arrayOf(validReview).isRequired,
   onPlayClick: PropTypes.func.isRequired,
+  handlePageLoad: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(validFilm).isRequired,
+  activeFilm: validFilm,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -143,7 +145,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onPageLoad(id) {
+  handlePageLoad(id) {
     dispatch(fetchSingleFilm(id));
   }
 });

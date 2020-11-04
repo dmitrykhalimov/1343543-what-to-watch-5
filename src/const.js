@@ -53,7 +53,7 @@ export const ALL_GENRES = `All genres`;
 export const QUANTITY_FILMS_RENDER = 8;
 
 export const ACTIVE_FILM_INITIAL_STATE = {
-  description: [`Test`],
+  description: [],
   director: ``,
   genre: ``,
   id: 0,
@@ -61,14 +61,14 @@ export const ACTIVE_FILM_INITIAL_STATE = {
   poster: ``,
   preview: ``,
   background: ``,
-  backgroundColor: `#E1DFDE`,
+  backgroundColor: ``,
   rankNumber: 0,
   isFavorite: false,
-  rankText: `Normal`,
-  year: 2011,
-  video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-  videoMain: `http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4`,
-  duration: 112,
-  cast: `Tilda Swinton, John C. Reilly, Ezra Miller`,
-  votes: 123240,
+  rankText: ``,
+  year: 0,
+  video: ``,
+  videoMain: ``,
+  duration: 0,
+  cast: ``,
+  votes: 0,
 };
