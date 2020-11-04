@@ -6,7 +6,7 @@ import App from "./components/app/app";
 import ErrorPage from "./components/error-page/error-page";
 import rootReducer from "./store/reducers/root-reducer";
 import {requireAuthorization} from "./store/action";
-import {fetchFilmsList, checkAuth, fetchFilmPromo} from "./store/api-actions";
+import {fetchFilmsList, checkAuth, fetchFilmPromo, fetchFavorites} from "./store/api-actions";
 import thunk from "redux-thunk";
 import {createAPI} from "./services/api";
 import {AuthorizationStatus} from "./const";
@@ -29,6 +29,7 @@ Promise.all([
   store.dispatch(fetchFilmsList()),
   store.dispatch(checkAuth()),
   store.dispatch(fetchFilmPromo()),
+  store.dispatch(fetchFavorites()),
 ])
 .then(() => {
   ReactDOM.render(

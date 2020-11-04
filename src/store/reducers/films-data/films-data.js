@@ -39,8 +39,11 @@ const filmsData = (state = initialState, action) => {
       return extend(state, {
         filmPromo: action.payload,
       });
+    case ActionType.LOAD_FAVORITES:
+      return extend(state, {
+        favorites: action.payload,
+      });
   }
-
   return state;
 };
 

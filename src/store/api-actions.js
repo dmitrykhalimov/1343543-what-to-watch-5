@@ -1,4 +1,4 @@
-import {loadFilms, loadFilmComments, createGenres, requireAuthorization, loadUserData, redirectToRoute, loadSingleFilm, loadFilmPromo} from "./action";
+import {loadFilms, loadFilmComments, createGenres, requireAuthorization, loadUserData, redirectToRoute, loadSingleFilm, loadFilmPromo, loadFavorites} from "./action";
 import {filmsAdapter, userDataToClient, singleFilmAdapter} from "../services/adapter";
 import {AuthorizationStatus, AppPath, APIPath} from "../const";
 
@@ -42,6 +42,17 @@ export const fetchComments = (id) => (dispatch, _getState, api) => (
   api.get(`${APIPath.comments}/${id}`)
     .then((comments) => {
       dispatch(loadFilmComments(comments.data));
+    })
+    .catch(() => {
+      // TODO redirect на Error
+      throw Error(`Ошибка загрузки списка комментариев`);
+    })
+);
+
+export const fetchFavorites = () => (dispatch, _getState, api) => (
+  api.get(`${APIPath.favorite}`)
+    .then((favorite) => {
+      dispatch(loadFavorites(favorite.data));
     })
     .catch(() => {
       // TODO redirect на Error

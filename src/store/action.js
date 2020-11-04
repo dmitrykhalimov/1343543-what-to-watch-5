@@ -11,6 +11,7 @@ export const ActionType = {
   LOAD_SINGLE_FILM: `LOAD_SINGLE_FILM`,
   LOAD_FILM_COMMENTS: `LOAD_FILM_COMMENTS`,
   LOAD_FILM_PROMO: `LOAD_FILM_PROMO`,
+  LOAD_FAVORITES: `LOAD_FAVORITES`,
 };
 
 export const changeGenre = (genre) => ({
@@ -62,8 +63,14 @@ export const loadUserData = (userData) => ({
   payload: userData,
 });
 
+export const loadFavorites = (favorites) => ({
+  type: ActionType.LOAD_FAVORITES,
+  payload: favorites,
+});
+
 export const redirectToRoute = (url) => ({
   type: ActionType.REDIRECT_TO_ROUTE,
   payload: url,
 });
+
 
