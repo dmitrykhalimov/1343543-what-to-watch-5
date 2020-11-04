@@ -13,10 +13,11 @@ import ShowMore from "../show-more/show-more";
 import FilmsCatalog from "../films-catalog/films-catalog";
 import PageContent from "../page-content/page-content";
 import {Link} from "react-router-dom";
-import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms, getUserData} from "../../store/reducers/selectors";
+import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms, getUserData, getPromoFilm} from "../../store/reducers/selectors";
 import UserBlock from "../user-block/user-block";
 import Logo from "../logo/logo";
 import ButtonPlay from "../button-play/button-play";
+import FilmHeader from "../film-header/film-header";
 
 
 const PageMain = (props) => {
@@ -28,6 +29,7 @@ const PageMain = (props) => {
     activeGenre,
     filterChange,
     filteredFilms,
+    filmPromo,
     genresList,
     rendered,
     incrementRenderedFilms,
@@ -36,16 +38,10 @@ const PageMain = (props) => {
   return (
     <React.Fragment>
       <section className="movie-card">
-        <div className="movie-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
-        </div>
-
-        <h1 className="visually-hidden">WTW</h1>
-
-        <header className="page-header movie-card__head">
-          <Logo/>
-          <UserBlock/>
-        </header>
+        <FilmHeader
+          background = {filmPromo.background}
+          title = {filmPromo.title}
+        />
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">
@@ -113,6 +109,7 @@ PageMain.propTypes = {
   filterChange: PropTypes.func.isRequired,
   genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   rendered: PropTypes.number.isRequired,
+  filmPromo: validFilm,
   incrementRenderedFilms: PropTypes.func.isRequired,
   userData: validUserData,
 };
@@ -124,6 +121,7 @@ const mapStateToProps = (state) => ({
   genresList: getGenresList(state),
   rendered: getRendered(state),
   userData: getUserData(state),
+  filmPromo: getPromoFilm(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
