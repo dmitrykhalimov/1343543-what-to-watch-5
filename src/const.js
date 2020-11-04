@@ -36,6 +36,7 @@ export const AppPath = {
   login: `/login`,
   mylist: `/mylist`,
   film: `/films/:id`,
+  films: `/films`,
   player: `/player`,
   playerFull: `/player/:id`,
   review: `/films/:id/review`

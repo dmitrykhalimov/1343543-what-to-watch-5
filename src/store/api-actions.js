@@ -42,7 +42,7 @@ export const fetchComments = (id) => (dispatch, _getState, api) => (
 export const checkAuth = () => (dispatch, _getState, api) => (
   api.get(APIPath.login)
     .then(() => {
-      dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH));
+      dispatch(requireAuthorization(AuthorizationStatus.AUTH));
     })
     .catch(() => {
       throw Error(`Ошибка связи с сервером`);
@@ -58,6 +58,14 @@ export const login = ({email, password}) => (dispatch, _getState, api) => (
       dispatch(loadUserData(data));
     })
     .then(() => dispatch(redirectToRoute(AppPath.index)))
+    .catch(() => {
+      throw Error(`Ошибка авторизации`);
+    })
+);
+
+export const addComment = (id, {rating, comment}) => (dispatch, _getState, api) => (
+  api.post(`${APIPath.comments}/${id}`, {rating, comment})
+    .then(() => dispatch(redirectToRoute(`${AppPath.films}/${id}`)))
     .catch(() => {
       throw Error(`Ошибка авторизации`);
     })

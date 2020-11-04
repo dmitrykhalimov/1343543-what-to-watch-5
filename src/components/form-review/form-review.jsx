@@ -1,5 +1,8 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {addComment} from "../../store/api-actions";
+import {connect} from "react-redux";
+import {withRouter} from "react-router";
 
 const RATING_QUANTITY = 5;
 
@@ -12,7 +15,7 @@ class FormReview extends PureComponent {
       comment: ``,
     };
 
-    this.onFormSubmit = this.props.onFormSubmit;
+    this.onReviewSubmit = this.props.onReviewSubmit;
 
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
@@ -33,7 +36,13 @@ class FormReview extends PureComponent {
 
   handleFormSubmit(evt) {
     evt.preventDefault();
-    this.onFormSubmit(this.state.comment, this.state.rating);
+    this.onReviewSubmit(
+        Number(this.props.match.params.id),
+        {
+          rating: this.state.rating,
+          comment: this.state.comment
+        }
+    );
   }
 
   render() {
@@ -79,8 +88,18 @@ class FormReview extends PureComponent {
 }
 
 FormReview.propTypes = {
-  onFormSubmit: PropTypes.func.isRequired,
+  onReviewSubmit: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  onReviewSubmit(id, userData) {
+    dispatch(addComment(id, userData));
+  },
+});
 
-export default FormReview;
+export default withRouter(connect(null, mapDispatchToProps)(FormReview));
