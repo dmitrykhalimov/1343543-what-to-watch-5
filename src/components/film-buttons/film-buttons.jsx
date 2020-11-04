@@ -12,13 +12,16 @@ import {AuthorizationStatus} from "../../const";
 import {validUserData} from "../../utils/props";
 
 const FilmButtons = (props) => {
-  const {id, isPromo, userData} = props;
+  const {id, isPromo, userData, isFavorite} = props;
   return (
     <div className="movie-card__buttons">
       <ButtonPlay
         id = {id}
       />
-      <ButtonAddToList />
+      <ButtonAddToList
+        id = {id}
+        isFavorite = {isFavorite}
+      />
       {!isPromo && userData.authorizationStatus === AuthorizationStatus.AUTH
         ? <ButtonAddReview id = {id}></ButtonAddReview>
         : ``}
@@ -30,6 +33,7 @@ FilmButtons.propTypes = {
   id: PropTypes.number.isRequired,
   isPromo: PropTypes.bool.isRequired,
   userData: validUserData,
+  isFavorite: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

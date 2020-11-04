@@ -51,6 +51,7 @@ const PageMain = (props) => {
               year = {filmPromo.year}
               id = {filmPromo.id}
               isPromo = {true}
+              isFavorite = {filmPromo.isFavorite}
             />
           </div>
         </div>
