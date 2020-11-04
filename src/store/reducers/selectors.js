@@ -26,6 +26,16 @@ export const getAuthStatus = (state) => {
   return state.user.authorizationStatus;
 };
 
+// TODO добавить в реселект
+
+export const getActiveFilm = (state) => {
+  return state.data.activeFilm;
+};
+
+export const getComments = (state) => {
+  return state.data.activeComments;
+};
+
 // reselect
 export const getFilteredFilms = createSelector(
     getActiveGenre,

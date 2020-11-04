@@ -1,13 +1,13 @@
 import React from "react";
 import Review from "../review/review";
 import ReviewColumn from "../review-column/review-column";
-import {validReview} from "../../utils/props";
+import {validComments} from "../../utils/props";
 
 const FilmReviews = (props) => {
 
   const MAX_COMMENTS = 6;
-  const {review} = props;
-  const commentsToRender = review.comments.slice(0, MAX_COMMENTS);
+  const {comments} = props;
+  const commentsToRender = comments.slice(0, MAX_COMMENTS);
   const halfLength = Math.ceil(commentsToRender.length / 2);
 
 
@@ -16,7 +16,7 @@ const FilmReviews = (props) => {
       .slice(firstComment, lastComment)
       .map((item) => {
         return <Review
-          key={item.commentId}
+          key={item.id}
           comment={item}
         />;
 
@@ -37,7 +37,7 @@ const FilmReviews = (props) => {
 };
 
 FilmReviews.propTypes = {
-  review: validReview,
+  comments: validComments,
 };
 
 

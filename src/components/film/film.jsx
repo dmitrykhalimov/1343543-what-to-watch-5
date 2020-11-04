@@ -3,17 +3,17 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
-import {validFilm, validReview} from "../../utils/props";
+import {validComments, validFilm} from "../../utils/props";
 import Tabs from "../tabs/tabs";
 import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
-import {findByKey} from "../../utils/utils";
 import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
 import PageContent from "../page-content/page-content";
 import MoreLikeThis from "../more-like-this/more-like-this";
-import {getFilms} from "../../store/reducers/selectors";
+import {getActiveFilm, getFilms, getComments} from "../../store/reducers/selectors";
 import Logo from "../logo/logo";
 import UserBlock from "../user-block/user-block";
+import {fetchComments, fetchSingleFilm} from "../../store/api-actions";
 
 const MAX_FILMS_QUANTITY = 4;
 const TabsWrapped = withActiveTab(Tabs);
@@ -21,7 +21,11 @@ const TabsWrapped = withActiveTab(Tabs);
 class Film extends PureComponent {
   constructor(props) {
     super(props);
+
+    this._handlePageLoad = props.handlePageLoad;
   }
+
+  // TODO вынести логику в core
 
   filterFilms(film) {
     return this.props.films.filter((item) => {
@@ -29,15 +33,24 @@ class Film extends PureComponent {
     });
   }
 
+  componentDidMount() {
+    this._handlePageLoad(this.props.match.params.id);
+  }
+
+  componentDidUpdate() {
+    if (Number(this.props.match.params.id) !== this.props.activeFilm.id) {
+      this._handlePageLoad(this.props.match.params.id);
+    }
+  }
+
   render() {
-    const {films, reviews, onPlayClick} = this.props;
-    const id = this.props.match.params.id;
-    const film = findByKey(films, id);
-    const review = reviews[id];
-    const similarFilms = this.filterFilms(film);
+    const {onPlayClick} = this.props;
+    const activeFilm = this.props.activeFilm;
+    const comments = this.props.comments;
+    const similarFilms = this.filterFilms(activeFilm);
 
     const backgroundStyle = {
-      backgroundColor: film.backgroundColor,
+      backgroundColor: activeFilm.backgroundColor,
     };
 
     return (
@@ -45,7 +58,7 @@ class Film extends PureComponent {
         <section className="movie-card movie-card--full" style={backgroundStyle}>
           <div className="movie-card__hero">
             <div className="movie-card__bg">
-              <img src={film.background} alt={film.title} />
+              <img src={activeFilm.background} alt={activeFilm.title} />
             </div>
 
             <h1 className="visually-hidden">WTW</h1>
@@ -57,10 +70,10 @@ class Film extends PureComponent {
 
             <div className="movie-card__wrap">
               <div className="movie-card__desc">
-                <h2 className="movie-card__title">{film.title}</h2>
+                <h2 className="movie-card__title">{activeFilm.title}</h2>
                 <p className="movie-card__meta">
-                  <span className="movie-card__genre">{film.genre}</span>
-                  <span className="movie-card__year">{film.year}</span>
+                  <span className="movie-card__genre">{activeFilm.genre}</span>
+                  <span className="movie-card__year">{activeFilm.year}</span>
                 </p>
 
                 <div className="movie-card__buttons">
@@ -69,7 +82,7 @@ class Film extends PureComponent {
                     type="button"
                     onClick={(evt) => {
                       evt.preventDefault();
-                      onPlayClick(film.id);
+                      onPlayClick(activeFilm.id);
                     }}
                   >
                     <svg viewBox="0 0 19 19" width="19" height="19">
@@ -83,7 +96,7 @@ class Film extends PureComponent {
                     </svg>
                     <span>My list</span>
                   </button>
-                  <Link className="btn movie-card__button" to={`${film.id}/review`}>Add review</Link>
+                  <Link className="btn movie-card__button" to={`${activeFilm.id}/review`}>Add review</Link>
                 </div>
               </div>
             </div>
@@ -91,8 +104,8 @@ class Film extends PureComponent {
 
           <div className="movie-card__wrap movie-card__translate-top">
             <TabsWrapped
-              film = {film}
-              review = {review}
+              film = {activeFilm}
+              comments = {comments}
             />
           </div>
         </section>
@@ -113,9 +126,11 @@ class Film extends PureComponent {
   }
 }
 Film.propTypes = {
-  reviews: PropTypes.arrayOf(validReview).isRequired,
   onPlayClick: PropTypes.func.isRequired,
+  handlePageLoad: PropTypes.func.isRequired,
+  comments: validComments,
   films: PropTypes.arrayOf(validFilm).isRequired,
+  activeFilm: validFilm,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -125,9 +140,17 @@ Film.propTypes = {
 
 const mapStateToProps = (state) => ({
   films: getFilms(state),
-  reviews: state.data.reviews,
+  comments: getComments(state),
+  activeFilm: getActiveFilm(state),
 });
 
-export default withRouter(connect(mapStateToProps)(Film));
+const mapDispatchToProps = (dispatch) => ({
+  handlePageLoad(id) {
+    dispatch(fetchSingleFilm(id));
+    dispatch(fetchComments(id));
+  }
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Film));
 
 

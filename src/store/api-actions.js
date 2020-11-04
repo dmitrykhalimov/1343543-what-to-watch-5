@@ -1,5 +1,5 @@
-import {loadFilms, createGenres, requireAuthorization, loadUserData, redirectToRoute} from "./action";
-import {filmsAdapter, userDataToClient} from "../services/adapter";
+import {loadFilms, loadFilmComments, createGenres, requireAuthorization, loadUserData, redirectToRoute, loadSingleFilm} from "./action";
+import {filmsAdapter, userDataToClient, singleFilmAdapter} from "../services/adapter";
 import {AuthorizationStatus, AppPath, APIPath} from "../const";
 
 // загрузка списка фильмов
@@ -12,6 +12,29 @@ export const fetchFilmsList = () => (dispatch, _getState, api) => (
     })
     .catch(() => {
       throw Error(`Ошибка загрузки списка фильмов`);
+    })
+);
+
+export const fetchSingleFilm = (id) => (dispatch, _getState, api) => (
+  api.get(`${APIPath.films}/${id}`)
+    // .then(({data}) => filmsAdapter(data))
+    .then((film) => {
+      dispatch(loadSingleFilm(singleFilmAdapter(film.data)));
+    })
+    .catch(() => {
+      // TODO redirect на Error
+      throw Error(`Ошибка загрузки списка фильмов`);
+    })
+);
+
+export const fetchComments = (id) => (dispatch, _getState, api) => (
+  api.get(`${APIPath.comments}/${id}`)
+    .then((comments) => {
+      dispatch(loadFilmComments(comments.data));
+    })
+    .catch(() => {
+      // TODO redirect на Error
+      throw Error(`Ошибка загрузки списка комментариев`);
     })
 );
 

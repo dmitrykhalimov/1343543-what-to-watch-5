@@ -46,8 +46,30 @@ export const APIPath = {
   mylist: `/mylist`,
   films: `/films`,
   player: `/player/:id`,
-  review: `/films/:id/review`
+  review: `/films/:id/review`,
+  comments: `/comments`,
 };
 
 export const ALL_GENRES = `All genres`;
 export const QUANTITY_FILMS_RENDER = 8;
+
+export const ACTIVE_FILM_INITIAL_STATE = {
+  description: [],
+  director: ``,
+  genre: ``,
+  id: 0,
+  title: ``,
+  poster: ``,
+  preview: ``,
+  background: ``,
+  backgroundColor: ``,
+  rankNumber: 0,
+  isFavorite: false,
+  rankText: ``,
+  year: 0,
+  video: ``,
+  videoMain: ``,
+  duration: 0,
+  cast: ``,
+  votes: 0,
+};
