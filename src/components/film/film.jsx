@@ -11,7 +11,7 @@ import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
 import PageContent from "../page-content/page-content";
 import MoreLikeThis from "../more-like-this/more-like-this";
-import {getFilms} from "../../store/reducers/selectors";
+import {getActiveFilm, getFilms} from "../../store/reducers/selectors";
 import Logo from "../logo/logo";
 import UserBlock from "../user-block/user-block";
 import {fetchSingleFilm} from "../../store/api-actions";
@@ -24,6 +24,8 @@ class Film extends PureComponent {
     super(props);
 
     this._onPageLoad = props.onPageLoad;
+
+    this._id = props.match.params.id;
   }
 
   filterFilms(film) {
@@ -32,15 +34,19 @@ class Film extends PureComponent {
     });
   }
 
+  checkFilter() {
+    console.log(activeFilm);
+  }
+
   componentDidMount() {
     this._onPageLoad(this.props.match.params.id);
   }
 
   render() {
     const {films, reviews, onPlayClick} = this.props;
-    const id = this.props.match.params.id;
-    const film = findByKey(films, id);
-    const review = reviews[id];
+    const film = findByKey(films, this._id);
+    const activeFilm = this.props.activeFilm;
+    const review = reviews[this._id];
     const similarFilms = this.filterFilms(film);
 
     const backgroundStyle = {
@@ -52,7 +58,7 @@ class Film extends PureComponent {
         <section className="movie-card movie-card--full" style={backgroundStyle}>
           <div className="movie-card__hero">
             <div className="movie-card__bg">
-              <img src={film.background} alt={film.title} />
+              <img src={activeFilm.background} alt={activeFilm.title} />
             </div>
 
             <h1 className="visually-hidden">WTW</h1>
@@ -64,10 +70,10 @@ class Film extends PureComponent {
 
             <div className="movie-card__wrap">
               <div className="movie-card__desc">
-                <h2 className="movie-card__title">{film.title}</h2>
+                <h2 className="movie-card__title">{activeFilm.title}</h2>
                 <p className="movie-card__meta">
-                  <span className="movie-card__genre">{film.genre}</span>
-                  <span className="movie-card__year">{film.year}</span>
+                  <span className="movie-card__genre">{activeFilm.genre}</span>
+                  <span className="movie-card__year">{activeFilm.year}</span>
                 </p>
 
                 <div className="movie-card__buttons">
@@ -76,7 +82,7 @@ class Film extends PureComponent {
                     type="button"
                     onClick={(evt) => {
                       evt.preventDefault();
-                      onPlayClick(film.id);
+                      onPlayClick(activeFilm.id);
                     }}
                   >
                     <svg viewBox="0 0 19 19" width="19" height="19">
@@ -90,7 +96,7 @@ class Film extends PureComponent {
                     </svg>
                     <span>My list</span>
                   </button>
-                  <Link className="btn movie-card__button" to={`${film.id}/review`}>Add review</Link>
+                  <Link className="btn movie-card__button" to={`${activeFilm.id}/review`}>Add review</Link>
                 </div>
               </div>
             </div>
@@ -133,6 +139,7 @@ Film.propTypes = {
 const mapStateToProps = (state) => ({
   films: getFilms(state),
   reviews: state.data.reviews,
+  activeFilm: getActiveFilm(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
