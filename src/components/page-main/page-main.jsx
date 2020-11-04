@@ -38,7 +38,6 @@ const PageMain = (props) => {
           background = {filmPromo.background}
           title = {filmPromo.title}
         />
-
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
@@ -48,8 +47,8 @@ const PageMain = (props) => {
               title = {filmPromo.title}
               genre = {filmPromo.genre}
               year = {filmPromo.year}
+              id = {filmPromo.id}
             />
-
           </div>
         </div>
       </section>
