@@ -2,7 +2,6 @@ import React, {PureComponent} from "react";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
 import {validComments, validFilm} from "../../utils/props";
 import Tabs from "../tabs/tabs";
 import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
@@ -11,8 +10,6 @@ import Footer from "../footer/footer";
 import PageContent from "../page-content/page-content";
 import MoreLikeThis from "../more-like-this/more-like-this";
 import {getActiveFilm, getFilms, getComments} from "../../store/reducers/selectors";
-import Logo from "../logo/logo";
-import UserBlock from "../user-block/user-block";
 import {fetchComments, fetchSingleFilm} from "../../store/api-actions";
 import FilmHeader from "../film-header/film-header";
 import FilmTitle from "../film-title/film-title";
@@ -46,7 +43,6 @@ class Film extends PureComponent {
   }
 
   render() {
-    const {onPlayClick} = this.props;
     const activeFilm = this.props.activeFilm;
     const comments = this.props.comments;
     const similarFilms = this.filterFilms(activeFilm);
