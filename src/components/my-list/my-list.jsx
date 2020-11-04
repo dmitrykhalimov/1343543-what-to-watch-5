@@ -6,11 +6,11 @@ import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
 import {validFilm} from "../../utils/props";
 import {connect} from "react-redux";
-import {getFilms, getRendered} from "../../store/reducers/selectors";
+import {getFavorite} from "../../store/reducers/selectors";
 import UserBlock from "../user-block/user-block";
 
 const MyList = (props) => {
-  const {films, rendered} = props;
+  const {films} = props;
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -24,7 +24,7 @@ const MyList = (props) => {
       <FilmsCatalog>
         <FilmsList
           films = {films}
-          maxQuantity = {rendered}
+          maxQuantity = {films.length}
         />
       </FilmsCatalog>
 
@@ -37,13 +37,10 @@ const MyList = (props) => {
 
 MyList.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
-  rendered: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  films: getFilms(state),
-  // временное решение, когда будет нормальная реализация mylist - поправлю
-  rendered: getRendered(state),
+  films: getFavorite(state),
 });
 
 export default connect(mapStateToProps)(MyList);

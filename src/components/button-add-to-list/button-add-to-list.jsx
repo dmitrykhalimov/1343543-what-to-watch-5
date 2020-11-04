@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {addFavorite} from "../../store/api-actions";
 
@@ -31,7 +32,12 @@ const ButtonAddToList = (props) => {
   );
 };
 
-ButtonAddToList.propTypes = {};
+ButtonAddToList.propTypes = {
+  id: PropTypes.number.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+  isPromo: PropTypes.bool.isRequired,
+  onFavoriteClick: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = (dispatch) => ({
   onFavoriteClick(id, status, isPromo) {

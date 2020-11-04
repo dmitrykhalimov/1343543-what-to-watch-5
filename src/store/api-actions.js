@@ -52,7 +52,7 @@ export const fetchComments = (id) => (dispatch, _getState, api) => (
 export const fetchFavorites = () => (dispatch, _getState, api) => (
   api.get(`${APIPath.favorite}`)
     .then((favorite) => {
-      dispatch(loadFavorites(favorite.data));
+      dispatch(loadFavorites(filmsAdapter(favorite.data)));
     })
     .catch(() => {
       // TODO redirect на Error

@@ -38,6 +38,10 @@ export const getComments = (state) => {
   return state.data.activeComments;
 };
 
+export const getFavorite = (state) => {
+  return state.data.favorites;
+};
+
 // reselect
 export const getFilteredFilms = createSelector(
     getActiveGenre,
