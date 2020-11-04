@@ -43,6 +43,14 @@ export const filmsAdapter = (films) => {
   return films.map((film) => singleFilmAdapter(film));
 };
 
+// export const adaptCommentToClient = (comments) => {
+//   return comments.map((comment) => {
+//     const adaptedComment = extend(comment, {
+//       comme
+//     });
+//   });
+// };
+
 export const userDataToClient = (userData) => {
   const adaptedUserData = extend(userData, {
     avatarUrl: userData.avatar_url,

@@ -1,5 +1,6 @@
 import React from "react";
 import {validComment} from "../../utils/props";
+import {translateDateToLocale, translateDateToDateTime} from "../../utils/common";
 
 const Review = (props) => {
   const {comment} = props;
@@ -10,8 +11,7 @@ const Review = (props) => {
 
         <footer className="review__details">
           <cite className="review__author">{comment.user.name}</cite>
-          {/* TODO судя по тому что тут указан dateTime - надо писать адаптер, но т.к. я не знаю входного формата подожду до лекции с сервером :) */}
-          <time className="review__date" dateTime="2016-12-24">{comment.date}</time>
+          <time className="review__date" dateTime={translateDateToDateTime(comment.date)}>{translateDateToLocale(comment.date)}</time>
         </footer>
       </blockquote>
 

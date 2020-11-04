@@ -4,7 +4,6 @@ import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
 import App from "./components/app/app";
 import ErrorPage from "./components/error-page/error-page";
-import reviews from "../src/mocks/reviews";
 import rootReducer from "./store/reducers/root-reducer";
 import {requireAuthorization} from "./store/action";
 import {fetchFilmsList, checkAuth} from "./store/api-actions";
@@ -37,7 +36,6 @@ Promise.all([
           title = {DetailsPromo.TITLE}
           genre = {DetailsPromo.GENRE}
           year = {DetailsPromo.YEAR}
-          reviews = {reviews}
         />
       </Provider>,
       document.querySelector(`#root`)

@@ -1,5 +1,3 @@
-import reviews from "../../../mocks/reviews";
-
 import {extend} from "../../../utils/utils";
 import {ActionType} from "../../action";
 import {buildGenres} from "../../../core";
@@ -9,7 +7,6 @@ import {ACTIVE_FILM_INITIAL_STATE} from "../../../const";
 const initialState = {
   films: [],
   filteredFilms: [],
-  reviews,
   genresList: [],
   activeFilm: ACTIVE_FILM_INITIAL_STATE,
   activeComments: [],
