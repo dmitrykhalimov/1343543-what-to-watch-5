@@ -17,6 +17,7 @@ import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms, 
 
 import FilmHeader from "../film-header/film-header";
 import FilmTitle from "../film-title/film-title";
+import FilmPoster from "../film-poster/film-poster";
 
 
 const PageMain = (props) => {
@@ -40,9 +41,10 @@ const PageMain = (props) => {
         />
         <div className="movie-card__wrap">
           <div className="movie-card__info">
-            <div className="movie-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
-            </div>
+            <FilmPoster
+              poster = {filmPromo.poster}
+              title = {filmPromo.title}
+            />
             <FilmTitle
               title = {filmPromo.title}
               genre = {filmPromo.genre}
