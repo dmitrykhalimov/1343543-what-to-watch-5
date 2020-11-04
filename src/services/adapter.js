@@ -1,6 +1,8 @@
 import {extend} from "../utils/utils";
 import {translateRatingToText} from "../utils/common";
 
+// TODO: переименовать в соответствии с критериями;
+
 export const singleFilmAdapter = (film) => {
   const adaptedFilm = extend(film, {
     title: film.name,

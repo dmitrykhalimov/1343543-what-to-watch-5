@@ -33,7 +33,7 @@ class Film extends PureComponent {
   }
 
   componentDidMount() {
-    this._onPageLoad(1);
+    this._onPageLoad(this.props.match.params.id);
   }
 
   render() {
