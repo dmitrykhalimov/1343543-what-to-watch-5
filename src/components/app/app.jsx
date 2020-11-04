@@ -7,7 +7,6 @@ import MyList from "../my-list/my-list";
 import Film from "../film/film";
 import AddReview from "../add-review/add-review";
 import Player from "../player/player";
-import {validReview} from "../../utils/props";
 import {AppPath} from "../../const";
 import PrivateRoute from "../private-route/private-routes";
 import browserHistory from "../../browser-history";
@@ -69,7 +68,6 @@ App.propTypes = {
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
-  reviews: PropTypes.arrayOf(validReview).isRequired
 };
 
 export default App;

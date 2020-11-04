@@ -1,12 +1,12 @@
 import React from "react";
 import Review from "../review/review";
 import ReviewColumn from "../review-column/review-column";
-import {validReview} from "../../utils/props";
+import {validComments} from "../../utils/props";
 
 const FilmReviews = (props) => {
 
   const MAX_COMMENTS = 6;
-  const {review, comments} = props;
+  const {comments} = props;
   const commentsToRender = comments.slice(0, MAX_COMMENTS);
   const halfLength = Math.ceil(commentsToRender.length / 2);
 
@@ -37,7 +37,7 @@ const FilmReviews = (props) => {
 };
 
 FilmReviews.propTypes = {
-  review: validReview,
+  comments: validComments,
 };
 
 

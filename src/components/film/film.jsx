@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
-import {validFilm, validReview} from "../../utils/props";
+import {validComments, validFilm} from "../../utils/props";
 import Tabs from "../tabs/tabs";
 import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
 import FilmsList from "../films-list/films-list";
@@ -44,9 +44,8 @@ class Film extends PureComponent {
   }
 
   render() {
-    const {reviews, onPlayClick} = this.props;
+    const {onPlayClick} = this.props;
     const activeFilm = this.props.activeFilm;
-    const review = reviews[activeFilm.id];
     const comments = this.props.comments;
     const similarFilms = this.filterFilms(activeFilm);
 
@@ -106,7 +105,7 @@ class Film extends PureComponent {
           <div className="movie-card__wrap movie-card__translate-top">
             <TabsWrapped
               film = {activeFilm}
-              review = {comments}
+              comments = {comments}
             />
           </div>
         </section>
@@ -127,9 +126,9 @@ class Film extends PureComponent {
   }
 }
 Film.propTypes = {
-  reviews: PropTypes.arrayOf(validReview).isRequired,
   onPlayClick: PropTypes.func.isRequired,
   handlePageLoad: PropTypes.func.isRequired,
+  comments: validComments,
   films: PropTypes.arrayOf(validFilm).isRequired,
   activeFilm: validFilm,
   match: PropTypes.shape({
@@ -142,7 +141,6 @@ Film.propTypes = {
 const mapStateToProps = (state) => ({
   films: getFilms(state),
   comments: getComments(state),
-  reviews: state.data.reviews,
   activeFilm: getActiveFilm(state),
 });
 
