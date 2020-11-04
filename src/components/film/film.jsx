@@ -12,6 +12,8 @@ import Footer from "../footer/footer";
 import PageContent from "../page-content/page-content";
 import MoreLikeThis from "../more-like-this/more-like-this";
 import {getFilms} from "../../store/reducers/selectors";
+import Logo from "../logo/logo";
+import UserBlock from "../user-block/user-block";
 
 const MAX_FILMS_QUANTITY = 4;
 const TabsWrapped = withActiveTab(Tabs);
@@ -49,19 +51,8 @@ class Film extends PureComponent {
             <h1 className="visually-hidden">WTW</h1>
 
             <header className="page-header movie-card__head">
-              <div className="logo">
-                <a href="/" className="logo__link">
-                  <span className="logo__letter logo__letter--1">W</span>
-                  <span className="logo__letter logo__letter--2">T</span>
-                  <span className="logo__letter logo__letter--3">W</span>
-                </a>
-              </div>
-
-              <div className="user-block">
-                <div className="user-block__avatar">
-                  <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63" />
-                </div>
-              </div>
+              <Logo/>
+              <UserBlock/>
             </header>
 
             <div className="movie-card__wrap">
@@ -113,7 +104,9 @@ class Film extends PureComponent {
               maxQuantity = {MAX_FILMS_QUANTITY}
             />
           </MoreLikeThis>
-          <Footer/>
+          <Footer
+            isLight={true}
+          />
         </PageContent>
       </React.Fragment>
     );

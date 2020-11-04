@@ -3,6 +3,6 @@ export const extend = (a, b) => {
 };
 
 export const findByKey = (items, id) => {
-  let foundItem = items.find((item) => item.id === Number(id));
+  const foundItem = items.find((item) => item.id === Number(id));
   return foundItem;
 };

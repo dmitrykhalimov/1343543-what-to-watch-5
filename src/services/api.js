@@ -14,17 +14,19 @@ export const createAPI = (onUnauthorized) => {
     withCredentials: true,
   });
 
-  const onSuccess = (response) => response;
+  const onSuccess = (response) => {
+    return response;
+  };
 
   const onFail = (err) => {
     const {response} = err;
 
     if (response.status === HttpCode.UNAUTHORIZED) {
       onUnauthorized();
-      throw Error(`Ошибка авторизации`);
+      return response;
+    } else {
+      throw Error(`Другая неопознанная ошибка`);
     }
-
-    throw Error(`Другая неопознанная ошибка`);
   };
 
   api.interceptors.response.use(onSuccess, onFail);

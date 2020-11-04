@@ -1,73 +1,49 @@
 import React from "react";
 import PropTypes from "prop-types";
-import SmallFilmCard from "../small-film-card/small-film-card";
+import Logo from "../logo/logo";
+import FilmsCatalog from "../films-catalog/films-catalog";
+import FilmsList from "../films-list/films-list";
+import Footer from "../footer/footer";
 import {validFilm} from "../../utils/props";
 import {connect} from "react-redux";
+import {getFilms, getRendered} from "../../store/reducers/selectors";
+import UserBlock from "../user-block/user-block";
 
 const MyList = (props) => {
-  const {films} = props;
+  const {films, rendered} = props;
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
-        <div className="logo">
-          <a href="main.html" className="logo__link">
-            <span className="logo__letter logo__letter--1">W</span>
-            <span className="logo__letter logo__letter--2">T</span>
-            <span className="logo__letter logo__letter--3">W</span>
-          </a>
-        </div>
+        <Logo></Logo>
 
         <h1 className="page-title user-page__title">My list</h1>
 
-        <div className="user-block">
-          <div className="user-block__avatar">
-            <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-          </div>
-        </div>
+        <UserBlock/>
       </header>
 
-      <section className="catalog">
-        <h2 className="catalog__title visually-hidden">Catalog</h2>
-        {/* по отображению, MyList полностью дублирует FilmsList, но т.к. логика отображения будет другой, я не стал переиспользовать компонент FilmsList*, а вот SmallMovieCard можно переиспользовать вполне */}
-        <div className="catalog__movies-list">
-          {/* т.к. в ТЗ нет ограничений на количество фильмов в MyList, то можно не использовать цикл, а итерироваться по всему массиву */}
-          {films.map((film) => {
-            return <SmallFilmCard
-              key = {film.id}
-              preview = {film.preview}
-              title = {film.title}
-              id = {film.id}
-              // неясно должен ли быть предпросмотр в MyList, поэтому отправил пустую функцию, чтобы не переписывать этот компонент под классовый
-              onFilmCardHover = {() => {
-                return ``;
-              }} />;
-          })}
-        </div>
-      </section>
+      <FilmsCatalog>
+        <FilmsList
+          films = {films}
+          maxQuantity = {rendered}
+        />
+      </FilmsCatalog>
 
-      <footer className="page-footer">
-        <div className="logo">
-          <a href="main.html" className="logo__link logo__link--light">
-            <span className="logo__letter logo__letter--1">W</span>
-            <span className="logo__letter logo__letter--2">T</span>
-            <span className="logo__letter logo__letter--3">W</span>
-          </a>
-        </div>
-
-        <div className="copyright">
-          <p>© 2019 What to watch Ltd.</p>
-        </div>
-      </footer>
+      <Footer
+        isLight={true}
+      />
     </div>
   );
 };
 
 MyList.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
+  rendered: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  films: state.films,
+  films: getFilms(state),
+  // временное решение, когда будет нормальная реализация mylist - поправлю
+  rendered: getRendered(state),
 });
 
 export default connect(mapStateToProps)(MyList);

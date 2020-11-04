@@ -8,12 +8,15 @@ import Filter from "../filter/filter";
 import Footer from "../footer/footer";
 
 import {changeGenre, incrementRendered, resetRendered} from "../../store/action";
-import {validFilm} from "../../utils/props";
+import {validFilm, validUserData} from "../../utils/props";
 import ShowMore from "../show-more/show-more";
 import FilmsCatalog from "../films-catalog/films-catalog";
 import PageContent from "../page-content/page-content";
 import {Link} from "react-router-dom";
-import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms} from "../../store/reducers/selectors";
+import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms, getUserData} from "../../store/reducers/selectors";
+import UserBlock from "../user-block/user-block";
+import Logo from "../logo/logo";
+import ButtonPlay from "../button-play/button-play";
 
 
 const PageMain = (props) => {
@@ -40,19 +43,8 @@ const PageMain = (props) => {
         <h1 className="visually-hidden">WTW</h1>
 
         <header className="page-header movie-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
+          <Logo/>
+          <UserBlock/>
         </header>
 
         <div className="movie-card__wrap">
@@ -69,11 +61,9 @@ const PageMain = (props) => {
               </p>
 
               <div className="movie-card__buttons">
+                {/* TODO: Перерисовывается кнопка воспроизвести фильм, придумать чего делать с этим. И вообще неплохо было бы изменить на компонент Button*/}
                 <Link className="btn btn--play movie-card__button" type="button" to={`/films/1`}>
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
+                  <ButtonPlay/>
                 </Link>
                 <button className="btn btn--list movie-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
@@ -94,7 +84,6 @@ const PageMain = (props) => {
             activeGenre = {activeGenre}
             onFilterSelect = {filterChange}
           />
-
           <FilmsList
             films = {filteredFilms}
             maxQuantity = {rendered}
@@ -106,7 +95,9 @@ const PageMain = (props) => {
               onShowMore = {incrementRenderedFilms}
             /> : ``}
         </FilmsCatalog>
-        <Footer />
+        <Footer
+          isLight = {true}
+        />
       </PageContent>
     </React.Fragment>
   );
@@ -123,6 +114,7 @@ PageMain.propTypes = {
   genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   rendered: PropTypes.number.isRequired,
   incrementRenderedFilms: PropTypes.func.isRequired,
+  userData: validUserData,
 };
 
 const mapStateToProps = (state) => ({
@@ -131,6 +123,7 @@ const mapStateToProps = (state) => ({
   filteredFilms: getFilteredFilms(state),
   genresList: getGenresList(state),
   rendered: getRendered(state),
+  userData: getUserData(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

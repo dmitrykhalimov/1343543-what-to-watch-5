@@ -1,9 +1,10 @@
-import {loadFilms, createGenres, requireAuthorization} from "./action";
-import {filmsAdapter} from "../services/adapter";
-import {AuthorizationStatus} from "../const";
+import {loadFilms, createGenres, requireAuthorization, loadUserData, redirectToRoute} from "./action";
+import {filmsAdapter, userDataToClient} from "../services/adapter";
+import {AuthorizationStatus, AppPath, APIPath} from "../const";
 
+// загрузка списка фильмов
 export const fetchFilmsList = () => (dispatch, _getState, api) => (
-  api.get(`/films`)
+  api.get(APIPath.films)
     .then(({data}) => filmsAdapter(data))
     .then((films) => {
       dispatch(loadFilms(films));
@@ -14,17 +15,27 @@ export const fetchFilmsList = () => (dispatch, _getState, api) => (
     })
 );
 
-// задел на будущее
-
+// проверка есть ли авторизация
 export const checkAuth = () => (dispatch, _getState, api) => (
-  api.get(`/login`)
-    .then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH)))
-    .catch((err) => {
-      throw err;
+  api.get(APIPath.login)
+    .then(() => {
+      dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH));
+    })
+    .catch(() => {
+      throw Error(`Ошибка связи с сервером`);
     })
 );
 
-export const login = ({login: email, password}) => (dispatch, _getState, api) => (
-  api.post(`/login`, {email, password})
-    .then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH)))
+// авторизация
+export const login = ({email, password}) => (dispatch, _getState, api) => (
+  api.post(APIPath.login, {email, password})
+    .then((response) => userDataToClient(response.data))
+    .then((data) => {
+      dispatch(requireAuthorization(AuthorizationStatus.AUTH));
+      dispatch(loadUserData(data));
+    })
+    .then(() => dispatch(redirectToRoute(AppPath.index)))
+    .catch(() => {
+      throw Error(`Ошибка авторизации`);
+    })
 );

@@ -3,30 +3,32 @@ import ReactDOM from "react-dom";
 import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
 import App from "./components/app/app";
+import ErrorPage from "./components/error-page/error-page";
 import reviews from "../src/mocks/reviews";
 import rootReducer from "./store/reducers/root-reducer";
-// import {requireAuthorization} from "./store/action";
-import {fetchFilmsList} from "./store/api-actions";
+import {requireAuthorization} from "./store/action";
+import {fetchFilmsList, checkAuth} from "./store/api-actions";
 import thunk from "redux-thunk";
 import {createAPI} from "./services/api";
-// import {AuthorizationStatus} from "./const";
+import {AuthorizationStatus} from "./const";
 import {composeWithDevTools} from "redux-devtools-extension";
+import {redirect} from "./store/middlewares/redirect";
 
-const api = createAPI();
-// const api = createAPI(
-//     () => store.dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH))
-// );
+const api = createAPI(
+    () => store.dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH))
+);
 
 const store = createStore(
     rootReducer,
     composeWithDevTools(
-        applyMiddleware(thunk.withExtraArgument(api))
+        applyMiddleware(thunk.withExtraArgument(api)),
+        applyMiddleware(redirect)
     )
 );
 
 Promise.all([
   store.dispatch(fetchFilmsList()),
-  // store.dispatch(checkAuth()),
+  store.dispatch(checkAuth()),
 ])
 .then(() => {
   ReactDOM.render(
@@ -42,7 +44,10 @@ Promise.all([
   );
 })
 .catch(() => {
-  throw Error(`Ошибка отрисовки`);
+  ReactDOM.render(
+      <ErrorPage></ErrorPage>,
+      document.querySelector(`#root`)
+  );
 });
 
 const DetailsPromo = {

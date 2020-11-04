@@ -26,18 +26,25 @@ export const ratingRanks = [
   },
 ];
 
-// задел на будущее
-
 export const AuthorizationStatus = {
   AUTH: `AUTH`,
   NO_AUTH: `NO_AUTH`,
 };
 
-export const Path = {
+export const AppPath = {
   index: `/`,
   login: `/login`,
   mylist: `/mylist`,
   film: `/films/:id`,
+  player: `/player`,
+  playerFull: `/player/:id`,
+  review: `/films/:id/review`
+};
+
+export const APIPath = {
+  login: `/login`,
+  mylist: `/mylist`,
+  films: `/films`,
   player: `/player/:id`,
   review: `/films/:id/review`
 };
