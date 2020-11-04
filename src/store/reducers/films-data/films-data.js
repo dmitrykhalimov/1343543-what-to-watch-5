@@ -9,6 +9,10 @@ const initialState = {
   filteredFilms: [],
   reviews,
   genresList: [],
+  activeFilm: {
+    film: [],
+    comments: [],
+  }
 };
 
 const filmsData = (state = initialState, action) => {
@@ -25,7 +29,14 @@ const filmsData = (state = initialState, action) => {
       return extend(state, {
         genresList: buildGenres(action.payload)
       });
+    case ActionType.LOAD_SINGLE_FILM:
+      return extend(state, {
+        activeFilm: {
+          film: action.payload,
+        }
+      });
   }
+
   return state;
 };
 

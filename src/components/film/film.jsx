@@ -14,6 +14,7 @@ import MoreLikeThis from "../more-like-this/more-like-this";
 import {getFilms} from "../../store/reducers/selectors";
 import Logo from "../logo/logo";
 import UserBlock from "../user-block/user-block";
+import {fetchSingleFilm} from "../../store/api-actions";
 
 const MAX_FILMS_QUANTITY = 4;
 const TabsWrapped = withActiveTab(Tabs);
@@ -21,12 +22,18 @@ const TabsWrapped = withActiveTab(Tabs);
 class Film extends PureComponent {
   constructor(props) {
     super(props);
+
+    this._onPageLoad = props.onPageLoad;
   }
 
   filterFilms(film) {
     return this.props.films.filter((item) => {
       return (item.genre === film.genre) && (item.id !== film.id);
     });
+  }
+
+  componentDidMount() {
+    this._onPageLoad(1);
   }
 
   render() {
@@ -128,6 +135,12 @@ const mapStateToProps = (state) => ({
   reviews: state.data.reviews,
 });
 
-export default withRouter(connect(mapStateToProps)(Film));
+const mapDispatchToProps = (dispatch) => ({
+  onPageLoad(id) {
+    dispatch(fetchSingleFilm(id));
+  }
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Film));
 
 
