@@ -1,5 +1,5 @@
 import {loadFilms, createGenres, requireAuthorization, loadUserData, redirectToRoute, loadSingleFilm} from "./action";
-import {filmsAdapter, userDataToClient} from "../services/adapter";
+import {filmsAdapter, userDataToClient, singleFilmAdapter} from "../services/adapter";
 import {AuthorizationStatus, AppPath, APIPath} from "../const";
 
 // загрузка списка фильмов
@@ -19,7 +19,7 @@ export const fetchSingleFilm = (id) => (dispatch, _getState, api) => (
   api.get(`${APIPath.films}/${id}`)
     // .then(({data}) => filmsAdapter(data))
     .then((film) => {
-      dispatch(loadSingleFilm(film.data));
+      dispatch(loadSingleFilm(singleFilmAdapter(film.data)));
     })
     .catch(() => {
       // TODO redirect на Error
