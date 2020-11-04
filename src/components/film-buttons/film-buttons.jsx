@@ -14,7 +14,7 @@ const FilmButtons = (props) => {
       <ButtonAddToList />
       {isPromo
         ? ``
-        : <ButtonAddReview></ButtonAddReview>}
+        : <ButtonAddReview id = {id}></ButtonAddReview>}
     </div>
   );
 };

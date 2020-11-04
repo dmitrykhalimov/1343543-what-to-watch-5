@@ -6,7 +6,7 @@ import {AppPath} from "../../const";
 const ButtonAddReview = (props) => {
   const {id} = props;
   return (
-    <Link className="btn movie-card__button" to={`${id}/${AppPath.review}`}>
+    <Link className="btn movie-card__button" to={`${id}${AppPath.reviewShort}`}>
       Add review
     </Link>
   );
