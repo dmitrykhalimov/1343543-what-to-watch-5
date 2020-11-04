@@ -21,6 +21,7 @@ const FilmButtons = (props) => {
       <ButtonAddToList
         id = {id}
         isFavorite = {isFavorite}
+        isPromo = {isPromo}
       />
       {!isPromo && userData.authorizationStatus === AuthorizationStatus.AUTH
         ? <ButtonAddReview id = {id}></ButtonAddReview>

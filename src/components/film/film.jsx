@@ -64,6 +64,7 @@ class Film extends PureComponent {
                 genre = {activeFilm.genre}
                 year = {activeFilm.year}
                 id = {activeFilm.id}
+                isFavorite = {activeFilm.isFavorite}
               />
             </div>
           </div>
