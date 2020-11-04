@@ -1,4 +1,6 @@
 import React from "react";
+import {connect} from "react-redux";
+import { addFavorite } from "../../store/api-actions";
 
 const NotInList = {
   XLINK: `#add`,
@@ -11,10 +13,9 @@ const InList = {
 };
 
 const ButtonAddToList = (props) => {
-  const {id, isFavorite} = props;
-  let testValue = true;
+  const {id, isFavorite, onFavoriteClick} = props;
   const handleClick = () => {
-    testValue = !testValue;
+    onFavoriteClick(id, !isFavorite ? 1 : 0);
   };
 
   return (
@@ -23,13 +24,19 @@ const ButtonAddToList = (props) => {
       onClick={handleClick}
       type="button">
       <svg viewBox="0 0 19 20" width="19" height="20">
-        <use xlinkHref={testValue ? InList.XLINK : NotInList.XLINK}></use>
+        <use xlinkHref={isFavorite ? InList.XLINK : NotInList.XLINK}></use>
       </svg>
-      <span>{testValue ? InList.NAME : NotInList.NAME}</span>
+      <span>{isFavorite ? InList.NAME : NotInList.NAME}</span>
     </button>
   );
 };
 
 ButtonAddToList.propTypes = {};
 
-export default ButtonAddToList;
+const mapDispatchToProps = (dispatch) => ({
+  onFavoriteClick(id, status) {
+    dispatch(addFavorite(id, status));
+  },
+});
+
+export default connect(null, mapDispatchToProps)(ButtonAddToList);

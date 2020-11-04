@@ -92,3 +92,14 @@ export const addComment = (id, {rating, comment}) => (dispatch, _getState, api) 
       throw Error(`Ошибка авторизации`);
     })
 );
+
+export const addFavorite = (id, status) => (dispatch, _getState, api) => (
+  api.post(`${APIPath.favorite}/${id}/${status}`)
+    .then((response) => {
+      console.log(response);
+      dispatch(loadFilmPromo(singleFilmAdapter(response.data)));
+    })
+    .catch(() => {
+      throw Error(`Ошибка авторизации`);
+    })
+);
