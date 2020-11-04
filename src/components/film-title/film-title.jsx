@@ -25,7 +25,7 @@ FilmTitle.propTypes = {
   year: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  isPromo: PropTypes.bool.isRequired,
+  isPromo: PropTypes.bool,
 };
 
 export default FilmTitle;
