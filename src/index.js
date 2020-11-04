@@ -33,11 +33,7 @@ Promise.all([
 .then(() => {
   ReactDOM.render(
       <Provider store={store}>
-        <App
-          title = {DetailsPromo.TITLE}
-          genre = {DetailsPromo.GENRE}
-          year = {DetailsPromo.YEAR}
-        />
+        <App />
       </Provider>,
       document.querySelector(`#root`)
   );
@@ -49,12 +45,6 @@ Promise.all([
   );
 });
 
-const DetailsPromo = {
-  TITLE: `The Grand Budapest Hotel`,
-  GENRE: `Drama`,
-  YEAR: `2014`,
-};
-
 // TODO:
 // Сбросить фильм при DidUnmount
 // Почему перерисовывается 4 раза?
@@ -64,4 +54,5 @@ const DetailsPromo = {
 // блокировка экрана при отправке комментариев
 // не стал писать адаптер.
 // не отображается avatar.
-
+// Refactor: propslibrary
+// * подумать, нет ли возможности заменить history на Redirect в film.

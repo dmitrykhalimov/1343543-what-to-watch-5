@@ -12,19 +12,15 @@ import {validFilm, validUserData} from "../../utils/props";
 import ShowMore from "../show-more/show-more";
 import FilmsCatalog from "../films-catalog/films-catalog";
 import PageContent from "../page-content/page-content";
-import {Link} from "react-router-dom";
+
 import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms, getUserData, getPromoFilm} from "../../store/reducers/selectors";
-import UserBlock from "../user-block/user-block";
-import Logo from "../logo/logo";
-import ButtonPlay from "../button-play/button-play";
+
 import FilmHeader from "../film-header/film-header";
+import FilmTitle from "../film-title/film-title";
 
 
 const PageMain = (props) => {
   const {
-    title,
-    genre,
-    year,
     films,
     activeGenre,
     filterChange,
@@ -48,27 +44,12 @@ const PageMain = (props) => {
             <div className="movie-card__poster">
               <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
             </div>
+            <FilmTitle
+              title = {filmPromo.title}
+              genre = {filmPromo.genre}
+              year = {filmPromo.year}
+            />
 
-            <div className="movie-card__desc">
-              <h2 className="movie-card__title">{title}</h2>
-              <p className="movie-card__meta">
-                <span className="movie-card__genre">{genre}</span>
-                <span className="movie-card__year">{year}</span>
-              </p>
-
-              <div className="movie-card__buttons">
-                {/* TODO: Перерисовывается кнопка воспроизвести фильм, придумать чего делать с этим. И вообще неплохо было бы изменить на компонент Button*/}
-                <Link className="btn btn--play movie-card__button" type="button" to={`/films/1`}>
-                  <ButtonPlay/>
-                </Link>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -100,9 +81,6 @@ const PageMain = (props) => {
 };
 
 PageMain.propTypes = {
-  title: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(validFilm).isRequired,
   filteredFilms: PropTypes.arrayOf(validFilm).isRequired,
   activeGenre: PropTypes.string.isRequired,
