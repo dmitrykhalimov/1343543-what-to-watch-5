@@ -12,6 +12,7 @@ const initialState = {
   reviews,
   genresList: [],
   activeFilm: ACTIVE_FILM_INITIAL_STATE,
+  activeComments: [],
 };
 
 const filmsData = (state = initialState, action) => {
@@ -31,6 +32,10 @@ const filmsData = (state = initialState, action) => {
     case ActionType.LOAD_SINGLE_FILM:
       return extend(state, {
         activeFilm: action.payload,
+      });
+    case ActionType.LOAD_FILM_COMMENTS:
+      return extend(state, {
+        activeComments: action.payload,
       });
   }
 

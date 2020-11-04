@@ -13,7 +13,7 @@ import MoreLikeThis from "../more-like-this/more-like-this";
 import {getActiveFilm, getFilms} from "../../store/reducers/selectors";
 import Logo from "../logo/logo";
 import UserBlock from "../user-block/user-block";
-import {fetchSingleFilm} from "../../store/api-actions";
+import {fetchComments, fetchSingleFilm} from "../../store/api-actions";
 
 const MAX_FILMS_QUANTITY = 4;
 const TabsWrapped = withActiveTab(Tabs);
@@ -147,6 +147,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handlePageLoad(id) {
     dispatch(fetchSingleFilm(id));
+    dispatch(fetchComments(id));
   }
 });
 

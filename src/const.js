@@ -46,7 +46,8 @@ export const APIPath = {
   mylist: `/mylist`,
   films: `/films`,
   player: `/player/:id`,
-  review: `/films/:id/review`
+  review: `/films/:id/review`,
+  comments: `/comments`,
 };
 
 export const ALL_GENRES = `All genres`;

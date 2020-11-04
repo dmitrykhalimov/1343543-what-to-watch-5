@@ -9,6 +9,7 @@ export const ActionType = {
   LOAD_USER_DATA: `LOAD_USER_DATA`,
   REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
   LOAD_SINGLE_FILM: `LOAD_SINGLE_FILM`,
+  LOAD_FILM_COMMENTS: `LOAD_FILM_COMMENTS`,
 };
 
 export const changeGenre = (genre) => ({
@@ -33,6 +34,11 @@ export const loadFilms = (films) => ({
 export const loadSingleFilm = (film) => ({
   type: ActionType.LOAD_SINGLE_FILM,
   payload: film,
+});
+
+export const loadFilmComments = (comments) => ({
+  type: ActionType.LOAD_FILM_COMMENTS,
+  payload: comments,
 });
 
 export const createGenres = (films) => ({
