@@ -10,6 +10,7 @@ const initialState = {
   genresList: [],
   activeFilm: ACTIVE_FILM_INITIAL_STATE,
   activeComments: [],
+  filmPromo: [],
 };
 
 const filmsData = (state = initialState, action) => {
@@ -33,6 +34,10 @@ const filmsData = (state = initialState, action) => {
     case ActionType.LOAD_FILM_COMMENTS:
       return extend(state, {
         activeComments: action.payload,
+      });
+    case ActionType.LOAD_FILM_PROMO:
+      return extend(state, {
+        filmPromo: action.payload,
       });
   }
 

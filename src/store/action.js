@@ -10,6 +10,7 @@ export const ActionType = {
   REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
   LOAD_SINGLE_FILM: `LOAD_SINGLE_FILM`,
   LOAD_FILM_COMMENTS: `LOAD_FILM_COMMENTS`,
+  LOAD_FILM_PROMO: `LOAD_FILM_PROMO`,
 };
 
 export const changeGenre = (genre) => ({
@@ -49,6 +50,11 @@ export const createGenres = (films) => ({
 export const requireAuthorization = (status) => ({
   type: ActionType.REQUIRED_AUTHORIZATION,
   payload: status,
+});
+
+export const loadFilmPromo = (film) => ({
+  type: ActionType.LOAD_FILM_PROMO,
+  payload: film,
 });
 
 export const loadUserData = (userData) => ({

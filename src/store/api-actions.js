@@ -1,4 +1,4 @@
-import {loadFilms, loadFilmComments, createGenres, requireAuthorization, loadUserData, redirectToRoute, loadSingleFilm} from "./action";
+import {loadFilms, loadFilmComments, createGenres, requireAuthorization, loadUserData, redirectToRoute, loadSingleFilm, loadFilmPromo} from "./action";
 import {filmsAdapter, userDataToClient, singleFilmAdapter} from "../services/adapter";
 import {AuthorizationStatus, AppPath, APIPath} from "../const";
 
@@ -20,6 +20,17 @@ export const fetchSingleFilm = (id) => (dispatch, _getState, api) => (
     // .then(({data}) => filmsAdapter(data))
     .then((film) => {
       dispatch(loadSingleFilm(singleFilmAdapter(film.data)));
+    })
+    .catch(() => {
+      // TODO redirect на Error
+      throw Error(`Ошибка загрузки списка фильмов`);
+    })
+);
+
+export const fetchFilmPromo = () => (dispatch, _getState, api) => (
+  api.get(APIPath.promo)
+    .then((film) => {
+      dispatch(loadFilmPromo(singleFilmAdapter(film.data)));
     })
     .catch(() => {
       // TODO redirect на Error

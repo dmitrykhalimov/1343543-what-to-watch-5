@@ -46,8 +46,7 @@ export const APIPath = {
   login: `/login`,
   mylist: `/mylist`,
   films: `/films`,
-  player: `/player/:id`,
-  review: `/films/:id/review`,
+  promo: `/films/promo`,
   comments: `/comments`,
 };
 

@@ -26,6 +26,10 @@ export const getAuthStatus = (state) => {
   return state.user.authorizationStatus;
 };
 
+export const getPromoFilm = (state) => {
+  return state.data.filmPromo;
+};
+
 // TODO добавить в реселект
 
 export const getActiveFilm = (state) => {

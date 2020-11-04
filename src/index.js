@@ -6,7 +6,7 @@ import App from "./components/app/app";
 import ErrorPage from "./components/error-page/error-page";
 import rootReducer from "./store/reducers/root-reducer";
 import {requireAuthorization} from "./store/action";
-import {fetchFilmsList, checkAuth} from "./store/api-actions";
+import {fetchFilmsList, checkAuth, fetchFilmPromo} from "./store/api-actions";
 import thunk from "redux-thunk";
 import {createAPI} from "./services/api";
 import {AuthorizationStatus} from "./const";
@@ -28,6 +28,7 @@ const store = createStore(
 Promise.all([
   store.dispatch(fetchFilmsList()),
   store.dispatch(checkAuth()),
+  store.dispatch(fetchFilmPromo()),
 ])
 .then(() => {
   ReactDOM.render(
@@ -60,3 +61,7 @@ const DetailsPromo = {
 // ActiveTab - не возвращается по умолчанию
 // checkAuth очень странно работает
 // переписать на HOC-компонент formReview
+// блокировка экрана при отправке комментариев
+// не стал писать адаптер.
+// не отображается avatar.
+
