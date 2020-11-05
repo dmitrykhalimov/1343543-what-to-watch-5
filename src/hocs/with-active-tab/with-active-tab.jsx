@@ -28,6 +28,14 @@ const withActiveTab = (Component) => {
       });
     }
 
+    componentDidUpdate(prevProps) {
+      const prevId = prevProps.film.id;
+      const {id} = this.props.film;
+      if (prevId !== id) {
+        this.handleSwitchTab(Tab.OVERVIEW);
+      }
+    }
+
     renderTab() {
       const {film, comments} = this.props;
       const activeTab = this.state.activeTab;
