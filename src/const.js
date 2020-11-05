@@ -93,5 +93,9 @@ export const ACTIVE_FILM_INITIAL_STATE = {
 };
 
 export const TEST_MOCKS = {
-  id: `1`
+  id: 1,
+  boolTrue: true,
+  boolFalse: false,
+  errorMessage: `Ошибка соединения с сервером`,
+  function: () => {},
 };
