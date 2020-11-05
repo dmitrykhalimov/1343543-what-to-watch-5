@@ -5,7 +5,8 @@ import Footer from "../footer/footer";
 import {login} from "../../store/api-actions";
 import PropTypes from "prop-types";
 import ErrorPopup from "../error-popup/error-popup";
-import { ErrorMessage } from "../../const";
+import {ErrorMessage} from "../../const";
+import validEmail from "email-validator";
 
 class SignIn extends PureComponent {
   constructor(props) {
@@ -24,14 +25,12 @@ class SignIn extends PureComponent {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleError = this.handleError.bind(this);
     this.handleErrorClose = this.handleErrorClose.bind(this);
-
-    this.validator = require(`email-validator`);
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
 
-    if (!this.validator.validate(this.emailRef.current.value)) {
+    if (!validEmail.validate(this.emailRef.current.value)) {
       this.handleError(ErrorMessage.WRONG_EMAIL);
       return;
     }

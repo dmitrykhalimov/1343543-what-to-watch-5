@@ -51,9 +51,6 @@ class Film extends PureComponent {
   }
 
   render() {
-    console.log('бант');
-    console.log(this.props.comments);
-
     const activeFilm = this.props.activeFilm;
     const comments = this.props.comments;
 
