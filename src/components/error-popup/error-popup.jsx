@@ -1,5 +1,6 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
+
 const ErrorPopup = (props) => {
   const divContainerStyle = {
     position: `absolute`,
@@ -53,5 +54,9 @@ const ErrorPopup = (props) => {
   );
 };
 
+ErrorPopup.propTypes = {
+  errorMessage: PropTypes.string.isRequired,
+  onCloseButtonClick: PropTypes.func.isRequired,
+};
 
 export default ErrorPopup;
