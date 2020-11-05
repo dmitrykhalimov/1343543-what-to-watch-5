@@ -49,6 +49,26 @@ export const fetchComments = (id) => (dispatch, _getState, api) => (
     })
 );
 
+export const fetchFilmPage = (id) => (dispatch, _getState, api) => (
+  api.get(`${APIPath.films}/${id}`)
+    .then((film) => {
+      dispatch(loadSingleFilm(singleFilmAdapter(film.data)));
+    })
+    .then(() => {
+      api.get(`${APIPath.comments}/${id}`)
+      .then((comments) => {
+        dispatch(loadFilmComments(comments.data));
+      })
+      .catch(() => {
+        // TODO -//-
+        throw Error(ErrorMessage.FETCH_COMMENTS_FAIL);
+      });
+    })
+    .catch(() => {
+      // TODO -//-
+      throw Error(ErrorMessage.FETCH_SINGLE_FILM_FAIL);
+    })
+);
 export const fetchFavorites = () => (dispatch, _getState, api) => (
   api.get(`${APIPath.favorite}`)
     .then((favorite) => {

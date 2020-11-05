@@ -30,7 +30,6 @@ class Film extends PureComponent {
   }
 
   // TODO вынести логику в core
-
   filterFilms(film) {
     return this.props.films.filter((item) => {
       return (item.genre === film.genre) && (item.id !== film.id);
@@ -52,16 +51,20 @@ class Film extends PureComponent {
   }
 
   render() {
+    console.log('бант');
+    console.log(this.props.comments);
+
     const activeFilm = this.props.activeFilm;
     const comments = this.props.comments;
 
-    // TODO: фильтрация при каждом обновлении
+    // TODO: фильтрация при каждом обновлении - перенести в reselect
     const similarFilms = this.filterFilms(activeFilm);
 
     const backgroundStyle = {
       backgroundColor: activeFilm.backgroundColor,
     };
     return (
+
       <React.Fragment>
         <section className="movie-card movie-card--full" style={backgroundStyle}>
           <div className="movie-card__hero">
