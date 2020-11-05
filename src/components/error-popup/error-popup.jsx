@@ -1,9 +1,9 @@
 import React from "react";
 // import PropTypes from "prop-types";
-const ErrorPopup = () => {
+const ErrorPopup = (props) => {
   const divContainerStyle = {
     position: `absolute`,
-    background: `rgba(255,255,255, 0.5)`,
+    background: `rgba(255,255,255, 0.7)`,
     top: 0,
     left: 0,
     width: `100vw`,
@@ -33,13 +33,21 @@ const ErrorPopup = () => {
     marginTop: `20px`,
     width: `120px`,
     height: `50px`,
+    cursor: `pointer`,
+  };
+
+  const {errorMessage, onCloseButtonClick} = props;
+
+
+  const handleCloseButton = () => {
+    onCloseButtonClick();
   };
 
   return (
     <div style = {divContainerStyle}>
       <div style = {divMessageStyle}>
-        <p style = {pStyle}>Произошла ошибка отправки комментария</p>
-        <button style = {buttonStyle}>Закрыть</button>
+        <p style = {pStyle}>{errorMessage}</p>
+        <button style = {buttonStyle} onClick={handleCloseButton}>Закрыть</button>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ class FormReview extends PureComponent {
     this.state = {
       rating: 3,
       comment: ``,
-      errorMessage: ``,
+      errorMessage: null,
     };
 
     this.onReviewSubmit = this.props.onReviewSubmit;
@@ -23,6 +23,7 @@ class FormReview extends PureComponent {
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleError = this.handleError.bind(this);
+    this.handleErrorClose = this.handleErrorClose.bind(this);
   }
 
   handleRatingChange(evt) {
@@ -54,10 +55,16 @@ class FormReview extends PureComponent {
     });
   }
 
+  handleErrorClose() {
+    this.setState({
+      errorMessage: null,
+    });
+  }
+
   render() {
     return (
       <div className="add-review">
-        <ErrorPopup/>
+        {this.state.errorMessage ? <ErrorPopup errorMessage = {this.state.errorMessage} onCloseButtonClick = {this.handleErrorClose}/> : ``}
         <form action="#" className="add-review__form" onSubmit={this.handleFormSubmit}>
           <div className="rating">
             <div className="rating__stars">
