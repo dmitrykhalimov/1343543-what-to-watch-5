@@ -11,6 +11,7 @@ const initialState = {
   activeFilm: ACTIVE_FILM_INITIAL_STATE,
   activeComments: [],
   filmPromo: [],
+  favorites: [],
 };
 
 const filmsData = (state = initialState, action) => {

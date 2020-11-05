@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import Logo from "../logo/logo";
 import FilmsCatalog from "../films-catalog/films-catalog";
@@ -8,9 +8,15 @@ import {validFilm} from "../../utils/props";
 import {connect} from "react-redux";
 import {getFavorite} from "../../store/reducers/selectors";
 import UserBlock from "../user-block/user-block";
+import { fetchFavorites } from "../../store/api-actions";
 
 const MyList = (props) => {
-  const {films} = props;
+  const {films, handlePageLoad} = props;
+
+  useEffect(() => {
+    handlePageLoad();
+  }, []);
+
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -37,12 +43,19 @@ const MyList = (props) => {
 
 MyList.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
+  handlePageLoad: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   films: getFavorite(state),
 });
 
-export default connect(mapStateToProps)(MyList);
+const mapDispatchToProps = (dispatch) => ({
+  handlePageLoad() {
+    dispatch(fetchFavorites());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyList);
 
 
