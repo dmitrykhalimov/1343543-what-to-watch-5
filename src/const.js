@@ -52,6 +52,10 @@ export const APIPath = {
   comments: `/comments`,
 };
 
+export const ErrorMessage = {
+  ADD_COMMENT: `Ошибка отправки комментария на сервер`
+};
+
 export const ALL_GENRES = `All genres`;
 export const QUANTITY_FILMS_RENDER = 8;
 

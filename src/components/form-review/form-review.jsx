@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {addComment} from "../../store/api-actions";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
+import ErrorPopup from "../error-popup/error-popup";
 
 const RATING_QUANTITY = 5;
 
@@ -13,6 +14,7 @@ class FormReview extends PureComponent {
     this.state = {
       rating: 3,
       comment: ``,
+      errorMessage: ``,
     };
 
     this.onReviewSubmit = this.props.onReviewSubmit;
@@ -20,6 +22,7 @@ class FormReview extends PureComponent {
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleError = this.handleError.bind(this);
   }
 
   handleRatingChange(evt) {
@@ -45,9 +48,16 @@ class FormReview extends PureComponent {
     );
   }
 
+  handleError(message) {
+    this.setState({
+      errorMessage: message,
+    });
+  }
+
   render() {
     return (
       <div className="add-review">
+        <ErrorPopup/>
         <form action="#" className="add-review__form" onSubmit={this.handleFormSubmit}>
           <div className="rating">
             <div className="rating__stars">
@@ -98,7 +108,7 @@ FormReview.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   onReviewSubmit(id, userData) {
-    dispatch(addComment(id, userData));
+    dispatch(addComment(id, userData, this.handleError));
   },
 });
 

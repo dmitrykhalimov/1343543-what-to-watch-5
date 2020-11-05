@@ -1,6 +1,6 @@
 import {loadFilms, loadFilmComments, createGenres, requireAuthorization, loadUserData, redirectToRoute, loadSingleFilm, loadFilmPromo, loadFavorites} from "./action";
 import {filmsAdapter, userDataToClient, singleFilmAdapter} from "../services/adapter";
-import {AuthorizationStatus, AppPath, APIPath} from "../const";
+import {AuthorizationStatus, AppPath, APIPath, ErrorMessage} from "../const";
 
 // загрузка списка фильмов
 export const fetchFilmsList = () => (dispatch, _getState, api) => (
@@ -86,9 +86,12 @@ export const login = ({email, password}) => (dispatch, _getState, api) => (
     })
 );
 
-export const addComment = (id, {rating, comment}) => (dispatch, _getState, api) => (
+export const addComment = (id, {rating, comment}, handleError) => (dispatch, _getState, api) => (
   api.post(`${APIPath.comments}/${id}`, {rating, comment})
-    .then(() => dispatch(redirectToRoute(`${AppPath.films}/${id}`)))
+    .then(() => {
+      handleError(ErrorMessage.ADD_COMMENT);
+      // dispatch(redirectToRoute(`${AppPath.films}/${id}`));
+    })
     .catch(() => {
       throw Error(`Ошибка авторизации`);
     })

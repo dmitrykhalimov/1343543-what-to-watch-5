@@ -8,7 +8,7 @@ import {validFilm} from "../../utils/props";
 import {connect} from "react-redux";
 import {getFavorite} from "../../store/reducers/selectors";
 import UserBlock from "../user-block/user-block";
-import { fetchFavorites } from "../../store/api-actions";
+import {fetchFavorites} from "../../store/api-actions";
 
 const MyList = (props) => {
   const {films, handlePageLoad} = props;
