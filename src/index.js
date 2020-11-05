@@ -58,3 +58,4 @@ Promise.all([
 // Refactor: propslibrary
 // * подумать, нет ли возможности заменить history на Redirect в film.
 // * сделать разные коды ошибки
+// перенести фетч фильмов в mylist

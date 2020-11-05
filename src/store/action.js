@@ -12,6 +12,7 @@ export const ActionType = {
   LOAD_FILM_COMMENTS: `LOAD_FILM_COMMENTS`,
   LOAD_FILM_PROMO: `LOAD_FILM_PROMO`,
   LOAD_FAVORITES: `LOAD_FAVORITES`,
+  ERASE_ACTIVE_FILM: `ERASE_ACTIVE_FILM`
 };
 
 export const changeGenre = (genre) => ({
@@ -71,6 +72,10 @@ export const loadFavorites = (favorites) => ({
 export const redirectToRoute = (url) => ({
   type: ActionType.REDIRECT_TO_ROUTE,
   payload: url,
+});
+
+export const eraseActiveFilm = () => ({
+  type: ActionType.ERASE_ACTIVE_FILM,
 });
 
 

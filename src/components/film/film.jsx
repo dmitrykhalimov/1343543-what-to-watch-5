@@ -13,6 +13,7 @@ import {getActiveFilm, getFilms, getComments} from "../../store/reducers/selecto
 import {fetchComments, fetchSingleFilm} from "../../store/api-actions";
 import FilmHeader from "../film-header/film-header";
 import FilmTitle from "../film-title/film-title";
+import {eraseActiveFilm} from "../../store/action";
 
 const MAX_FILMS_QUANTITY = 4;
 const TabsWrapped = withActiveTab(Tabs);
@@ -22,6 +23,10 @@ class Film extends PureComponent {
     super(props);
 
     this._handlePageLoad = props.handlePageLoad;
+    this._handlePageExit = props.handlePageExit;
+
+    this._handlePageLoad = this._handlePageLoad.bind(this);
+    this._handlePageExit = this._handlePageExit.bind(this);
   }
 
   // TODO вынести логику в core
@@ -42,9 +47,15 @@ class Film extends PureComponent {
     }
   }
 
+  componentWillUnmount() {
+    this._handlePageExit();
+  }
+
   render() {
     const activeFilm = this.props.activeFilm;
     const comments = this.props.comments;
+
+    // TODO: фильтрация при каждом обновлении
     const similarFilms = this.filterFilms(activeFilm);
 
     const backgroundStyle = {
@@ -95,6 +106,7 @@ class Film extends PureComponent {
 Film.propTypes = {
   onPlayClick: PropTypes.func.isRequired,
   handlePageLoad: PropTypes.func.isRequired,
+  handlePageExit: PropTypes.func.isRequired,
   comments: validComments,
   films: PropTypes.arrayOf(validFilm).isRequired,
   activeFilm: validFilm,
@@ -115,6 +127,9 @@ const mapDispatchToProps = (dispatch) => ({
   handlePageLoad(id) {
     dispatch(fetchSingleFilm(id));
     dispatch(fetchComments(id));
+  },
+  handlePageExit() {
+    dispatch(eraseActiveFilm());
   }
 });
 

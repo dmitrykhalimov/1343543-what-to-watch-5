@@ -43,6 +43,10 @@ const filmsData = (state = initialState, action) => {
       return extend(state, {
         favorites: action.payload,
       });
+    case ActionType.ERASE_ACTIVE_FILM:
+      return extend(state, {
+        activeFilm: ACTIVE_FILM_INITIAL_STATE
+      });
   }
   return state;
 };
