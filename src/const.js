@@ -57,6 +57,13 @@ export const ErrorMessage = {
   BAD_REQUEST: `Ошибка 400: отправлены некорректные данные`,
   NOT_FOUND: `Ошибка 404, сервер не найден`,
   OTHER: `Внутренняя ошибка сервера`,
+
+  FETCH_FILMS_LIST_FAIL: `Ошибка загрузки списка фильмов`,
+  FETCH_SINGLE_FILM_FAIL: `Ошибка загрука фильма`,
+  FETCH_PROMO_FAIL: `Ошибка загрука фильма-промо`,
+  FETCH_COMMENTS_FAIL: `Ошибка загрузки комментариев`,
+  FETCH_FAVORITES_FAIL: `Ошибка загрузки списка избранных фильмов`,
+
   LOGIN: `Ошибка авторизации`,
 };
 

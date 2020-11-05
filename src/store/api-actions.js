@@ -11,19 +11,19 @@ export const fetchFilmsList = () => (dispatch, _getState, api) => (
       dispatch(createGenres(films));
     })
     .catch(() => {
-      throw Error(`Ошибка загрузки списка фильмов`);
+      // TODO редирект на страницу PageError или открыть попап
+      throw Error(ErrorMessage.FETCH_FILMS_LIST_FAIL);
     })
 );
 
 export const fetchSingleFilm = (id) => (dispatch, _getState, api) => (
   api.get(`${APIPath.films}/${id}`)
-    // .then(({data}) => filmsAdapter(data))
     .then((film) => {
       dispatch(loadSingleFilm(singleFilmAdapter(film.data)));
     })
     .catch(() => {
-      // TODO redirect на Error
-      throw Error(`Ошибка загрузки списка фильмов`);
+      // TODO -//-
+      throw Error(ErrorMessage.FETCH_SINGLE_FILM_FAIL);
     })
 );
 
@@ -33,8 +33,8 @@ export const fetchFilmPromo = () => (dispatch, _getState, api) => (
       dispatch(loadFilmPromo(singleFilmAdapter(film.data)));
     })
     .catch(() => {
-      // TODO redirect на Error
-      throw Error(`Ошибка загрузки списка фильмов`);
+      // TODO -//-
+      throw Error(ErrorMessage.FETCH_PROMO_FAIL);
     })
 );
 
@@ -44,8 +44,8 @@ export const fetchComments = (id) => (dispatch, _getState, api) => (
       dispatch(loadFilmComments(comments.data));
     })
     .catch(() => {
-      // TODO redirect на Error
-      throw Error(`Ошибка загрузки списка комментариев`);
+      // TODO -//-
+      throw Error(ErrorMessage.FETCH_COMMENTS_FAIL);
     })
 );
 
@@ -55,8 +55,8 @@ export const fetchFavorites = () => (dispatch, _getState, api) => (
       dispatch(loadFavorites(filmsAdapter(favorite.data)));
     })
     .catch(() => {
-      // TODO redirect на Error
-      throw Error(`Ошибка загрузки списка комментариев`);
+    // TODO -//-
+      throw Error(ErrorMessage.FETCH_FAVORITES_FAIL);
     })
 );
 
@@ -65,7 +65,7 @@ export const checkAuth = () => (dispatch, _getState, api) => (
   api.get(APIPath.login)
     .then((response) => {
       dispatch(loadUserData(userDataToClient(response.data)));
-      dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH));
+      dispatch(requireAuthorization(AuthorizationStatus.AUTH));
     })
     .catch(() => {
       dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH));
@@ -86,6 +86,7 @@ export const login = ({email, password}, handleError) => (dispatch, _getState, a
     })
 );
 
+// добавить комментарий
 export const addComment = (id, {rating, comment}, handleError) => (dispatch, _getState, api) => (
   api.post(`${APIPath.comments}/${id}`, {rating, comment})
     .then(() => {
@@ -96,6 +97,7 @@ export const addComment = (id, {rating, comment}, handleError) => (dispatch, _ge
     })
 );
 
+// добавить в избранное
 export const addFavorite = (id, status, isPromo) => (dispatch, _getState, api) => (
   api.post(`${APIPath.favorite}/${id}/${status}`)
     .then((response) => {
