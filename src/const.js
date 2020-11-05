@@ -64,7 +64,8 @@ export const ErrorMessage = {
   FETCH_COMMENTS_FAIL: `Ошибка загрузки комментариев`,
   FETCH_FAVORITES_FAIL: `Ошибка загрузки списка избранных фильмов`,
 
-  LOGIN: `Ошибка авторизации`,
+  WRONG_EMAIL: `Некорректно введен email`,
+  WRONG_PASSWORD: `Не указан пароль`,
 };
 
 export const ALL_GENRES = `All genres`;
