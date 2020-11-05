@@ -28,7 +28,9 @@ const withActiveTab = (Component) => {
       });
     }
 
+    // TODO - работает, хотя и не должно. Перед защитой подумать о более изящном решении
     componentDidUpdate(prevProps) {
+      // если перешли на другой фильм, сбросить табу на Overview
       const prevId = prevProps.film.id;
       const {id} = this.props.film;
       if (prevId !== id) {

@@ -63,11 +63,12 @@ export const fetchFavorites = () => (dispatch, _getState, api) => (
 // проверка есть ли авторизация
 export const checkAuth = () => (dispatch, _getState, api) => (
   api.get(APIPath.login)
-    .then(() => {
+    .then((response) => {
+      dispatch(loadUserData(userDataToClient(response.data)));
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
     })
     .catch(() => {
-      throw Error(`Ошибка связи с сервером`);
+      dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH));
     })
 );
 
