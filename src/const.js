@@ -91,3 +91,7 @@ export const ACTIVE_FILM_INITIAL_STATE = {
   cast: ``,
   votes: 0,
 };
+
+export const TEST_MOCKS = {
+  id: `1`
+};
