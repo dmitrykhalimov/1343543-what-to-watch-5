@@ -108,6 +108,6 @@ export const addFavorite = (id, status, isPromo) => (dispatch, _getState, api) =
       }
     })
     .catch(() => {
-      throw Error(`Ошибка авторизации`);
+      throw Error(ErrorMessage.FETCH_FAVORITES_FAIL);
     })
 );
