@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import {getActiveFilm} from "../../store/reducers/selectors";
 import {withRouter} from "react-router";
 import {connect} from "react-redux";
-
+import {validFilm} from "../../utils/props";
 import FormReview from "../form-review/form-review";
 import Logo from "../logo/logo";
 import UserBlock from "../user-block/user-block";
@@ -58,7 +57,15 @@ const AddReview = (props) => {
   );
 };
 
-AddReview.propTypes = {};
+AddReview.propTypes = {
+  activeFilm: validFilm,
+  handlePageLoad: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+};
 
 const mapStateToProps = (state) => ({
   activeFilm: getActiveFilm(state),
