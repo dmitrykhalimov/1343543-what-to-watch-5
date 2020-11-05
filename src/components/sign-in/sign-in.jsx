@@ -4,33 +4,52 @@ import Logo from "../logo/logo";
 import Footer from "../footer/footer";
 import {login} from "../../store/api-actions";
 import PropTypes from "prop-types";
-
-// чтобы получить 100 баллов, нужно классовые компоненты заменить на хуки, но и так голова кипит - отрефакторю потом, и чтобы не городить хок временно поиспользовал неуправляемые компоненты.
+import ErrorPopup from "../error-popup/error-popup";
 
 class SignIn extends PureComponent {
   constructor(props) {
     super(props);
 
+    // ох, опять вылезли стейты. В 9 заменю на хук, чтобы не переписывать лишний раз сейчас на хок и обратно
+    this.state = {
+      errorMessage: null,
+    };
+
     this.emailRef = createRef();
     this.passwordRef = createRef();
 
+    this.onFormSubmit = this.props.onFormSubmit;
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleError = this.handleError.bind(this);
+    this.handleErrorClose = this.handleErrorClose.bind(this);
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
 
-    const {onFormSubmit} = this.props;
-
-    onFormSubmit({
+    this.onFormSubmit({
       email: this.emailRef.current.value,
       password: this.passwordRef.current.value,
+    });
+  }
+
+  handleError(message) {
+    this.setState({
+      errorMessage: message,
+    });
+  }
+
+  handleErrorClose() {
+    this.setState({
+      errorMessage: null,
     });
   }
 
   render() {
     return (
       <div className="user-page">
+        {this.state.errorMessage ? <ErrorPopup errorMessage = {this.state.errorMessage} onCloseButtonClick = {this.handleErrorClose}/> : ``}
         <header className="page-header user-page__head">
           <Logo/>
           <h1 className="page-title user-page__title">Sign in</h1>
@@ -72,7 +91,8 @@ SignIn.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   onFormSubmit(userData) {
-    dispatch(login(userData));
+
+    dispatch(login(userData, this.handleError));
   },
 });
 

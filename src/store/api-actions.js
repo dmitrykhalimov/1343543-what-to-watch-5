@@ -65,7 +65,7 @@ export const checkAuth = () => (dispatch, _getState, api) => (
   api.get(APIPath.login)
     .then((response) => {
       dispatch(loadUserData(userDataToClient(response.data)));
-      dispatch(requireAuthorization(AuthorizationStatus.AUTH));
+      dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH));
     })
     .catch(() => {
       dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH));
@@ -73,7 +73,7 @@ export const checkAuth = () => (dispatch, _getState, api) => (
 );
 
 // авторизация
-export const login = ({email, password}) => (dispatch, _getState, api) => (
+export const login = ({email, password}, handleError) => (dispatch, _getState, api) => (
   api.post(APIPath.login, {email, password})
     .then((response) => userDataToClient(response.data))
     .then((data) => {
@@ -81,19 +81,18 @@ export const login = ({email, password}) => (dispatch, _getState, api) => (
       dispatch(loadUserData(data));
     })
     .then(() => dispatch(redirectToRoute(AppPath.index)))
-    .catch(() => {
-      throw Error(`Ошибка авторизации`);
+    .catch((response) => {
+      handleError(response.message);
     })
 );
 
 export const addComment = (id, {rating, comment}, handleError) => (dispatch, _getState, api) => (
   api.post(`${APIPath.comments}/${id}`, {rating, comment})
     .then(() => {
-      handleError(ErrorMessage.ADD_COMMENT);
-      // dispatch(redirectToRoute(`${AppPath.films}/${id}`));
+      dispatch(redirectToRoute(`${AppPath.films}/${id}`));
     })
-    .catch(() => {
-      throw Error(`Ошибка авторизации`);
+    .catch((response) => {
+      handleError(response.message);
     })
 );
 

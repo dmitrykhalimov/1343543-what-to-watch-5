@@ -40,7 +40,6 @@ class FormReview extends PureComponent {
 
   handleFormSubmit(evt) {
     evt.preventDefault();
-    this.blockForm();
     this.onReviewSubmit(
         Number(this.props.match.params.id),
         {

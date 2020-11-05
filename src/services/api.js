@@ -1,10 +1,13 @@
 import axios from "axios";
+import {ErrorMessage} from "../const";
 
 const BACKEND_URL = `https://5.react.pages.academy/wtw`;
 const REQUEST_TIMEOUT = 5000;
 
 const HttpCode = {
-  UNAUTHORIZED: 401
+  UNAUTHORIZED: 401,
+  BAD_REQUEST: 400,
+  NOT_FOUND: 404,
 };
 
 export const createAPI = (onUnauthorized) => {
@@ -25,7 +28,14 @@ export const createAPI = (onUnauthorized) => {
       onUnauthorized();
       return response;
     } else {
-      throw Error(`Другая неопознанная ошибка`);
+      switch (response.status) {
+        case HttpCode.BAD_REQUEST:
+          throw Error(ErrorMessage.BAD_REQUEST);
+        case HttpCode.NOT_FOUND:
+          throw Error(ErrorMessage.NOT_FOUND);
+        default:
+          throw Error(ErrorMessage.OTHER);
+      }
     }
   };
 

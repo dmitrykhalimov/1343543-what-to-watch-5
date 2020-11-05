@@ -53,7 +53,11 @@ export const APIPath = {
 };
 
 export const ErrorMessage = {
-  ADD_COMMENT: `Ошибка отправки комментария на сервер`
+  ADD_COMMENT: `Ошибка отправки комментария на сервер`,
+  BAD_REQUEST: `Ошибка 400: отправлены некорректные данные`,
+  NOT_FOUND: `Ошибка 404, сервер не найден`,
+  OTHER: `Внутренняя ошибка сервера`,
+  LOGIN: `Ошибка авторизации`,
 };
 
 export const ALL_GENRES = `All genres`;

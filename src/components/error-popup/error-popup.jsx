@@ -9,7 +9,8 @@ const ErrorPopup = (props) => {
     left: 0,
     width: `100vw`,
     height: `100vh`,
-    outline: `5px solid green`
+    outline: `5px solid green`,
+    zIndex: `100`,
   };
 
   const divMessageStyle = {
