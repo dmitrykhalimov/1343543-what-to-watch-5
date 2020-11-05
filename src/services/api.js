@@ -24,18 +24,16 @@ export const createAPI = (onUnauthorized) => {
   const onFail = (err) => {
     const {response} = err;
 
-    if (response.status === HttpCode.UNAUTHORIZED) {
-      onUnauthorized();
-      return response;
-    } else {
-      switch (response.status) {
-        case HttpCode.BAD_REQUEST:
-          throw Error(ErrorMessage.BAD_REQUEST);
-        case HttpCode.NOT_FOUND:
-          throw Error(ErrorMessage.NOT_FOUND);
-        default:
-          throw Error(ErrorMessage.OTHER);
-      }
+    switch (response.status) {
+      case HttpCode.UNAUTHORIZED:
+        onUnauthorized();
+        break;
+      case HttpCode.BAD_REQUEST:
+        throw Error(ErrorMessage.BAD_REQUEST);
+      case HttpCode.NOT_FOUND:
+        throw Error(ErrorMessage.NOT_FOUND);
+      default:
+        throw Error(ErrorMessage.OTHER);
     }
   };
 
