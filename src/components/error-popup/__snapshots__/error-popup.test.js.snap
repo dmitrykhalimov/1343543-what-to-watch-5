@@ -37,7 +37,7 @@ exports[`ErrorPopup Should ErrorPopup render correctly 1`] = `
         }
       }
     >
-      Ошибка соединения с сервером
+      Ошибка: перелетные гагары унесли оптоволокно в южные страны
     </p>
     <button
       onClick={[Function]}
