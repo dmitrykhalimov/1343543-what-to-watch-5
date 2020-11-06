@@ -148,4 +148,6 @@ export const TEST_MOCKS = {
   poster: TEST_MOCK_FILM.poster,
   comments: [TEST_MOCK_COMMENT, TEST_MOCK_COMMENT, TEST_MOCK_COMMENT,TEST_MOCK_COMMENT],
   noData: [],
+  year: TEST_MOCK_FILM.year,
+  genre: TEST_MOCK_FILM.genre,
 };
