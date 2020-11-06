@@ -1,5 +1,4 @@
 import React from "react";
-import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {validFilm, validRef} from "../../utils/props";
 import {Link} from "react-router-dom";
@@ -78,8 +77,5 @@ VideoPlayerBig.propTypes = {
 
 };
 
-const mapStateToProps = (state) => ({
-  films: state.films,
-});
-
-export default connect(mapStateToProps)(VideoPlayerBig);
+export default VideoPlayerBig;
+// export default connect(mapStateToProps)(VideoPlayerBig);

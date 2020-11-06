@@ -28,5 +28,5 @@ const mapStateToProps = (state) => ({
 });
 
 
-// export default UserBlock;
+export {UserBlock};
 export default connect(mapStateToProps)(UserBlock);

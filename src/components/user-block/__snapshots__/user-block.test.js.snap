@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserBlock Should UserBlock render correctly, isPlaying 1`] = `
+<div
+  className="user-block"
+>
+  <a
+    href="/mylist"
+    onClick={[Function]}
+  >
+    <div
+      className="user-block__avatar"
+    >
+      <img
+        alt="User avatar"
+        height="63"
+        src="https://i.kym-cdn.com/photos/images/newsfeed/000/607/429/84b.jpg"
+        width="63"
+      />
+    </div>
+  </a>
+</div>
+`;
