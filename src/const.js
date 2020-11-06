@@ -134,4 +134,5 @@ export const TEST_MOCKS = {
   films: [TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM],
   title: TEST_MOCK_FILM.title,
   background: TEST_MOCK_FILM.background,
+  poster: TEST_MOCK_FILM.poster,
 };
