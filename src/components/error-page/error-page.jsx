@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 const ErrorMessage = () => {
   const divStyle = {
@@ -48,10 +47,6 @@ const ErrorMessage = () => {
       </footer>
     </div>
   );
-};
-
-ErrorMessage.propTypes = {
-  isLight: PropTypes.bool,
 };
 
 export default ErrorMessage;
