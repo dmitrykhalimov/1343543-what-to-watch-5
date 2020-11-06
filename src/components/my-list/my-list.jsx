@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import Logo from "../logo/logo";
 import FilmsCatalog from "../films-catalog/films-catalog";
@@ -6,11 +6,17 @@ import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
 import {validFilm} from "../../utils/props";
 import {connect} from "react-redux";
-import {getFilms, getRendered} from "../../store/reducers/selectors";
+import {getFavorite} from "../../store/reducers/selectors";
 import UserBlock from "../user-block/user-block";
+import {fetchFavorites} from "../../store/api-actions";
 
 const MyList = (props) => {
-  const {films, rendered} = props;
+  const {films, handlePageLoad} = props;
+
+  useEffect(() => {
+    handlePageLoad();
+  }, []);
+
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -24,7 +30,7 @@ const MyList = (props) => {
       <FilmsCatalog>
         <FilmsList
           films = {films}
-          maxQuantity = {rendered}
+          maxQuantity = {films.length}
         />
       </FilmsCatalog>
 
@@ -37,15 +43,19 @@ const MyList = (props) => {
 
 MyList.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
-  rendered: PropTypes.number.isRequired,
+  handlePageLoad: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  films: getFilms(state),
-  // временное решение, когда будет нормальная реализация mylist - поправлю
-  rendered: getRendered(state),
+  films: getFavorite(state),
 });
 
-export default connect(mapStateToProps)(MyList);
+const mapDispatchToProps = (dispatch) => ({
+  handlePageLoad() {
+    dispatch(fetchFavorites());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyList);
 
 

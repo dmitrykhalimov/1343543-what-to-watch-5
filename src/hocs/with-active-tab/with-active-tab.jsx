@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import FilmOverview from '../../components/film-overview/film-overview';
 import FilmDetails from '../../components/film-details/film-details';
 import FilmReviews from '../../components/film-reviews/film-reviews';
-import {validFilm, validReview} from "../../utils/props";
+import {validComments, validFilm} from "../../utils/props";
 
 const Tab = {
   OVERVIEW: `OVERVIEW`,
@@ -28,8 +28,18 @@ const withActiveTab = (Component) => {
       });
     }
 
+    // TODO - работает, хотя и не должно. Перед защитой подумать о более изящном решении
+    componentDidUpdate(prevProps) {
+      // если перешли на другой фильм, сбросить табу на Overview
+      const prevId = prevProps.film.id;
+      const {id} = this.props.film;
+      if (prevId !== id) {
+        this.handleSwitchTab(Tab.OVERVIEW);
+      }
+    }
+
     renderTab() {
-      const {film, review} = this.props;
+      const {film, comments} = this.props;
       const activeTab = this.state.activeTab;
       switch (activeTab) {
         case Tab.OVERVIEW:
@@ -42,7 +52,7 @@ const withActiveTab = (Component) => {
           />;
         case Tab.REVIEWS:
           return <FilmReviews
-            review={review}
+            comments={comments}
           />;
       }
       return null;
@@ -63,7 +73,7 @@ const withActiveTab = (Component) => {
 
   WithActiveTab.propTypes = {
     film: validFilm,
-    review: validReview,
+    comments: validComments,
   };
   return WithActiveTab;
 };

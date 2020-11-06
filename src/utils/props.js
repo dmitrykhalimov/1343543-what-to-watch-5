@@ -19,19 +19,18 @@ export const validFilm = PropTypes.shape({
 }).isRequired;
 
 export const validComment = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  user: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+  rating: PropTypes.number.isRequired,
   comment: PropTypes.string.isRequired,
-  commentId: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  rank: PropTypes.number.isRequired,
 }).isRequired;
 
 
-export const validReview = PropTypes.shape({
-  filmId: PropTypes.number.isRequired,
-  comments: PropTypes.arrayOf(validComment).isRequired,
-}).isRequired;
-
+export const validComments = PropTypes.arrayOf(validComment).isRequired;
 
 export const validRef = PropTypes.oneOfType([
   PropTypes.shape({current: PropTypes.instanceOf(Element)})

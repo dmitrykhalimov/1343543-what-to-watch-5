@@ -4,10 +4,9 @@ import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
 import App from "./components/app/app";
 import ErrorPage from "./components/error-page/error-page";
-import reviews from "../src/mocks/reviews";
 import rootReducer from "./store/reducers/root-reducer";
 import {requireAuthorization} from "./store/action";
-import {fetchFilmsList, checkAuth} from "./store/api-actions";
+import {fetchFilmsList, checkAuth, fetchFilmPromo} from "./store/api-actions";
 import thunk from "redux-thunk";
 import {createAPI} from "./services/api";
 import {AuthorizationStatus} from "./const";
@@ -27,18 +26,14 @@ const store = createStore(
 );
 
 Promise.all([
-  store.dispatch(fetchFilmsList()),
   store.dispatch(checkAuth()),
+  store.dispatch(fetchFilmPromo()),
+  store.dispatch(fetchFilmsList()),
 ])
 .then(() => {
   ReactDOM.render(
       <Provider store={store}>
-        <App
-          title = {DetailsPromo.TITLE}
-          genre = {DetailsPromo.GENRE}
-          year = {DetailsPromo.YEAR}
-          reviews = {reviews}
-        />
+        <App />
       </Provider>,
       document.querySelector(`#root`)
   );
@@ -50,9 +45,12 @@ Promise.all([
   );
 });
 
-const DetailsPromo = {
-  TITLE: `The Grand Budapest Hotel`,
-  GENRE: `Drama`,
-  YEAR: `2014`,
-};
+// TODO:
+
+// * Почему перерисовывается 5 раз?
+// * зарефакторить propslibrary
+// * переписать на хуки-компоненты formReview, и singIn
+// * подумать, нет ли возможности заменить history на Redirect в film.
+// * убрать возможность без авторизации лайкать фильмы (вылезает 401)
+// * блокировка экрана при отправке комментариев
 

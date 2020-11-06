@@ -4,9 +4,9 @@ import {extend} from "../../../utils/utils";
 
 const initialState = {
   id: 1,
-  email: `Oliver.conner@gmail.com`,
-  name: `Oliver.conner`,
-  avatarUrl: `avatar.jpg`,
+  email: ``,
+  name: ``,
+  avatarUrl: ``,
   authorizationStatus: AuthorizationStatus.NO_AUTH,
 };
 

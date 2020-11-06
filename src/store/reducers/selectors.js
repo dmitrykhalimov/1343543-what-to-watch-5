@@ -26,6 +26,22 @@ export const getAuthStatus = (state) => {
   return state.user.authorizationStatus;
 };
 
+export const getPromoFilm = (state) => {
+  return state.data.filmPromo;
+};
+
+export const getActiveFilm = (state) => {
+  return state.data.activeFilm;
+};
+
+export const getComments = (state) => {
+  return state.data.activeComments;
+};
+
+export const getFavorite = (state) => {
+  return state.data.favorites;
+};
+
 // reselect
 export const getFilteredFilms = createSelector(
     getActiveGenre,

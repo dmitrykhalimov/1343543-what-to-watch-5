@@ -36,18 +36,58 @@ export const AppPath = {
   login: `/login`,
   mylist: `/mylist`,
   film: `/films/:id`,
+  films: `/films`,
   player: `/player`,
   playerFull: `/player/:id`,
-  review: `/films/:id/review`
+  review: `/films/:id/review`,
+  reviewShort: `/review`
 };
 
 export const APIPath = {
   login: `/login`,
   mylist: `/mylist`,
   films: `/films`,
-  player: `/player/:id`,
-  review: `/films/:id/review`
+  favorite: `/favorite`,
+  promo: `/films/promo`,
+  comments: `/comments`,
+};
+
+export const ErrorMessage = {
+  ADD_COMMENT: `Ошибка отправки комментария на сервер`,
+  BAD_REQUEST: `Ошибка 400: отправлены некорректные данные`,
+  NOT_FOUND: `Ошибка 404, сервер не найден`,
+  OTHER: `Внутренняя ошибка сервера`,
+
+  FETCH_FILMS_LIST_FAIL: `Ошибка загрузки списка фильмов`,
+  FETCH_SINGLE_FILM_FAIL: `Ошибка загрука фильма`,
+  FETCH_PROMO_FAIL: `Ошибка загрука фильма-промо`,
+  FETCH_COMMENTS_FAIL: `Ошибка загрузки комментариев`,
+  FETCH_FAVORITES_FAIL: `Ошибка загрузки списка избранных фильмов`,
+
+  WRONG_EMAIL: `Некорректно введен email`,
+  WRONG_PASSWORD: `Не указан пароль`,
 };
 
 export const ALL_GENRES = `All genres`;
 export const QUANTITY_FILMS_RENDER = 8;
+
+export const ACTIVE_FILM_INITIAL_STATE = {
+  description: [],
+  director: ``,
+  genre: ``,
+  id: 0,
+  title: ``,
+  poster: ``,
+  preview: ``,
+  background: ``,
+  backgroundColor: ``,
+  rankNumber: 0,
+  isFavorite: false,
+  rankText: ``,
+  year: 0,
+  video: ``,
+  videoMain: ``,
+  duration: 0,
+  cast: ``,
+  votes: 0,
+};
