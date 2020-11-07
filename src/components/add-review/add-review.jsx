@@ -77,6 +77,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-
+export {AddReview};
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddReview));
 

@@ -119,4 +119,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export {FormReview};
 export default withRouter(connect(null, mapDispatchToProps)(FormReview));

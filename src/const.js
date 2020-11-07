@@ -1,3 +1,5 @@
+import { filterFilms } from "./core";
+
 export const ratingRanks = [
   {
     name: `Bad`,
@@ -92,30 +94,6 @@ export const ACTIVE_FILM_INITIAL_STATE = {
   votes: 0,
 };
 
-export const TEST_MOCK_STORE = {
-  user: {
-    id: 26,
-    email: `princess-peach@anothercastle.com`,
-    name: `Princess`,
-    authorizationStatus: `AUTH`,
-    avatarUrl: `https://i.kym-cdn.com/photos/images/newsfeed/000/607/429/84b.jpg`,
-  },
-  data: {
-    authorizationStatus: `TRUE`
-  }
-};
-
-export const TEST_MOCK_COMMENT = {
-  id: 32,
-  user: {
-    id: 52,
-    name: `Luigi`,
-  },
-  rating: 8.3,
-  comment: `Such a nice film! But I haven't seen any mushrooms. Hope to see it in the sequel`,
-  date: `2020-10-06T19:03:49.657Z`,
-};
-
 export const TEST_MOCK_FILM = {
   description: [`Neal Oliver, a very confused young man and an artist, takes a journey of a lifetime on a highway I60 that doesn't exist on any of the maps, going to the places he never even heard of, searching for an answer and his dreamgirl.`],
   director: `Bob Gale`,
@@ -137,6 +115,51 @@ export const TEST_MOCK_FILM = {
   votes: 6173,
 };
 
+export const TEST_MOCK_STORE = {
+  user: {
+    id: 26,
+    email: `princess-peach@anothercastle.com`,
+    name: `Princess`,
+    authorizationStatus: `AUTH`,
+    avatarUrl: `https://i.kym-cdn.com/photos/images/newsfeed/000/607/429/84b.jpg`,
+  },
+  filter: {
+    activeGenre: `Adventure`
+  },
+  data: {
+    authorizationStatus: `TRUE`,
+    films: [TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM],
+    filteredFilms: [TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM],
+    genresList: [`Comedy`, `Adventure`, `Crime`, `Historical`, `Thriller`, `Drama`],
+    activeFilm: TEST_MOCK_FILM,
+    filmPromo: TEST_MOCK_FILM,
+    favorites: [TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM],
+  },
+  showMore: {
+    rendered: `12`
+  }
+};
+
+export const TEST_MOCK_USER = {
+  id: 26,
+  email: `princess-peach@anothercastle.com`,
+  name: `Princess`,
+  authorizationStatus: `AUTH`,
+  avatarUrl: `https://i.kym-cdn.com/photos/images/newsfeed/000/607/429/84b.jpg`,
+  genresList: [`Comedy`, `Adventure`, `Crime`, `Historical`, `Thriller`, `Drama`],
+};
+
+export const TEST_MOCK_COMMENT = {
+  id: 32,
+  user: {
+    id: 52,
+    name: `Luigi`,
+  },
+  rating: 8.3,
+  comment: `Such a nice film! But I haven't seen any mushrooms. Hope to see it in the sequel`,
+  date: `2020-10-06T19:03:49.657Z`,
+};
+
 export const TEST_MOCKS = {
   id: 1,
   boolTrue: true,
@@ -155,6 +178,7 @@ export const TEST_MOCKS = {
   noData: [],
   year: TEST_MOCK_FILM.year,
   genre: TEST_MOCK_FILM.genre,
+  incrementRenderedFilms: 2,
   maxQuantity: 8,
   rendered: 12,
   activeGenre: `Adventure`,

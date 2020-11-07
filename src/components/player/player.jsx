@@ -4,14 +4,11 @@ import PropTypes from "prop-types";
 import VideoPlayerBig from "../video-player-big/video-player-big";
 import withActivePlayer from "../../hocs/with-active-player/with-active-player";
 import {validFilm} from "../../utils/props";
-import {useParams} from "react-router-dom";
 import {findByKey} from "../../utils/utils";
 import {getFilms} from "../../store/reducers/selectors";
 import {withRouter} from "react-router";
-import {TEST_MOCKS} from "../../const";
 
 const Player = (props) => {
-  console.log(props);
   const id = props.match.params.id;
   const VideoPlayerBigWrapped = withActivePlayer(VideoPlayerBig);
   const {films} = props;

@@ -56,6 +56,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export {MyList};
 export default connect(mapStateToProps, mapDispatchToProps)(MyList);
 
 

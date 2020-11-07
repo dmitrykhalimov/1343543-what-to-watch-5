@@ -41,5 +41,5 @@ const mapStateToProps = (state) => ({
   userData: getUserData(state),
 });
 
-
+export {FilmButtons};
 export default connect(mapStateToProps)(FilmButtons);

@@ -133,6 +133,7 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
+export {Film};
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Film));
 
 
