@@ -199,5 +199,6 @@ export const TEST_MOCKS = {
     params: {
       id: 29
     }
-  }
+  },
+  userData: TEST_MOCK_STORE.user,
 };
