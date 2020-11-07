@@ -1,0 +1,16 @@
+import React from "react";
+import withActivePlayer from "./with-active-player";
+import {configure, shallow} from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+
+configure({adapter: new Adapter()});
+
+const MockComponent = () => <div />;
+
+const MockComponentWrapped = withActivePlayer(MockComponent);
+
+it(`withActivePlayere2e`, () => {
+  const wrapper = shallow(<MockComponentWrapped/>);
+
+  expect(wrapper.state().isPlaying).toEqual(false);
+});

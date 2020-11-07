@@ -22,8 +22,8 @@ MockComponent.propTypes = {
 
 const MockComponentWrapped = withActivePlayer(MockComponent);
 
-describe(`withActiveTab`, () => {
-  it(`withActiveTab is rendered correctly`, () => {
+describe(`withActivePlayer`, () => {
+  it(`withActivePlayer is rendered correctly`, () => {
     const tree = renderer.create((
       <MockComponentWrapped/>
     ), {
