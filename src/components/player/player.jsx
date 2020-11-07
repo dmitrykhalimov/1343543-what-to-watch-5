@@ -7,11 +7,15 @@ import {validFilm} from "../../utils/props";
 import {useParams} from "react-router-dom";
 import {findByKey} from "../../utils/utils";
 import {getFilms} from "../../store/reducers/selectors";
+import {withRouter} from "react-router";
+import {TEST_MOCKS} from "../../const";
 
 const Player = (props) => {
-  const {id} = useParams();
+  console.log(props);
+  const id = props.match.params.id;
   const VideoPlayerBigWrapped = withActivePlayer(VideoPlayerBig);
   const {films} = props;
+
   const film = findByKey(films, id);
   return (
     <div className="player">
@@ -25,10 +29,16 @@ const Player = (props) => {
 
 Player.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
 };
 
 const mapStateToProps = (state) => ({
   films: getFilms(state),
 });
 
-export default connect(mapStateToProps)(Player);
+export {Player};
+export default withRouter(connect(mapStateToProps)(Player));

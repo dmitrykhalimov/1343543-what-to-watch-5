@@ -99,6 +99,9 @@ export const TEST_MOCK_STORE = {
     name: `Princess`,
     authorizationStatus: `AUTH`,
     avatarUrl: `https://i.kym-cdn.com/photos/images/newsfeed/000/607/429/84b.jpg`,
+  },
+  data: {
+    authorizationStatus: `TRUE`
   }
 };
 
@@ -165,4 +168,12 @@ export const TEST_MOCKS = {
     DETAILS: `DETAILS`,
     REVIEWS: `REVIEWS`,
   },
+  authorizationStatusTrue: `AUTH`,
+  authorizationStatusFalse: `NO_AUTH`,
+  path: `/films/1`,
+  match: {
+    params: {
+      id: 29
+    }
+  }
 };
