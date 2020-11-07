@@ -104,7 +104,6 @@ class Film extends PureComponent {
   }
 }
 Film.propTypes = {
-  onPlayClick: PropTypes.func.isRequired,
   handlePageLoad: PropTypes.func.isRequired,
   handlePageExit: PropTypes.func.isRequired,
   comments: validComments,

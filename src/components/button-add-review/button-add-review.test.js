@@ -12,7 +12,8 @@ describe(`<ButtonPlay /> render`, () => {
       .create(
           <MemoryRouter>
             <ButtonAddReview
-              id={TEST_MOCKS.id}
+              errorMessage={TEST_MOCKS.errorMessage}
+              onCloseButtonClick={TEST_MOCKS.function}
             />
           </MemoryRouter>)
       .toJSON();

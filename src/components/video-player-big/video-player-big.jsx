@@ -78,4 +78,3 @@ VideoPlayerBig.propTypes = {
 };
 
 export default VideoPlayerBig;
-// export default connect(mapStateToProps)(VideoPlayerBig);
