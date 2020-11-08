@@ -38,7 +38,7 @@ class SignIn extends PureComponent {
   handleSubmit(evt) {
     evt.preventDefault();
 
-    if (this.passwordRef.current.value.length === 0) {
+    if (this.state.password.length === 0) {
       this.handleError(ErrorMessage.WRONG_PASSWORD);
       return;
     }
