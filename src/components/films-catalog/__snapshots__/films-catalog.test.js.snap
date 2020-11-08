@@ -9,5 +9,6 @@ exports[`FilmsCatalog Should FilmsCatalog render correctly 1`] = `
   >
     Catalog
   </h2>
+  <div />
 </section>
 `;

@@ -8,13 +8,14 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-it(`When user selects genre`, () => {
+it(`Test add user review`, () => {
   const handleFormSubmit = jest.fn();
 
   const wrapper = shallow(
       <FormReview
         onReviewSubmit={handleFormSubmit}
         match={TEST_MOCKS.match}
+        id={String(TEST_MOCKS.id)}
       />
   );
 

@@ -24,8 +24,8 @@ describe(`PageMain`, () => {
               activeGenre={TEST_MOCKS.activeGenre}
               filterChange={TEST_MOCKS.noop}
               genresList={TEST_MOCKS.genres}
-              renderer={TEST_MOCKS.rendered}
-              incrementRenderedFilms={TEST_MOCKS.incrementRenderedFilms}
+              rendered={TEST_MOCKS.rendered}
+              incrementRenderedFilms={TEST_MOCKS.noop}
             />,
           </MemoryRouter>
         </Provider>

@@ -51,7 +51,9 @@ const AddReview = (props) => {
         </div>
       </div>
 
-      <FormReview />
+      <FormReview
+        id={id}
+      />
 
     </section>
   );

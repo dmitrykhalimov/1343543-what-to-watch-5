@@ -134,7 +134,7 @@ export const TEST_MOCK_STORE = {
     favorites: [TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM],
   },
   showMore: {
-    rendered: `12`
+    rendered: 12
   }
 };
 
@@ -195,7 +195,7 @@ export const TEST_MOCKS = {
   path: `/films/1`,
   match: {
     params: {
-      id: 29
+      id: `29`
     }
   },
   userData: TEST_MOCK_STORE.user,

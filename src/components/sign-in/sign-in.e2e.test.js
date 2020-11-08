@@ -22,8 +22,16 @@ it(`When user click SignIn`, () => {
       </MemoryRouter>
   );
 
-  const signInBtn = wrapper.find(`.sign-in__btn`);
-  signInBtn.simulate(`click`, {preventDefault() {}});
-  // TODO: исправить
-  expect(handleSignIn).toHaveBeenCalledTimes(0);
+  wrapper.refs = {
+    emailRef: {
+      current: {
+        value: `mario@mushroomhills.com`
+      },
+    }
+  };
+
+  const signInBtn = wrapper.find(`.sign-in__form`);
+  signInBtn.simulate(`submit`, {preventDefault() {}});
+  // TODO: явно оно не так должно работать :( Нет идей как передать нормально рефы через stackoverflow
+  expect(handleSignIn).toHaveBeenCalledTimes(1);
 });

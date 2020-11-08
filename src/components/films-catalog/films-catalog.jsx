@@ -11,9 +11,10 @@ const FilmsCatalog = (props) => {
 };
 
 FilmsCatalog.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.element.isRequired,
-    PropTypes.string.isRequired]).isRequired
-  )};
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
 
 export default FilmsCatalog;
