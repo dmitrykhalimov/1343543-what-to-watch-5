@@ -3,7 +3,7 @@ import MockAdapter from "axios-mock-adapter";
 import {createAPI} from "../../../services/api";
 // import {filmsData} from "./films-data";
 import {ActionType} from "../../action";
-import {fetchFilmsList, fetchSingleFilm} from "../../api-actions";
+import {fetchFilmsList, fetchSingleFilm, fetchFilmPromo} from "../../api-actions";
 import {APIPath, TEST_MOCKS} from "../../../const";
 import {filmsAdapter, singleFilmAdapter} from "../../../services/adapter";
 
@@ -108,23 +108,43 @@ describe(`Async operation work correctly`, () => {
         });
       });
   });
-  // it(`Should make a correct API call to /films`, () => {
-  //   const apiMock = new MockAdapter(api);
-  //   const dataMock = [mockFilmServerStyle]; //
-  //   const dispatch = jest.fn();
-  //   const filmLoader = fetchSingleFilm();
+  it(`Should make a correct API call to /films/id`, () => {
+    const apiMock = new MockAdapter(api);
+    const id = 1;
+    const dataMock = mockFilmServerStyle;
+    const dispatch = jest.fn();
+    const filmLoader = fetchSingleFilm(id);
 
-  //   apiMock
-  //     .onGet(`film/1`)
-  //     .reply(200, dataMock);
+    apiMock
+      .onGet(`${APIPath.films}/${id}`)
+      .reply(200, dataMock);
 
-  //   return filmLoader(dispatch, () => {}, api)
-  //     .then(() => {
-  //       expect(dispatch).toHaveBeenCalledTimes(1);
-  //       expect(dispatch).toHaveBeenNthCalledWith(1, {
-  //         type: ActionType.LOAD_SINGLE_FILM,
-  //         payload: singleFilmAdapter(dataMock),
-  //       });
-  //     });
-  // });
+    return filmLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.LOAD_SINGLE_FILM,
+          payload: singleFilmAdapter(dataMock),
+        });
+      });
+  });
+  it(`Should make a correct API call to /films/promo`, () => {
+    const apiMock = new MockAdapter(api);
+    const dataMock = mockFilmServerStyle;
+    const dispatch = jest.fn();
+    const promoLoader = fetchFilmPromo();
+
+    apiMock
+      .onGet(APIPath.promo)
+      .reply(200, dataMock);
+
+    return promoLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.LOAD_FILM_PROMO,
+          payload: singleFilmAdapter(dataMock),
+        });
+      });
+  });
 });
