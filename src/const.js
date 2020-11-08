@@ -1,5 +1,3 @@
-import { filterFilms } from "./core";
-
 export const ratingRanks = [
   {
     name: `Bad`,
