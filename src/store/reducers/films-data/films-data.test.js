@@ -1,4 +1,3 @@
-
 import MockAdapter from "axios-mock-adapter";
 import {createAPI} from "../../../services/api";
 import {filmsData} from "./films-data";
@@ -42,6 +41,8 @@ const initialState = {
   favorites: [],
 };
 
+const apiMock = new MockAdapter(api);
+
 describe(`Sync operation work correctly`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
     expect(filmsData(void 0, {})).toEqual(initialState);
@@ -55,8 +56,7 @@ describe(`Sync operation work correctly`, () => {
 
 describe(`Async operation work correctly`, () => {
   it(`Should make a correct API call to /films`, () => {
-    const apiMock = new MockAdapter(api);
-    const dataMock = [mockFilmServerStyle]; //
+    const dataMock = [mockFilmServerStyle];
     const dispatch = jest.fn();
     const filmsLoader = fetchFilmsList();
 
@@ -77,8 +77,8 @@ describe(`Async operation work correctly`, () => {
         });
       });
   });
+
   it(`Should make a correct API call to /films/id`, () => {
-    const apiMock = new MockAdapter(api);
     const id = 1;
     const dataMock = mockFilmServerStyle;
     const dispatch = jest.fn();
@@ -97,8 +97,8 @@ describe(`Async operation work correctly`, () => {
         });
       });
   });
+
   it(`Should make a correct API call to /films/promo`, () => {
-    const apiMock = new MockAdapter(api);
     const dataMock = mockFilmServerStyle;
     const dispatch = jest.fn();
     const promoLoader = fetchFilmPromo();
@@ -116,8 +116,8 @@ describe(`Async operation work correctly`, () => {
         });
       });
   });
+
   it(`Should make a correct API call to /films/comments/id`, () => {
-    const apiMock = new MockAdapter(api);
     const id = 1;
     const dataMock = [TEST_MOCK_COMMENT];
     const dispatch = jest.fn();
@@ -136,8 +136,8 @@ describe(`Async operation work correctly`, () => {
         });
       });
   });
+
   it(`Should make a correct API call to /films/favorites`, () => {
-    const apiMock = new MockAdapter(api);
     const dataMock = [mockFilmServerStyle];
     const dispatch = jest.fn();
     const favoritesLoader = fetchFavorites();

@@ -63,6 +63,7 @@ export const fetchFavorites = () => (dispatch, _getState, api) => (
 export const checkAuth = () => (dispatch, _getState, api) => (
   api.get(APIPath.login)
     .then((response) => {
+      console.log(response);
       dispatch(loadUserData(userDataToClient(response.data)));
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
     })
