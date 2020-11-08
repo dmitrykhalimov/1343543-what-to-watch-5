@@ -1,11 +1,12 @@
 
 import MockAdapter from "axios-mock-adapter";
 import {createAPI} from "../../../services/api";
-// import {filmsData} from "./films-data";
+import {filmsData} from "./films-data";
 import {ActionType} from "../../action";
-import {fetchFilmsList, fetchSingleFilm, fetchFilmPromo} from "../../api-actions";
-import {APIPath, TEST_MOCKS} from "../../../const";
+import {fetchFilmsList, fetchSingleFilm, fetchFavorites, fetchFilmPromo, fetchComments} from "../../api-actions";
+import {APIPath, TEST_MOCK_COMMENT} from "../../../const";
 import {filmsAdapter, singleFilmAdapter} from "../../../services/adapter";
+import {ACTIVE_FILM_INITIAL_STATE} from "../../../const";
 
 const api = createAPI(() => {});
 
@@ -30,59 +31,27 @@ const mockFilmServerStyle = {
   starring: [``, ``, ``],
   video_link: ``,
 };
-// const questions = [
-//   {
-//     type: `genre`,
-//     genre: `rock`,
-//     answers: [{
-//       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-//       genre: `rock`,
-//     }, {
-//       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-//       genre: `blues`,
-//     }, {
-//       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-//       genre: `jazz`,
-//     }, {
-//       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-//       genre: `rock`,
-//     }],
-//   }, {
-//     type: `artist`,
-//     song: {
-//       artist: `Jim Beam`,
-//       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-//     },
-//     answers: [{
-//       picture: `https://api.adorable.io/avatars/128/A`,
-//       artist: `John Snow`,
-//     }, {
-//       picture: `https://api.adorable.io/avatars/128/AB`,
-//       artist: `Jack Daniels`,
-//     }, {
-//       picture: `https://api.adorable.io/avatars/128/AC`,
-//       artist: `Jim Beam`,
-//     }],
-//   },
-// ];
 
+const initialState = {
+  films: [],
+  filteredFilms: [],
+  genresList: [],
+  activeFilm: ACTIVE_FILM_INITIAL_STATE,
+  activeComments: [],
+  filmPromo: [],
+  favorites: [],
+};
 
-// it(`Reducer without additional parameters should return initial state`, () => {
-//   expect(ашдь(void 0, {})).toEqual({
-//     questions: [],
-//   });
-// });
-
-// it(`Reducer should update questions by load questions`, () => {
-//   expect(gameData({
-//     questions: [],
-//   }, {
-//     type: ActionType.LOAD_QUESTIONS,
-//     payload: questions,
-//   })).toEqual({
-//     questions,
-//   });
-// });
+describe(`Sync operation work correctly`, () => {
+  it(`Reducer without additional parameters should return initial state`, () => {
+    expect(filmsData(void 0, {})).toEqual(initialState);
+  });
+  it(`ERASE_ACTIVE_FILM film changes activeFilm to the initial state`, () => {
+    expect(filmsData(initialState, {
+      type: ActionType.ERASE_ACTIVE_FILM
+    })).toEqual(initialState);
+  });
+});
 
 describe(`Async operation work correctly`, () => {
   it(`Should make a correct API call to /films`, () => {
@@ -144,6 +113,45 @@ describe(`Async operation work correctly`, () => {
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_FILM_PROMO,
           payload: singleFilmAdapter(dataMock),
+        });
+      });
+  });
+  it(`Should make a correct API call to /films/comments/id`, () => {
+    const apiMock = new MockAdapter(api);
+    const id = 1;
+    const dataMock = [TEST_MOCK_COMMENT];
+    const dispatch = jest.fn();
+    const filmLoader = fetchComments(id);
+
+    apiMock
+      .onGet(`${APIPath.comments}/${id}`)
+      .reply(200, dataMock);
+
+    return filmLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.LOAD_FILM_COMMENTS,
+          payload: dataMock,
+        });
+      });
+  });
+  it(`Should make a correct API call to /films/favorites`, () => {
+    const apiMock = new MockAdapter(api);
+    const dataMock = [mockFilmServerStyle];
+    const dispatch = jest.fn();
+    const favoritesLoader = fetchFavorites();
+
+    apiMock
+      .onGet(APIPath.favorite)
+      .reply(200, dataMock);
+
+    return favoritesLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.LOAD_FAVORITES,
+          payload: filmsAdapter(dataMock),
         });
       });
   });
