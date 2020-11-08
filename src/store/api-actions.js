@@ -5,10 +5,14 @@ import {AuthorizationStatus, AppPath, APIPath, ErrorMessage} from "../const";
 // загрузка списка фильмов
 export const fetchFilmsList = () => (dispatch, _getState, api) => (
   api.get(APIPath.films)
-    .then(({data}) => filmsAdapter(data))
-    .then((films) => {
-      dispatch(loadFilms(films));
-      dispatch(createGenres(films));
+    // .then(({data}) => {
+    //   console.log(data);
+    //   filmsAdapter(data);
+    // })
+    .then((response) => {
+      console.log(response);
+      dispatch(loadFilms(filmsAdapter(response.data)));
+      dispatch(createGenres(filmsAdapter(response.data)));
     })
     .catch(() => {
       // TODO редирект на страницу PageError или открыть попап

@@ -20,10 +20,6 @@ const filmsData = (state = initialState, action) => {
       return extend(state, {
         films: action.payload,
       });
-    case ActionType.LOAD_REVIEWS:
-      return extend(state, {
-        reviews: action.payload,
-      });
     case ActionType.CREATE_GENRES:
       return extend(state, {
         genresList: buildGenres(action.payload)

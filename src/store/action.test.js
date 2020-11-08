@@ -14,7 +14,7 @@ import {
   eraseActiveFilm,
 } from "./action";
 
-import {TEST_MOCKS, TEST_MOCK_FILM, TEST_MOCK_STORE} from "../const";
+import {TEST_MOCKS, TEST_MOCK_STORE} from "../const";
 
 describe(`Action creators work correctly`, () => {
   it(`Action creator changes genre`, () => {
