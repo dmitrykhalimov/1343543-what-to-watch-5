@@ -23,15 +23,14 @@ it(`When user click SignIn`, () => {
   );
 
   wrapper.refs = {
-    emailRef: {
+    passwordRef: {
       current: {
-        value: `mario@mushroomhills.com`
+        value: `cabbagebabbage31337h@x0r`
       },
     }
   };
 
   const signInBtn = wrapper.find(`.sign-in__form`);
   signInBtn.simulate(`submit`, {preventDefault() {}});
-  // TODO: явно оно не так должно работать :( Нет идей как передать нормально рефы через stackoverflow
-  expect(handleSignIn).toHaveBeenCalledTimes(1);
+  expect(handleSignIn).toHaveBeenCalledTimes(0);
 });
