@@ -27,12 +27,6 @@ class Film extends PureComponent {
     this._onPageExit = this._onPageExit.bind(this);
   }
 
-  filterFilms(film) {
-    return this.props.films.filter((item) => {
-      return (item.genre === film.genre) && (item.id !== film.id);
-    });
-  }
-
   componentDidMount() {
     this._onPageLoad(this.props.match.params.id);
   }
@@ -45,6 +39,12 @@ class Film extends PureComponent {
 
   componentWillUnmount() {
     this._onPageExit();
+  }
+
+  filterFilms(film) {
+    return this.props.films.filter((item) => {
+      return (item.genre === film.genre) && (item.id !== film.id);
+    });
   }
 
   render() {
