@@ -81,7 +81,7 @@ class Film extends PureComponent {
           </div>
 
           <div className="movie-card__wrap movie-card__translate-top">
-            <TabsWrapped
+            <Tabs
               film = {activeFilm}
               comments = {comments}
             />
