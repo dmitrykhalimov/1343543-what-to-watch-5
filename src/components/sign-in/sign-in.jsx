@@ -15,7 +15,7 @@ const SignIn = (props) => {
   const initialState = {
     errorMessage: null,
     email: ``,
-    password: ``,
+    password: `1`,
   };
 
   const [currentState, setState] = useState(initialState);
