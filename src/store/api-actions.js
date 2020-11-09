@@ -21,8 +21,7 @@ export const fetchSingleFilm = (id) => (dispatch, _getState, api) => (
       dispatch(loadSingleFilm(singleFilmAdapter(film.data)));
     })
     .catch(() => {
-      // TODO -//-
-      throw Error(ErrorMessage.FETCH_SINGLE_FILM_FAIL);
+      dispatch(redirectToRoute(`${AppPath.notFound}`));
     })
 );
 
@@ -32,7 +31,6 @@ export const fetchFilmPromo = () => (dispatch, _getState, api) => (
       dispatch(loadFilmPromo(singleFilmAdapter(film.data)));
     })
     .catch(() => {
-      // TODO -//-
       throw Error(ErrorMessage.FETCH_PROMO_FAIL);
     })
 );

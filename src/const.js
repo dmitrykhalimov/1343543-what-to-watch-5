@@ -40,7 +40,8 @@ export const AppPath = {
   player: `/player`,
   playerFull: `/player/:id`,
   review: `/films/:id/review`,
-  reviewShort: `/review`
+  reviewShort: `/review`,
+  notFound: `/not-found`,
 };
 
 export const APIPath = {
