@@ -4,7 +4,6 @@ import {withRouter} from "react-router";
 import PropTypes from "prop-types";
 import {validComments, validFilm} from "../../utils/props";
 import Tabs from "../tabs/tabs";
-import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
 import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
 import PageContent from "../page-content/page-content";
@@ -16,7 +15,6 @@ import FilmTitle from "../film-title/film-title";
 import {eraseActiveFilm} from "../../store/action";
 
 const MAX_FILMS_QUANTITY = 4;
-const TabsWrapped = withActiveTab(Tabs);
 
 class Film extends PureComponent {
   constructor(props) {

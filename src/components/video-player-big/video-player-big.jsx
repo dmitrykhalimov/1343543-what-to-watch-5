@@ -52,7 +52,6 @@ const VideoPlayerBig = (props) => {
     };
   }, []);
 
-
   const changeElapsedTime = () => {
     const elapsed = videoRef.current.duration - videoRef.current.currentTime;
     elapsedTimeRef.current.textContent = new Date(elapsed * MS_IN_S).toISOString().substr(SubstringElapsed.END, SubstringElapsed.START);

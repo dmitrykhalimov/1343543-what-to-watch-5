@@ -9,7 +9,7 @@ Array [
   />,
   <a
     className="player__exit"
-    href="/films/1"
+    href="/films/29"
     onClick={[Function]}
     type="button"
   >
@@ -60,7 +60,7 @@ Array [
           width="19"
         >
           <use
-            xlinkHref="#pause"
+            xlinkHref="#play-s"
           />
         </svg>
         <span>

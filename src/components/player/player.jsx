@@ -2,7 +2,6 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import VideoPlayerBig from "../video-player-big/video-player-big";
-import withActivePlayer from "../../hocs/with-active-player/with-active-player";
 import {validFilm} from "../../utils/props";
 import {findByKey} from "../../utils/utils";
 import {getFilms} from "../../store/reducers/selectors";
