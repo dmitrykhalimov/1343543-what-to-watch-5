@@ -1,19 +1,31 @@
-import React from "react";
+import React, {useState, useRef} from "react";
 import PropTypes from "prop-types";
 import {validFilm, validRef} from "../../utils/props";
 import {Link} from "react-router-dom";
+
+const SubstringElapsed = {
+  START: 8,
+  END: 11,
+};
+
+const MS_IN_S = 1000;
 
 const VideoPlayerBig = (props) => {
   const {
     id,
     film,
-    isPlaying,
-    videoRef,
-    progressRef,
-    pinProgressRef,
-    elapsedTimeRef,
     onPlayPauseClick,
     onFullscreenClick} = props;
+
+  const isPlaying = useState(false);
+
+  const videoRef = useRef(null);
+  const progressRef = useRef(null);
+  const pinProgressRef = useRef(null);
+  const elapsedTimeRef = useRef(null);
+
+  const video = videoRef.current;
+  console.log(video);
 
   return (
     <React.Fragment>
