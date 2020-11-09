@@ -10,21 +10,23 @@ export const fetchFilmsList = () => (dispatch, _getState, api) => (
       dispatch(createGenres(filmsAdapter(response.data)));
     })
     .catch(() => {
-      // TODO редирект на страницу PageError или открыть попап
+      dispatch(redirectToRoute(AppPath.error));
       throw Error(ErrorMessage.FETCH_FILMS_LIST_FAIL);
     })
 );
 
+// загрузка одного фильма
 export const fetchSingleFilm = (id) => (dispatch, _getState, api) => (
   api.get(`${APIPath.films}/${id}`)
     .then((film) => {
       dispatch(loadSingleFilm(singleFilmAdapter(film.data)));
     })
     .catch(() => {
-      dispatch(redirectToRoute(`${AppPath.notFound}`));
+      dispatch(redirectToRoute(AppPath.notFound));
     })
 );
 
+// загрузка промо
 export const fetchFilmPromo = () => (dispatch, _getState, api) => (
   api.get(APIPath.promo)
     .then((film) => {
@@ -35,24 +37,25 @@ export const fetchFilmPromo = () => (dispatch, _getState, api) => (
     })
 );
 
+// загрузка списка комментариев
 export const fetchComments = (id) => (dispatch, _getState, api) => (
   api.get(`${APIPath.comments}/${id}`)
     .then((comments) => {
       dispatch(loadFilmComments(comments.data));
     })
     .catch(() => {
-      // TODO -//-
       throw Error(ErrorMessage.FETCH_COMMENTS_FAIL);
     })
 );
 
+// загрузка списка избранных
 export const fetchFavorites = () => (dispatch, _getState, api) => (
   api.get(`${APIPath.favorite}`)
     .then((favorite) => {
       dispatch(loadFavorites(filmsAdapter(favorite.data)));
     })
     .catch(() => {
-    // TODO -//-
+      dispatch(redirectToRoute(AppPath.error));
       throw Error(ErrorMessage.FETCH_FAVORITES_FAIL);
     })
 );
@@ -105,6 +108,6 @@ export const addFavorite = (id, status, isPromo) => (dispatch, _getState, api) =
       }
     })
     .catch(() => {
-      throw Error(ErrorMessage.FETCH_FAVORITES_FAIL);
+      throw Error(ErrorMessage.ADD_FAVORITES_FAIL);
     })
 );

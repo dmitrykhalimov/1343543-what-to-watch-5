@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {connect} from "react-redux";
 
 import PropTypes from "prop-types";
@@ -18,7 +18,7 @@ import {getRendered, getGenresList, getActiveGenre, getFilms, getFilteredFilms, 
 import FilmHeader from "../film-header/film-header";
 import FilmTitle from "../film-title/film-title";
 import FilmPoster from "../film-poster/film-poster";
-import ErrorPopup from "../error-popup/error-popup";
+
 
 const PageMain = (props) => {
   const {
@@ -32,20 +32,8 @@ const PageMain = (props) => {
     incrementRenderedFilms,
   } = props;
 
-  const [errorMessage, setError] = useState(null);
-
-  const handleErrorClose = () => {
-    setError(null);
-  };
-
-  const handleError = (message) => {
-    setError(message);
-  };
-
-
   return (
     <React.Fragment>
-      {errorMessage ? <ErrorPopup errorMessage = {errorMessage} onCloseButtonClick = {handleErrorClose}/> : ``}
       <section className="movie-card">
         <FilmHeader
           background = {filmPromo.background}
@@ -62,7 +50,6 @@ const PageMain = (props) => {
               genre = {filmPromo.genre}
               year = {filmPromo.year}
               id = {filmPromo.id}
-              onError = {handleError}
               isPromo = {true}
               isFavorite = {filmPromo.isFavorite}
             />

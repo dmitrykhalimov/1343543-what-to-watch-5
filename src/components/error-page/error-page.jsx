@@ -1,6 +1,6 @@
 import React from "react";
 
-const ErrorMessage = () => {
+const ErrorPage = () => {
   const divStyle = {
     maxWidth: `650px`,
   };
@@ -49,4 +49,4 @@ const ErrorMessage = () => {
   );
 };
 
-export default ErrorMessage;
+export default ErrorPage;

@@ -42,6 +42,7 @@ export const AppPath = {
   review: `/films/:id/review`,
   reviewShort: `/review`,
   notFound: `/not-found`,
+  error: `/error-page`
 };
 
 export const APIPath = {
@@ -64,6 +65,7 @@ export const ErrorMessage = {
   FETCH_PROMO_FAIL: `Ошибка загрука фильма-промо`,
   FETCH_COMMENTS_FAIL: `Ошибка загрузки комментариев`,
   FETCH_FAVORITES_FAIL: `Ошибка загрузки списка избранных фильмов`,
+  ADD_FAVORITES_FAIL: `Для добавления в избранное нужно авторизоваться`,
 
   WRONG_EMAIL: `Некорректно введен email`,
   WRONG_PASSWORD: `Не указан пароль`,

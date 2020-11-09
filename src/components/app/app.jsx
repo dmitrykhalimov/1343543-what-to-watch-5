@@ -7,6 +7,7 @@ import NotFound from "../not-found/not-found";
 import Film from "../film/film";
 import AddReview from "../add-review/add-review";
 import Player from "../player/player";
+import ErrorPage from "../error-page/error-page";
 import {AppPath} from "../../const";
 import PrivateRoute from "../private-route/private-routes";
 import browserHistory from "../../browser-history";
@@ -31,6 +32,9 @@ const App = () => {
         </Route>
         <Route exact path={AppPath.notFound}>
           <NotFound/>
+        </Route>
+        <Route exact path={AppPath.error}>
+          <ErrorPage></ErrorPage>
         </Route>
         <PrivateRoute
           exact
