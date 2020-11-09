@@ -93,9 +93,7 @@ class Film extends PureComponent {
               maxQuantity = {MAX_FILMS_QUANTITY}
             />
           </MoreLikeThis>
-          <Footer
-            isLight={true}
-          />
+          <Footer/>
         </PageContent>
       </React.Fragment>
     );
