@@ -15,6 +15,7 @@ const FormReview = (props) => {
     errorMessage: null,
     rating: null,
     comment: `1`,
+    isBlocked: false,
   };
 
   const [currentState, setState] = useState(initialState);
@@ -29,6 +30,7 @@ const FormReview = (props) => {
 
   const handleFormSubmit = (evt) => {
     evt.preventDefault();
+    setState(extend(currentState, {isBlocked: true}));
     onReviewSubmit(
         Number(id),
         {
@@ -55,9 +57,10 @@ const FormReview = (props) => {
           onCloseButtonClick = {handleErrorClose}/>
         : ``}
       <form action="#" className="add-review__form" onSubmit={handleFormSubmit}>
-        <div className="rating">
-          <div className="rating__stars">
-            {Array(RATING_QUANTITY)
+        <fieldset style={{border: `none`}} disabled={currentState.isBlocked}>
+          <div className="rating">
+            <div className="rating__stars">
+              {Array(RATING_QUANTITY)
                 .fill(``)
                 .map((item, index) => {
                   const mark = index + 1;
@@ -76,33 +79,34 @@ const FormReview = (props) => {
                     </React.Fragment>
                   );
                 })
-            }
+              }
+            </div>
           </div>
-        </div>
 
-        <div className="add-review__text">
-          <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" onChange={handleCommentChange} value={currentState.comment}></textarea>
-          <div className="add-review__submit">
-            <button
-              className="add-review__btn"
-              type="submit"
-              disabled={!(currentState.comment.length >= 50 && currentState.comment.length <= 400 && currentState.rating === null)}
-            >Post</button>
+          <div className="add-review__text">
+            <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" onChange={handleCommentChange} value={currentState.comment}></textarea>
+            <div className="add-review__submit">
+              <button
+                className="add-review__btn"
+                type="submit"
+                disabled={!(currentState.comment.length >= 50 && currentState.comment.length <= 400 && currentState.rating !== null)}
+              >Post</button>
+            </div>
           </div>
-        </div>
-        {currentState.rating === null
-          ? <>
+          {currentState.rating === null
+            ? <>
             <p>Необходимо выставить оценку </p>
             </>
-          : ``}
+            : ``}
 
-        {!(currentState.comment.length >= 50 && currentState.comment.length <= 400)
-          ? <>
+          {!(currentState.comment.length >= 50 && currentState.comment.length <= 400)
+            ? <>
             <span>Отзыв должен содержать не менее 50 и не более 400 симоволов. </span>
             </>
-          : ``}
+            : ``}
 
-        <span>Символов в отзыве: {currentState.comment.length}</span>
+          <span>Символов в отзыве: {currentState.comment.length}</span>
+        </fieldset>
       </form>
     </div>
   );
