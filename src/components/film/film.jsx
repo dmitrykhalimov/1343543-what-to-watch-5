@@ -27,7 +27,6 @@ class Film extends PureComponent {
     this._onPageExit = this._onPageExit.bind(this);
   }
 
-  // TODO вынести логику в core
   filterFilms(film) {
     return this.props.films.filter((item) => {
       return (item.genre === film.genre) && (item.id !== film.id);

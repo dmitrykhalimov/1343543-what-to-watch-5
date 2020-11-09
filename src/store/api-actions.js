@@ -1,13 +1,13 @@
 import {loadFilms, loadFilmComments, createGenres, requireAuthorization, loadUserData, redirectToRoute, loadSingleFilm, loadFilmPromo, loadFavorites} from "./action";
-import {filmsAdapter, userDataToClient, singleFilmAdapter} from "../services/adapter";
+import {adaptFilmsToClient, adaptUserDataToClient, adaptSingleFilmToClient} from "../services/adapter";
 import {AuthorizationStatus, AppPath, APIPath, ErrorMessage} from "../const";
 
 // загрузка списка фильмов
 export const fetchFilmsList = () => (dispatch, _getState, api) => (
   api.get(APIPath.films)
     .then((response) => {
-      dispatch(loadFilms(filmsAdapter(response.data)));
-      dispatch(createGenres(filmsAdapter(response.data)));
+      dispatch(loadFilms(adaptFilmsToClient(response.data)));
+      dispatch(createGenres(adaptFilmsToClient(response.data)));
     })
     .catch(() => {
       dispatch(redirectToRoute(AppPath.error));
@@ -19,7 +19,7 @@ export const fetchFilmsList = () => (dispatch, _getState, api) => (
 export const fetchSingleFilm = (id) => (dispatch, _getState, api) => (
   api.get(`${APIPath.films}/${id}`)
     .then((film) => {
-      dispatch(loadSingleFilm(singleFilmAdapter(film.data)));
+      dispatch(loadSingleFilm(adaptSingleFilmToClient(film.data)));
     })
     .catch(() => {
       dispatch(redirectToRoute(AppPath.notFound));
@@ -30,7 +30,7 @@ export const fetchSingleFilm = (id) => (dispatch, _getState, api) => (
 export const fetchFilmPromo = () => (dispatch, _getState, api) => (
   api.get(APIPath.promo)
     .then((film) => {
-      dispatch(loadFilmPromo(singleFilmAdapter(film.data)));
+      dispatch(loadFilmPromo(adaptSingleFilmToClient(film.data)));
     })
     .catch(() => {
       throw Error(ErrorMessage.FETCH_PROMO_FAIL);
@@ -52,7 +52,7 @@ export const fetchComments = (id) => (dispatch, _getState, api) => (
 export const fetchFavorites = () => (dispatch, _getState, api) => (
   api.get(`${APIPath.favorite}`)
     .then((favorite) => {
-      dispatch(loadFavorites(filmsAdapter(favorite.data)));
+      dispatch(loadFavorites(adaptFilmsToClient(favorite.data)));
     })
     .catch(() => {
       dispatch(redirectToRoute(AppPath.error));
@@ -64,7 +64,7 @@ export const fetchFavorites = () => (dispatch, _getState, api) => (
 export const checkAuth = () => (dispatch, _getState, api) => (
   api.get(APIPath.login)
     .then((response) => {
-      dispatch(loadUserData(userDataToClient(response.data)));
+      dispatch(loadUserData(adaptUserDataToClient(response.data)));
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
     })
     .catch(() => {
@@ -75,7 +75,7 @@ export const checkAuth = () => (dispatch, _getState, api) => (
 // авторизация
 export const login = ({email, password}, handleError) => (dispatch, _getState, api) => (
   api.post(APIPath.login, {email, password})
-    .then((response) => userDataToClient(response.data))
+    .then((response) => adaptUserDataToClient(response.data))
     .then((data) => {
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
       dispatch(loadUserData(data));
@@ -102,9 +102,9 @@ export const addFavorite = (id, status, isPromo) => (dispatch, _getState, api) =
   api.post(`${APIPath.favorite}/${id}/${status}`)
     .then((response) => {
       if (isPromo) {
-        dispatch(loadFilmPromo(singleFilmAdapter(response.data)));
+        dispatch(loadFilmPromo(adaptSingleFilmToClient(response.data)));
       } else {
-        dispatch(loadSingleFilm(singleFilmAdapter(response.data)));
+        dispatch(loadSingleFilm(adaptSingleFilmToClient(response.data)));
       }
     })
     .catch(() => {
