@@ -84,10 +84,19 @@ const FormReview = (props) => {
         <div className="add-review__text">
           <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" onChange={handleCommentChange} value={currentState.comment}></textarea>
           <div className="add-review__submit">
-            <button className="add-review__btn" type="submit">Post</button>
+            <button
+              className="add-review__btn"
+              type="submit"
+              disabled={!(currentState.comment.length >= 50 && currentState.comment.length <= 400)}
+            >Post</button>
           </div>
         </div>
-
+        {!(currentState.comment.length >= 50 && currentState.comment.length <= 400)
+          ? <>
+            <span>Отзыв должен содержать не менее 50 и не более 400 симоволов. </span>
+            </>
+          : ``}
+        <span>Символов в отзыве: {currentState.comment.length}</span>
       </form>
     </div>
   );

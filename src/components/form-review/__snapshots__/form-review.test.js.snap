@@ -109,12 +109,20 @@ exports[`FormReview Should FormReview render correctly 1`] = `
       >
         <button
           className="add-review__btn"
+          disabled={true}
           type="submit"
         >
           Post
         </button>
       </div>
     </div>
+    <span>
+      Отзыв должен содержать не менее 50 и не более 400 симоволов. 
+    </span>
+    <span>
+      Символов в отзыве: 
+      1
+    </span>
   </form>
 </div>
 `;
