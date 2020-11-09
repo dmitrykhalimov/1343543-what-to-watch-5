@@ -25,16 +25,9 @@ const App = () => {
           path={AppPath.mylist}
           render={() => <MyList />}
         />
-        <Route exact
-          path={AppPath.film}
-          render={({history}) => (
-            <Film
-              onPlayClick = {(id) => {
-                history.push(`${AppPath.player}/${id}`);
-              }}
-            />
-          )}
-        />
+        <Route exact path={AppPath.film}>
+          <Film/>
+        </Route>
         <PrivateRoute
           exact
           path={AppPath.review}
