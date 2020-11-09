@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import NotFound from "./error-page";
+import NotFound from "./not-found";
 
 describe(`NotFound`, () => {
   it(`Should NotFound render correctly`, () => {

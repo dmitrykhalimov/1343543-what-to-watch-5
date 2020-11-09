@@ -40,6 +40,9 @@ const App = () => {
         <Route path={AppPath.playerFull} exact>
           <Player />
         </Route>
+        <Route exact path={`*`}>
+          <NotFound/>
+        </Route>
       </Switch>
     </BrowserRouter>
   );

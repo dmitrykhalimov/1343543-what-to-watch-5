@@ -8,7 +8,7 @@ exports[`Footer Should Footer render correctly, !isLight 1`] = `
     className="logo"
   >
     <a
-      className="logo__link"
+      className="logo__link logo__link--light"
       href="/"
       onClick={[Function]}
     >
