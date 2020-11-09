@@ -6,7 +6,6 @@ import ErrorPopup from "../error-popup/error-popup";
 import {extend} from "../../utils/utils";
 
 const RATING_QUANTITY = 5;
-const RATING_DEFAULT = 3;
 
 const FormReview = (props) => {
 
@@ -14,7 +13,7 @@ const FormReview = (props) => {
 
   const initialState = {
     errorMessage: null,
-    rating: RATING_DEFAULT,
+    rating: null,
     comment: `1`,
   };
 
@@ -45,7 +44,7 @@ const FormReview = (props) => {
   };
 
   const handleErrorClose = () => {
-    setState(extend({errorMessage: null}));
+    setState(extend(currentState, {errorMessage: null}));
   };
 
   return (
@@ -87,15 +86,22 @@ const FormReview = (props) => {
             <button
               className="add-review__btn"
               type="submit"
-              disabled={!(currentState.comment.length >= 50 && currentState.comment.length <= 400)}
+              disabled={!(currentState.comment.length >= 50 && currentState.comment.length <= 400 && currentState.rating === null)}
             >Post</button>
           </div>
         </div>
+        {currentState.rating === null
+          ? <>
+            <p>Необходимо выставить оценку </p>
+            </>
+          : ``}
+
         {!(currentState.comment.length >= 50 && currentState.comment.length <= 400)
           ? <>
             <span>Отзыв должен содержать не менее 50 и не более 400 симоволов. </span>
             </>
           : ``}
+
         <span>Символов в отзыве: {currentState.comment.length}</span>
       </form>
     </div>
