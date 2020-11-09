@@ -1,6 +1,6 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import PropTypes from "prop-types";
-import {validFilm, validRef} from "../../utils/props";
+import {validFilm} from "../../utils/props";
 import {Link} from "react-router-dom";
 
 const SubstringElapsed = {
@@ -11,21 +11,59 @@ const SubstringElapsed = {
 const MS_IN_S = 1000;
 
 const VideoPlayerBig = (props) => {
-  const {
-    id,
-    film,
-    onPlayPauseClick,
-    onFullscreenClick} = props;
+  const {film} = props;
 
-  const isPlaying = useState(false);
+  const [isPlaying, setState] = useState(false);
 
-  const videoRef = useRef(null);
-  const progressRef = useRef(null);
-  const pinProgressRef = useRef(null);
-  const elapsedTimeRef = useRef(null);
+  const videoRef = useRef();
+  const progressRef = useRef();
+  const pinProgressRef = useRef();
+  const elapsedTimeRef = useRef();
 
-  const video = videoRef.current;
-  console.log(video);
+  const handlePlayPauseClick = () => {
+    setState(!isPlaying);
+    changeAction();
+  };
+
+  const handleFullScreenClick = () => {
+    videoRef.current.requestFullscreen();
+  };
+
+  const changeAction = () => {
+    switch (!isPlaying) {
+      case true:
+        videoRef.current.play();
+        break;
+      case false:
+        videoRef.current.pause();
+        break;
+    }
+  };
+
+  useEffect(() => {
+    videoRef.current.ontimeupdate = () => {
+      changeElapsedTime();
+      changeProgressBar();
+    };
+
+    videoRef.current.oncanplay = () => {
+      handlePlayPauseClick();
+      videoRef.current.play();
+    };
+  }, []);
+
+
+  const changeElapsedTime = () => {
+    const elapsed = videoRef.current.duration - videoRef.current.currentTime;
+    elapsedTimeRef.current.textContent = new Date(elapsed * MS_IN_S).toISOString().substr(SubstringElapsed.END, SubstringElapsed.START);
+  };
+
+  const changeProgressBar = () => {
+    const percentage = (videoRef.current.currentTime / videoRef.current.duration) * 100;
+
+    progressRef.current.value = percentage;
+    pinProgressRef.current.style.left = `${percentage}% `;
+  };
 
   return (
     <React.Fragment>
@@ -36,7 +74,7 @@ const VideoPlayerBig = (props) => {
         ref={videoRef}>
       </video>
 
-      <Link type="button" className="player__exit" to={`/films/${id}`}>Exit</Link>
+      <Link type="button" className="player__exit" to={`/films/${film.id}`}>Exit</Link>
 
       <div className="player__controls">
         <div className="player__controls-row">
@@ -51,7 +89,7 @@ const VideoPlayerBig = (props) => {
           <button
             type="button"
             className="player__play"
-            onClick={onPlayPauseClick}
+            onClick={handlePlayPauseClick}
           >
             <svg viewBox="0 0 19 19" width="19" height="19">
               <use xlinkHref={isPlaying ? `#pause` : `#play-s`}></use>
@@ -63,7 +101,7 @@ const VideoPlayerBig = (props) => {
           <button
             type="button"
             className="player__full-screen"
-            onClick={onFullscreenClick}
+            onClick={handleFullScreenClick}
           >
             <svg viewBox="0 0 27 27" width="27" height="27">
               <use xlinkHref="#full-screen"></use>
@@ -78,15 +116,7 @@ const VideoPlayerBig = (props) => {
 
 VideoPlayerBig.propTypes = {
   id: PropTypes.string.isRequired,
-  isPlaying: PropTypes.bool.isRequired,
   film: validFilm,
-  videoRef: validRef,
-  progressRef: validRef,
-  pinProgressRef: validRef,
-  elapsedTimeRef: validRef,
-  onPlayPauseClick: PropTypes.func.isRequired,
-  onFullscreenClick: PropTypes.func.isRequired,
-
 };
 
 export default VideoPlayerBig;

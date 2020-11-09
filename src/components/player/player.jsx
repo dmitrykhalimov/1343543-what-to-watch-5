@@ -10,16 +10,15 @@ import {withRouter} from "react-router";
 
 const Player = (props) => {
   const id = props.match.params.id;
-  const VideoPlayerBigWrapped = withActivePlayer(VideoPlayerBig);
   const {films} = props;
 
   const film = findByKey(films, id);
   return (
     <div className="player">
-      <VideoPlayerBigWrapped
+      <VideoPlayerBig
         film = {film}
         id = {id}
-      ></VideoPlayerBigWrapped>
+      ></VideoPlayerBig>
     </div>
   );
 };
