@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyList Should MyList render correctly 1`] = `
+Array [
+  <div
+    className="user-page"
+  >
+    <header
+      className="page-header user-page__head"
+    >
+      <div
+        className="logo"
+      >
+        <a
+          className="logo__link"
+          href="/"
+          onClick={[Function]}
+        >
+          <span
+            className="logo__letter logo__letter--1"
+          >
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
+          >
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
+        </a>
+      </div>
+      <h1
+        className="page-title user-page__title"
+      >
+        My list
+      </h1>
+      <div
+        className="user-block"
+      >
+        <a
+          href="/mylist"
+          onClick={[Function]}
+        >
+          <div
+            className="user-block__avatar"
+          >
+            <img
+              alt="User avatar"
+              height="63"
+              src="https://i.kym-cdn.com/photos/images/newsfeed/000/607/429/84b.jpg"
+              width="63"
+            />
+          </div>
+        </a>
+      </div>
+    </header>
+    <section
+      className="catalog"
+    >
+      <h2
+        className="catalog__title visually-hidden"
+      >
+        Catalog
+      </h2>
+      <div
+        className="catalog__movies-list"
+      >
+        <article
+          className="small-movie-card catalog__movies-card"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/29"
+            onClick={[Function]}
+          >
+            <div
+              className="small-movie-card__image"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              <video
+                autoPlay={false}
+                height="175"
+                muted={true}
+                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                width="280"
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Interstate 60: Episodes of the Road
+              </span>
+            </h3>
+          </a>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/29"
+            onClick={[Function]}
+          >
+            <div
+              className="small-movie-card__image"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              <video
+                autoPlay={false}
+                height="175"
+                muted={true}
+                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                width="280"
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Interstate 60: Episodes of the Road
+              </span>
+            </h3>
+          </a>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/29"
+            onClick={[Function]}
+          >
+            <div
+              className="small-movie-card__image"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              <video
+                autoPlay={false}
+                height="175"
+                muted={true}
+                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                width="280"
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Interstate 60: Episodes of the Road
+              </span>
+            </h3>
+          </a>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/29"
+            onClick={[Function]}
+          >
+            <div
+              className="small-movie-card__image"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              <video
+                autoPlay={false}
+                height="175"
+                muted={true}
+                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                width="280"
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Interstate 60: Episodes of the Road
+              </span>
+            </h3>
+          </a>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/29"
+            onClick={[Function]}
+          >
+            <div
+              className="small-movie-card__image"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              <video
+                autoPlay={false}
+                height="175"
+                muted={true}
+                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                width="280"
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Interstate 60: Episodes of the Road
+              </span>
+            </h3>
+          </a>
+        </article>
+      </div>
+    </section>
+    <footer
+      className="page-footer"
+    >
+      <div
+        className="logo"
+      >
+        <a
+          className="logo__link logo__link--light"
+          href="/"
+          onClick={[Function]}
+        >
+          <span
+            className="logo__letter logo__letter--1"
+          >
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
+          >
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
+        </a>
+      </div>
+      <div
+        className="copyright"
+      >
+        <p>
+          © 2019 What to watch Ltd.
+        </p>
+      </div>
+    </footer>
+  </div>,
+  ",",
+]
+`;

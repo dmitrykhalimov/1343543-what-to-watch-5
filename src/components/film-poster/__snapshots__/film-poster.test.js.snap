@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmPoster Should FilmPoster render correctly 1`] = `
+<div
+  className="movie-card__poster"
+>
+  <img
+    alt="Interstate 60: Episodes of the Road"
+    height="327"
+    src="https://m.media-amazon.com/images/M/MV5BZDYwYzlhOTAtNDAwMC00ZTBhLWI4M2QtMTA1NmJhYTdiNTkxXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+    width="218"
+  />
+</div>
+`;

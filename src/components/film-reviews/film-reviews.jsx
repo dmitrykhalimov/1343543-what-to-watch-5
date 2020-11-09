@@ -14,9 +14,9 @@ const FilmReviews = (props) => {
   const makeCommentColumn = (firstComment, lastComment) => {
     const resultArray = commentsToRender
       .slice(firstComment, lastComment)
-      .map((item) => {
+      .map((item, index) => {
         return <Review
-          key={item.id}
+          key={item.id + index}
           comment={item}
         />;
 

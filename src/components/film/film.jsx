@@ -22,11 +22,11 @@ class Film extends PureComponent {
   constructor(props) {
     super(props);
 
-    this._handlePageLoad = props.handlePageLoad;
-    this._handlePageExit = props.handlePageExit;
+    this._onPageLoad = props.onPageLoad;
+    this._onPageExit = props.onPageExit;
 
-    this._handlePageLoad = this._handlePageLoad.bind(this);
-    this._handlePageExit = this._handlePageExit.bind(this);
+    this._onPageLoad = this._onPageLoad.bind(this);
+    this._onPageExit = this._onPageExit.bind(this);
   }
 
   // TODO вынести логику в core
@@ -37,17 +37,17 @@ class Film extends PureComponent {
   }
 
   componentDidMount() {
-    this._handlePageLoad(this.props.match.params.id);
+    this._onPageLoad(this.props.match.params.id);
   }
 
   componentDidUpdate() {
     if (Number(this.props.match.params.id) !== this.props.activeFilm.id) {
-      this._handlePageLoad(this.props.match.params.id);
+      this._onPageLoad(this.props.match.params.id);
     }
   }
 
   componentWillUnmount() {
-    this._handlePageExit();
+    this._onPageExit();
   }
 
   render() {
@@ -104,9 +104,8 @@ class Film extends PureComponent {
   }
 }
 Film.propTypes = {
-  onPlayClick: PropTypes.func.isRequired,
-  handlePageLoad: PropTypes.func.isRequired,
-  handlePageExit: PropTypes.func.isRequired,
+  onPageLoad: PropTypes.func.isRequired,
+  onPageExit: PropTypes.func.isRequired,
   comments: validComments,
   films: PropTypes.arrayOf(validFilm).isRequired,
   activeFilm: validFilm,
@@ -124,15 +123,16 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handlePageLoad(id) {
+  onPageLoad(id) {
     dispatch(fetchSingleFilm(id));
     dispatch(fetchComments(id));
   },
-  handlePageExit() {
+  onPageExit() {
     dispatch(eraseActiveFilm());
   }
 });
 
+export {Film};
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Film));
 
 

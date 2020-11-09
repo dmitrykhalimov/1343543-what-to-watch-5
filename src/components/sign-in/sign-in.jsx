@@ -6,7 +6,6 @@ import {login} from "../../store/api-actions";
 import PropTypes from "prop-types";
 import ErrorPopup from "../error-popup/error-popup";
 import {ErrorMessage} from "../../const";
-import validEmail from "email-validator";
 
 class SignIn extends PureComponent {
   constructor(props) {
@@ -29,11 +28,6 @@ class SignIn extends PureComponent {
 
   handleSubmit(evt) {
     evt.preventDefault();
-
-    if (!validEmail.validate(this.emailRef.current.value)) {
-      this.handleError(ErrorMessage.WRONG_EMAIL);
-      return;
-    }
 
     if (this.passwordRef.current.value.length === 0) {
       this.handleError(ErrorMessage.WRONG_PASSWORD);
@@ -108,4 +102,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export {SignIn};
 export default connect(null, mapDispatchToProps)(SignIn);

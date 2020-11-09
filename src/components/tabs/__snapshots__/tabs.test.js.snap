@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs Should Tabs render correctly 1`] = `
+<div
+  className="movie-card__info"
+>
+  <div
+    className="movie-card__poster movie-card__poster--big"
+  >
+    <img
+      alt="The Grand Budapest Hotel poster"
+      height="327"
+      src="https://m.media-amazon.com/images/M/MV5BZDYwYzlhOTAtNDAwMC00ZTBhLWI4M2QtMTA1NmJhYTdiNTkxXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+      width="218"
+    />
+  </div>
+  <div
+    className="movie-card__desc"
+  >
+    <nav
+      className="movie-nav movie-card__nav"
+    >
+      <ul
+        className="movie-nav__list"
+      >
+        <li
+          className="movie-nav__item"
+          onClick={[Function]}
+        >
+          <a
+            className="movie-nav__link"
+            href="#"
+          >
+            O
+          </a>
+        </li>
+        <li
+          className="movie-nav__item"
+          onClick={[Function]}
+        >
+          <a
+            className="movie-nav__link"
+            href="#"
+          >
+            V
+          </a>
+        </li>
+        <li
+          className="movie-nav__item"
+          onClick={[Function]}
+        >
+          <a
+            className="movie-nav__link"
+            href="#"
+          >
+            E
+          </a>
+        </li>
+        <li
+          className="movie-nav__item"
+          onClick={[Function]}
+        >
+          <a
+            className="movie-nav__link"
+            href="#"
+          >
+            R
+          </a>
+        </li>
+        <li
+          className="movie-nav__item"
+          onClick={[Function]}
+        >
+          <a
+            className="movie-nav__link"
+            href="#"
+          >
+            V
+          </a>
+        </li>
+        <li
+          className="movie-nav__item"
+          onClick={[Function]}
+        >
+          <a
+            className="movie-nav__link"
+            href="#"
+          >
+            I
+          </a>
+        </li>
+        <li
+          className="movie-nav__item"
+          onClick={[Function]}
+        >
+          <a
+            className="movie-nav__link"
+            href="#"
+          >
+            E
+          </a>
+        </li>
+        <li
+          className="movie-nav__item"
+          onClick={[Function]}
+        >
+          <a
+            className="movie-nav__link"
+            href="#"
+          >
+            W
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div />
+  </div>
+</div>
+`;

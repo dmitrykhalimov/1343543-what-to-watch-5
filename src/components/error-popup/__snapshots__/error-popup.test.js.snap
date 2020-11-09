@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorPopup Should ErrorPopup render correctly 1`] = `
+<div
+  style={
+    Object {
+      "background": "rgba(255,255,255, 0.7)",
+      "height": "100vh",
+      "left": 0,
+      "outline": "5px solid green",
+      "position": "absolute",
+      "top": 0,
+      "width": "100vw",
+      "zIndex": "100",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "background": "#150202",
+        "height": "300px",
+        "margin": "0 auto",
+        "marginTop": "15vw",
+        "paddingTop": "50px",
+        "textAlign": "center",
+        "width": "1000px",
+      }
+    }
+  >
+    <p
+      style={
+        Object {
+          "color": "#DFCF77",
+          "fontSize": "35px",
+          "lineHeight": "50px",
+        }
+      }
+    >
+      Ошибка: перелетные гагары унесли оптоволокно в южные страны
+    </p>
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "background": "#DFCF77",
+          "border": "none",
+          "cursor": "pointer",
+          "height": "50px",
+          "marginTop": "20px",
+          "width": "120px",
+        }
+      }
+    >
+      Закрыть
+    </button>
+  </div>
+</div>
+`;

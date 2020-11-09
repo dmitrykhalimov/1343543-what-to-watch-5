@@ -26,4 +26,5 @@ ShowMore.propTypes = {
   onShowMore: PropTypes.func.isRequired,
 };
 
+export {ShowMore};
 export default React.memo(ShowMore);

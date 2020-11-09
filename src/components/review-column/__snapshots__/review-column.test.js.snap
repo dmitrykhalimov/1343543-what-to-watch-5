@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewColumn Should ReviewColumn render correctly 1`] = `
+<div
+  className="movie-card__reviews-col"
+>
+  <div />
+</div>
+`;

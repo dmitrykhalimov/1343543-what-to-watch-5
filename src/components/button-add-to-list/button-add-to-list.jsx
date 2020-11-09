@@ -45,4 +45,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export {ButtonAddToList};
 export default connect(null, mapDispatchToProps)(ButtonAddToList);

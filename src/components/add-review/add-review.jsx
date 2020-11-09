@@ -51,7 +51,9 @@ const AddReview = (props) => {
         </div>
       </div>
 
-      <FormReview />
+      <FormReview
+        id={id}
+      />
 
     </section>
   );
@@ -77,6 +79,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-
+export {AddReview};
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddReview));
 
