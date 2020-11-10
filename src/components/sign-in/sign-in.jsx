@@ -42,7 +42,7 @@ const SignIn = (props) => {
 
 
   const handleErrorClose = () => {
-    setState(extend({errorMessage: null}));
+    setState(extend(currentState, {errorMessage: null}));
   };
 
   return (
