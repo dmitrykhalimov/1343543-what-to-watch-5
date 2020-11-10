@@ -9,26 +9,24 @@ import {ACTIVE_FILM_INITIAL_STATE} from "../../../const";
 
 const api = createAPI(() => {});
 
-// т.к. с сервера приходит результат в camel-case, приходится мокать его именно в кэмел-кейсе
-/* eslint-disable camelcase */
 const mockFilmServerStyle = {
-  background_color: ``,
-  background_image: ``,
-  description: `I hate tests.`,
-  director: ``,
-  genre: ``,
-  id: 1,
-  is_favorite: true,
-  name: ``,
-  poster_image: ``,
-  preview_image: ``,
-  preview_video_link: ``,
-  rating: 3.6,
-  released: 2008,
-  run_time: 92,
-  scores_count: 0,
-  starring: [``, ``, ``],
-  video_link: ``,
+  "background_color": ``,
+  "background_image": ``,
+  "description": `I hate tests.`,
+  "director": ``,
+  "genre": ``,
+  "id": 1,
+  "is_favorite": true,
+  "name": ``,
+  "poster_image": ``,
+  "preview_image": ``,
+  "preview_video_link": ``,
+  "rating": 3.6,
+  "released": 2008,
+  "run_time": 92,
+  "scores_count": 0,
+  "starring": [``, ``, ``],
+  "video_link": ``,
 };
 
 const initialState = {
