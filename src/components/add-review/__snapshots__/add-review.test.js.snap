@@ -6,7 +6,7 @@ Array [
     className="movie-card movie-card--full"
     style={
       Object {
-        "backgroundColor": "https://i.imgur.com/1OfiOzs.jpg",
+        "backgroundColor": undefined,
       }
     }
   >
@@ -16,10 +16,7 @@ Array [
       <div
         className="movie-card__bg"
       >
-        <img
-          alt="Interstate 60: Episodes of the Road"
-          src="#978F7E"
-        />
+        <img />
       </div>
       <h1
         className="visually-hidden"
@@ -66,9 +63,7 @@ Array [
               <a
                 className="breadcrumbs__link"
                 href="movie-page.html"
-              >
-                Interstate 60: Episodes of the Road
-              </a>
+              />
             </li>
             <li
               className="breadcrumbs__item"
@@ -105,9 +100,8 @@ Array [
         className="movie-card__poster movie-card__poster--small"
       >
         <img
-          alt="Interstate 60: Episodes of the Road poster"
+          alt="undefined poster"
           height="327"
-          src="https://m.media-amazon.com/images/M/MV5BZDYwYzlhOTAtNDAwMC00ZTBhLWI4M2QtMTA1NmJhYTdiNTkxXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg"
           width="218"
         />
       </div>

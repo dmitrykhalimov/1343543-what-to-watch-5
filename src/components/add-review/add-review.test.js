@@ -16,7 +16,7 @@ describe(`AddReview`, () => {
         <Provider store={store}>
           <MemoryRouter>
             <AddReview
-              activeFilm={TEST_MOCKS.film}
+              activeFilm={{}}
               match={{
                 params: {
                   id: `29`

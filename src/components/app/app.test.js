@@ -16,7 +16,7 @@ describe(`App`, () => {
         <Provider store={store}>
           <MemoryRouter>
             <App
-              activeFilm={TEST_MOCKS.film}
+              activeFilm={{}}
               match={TEST_MOCKS.match}
               handlePageLoad={TEST_MOCKS.noop}
             />,

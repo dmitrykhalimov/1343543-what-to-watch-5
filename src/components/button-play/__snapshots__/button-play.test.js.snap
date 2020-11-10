@@ -3,7 +3,7 @@
 exports[`<ButtonPlay /> render Should ButtonPlay render correctly 1`] = `
 <a
   className="btn btn--play movie-card__button"
-  href="/player/1"
+  href="/player/null"
   onClick={[Function]}
   type="button"
 >

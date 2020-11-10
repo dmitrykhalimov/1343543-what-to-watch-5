@@ -4,17 +4,15 @@ import {ButtonAddToList} from "./button-add-to-list";
 import {MemoryRouter} from 'react-router-dom';
 import {TEST_MOCKS} from "../../const";
 
-// без MemoryRouter падает с ошибкой "You should not use <Link> outside a <Router>"
-
 describe(`<ButtonAddToList /> render`, () => {
   it(`Should ButtonAddToList render correctly, isFavorite, isPromo`, () => {
     const tree = renderer
       .create(
           <MemoryRouter>
             <ButtonAddToList
-              id={TEST_MOCKS.id}
-              isFavorite={TEST_MOCKS.boolTrue}
-              isPromo={TEST_MOCKS.boolTrue}
+              id={null}
+              isFavorite={true}
+              isPromo={true}
               onFavoriteClick={TEST_MOCKS.noop}
             />
           </MemoryRouter>)
@@ -27,9 +25,9 @@ describe(`<ButtonAddToList /> render`, () => {
       .create(
           <MemoryRouter>
             <ButtonAddToList
-              id={TEST_MOCKS.id}
-              isFavorite={TEST_MOCKS.boolFalse}
-              isPromo={TEST_MOCKS.boolTrue}
+              id={null}
+              isFavorite={false}
+              isPromo={true}
               onFavoriteClick={TEST_MOCKS.noop}
             />
           </MemoryRouter>)
@@ -42,9 +40,9 @@ describe(`<ButtonAddToList /> render`, () => {
       .create(
           <MemoryRouter>
             <ButtonAddToList
-              id={TEST_MOCKS.id}
-              isFavorite={TEST_MOCKS.boolTrue}
-              isPromo={TEST_MOCKS.boolFalse}
+              id={null}
+              isFavorite={true}
+              isPromo={false}
               onFavoriteClick={TEST_MOCKS.noop}
             />
           </MemoryRouter>)
@@ -57,9 +55,9 @@ describe(`<ButtonAddToList /> render`, () => {
       .create(
           <MemoryRouter>
             <ButtonAddToList
-              id={TEST_MOCKS.id}
-              isFavorite={TEST_MOCKS.boolFalse}
-              isPromo={TEST_MOCKS.boolFalse}
+              id={null}
+              isFavorite={false}
+              isPromo={false}
               onFavoriteClick={TEST_MOCKS.noop}
             />
           </MemoryRouter>)
