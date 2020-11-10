@@ -12,6 +12,12 @@ import {AppPath} from "../../const";
 import PrivateRoute from "../private-route/private-routes";
 import browserHistory from "../../browser-history";
 
+const initialStateSignIn = {
+  errorMessage: null,
+  email: ``,
+  password: ``,
+};
+
 const App = () => {
   return (
     <BrowserRouter history={browserHistory}>
@@ -20,7 +26,9 @@ const App = () => {
           <PageMain />
         </Route>
         <Route exact path={AppPath.login}>
-          <SignIn />
+          <SignIn
+            initialStateSignIn={initialStateSignIn}
+          />
         </Route>
         <PrivateRoute
           exact

@@ -6,11 +6,19 @@ import {TEST_MOCKS} from "../../const";
 
 describe(`SignIn`, () => {
   it(`Should SignIn render correctly, isPlaying`, () => {
+
+    const initialStateSignIn = {
+      errorMessage: null,
+      email: ``,
+      password: ``,
+    };
+
     const tree = renderer
       .create(
           <MemoryRouter>
             <SignIn
               onFormSubmit={TEST_MOCKS.noop}
+              initialStateSignIn={initialStateSignIn}
             />
           </MemoryRouter>
       )

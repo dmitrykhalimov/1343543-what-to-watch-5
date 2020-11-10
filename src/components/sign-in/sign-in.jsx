@@ -10,14 +10,8 @@ import {extend} from "../../utils/utils";
 
 const SignIn = (props) => {
 
-  const {onFormSubmit} = props;
-
-  const initialState = {
-    errorMessage: null,
-    email: ``,
-    password: `1`,
-  };
-
+  const {onFormSubmit, initialStateSignIn} = props;
+  const initialState = Object.assign({}, initialStateSignIn);
   const [currentState, setState] = useState(initialState);
 
   const handleEmailInput = (evt) => {
@@ -90,6 +84,11 @@ const SignIn = (props) => {
 
 SignIn.propTypes = {
   onFormSubmit: PropTypes.func.isRequired,
+  initialStateSignIn: PropTypes.shape({
+    errorMessage: null,
+    email: ``,
+    password: ``,
+  })
 };
 
 const mapDispatchToProps = (dispatch) => ({

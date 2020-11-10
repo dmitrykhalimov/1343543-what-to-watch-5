@@ -7,18 +7,46 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-it(`When user click SignIn`, () => {
-  const handleSignIn = jest.fn();
+describe(`SignInE2E`, () => {
+  it(`When user click SignIn with password is OK`, () => {
+    const handleSignIn = jest.fn();
 
-  const wrapper = shallow(
-      <SignIn
-        onFormSubmit={handleSignIn}
-      />
-  );
+    const initialStateSignIn = {
+      errorMessage: null,
+      email: ``,
+      password: `1`,
+    };
 
-  // неясно как передать туда стейт
+    const wrapper = shallow(
+        <SignIn
+          onFormSubmit={handleSignIn}
+          initialStateSignIn={initialStateSignIn}
+        />
+    );
 
-  const signInBtn = wrapper.find(`.sign-in__form`);
-  signInBtn.simulate(`submit`, {preventDefault() {}});
-  expect(handleSignIn).toHaveBeenCalledTimes(1);
+    const signInBtn = wrapper.find(`.sign-in__form`);
+    signInBtn.simulate(`submit`, {preventDefault() {}});
+    expect(handleSignIn).toHaveBeenCalledTimes(1);
+  });
+
+  it(`When user click SignIn with password is empty`, () => {
+    const handleSignIn = jest.fn();
+
+    const initialStateSignIn = {
+      errorMessage: null,
+      email: ``,
+      password: ``,
+    };
+
+    const wrapper = shallow(
+        <SignIn
+          onFormSubmit={handleSignIn}
+          initialStateSignIn={initialStateSignIn}
+        />
+    );
+
+    const signInBtn = wrapper.find(`.sign-in__form`);
+    signInBtn.simulate(`submit`, {preventDefault() {}});
+    expect(handleSignIn).toHaveBeenCalledTimes(0);
+  });
 });
