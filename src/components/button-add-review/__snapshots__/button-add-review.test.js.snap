@@ -3,7 +3,7 @@
 exports[`<ButtonPlay /> render Should ButtonPlay render correctly 1`] = `
 <a
   className="btn movie-card__button"
-  href="/null/review"
+  href="/1/review"
   onClick={[Function]}
 >
   Add review

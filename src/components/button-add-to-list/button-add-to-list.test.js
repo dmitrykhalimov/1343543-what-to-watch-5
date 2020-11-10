@@ -10,7 +10,7 @@ describe(`<ButtonAddToList /> render`, () => {
       .create(
           <MemoryRouter>
             <ButtonAddToList
-              id={null}
+              id={1}
               isFavorite={true}
               isPromo={true}
               onFavoriteClick={TEST_MOCKS.noop}
@@ -25,7 +25,7 @@ describe(`<ButtonAddToList /> render`, () => {
       .create(
           <MemoryRouter>
             <ButtonAddToList
-              id={null}
+              id={1}
               isFavorite={false}
               isPromo={true}
               onFavoriteClick={TEST_MOCKS.noop}
@@ -40,7 +40,7 @@ describe(`<ButtonAddToList /> render`, () => {
       .create(
           <MemoryRouter>
             <ButtonAddToList
-              id={null}
+              id={1}
               isFavorite={true}
               isPromo={false}
               onFavoriteClick={TEST_MOCKS.noop}
@@ -55,7 +55,7 @@ describe(`<ButtonAddToList /> render`, () => {
       .create(
           <MemoryRouter>
             <ButtonAddToList
-              id={null}
+              id={1}
               isFavorite={false}
               isPromo={false}
               onFavoriteClick={TEST_MOCKS.noop}

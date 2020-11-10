@@ -9,7 +9,7 @@ describe(`<ButtonPlay /> render`, () => {
       .create(
           <MemoryRouter>
             <ButtonAddReview
-              id={null}
+              id={1}
             />
           </MemoryRouter>)
       .toJSON();
