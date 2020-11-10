@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import FilmOverview from '../../components/film-overview/film-overview';
 import FilmDetails from '../../components/film-details/film-details';
 import FilmReviews from '../../components/film-reviews/film-reviews';
@@ -15,10 +15,18 @@ const Tabs = (props) => {
   const tabs = Object.values(Tab);
 
   const [activeTab, setState] = useState(Tab.OVERVIEW);
+  const [activeFilm, setActive] = useState(552);
 
   const handleSwitchTab = (tabName) => {
     setState(tabName);
   };
+
+  useEffect(() => {
+    if (activeFilm !== film.id) {
+      setActive(film.id);
+      setState(Tab.OVERVIEW);
+    }
+  });
 
   const renderTab = () => {
     switch (activeTab) {
