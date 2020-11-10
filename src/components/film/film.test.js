@@ -16,18 +16,18 @@ describe(`Film`, () => {
         <Provider store={store}>
           <MemoryRouter>
             <Film
-              id={TEST_MOCKS.id}
-              isPromo={TEST_MOCKS.boolTrue}
-              userData={TEST_MOCK_USER}
-              isFavorite={TEST_MOCKS.boolTrue}
+              id={null}
+              isPromo={true}
+              userData={{}}
+              isFavorite={true}
               onPlayClick={TEST_MOCKS.noop}
               onPageLoad={TEST_MOCKS.noop}
               onPageExit={TEST_MOCKS.noop}
-              comments={TEST_MOCKS.comments}
-              films={TEST_MOCKS.films}
+              comments={[]}
+              films={[]}
               activeFilm={TEST_MOCKS.film}
               match={TEST_MOCKS.match}
-              similarFilms={TEST_MOCKS.films}
+              similarFilms={[]}
             />,
           </MemoryRouter>
         </Provider>

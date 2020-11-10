@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import FilmTitle from "./film-title";
-import {TEST_MOCKS, TEST_MOCK_STORE} from "../../const";
+import {TEST_MOCK_STORE} from "../../const";
 import {MemoryRouter} from 'react-router-dom';
 import configureMockStore from "redux-mock-store";
 import {Provider} from "react-redux";
@@ -16,12 +16,12 @@ describe(`FilmTitle`, () => {
           <Provider store={store}>
             <MemoryRouter>
               <FilmTitle
-                id={TEST_MOCKS.id}
-                year={TEST_MOCKS.year}
-                genre={TEST_MOCKS.genre}
-                title={TEST_MOCKS.title}
-                isPromo={TEST_MOCKS.boolTrue}
-                isFavorite={TEST_MOCKS.boolTrue}
+                id={1}
+                year={1}
+                genre={``}
+                title={``}
+                isPromo={true}
+                isFavorite={true}
               />
             </MemoryRouter>
           </Provider>
@@ -35,12 +35,12 @@ describe(`FilmTitle`, () => {
           <Provider store={store}>
             <MemoryRouter>
               <FilmTitle
-                id={TEST_MOCKS.id}
-                year={TEST_MOCKS.year}
-                genre={TEST_MOCKS.genre}
-                title={TEST_MOCKS.title}
-                isPromo={TEST_MOCKS.boolTrue}
-                isFavorite={TEST_MOCKS.boolFalse}
+                id={1}
+                year={1}
+                genre={``}
+                title={``}
+                isPromo={true}
+                isFavorite={false}
               />
             </MemoryRouter>
           </Provider>
@@ -54,12 +54,12 @@ describe(`FilmTitle`, () => {
           <Provider store={store}>
             <MemoryRouter>
               <FilmTitle
-                id={TEST_MOCKS.id}
-                year={TEST_MOCKS.year}
-                genre={TEST_MOCKS.genre}
-                title={TEST_MOCKS.title}
-                isPromo={TEST_MOCKS.boolFalse}
-                isFavorite={TEST_MOCKS.boolTrue}
+                id={1}
+                year={1}
+                genre={``}
+                title={``}
+                isPromo={false}
+                isFavorite={true}
               />
             </MemoryRouter>
           </Provider>
@@ -73,12 +73,12 @@ describe(`FilmTitle`, () => {
           <Provider store={store}>
             <MemoryRouter>
               <FilmTitle
-                id={TEST_MOCKS.id}
-                year={TEST_MOCKS.year}
-                genre={TEST_MOCKS.genre}
-                title={TEST_MOCKS.title}
-                isPromo={TEST_MOCKS.boolFalse}
-                isFavorite={TEST_MOCKS.boolFalse}
+                id={1}
+                year={1}
+                genre={``}
+                title={``}
+                isPromo={false}
+                isFavorite={false}
               />
             </MemoryRouter>
           </Provider>

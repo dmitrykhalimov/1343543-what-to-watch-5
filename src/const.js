@@ -96,24 +96,24 @@ export const ACTIVE_FILM_INITIAL_STATE = {
 };
 
 export const TEST_MOCK_FILM = {
-  description: [`Neal Oliver, a very confused young man and an artist, takes a journey of a lifetime on a highway I60 that doesn't exist on any of the maps, going to the places he never even heard of, searching for an answer and his dreamgirl.`],
-  director: `Bob Gale`,
-  genre: `Adeventure`,
-  id: 29,
-  title: `Interstate 60: Episodes of the Road`,
-  poster: `https://m.media-amazon.com/images/M/MV5BZDYwYzlhOTAtNDAwMC00ZTBhLWI4M2QtMTA1NmJhYTdiNTkxXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg`,
-  preview: `https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg`,
-  backgroundColor: `https://i.imgur.com/1OfiOzs.jpg`,
-  background: `#978F7E`,
-  rankNumber: 7.2,
+  description: [],
+  director: ``,
+  genre: ``,
+  id: 1,
+  title: ``,
+  poster: ``,
+  preview: ``,
+  backgroundColor: ``,
+  background: ``,
+  rankNumber: 1,
   isFavorite: true,
-  rankText: `Good`,
-  year: 2019,
-  video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-  videoMain: `http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4`,
-  duration: 119,
-  cast: `James Marsden, Gary Oldman, Kurt Russell`,
-  votes: 6173,
+  rankText: ``,
+  year: 1,
+  video: ``,
+  videoMain: ``,
+  duration: 1,
+  cast: ``,
+  votes: 1,
 };
 
 export const TEST_MOCK_STORE = {
@@ -162,14 +162,14 @@ export const TEST_MOCK_COMMENT = {
 };
 
 export const TEST_MOCKS = {
+  noop: () => {},
+  film: TEST_MOCK_FILM,
+
   id: 1,
   boolTrue: true,
   boolFalse: false,
   //  descriptionOneElement: ["A look into the daily (or rather, nightly) lives of three vampires who've lived together for over 100 years, in Staten Island."]
   errorMessage: `Ошибка: перелетные гагары унесли оптоволокно в южные страны`,
-  function: () => {},
-  noop: () => {},
-  film: TEST_MOCK_FILM,
   films: [TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM],
   title: TEST_MOCK_FILM.title,
   background: TEST_MOCK_FILM.background,
@@ -198,8 +198,14 @@ export const TEST_MOCKS = {
   path: `/films/1`,
   match: {
     params: {
-      id: `29`
+      id: ``
     }
   },
-  userData: TEST_MOCK_STORE.user,
+  userData: {
+    id: 1,
+    email: ``,
+    name: ``,
+    authorizationStatus: ``,
+    avatarUrl: ``,
+  },
 };

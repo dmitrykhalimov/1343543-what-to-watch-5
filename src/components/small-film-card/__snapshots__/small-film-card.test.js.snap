@@ -29,7 +29,7 @@ exports[`SmallFilmCard Should SmallFilmCard render correctly 1`] = `
       <span
         className="small-movie-card__link"
       >
-        Interstate 60: Episodes of the Road
+        
       </span>
     </h3>
   </a>

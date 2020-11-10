@@ -7,7 +7,7 @@ exports[`FilmTitle Should FilmTitle render correctly, !isPromo, !isFavorite 1`] 
   <h2
     className="movie-card__title"
   >
-    Interstate 60: Episodes of the Road
+    
   </h2>
   <p
     className="movie-card__meta"
@@ -15,12 +15,12 @@ exports[`FilmTitle Should FilmTitle render correctly, !isPromo, !isFavorite 1`] 
     <span
       className="movie-card__genre"
     >
-      Adeventure
+      
     </span>
     <span
       className="movie-card__year"
     >
-      2019
+      1
     </span>
   </p>
   <div
@@ -81,7 +81,7 @@ exports[`FilmTitle Should FilmTitle render correctly, !isPromo, isFavorite 1`] =
   <h2
     className="movie-card__title"
   >
-    Interstate 60: Episodes of the Road
+    
   </h2>
   <p
     className="movie-card__meta"
@@ -89,12 +89,12 @@ exports[`FilmTitle Should FilmTitle render correctly, !isPromo, isFavorite 1`] =
     <span
       className="movie-card__genre"
     >
-      Adeventure
+      
     </span>
     <span
       className="movie-card__year"
     >
-      2019
+      1
     </span>
   </p>
   <div
@@ -155,7 +155,7 @@ exports[`FilmTitle Should FilmTitle render correctly, isPromo, !isFavorite 1`] =
   <h2
     className="movie-card__title"
   >
-    Interstate 60: Episodes of the Road
+    
   </h2>
   <p
     className="movie-card__meta"
@@ -163,12 +163,12 @@ exports[`FilmTitle Should FilmTitle render correctly, isPromo, !isFavorite 1`] =
     <span
       className="movie-card__genre"
     >
-      Adeventure
+      
     </span>
     <span
       className="movie-card__year"
     >
-      2019
+      1
     </span>
   </p>
   <div
@@ -223,7 +223,7 @@ exports[`FilmTitle Should FilmTitle render correctly, isPromo, isFavorite 1`] = 
   <h2
     className="movie-card__title"
   >
-    Interstate 60: Episodes of the Road
+    
   </h2>
   <p
     className="movie-card__meta"
@@ -231,12 +231,12 @@ exports[`FilmTitle Should FilmTitle render correctly, isPromo, isFavorite 1`] = 
     <span
       className="movie-card__genre"
     >
-      Adeventure
+      
     </span>
     <span
       className="movie-card__year"
     >
-      2019
+      1
     </span>
   </p>
   <div

@@ -9,7 +9,7 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="/films/29"
+      href="/films/1"
       onClick={[Function]}
     >
       <div
@@ -21,8 +21,8 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
           autoPlay={false}
           height="175"
           muted={true}
-          poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          poster=""
+          src=""
           width="280"
         />
       </div>
@@ -32,7 +32,7 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
         <span
           className="small-movie-card__link"
         >
-          Interstate 60: Episodes of the Road
+          
         </span>
       </h3>
     </a>
@@ -42,7 +42,7 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="/films/29"
+      href="/films/1"
       onClick={[Function]}
     >
       <div
@@ -54,8 +54,8 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
           autoPlay={false}
           height="175"
           muted={true}
-          poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          poster=""
+          src=""
           width="280"
         />
       </div>
@@ -65,7 +65,7 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
         <span
           className="small-movie-card__link"
         >
-          Interstate 60: Episodes of the Road
+          
         </span>
       </h3>
     </a>
@@ -75,7 +75,7 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="/films/29"
+      href="/films/1"
       onClick={[Function]}
     >
       <div
@@ -87,8 +87,8 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
           autoPlay={false}
           height="175"
           muted={true}
-          poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          poster=""
+          src=""
           width="280"
         />
       </div>
@@ -98,7 +98,7 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
         <span
           className="small-movie-card__link"
         >
-          Interstate 60: Episodes of the Road
+          
         </span>
       </h3>
     </a>
@@ -108,7 +108,7 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="/films/29"
+      href="/films/1"
       onClick={[Function]}
     >
       <div
@@ -120,8 +120,8 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
           autoPlay={false}
           height="175"
           muted={true}
-          poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          poster=""
+          src=""
           width="280"
         />
       </div>
@@ -131,7 +131,7 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
         <span
           className="small-movie-card__link"
         >
-          Interstate 60: Episodes of the Road
+          
         </span>
       </h3>
     </a>
@@ -141,7 +141,7 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="/films/29"
+      href="/films/1"
       onClick={[Function]}
     >
       <div
@@ -153,8 +153,8 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
           autoPlay={false}
           height="175"
           muted={true}
-          poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          poster=""
+          src=""
           width="280"
         />
       </div>
@@ -164,7 +164,7 @@ exports[`FilmsList Should FilmsList render correctly 1`] = `
         <span
           className="small-movie-card__link"
         >
-          Interstate 60: Episodes of the Road
+          
         </span>
       </h3>
     </a>

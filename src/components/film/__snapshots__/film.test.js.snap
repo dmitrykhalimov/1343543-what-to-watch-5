@@ -6,7 +6,7 @@ Array [
     className="movie-card movie-card--full"
     style={
       Object {
-        "backgroundColor": "https://i.imgur.com/1OfiOzs.jpg",
+        "backgroundColor": "",
       }
     }
   >
@@ -17,8 +17,8 @@ Array [
         className="movie-card__bg"
       >
         <img
-          alt="Interstate 60: Episodes of the Road"
-          src="#978F7E"
+          alt=""
+          src=""
         />
       </div>
       <h1
@@ -83,7 +83,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Interstate 60: Episodes of the Road
+            
           </h2>
           <p
             className="movie-card__meta"
@@ -91,12 +91,12 @@ Array [
             <span
               className="movie-card__genre"
             >
-              Adeventure
+              
             </span>
             <span
               className="movie-card__year"
             >
-              2019
+              1
             </span>
           </p>
           <div
@@ -104,7 +104,7 @@ Array [
           >
             <a
               className="btn btn--play movie-card__button"
-              href="/player/29"
+              href="/player/1"
               onClick={[Function]}
               type="button"
             >
@@ -141,7 +141,7 @@ Array [
             </button>
             <a
               className="btn movie-card__button"
-              href="/29/review"
+              href="/1/review"
               onClick={[Function]}
             >
               Add review
@@ -162,7 +162,7 @@ Array [
           <img
             alt="The Grand Budapest Hotel poster"
             height="327"
-            src="https://m.media-amazon.com/images/M/MV5BZDYwYzlhOTAtNDAwMC00ZTBhLWI4M2QtMTA1NmJhYTdiNTkxXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+            src=""
             width="218"
           />
         </div>
@@ -216,7 +216,7 @@ Array [
             <div
               className="movie-rating__score"
             >
-              7.2
+              1
             </div>
             <p
               className="movie-rating__meta"
@@ -224,12 +224,12 @@ Array [
               <span
                 className="movie-rating__level"
               >
-                Good
+                
               </span>
               <span
                 className="movie-rating__count"
               >
-                6173
+                1
                  ratings
               </span>
             </p>
@@ -237,15 +237,12 @@ Array [
           <div
             className="movie-card__text"
           >
-            <p>
-              Neal Oliver, a very confused young man and an artist, takes a journey of a lifetime on a highway I60 that doesn't exist on any of the maps, going to the places he never even heard of, searching for an answer and his dreamgirl.
-            </p>
             <p
               className="movie-card__director"
             >
               <strong>
                 Director: 
-                Bob Gale
+                
               </strong>
             </p>
             <p
@@ -253,7 +250,7 @@ Array [
             >
               <strong>
                 Starring: 
-                James Marsden, Gary Oldman, Kurt Russell
+                
               </strong>
             </p>
           </div>
@@ -274,140 +271,7 @@ Array [
       </h2>
       <div
         className="catalog__movies-list"
-      >
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <a
-            className="small-movie-card__link"
-            href="/films/29"
-            onClick={[Function]}
-          >
-            <div
-              className="small-movie-card__image"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <video
-                autoPlay={false}
-                height="175"
-                muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-                width="280"
-              />
-            </div>
-            <h3
-              className="small-movie-card__title"
-            >
-              <span
-                className="small-movie-card__link"
-              >
-                Interstate 60: Episodes of the Road
-              </span>
-            </h3>
-          </a>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <a
-            className="small-movie-card__link"
-            href="/films/29"
-            onClick={[Function]}
-          >
-            <div
-              className="small-movie-card__image"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <video
-                autoPlay={false}
-                height="175"
-                muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-                width="280"
-              />
-            </div>
-            <h3
-              className="small-movie-card__title"
-            >
-              <span
-                className="small-movie-card__link"
-              >
-                Interstate 60: Episodes of the Road
-              </span>
-            </h3>
-          </a>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <a
-            className="small-movie-card__link"
-            href="/films/29"
-            onClick={[Function]}
-          >
-            <div
-              className="small-movie-card__image"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <video
-                autoPlay={false}
-                height="175"
-                muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-                width="280"
-              />
-            </div>
-            <h3
-              className="small-movie-card__title"
-            >
-              <span
-                className="small-movie-card__link"
-              >
-                Interstate 60: Episodes of the Road
-              </span>
-            </h3>
-          </a>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <a
-            className="small-movie-card__link"
-            href="/films/29"
-            onClick={[Function]}
-          >
-            <div
-              className="small-movie-card__image"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <video
-                autoPlay={false}
-                height="175"
-                muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-                width="280"
-              />
-            </div>
-            <h3
-              className="small-movie-card__title"
-            >
-              <span
-                className="small-movie-card__link"
-              >
-                Interstate 60: Episodes of the Road
-              </span>
-            </h3>
-          </a>
-        </article>
-      </div>
+      />
     </section>
     <footer
       className="page-footer"
@@ -456,7 +320,7 @@ Array [
     className="movie-card movie-card--full"
     style={
       Object {
-        "backgroundColor": "https://i.imgur.com/1OfiOzs.jpg",
+        "backgroundColor": "",
       }
     }
   >
@@ -467,8 +331,8 @@ Array [
         className="movie-card__bg"
       >
         <img
-          alt="Interstate 60: Episodes of the Road"
-          src="#978F7E"
+          alt=""
+          src=""
         />
       </div>
       <h1
@@ -533,7 +397,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Interstate 60: Episodes of the Road
+            
           </h2>
           <p
             className="movie-card__meta"
@@ -541,12 +405,12 @@ Array [
             <span
               className="movie-card__genre"
             >
-              Adeventure
+              
             </span>
             <span
               className="movie-card__year"
             >
-              2019
+              1
             </span>
           </p>
           <div
@@ -554,7 +418,7 @@ Array [
           >
             <a
               className="btn btn--play movie-card__button"
-              href="/player/29"
+              href="/player/1"
               onClick={[Function]}
               type="button"
             >
@@ -591,7 +455,7 @@ Array [
             </button>
             <a
               className="btn movie-card__button"
-              href="/29/review"
+              href="/1/review"
               onClick={[Function]}
             >
               Add review
@@ -612,7 +476,7 @@ Array [
           <img
             alt="The Grand Budapest Hotel poster"
             height="327"
-            src="https://m.media-amazon.com/images/M/MV5BZDYwYzlhOTAtNDAwMC00ZTBhLWI4M2QtMTA1NmJhYTdiNTkxXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+            src=""
             width="218"
           />
         </div>
@@ -666,7 +530,7 @@ Array [
             <div
               className="movie-rating__score"
             >
-              7.2
+              1
             </div>
             <p
               className="movie-rating__meta"
@@ -674,12 +538,12 @@ Array [
               <span
                 className="movie-rating__level"
               >
-                Good
+                
               </span>
               <span
                 className="movie-rating__count"
               >
-                6173
+                1
                  ratings
               </span>
             </p>
@@ -687,15 +551,12 @@ Array [
           <div
             className="movie-card__text"
           >
-            <p>
-              Neal Oliver, a very confused young man and an artist, takes a journey of a lifetime on a highway I60 that doesn't exist on any of the maps, going to the places he never even heard of, searching for an answer and his dreamgirl.
-            </p>
             <p
               className="movie-card__director"
             >
               <strong>
                 Director: 
-                Bob Gale
+                
               </strong>
             </p>
             <p
@@ -703,7 +564,7 @@ Array [
             >
               <strong>
                 Starring: 
-                James Marsden, Gary Oldman, Kurt Russell
+                
               </strong>
             </p>
           </div>
@@ -730,7 +591,7 @@ Array [
         >
           <a
             className="small-movie-card__link"
-            href="/films/29"
+            href="/films/1"
             onClick={[Function]}
           >
             <div
@@ -742,8 +603,8 @@ Array [
                 autoPlay={false}
                 height="175"
                 muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                poster=""
+                src=""
                 width="280"
               />
             </div>
@@ -753,7 +614,7 @@ Array [
               <span
                 className="small-movie-card__link"
               >
-                Interstate 60: Episodes of the Road
+                
               </span>
             </h3>
           </a>
@@ -763,7 +624,7 @@ Array [
         >
           <a
             className="small-movie-card__link"
-            href="/films/29"
+            href="/films/1"
             onClick={[Function]}
           >
             <div
@@ -775,8 +636,8 @@ Array [
                 autoPlay={false}
                 height="175"
                 muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                poster=""
+                src=""
                 width="280"
               />
             </div>
@@ -786,7 +647,7 @@ Array [
               <span
                 className="small-movie-card__link"
               >
-                Interstate 60: Episodes of the Road
+                
               </span>
             </h3>
           </a>
@@ -796,7 +657,7 @@ Array [
         >
           <a
             className="small-movie-card__link"
-            href="/films/29"
+            href="/films/1"
             onClick={[Function]}
           >
             <div
@@ -808,8 +669,8 @@ Array [
                 autoPlay={false}
                 height="175"
                 muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                poster=""
+                src=""
                 width="280"
               />
             </div>
@@ -819,7 +680,7 @@ Array [
               <span
                 className="small-movie-card__link"
               >
-                Interstate 60: Episodes of the Road
+                
               </span>
             </h3>
           </a>
@@ -829,7 +690,7 @@ Array [
         >
           <a
             className="small-movie-card__link"
-            href="/films/29"
+            href="/films/1"
             onClick={[Function]}
           >
             <div
@@ -841,8 +702,8 @@ Array [
                 autoPlay={false}
                 height="175"
                 muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                poster=""
+                src=""
                 width="280"
               />
             </div>
@@ -852,7 +713,7 @@ Array [
               <span
                 className="small-movie-card__link"
               >
-                Interstate 60: Episodes of the Road
+                
               </span>
             </h3>
           </a>
