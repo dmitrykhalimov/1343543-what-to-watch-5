@@ -79,7 +79,7 @@ exports[`SignIn Should SignIn render correctly, isPlaying 1`] = `
             onChange={[Function]}
             placeholder="Password"
             type="password"
-            value="1"
+            value=""
           />
           <label
             className="sign-in__label visually-hidden"
