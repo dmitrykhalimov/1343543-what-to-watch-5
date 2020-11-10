@@ -10,7 +10,7 @@ const mockStore = configureMockStore();
 const store = mockStore(TEST_MOCK_STORE);
 
 describe(`AddReview`, () => {
-  it(`Should AddReview render correctly, isFavorite`, () => {
+  it(`Should AddReview render correctly`, () => {
     const tree = renderer
     .create(
         <Provider store={store}>
