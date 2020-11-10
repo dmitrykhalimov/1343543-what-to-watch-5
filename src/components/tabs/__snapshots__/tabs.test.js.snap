@@ -10,7 +10,7 @@ exports[`Tabs Should Tabs render correctly 1`] = `
     <img
       alt="The Grand Budapest Hotel poster"
       height="327"
-      src="https://m.media-amazon.com/images/M/MV5BZDYwYzlhOTAtNDAwMC00ZTBhLWI4M2QtMTA1NmJhYTdiNTkxXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+      src=""
       width="218"
     />
   </div>
@@ -64,7 +64,7 @@ exports[`Tabs Should Tabs render correctly 1`] = `
       <div
         className="movie-rating__score"
       >
-        7.2
+        1
       </div>
       <p
         className="movie-rating__meta"
@@ -72,12 +72,12 @@ exports[`Tabs Should Tabs render correctly 1`] = `
         <span
           className="movie-rating__level"
         >
-          Good
+          
         </span>
         <span
           className="movie-rating__count"
         >
-          6173
+          1
            ratings
         </span>
       </p>
@@ -85,15 +85,12 @@ exports[`Tabs Should Tabs render correctly 1`] = `
     <div
       className="movie-card__text"
     >
-      <p>
-        Neal Oliver, a very confused young man and an artist, takes a journey of a lifetime on a highway I60 that doesn't exist on any of the maps, going to the places he never even heard of, searching for an answer and his dreamgirl.
-      </p>
       <p
         className="movie-card__director"
       >
         <strong>
           Director: 
-          Bob Gale
+          
         </strong>
       </p>
       <p
@@ -101,7 +98,7 @@ exports[`Tabs Should Tabs render correctly 1`] = `
       >
         <strong>
           Starring: 
-          James Marsden, Gary Oldman, Kurt Russell
+          
         </strong>
       </p>
     </div>

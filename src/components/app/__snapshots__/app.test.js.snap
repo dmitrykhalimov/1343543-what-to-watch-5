@@ -9,8 +9,8 @@ Array [
       className="movie-card__bg"
     >
       <img
-        alt="Interstate 60: Episodes of the Road"
-        src="#978F7E"
+        alt=""
+        src=""
       />
     </div>
     <h1
@@ -76,9 +76,9 @@ Array [
           className="movie-card__poster"
         >
           <img
-            alt="Interstate 60: Episodes of the Road"
+            alt=""
             height="327"
-            src="https://m.media-amazon.com/images/M/MV5BZDYwYzlhOTAtNDAwMC00ZTBhLWI4M2QtMTA1NmJhYTdiNTkxXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+            src=""
             width="218"
           />
         </div>
@@ -88,7 +88,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Interstate 60: Episodes of the Road
+            
           </h2>
           <p
             className="movie-card__meta"
@@ -96,12 +96,12 @@ Array [
             <span
               className="movie-card__genre"
             >
-              Adeventure
+              
             </span>
             <span
               className="movie-card__year"
             >
-              2019
+              1
             </span>
           </p>
           <div
@@ -109,7 +109,7 @@ Array [
           >
             <a
               className="btn btn--play movie-card__button"
-              href="/player/29"
+              href="/player/1"
               onClick={[Function]}
               type="button"
             >
@@ -176,14 +176,14 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item catalog__genres-item--active"
+          className="catalog__genres-item"
           onClick={[Function]}
         >
           <a
             className="catalog__genres-link"
             href="#"
           >
-            Adventure
+            
           </a>
         </li>
         <li
@@ -194,7 +194,7 @@ Array [
             className="catalog__genres-link"
             href="#"
           >
-            Crime
+            
           </a>
         </li>
         <li
@@ -205,7 +205,7 @@ Array [
             className="catalog__genres-link"
             href="#"
           >
-            Historical
+            
           </a>
         </li>
         <li
@@ -216,7 +216,7 @@ Array [
             className="catalog__genres-link"
             href="#"
           >
-            Thriller
+            
           </a>
         </li>
         <li
@@ -227,7 +227,7 @@ Array [
             className="catalog__genres-link"
             href="#"
           >
-            Drama
+            
           </a>
         </li>
       </ul>

@@ -131,7 +131,7 @@ export const TEST_MOCK_STORE = {
     authorizationStatus: `TRUE`,
     films: [TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM],
     filteredFilms: [TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM],
-    genresList: [`Comedy`, `Adventure`, `Crime`, `Historical`, `Thriller`, `Drama`],
+    genresList: [`Comedy`, ``, ``, ``, ``, ``],
     activeFilm: TEST_MOCK_FILM,
     filmPromo: TEST_MOCK_FILM,
     favorites: [TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM],
@@ -147,34 +147,51 @@ export const TEST_MOCK_USER = {
   name: `Princess`,
   authorizationStatus: `AUTH`,
   avatarUrl: `https://i.kym-cdn.com/photos/images/newsfeed/000/607/429/84b.jpg`,
-  genresList: [`Comedy`, `Adventure`, `Crime`, `Historical`, `Thriller`, `Drama`],
 };
 
 export const TEST_MOCK_COMMENT = {
   id: 32,
   user: {
     id: 52,
-    name: `Luigi`,
+    name: ``,
   },
-  rating: 8.3,
-  comment: `Such a nice film! But I haven't seen any mushrooms. Hope to see it in the sequel`,
-  date: `2020-10-06T19:03:49.657Z`,
+  rating: 1,
+  comment: ``,
+  date: ``,
+  // date: `2020-10-06T19:03:49.657Z`,
 };
 
 export const TEST_MOCKS = {
+  id: 1,
   noop: () => {},
   film: TEST_MOCK_FILM,
+  films: [TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM],
+  genres: [`All genres`, ``, ``, ``, ``, ``],
+  activeGenre: `All genres`,
+  comment: TEST_MOCK_COMMENT,
+  match: {
+    params: {
+      id: `1`
+    }
+  },
+  userData: {
+    id: 1,
+    email: ``,
+    name: ``,
+    authorizationStatus: ``,
+    avatarUrl: ``,
+  },
 
-  id: 1,
+
   boolTrue: true,
   boolFalse: false,
   //  descriptionOneElement: ["A look into the daily (or rather, nightly) lives of three vampires who've lived together for over 100 years, in Staten Island."]
   errorMessage: `Ошибка: перелетные гагары унесли оптоволокно в южные страны`,
-  films: [TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM, TEST_MOCK_FILM],
+
   title: TEST_MOCK_FILM.title,
   background: TEST_MOCK_FILM.background,
   poster: TEST_MOCK_FILM.poster,
-  comment: TEST_MOCK_COMMENT,
+
   comments: [TEST_MOCK_COMMENT, TEST_MOCK_COMMENT, TEST_MOCK_COMMENT, TEST_MOCK_COMMENT],
   noData: [],
   year: TEST_MOCK_FILM.year,
@@ -182,9 +199,8 @@ export const TEST_MOCKS = {
   incrementRenderedFilms: 2,
   maxQuantity: 8,
   rendered: 12,
-  activeGenre: `Adventure`,
   avatarUrl: TEST_MOCK_STORE.user.avatarUrl,
-  genres: [`Comedy`, `Adventure`, `Crime`, `Historical`, `Thriller`, `Drama`],
+
   filmsQuantity: 5,
   src: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   preview: `https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg`,
@@ -196,16 +212,6 @@ export const TEST_MOCKS = {
   authorizationStatusTrue: `AUTH`,
   authorizationStatusFalse: `NO_AUTH`,
   path: `/films/1`,
-  match: {
-    params: {
-      id: ``
-    }
-  },
-  userData: {
-    id: 1,
-    email: ``,
-    name: ``,
-    authorizationStatus: ``,
-    avatarUrl: ``,
-  },
+
+
 };

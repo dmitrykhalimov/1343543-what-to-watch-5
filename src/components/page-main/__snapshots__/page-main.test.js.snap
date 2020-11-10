@@ -9,8 +9,8 @@ Array [
       className="movie-card__bg"
     >
       <img
-        alt="Interstate 60: Episodes of the Road"
-        src="#978F7E"
+        alt=""
+        src=""
       />
     </div>
     <h1
@@ -76,9 +76,9 @@ Array [
           className="movie-card__poster"
         >
           <img
-            alt="Interstate 60: Episodes of the Road"
+            alt=""
             height="327"
-            src="https://m.media-amazon.com/images/M/MV5BZDYwYzlhOTAtNDAwMC00ZTBhLWI4M2QtMTA1NmJhYTdiNTkxXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+            src=""
             width="218"
           />
         </div>
@@ -88,7 +88,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Interstate 60: Episodes of the Road
+            
           </h2>
           <p
             className="movie-card__meta"
@@ -96,12 +96,12 @@ Array [
             <span
               className="movie-card__genre"
             >
-              Adeventure
+              
             </span>
             <span
               className="movie-card__year"
             >
-              2019
+              1
             </span>
           </p>
           <div
@@ -109,7 +109,7 @@ Array [
           >
             <a
               className="btn btn--play movie-card__button"
-              href="/player/29"
+              href="/player/1"
               onClick={[Function]}
               type="button"
             >
@@ -165,17 +165,6 @@ Array [
         className="catalog__genres-list"
       >
         <li
-          className="catalog__genres-item"
-          onClick={[Function]}
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Comedy
-          </a>
-        </li>
-        <li
           className="catalog__genres-item catalog__genres-item--active"
           onClick={[Function]}
         >
@@ -183,7 +172,7 @@ Array [
             className="catalog__genres-link"
             href="#"
           >
-            Adventure
+            All genres
           </a>
         </li>
         <li
@@ -194,7 +183,7 @@ Array [
             className="catalog__genres-link"
             href="#"
           >
-            Crime
+            
           </a>
         </li>
         <li
@@ -205,7 +194,7 @@ Array [
             className="catalog__genres-link"
             href="#"
           >
-            Historical
+            
           </a>
         </li>
         <li
@@ -216,7 +205,7 @@ Array [
             className="catalog__genres-link"
             href="#"
           >
-            Thriller
+            
           </a>
         </li>
         <li
@@ -227,7 +216,18 @@ Array [
             className="catalog__genres-link"
             href="#"
           >
-            Drama
+            
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            
           </a>
         </li>
       </ul>
@@ -239,7 +239,7 @@ Array [
         >
           <a
             className="small-movie-card__link"
-            href="/films/29"
+            href="/films/1"
             onClick={[Function]}
           >
             <div
@@ -251,8 +251,8 @@ Array [
                 autoPlay={false}
                 height="175"
                 muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                poster=""
+                src=""
                 width="280"
               />
             </div>
@@ -262,7 +262,7 @@ Array [
               <span
                 className="small-movie-card__link"
               >
-                Interstate 60: Episodes of the Road
+                
               </span>
             </h3>
           </a>
@@ -272,7 +272,7 @@ Array [
         >
           <a
             className="small-movie-card__link"
-            href="/films/29"
+            href="/films/1"
             onClick={[Function]}
           >
             <div
@@ -284,8 +284,8 @@ Array [
                 autoPlay={false}
                 height="175"
                 muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                poster=""
+                src=""
                 width="280"
               />
             </div>
@@ -295,7 +295,7 @@ Array [
               <span
                 className="small-movie-card__link"
               >
-                Interstate 60: Episodes of the Road
+                
               </span>
             </h3>
           </a>
@@ -305,7 +305,7 @@ Array [
         >
           <a
             className="small-movie-card__link"
-            href="/films/29"
+            href="/films/1"
             onClick={[Function]}
           >
             <div
@@ -317,8 +317,8 @@ Array [
                 autoPlay={false}
                 height="175"
                 muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                poster=""
+                src=""
                 width="280"
               />
             </div>
@@ -328,7 +328,7 @@ Array [
               <span
                 className="small-movie-card__link"
               >
-                Interstate 60: Episodes of the Road
+                
               </span>
             </h3>
           </a>
@@ -338,7 +338,7 @@ Array [
         >
           <a
             className="small-movie-card__link"
-            href="/films/29"
+            href="/films/1"
             onClick={[Function]}
           >
             <div
@@ -350,8 +350,8 @@ Array [
                 autoPlay={false}
                 height="175"
                 muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                poster=""
+                src=""
                 width="280"
               />
             </div>
@@ -361,7 +361,7 @@ Array [
               <span
                 className="small-movie-card__link"
               >
-                Interstate 60: Episodes of the Road
+                
               </span>
             </h3>
           </a>
@@ -371,7 +371,7 @@ Array [
         >
           <a
             className="small-movie-card__link"
-            href="/films/29"
+            href="/films/1"
             onClick={[Function]}
           >
             <div
@@ -383,8 +383,8 @@ Array [
                 autoPlay={false}
                 height="175"
                 muted={true}
-                poster="https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg"
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                poster=""
+                src=""
                 width="280"
               />
             </div>
@@ -394,7 +394,7 @@ Array [
               <span
                 className="small-movie-card__link"
               >
-                Interstate 60: Episodes of the Road
+                
               </span>
             </h3>
           </a>

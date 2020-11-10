@@ -6,7 +6,7 @@ Array [
     className="movie-card movie-card--full"
     style={
       Object {
-        "backgroundColor": undefined,
+        "backgroundColor": "",
       }
     }
   >
@@ -16,7 +16,10 @@ Array [
       <div
         className="movie-card__bg"
       >
-        <img />
+        <img
+          alt=""
+          src=""
+        />
       </div>
       <h1
         className="visually-hidden"
@@ -63,7 +66,9 @@ Array [
               <a
                 className="breadcrumbs__link"
                 href="movie-page.html"
-              />
+              >
+                
+              </a>
             </li>
             <li
               className="breadcrumbs__item"
@@ -100,8 +105,9 @@ Array [
         className="movie-card__poster movie-card__poster--small"
       >
         <img
-          alt="undefined poster"
+          alt=" poster"
           height="327"
+          src=""
           width="218"
         />
       </div>

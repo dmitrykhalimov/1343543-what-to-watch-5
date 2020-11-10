@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`VideoPlayerBig Should VideoPlayerBig render correctly, isPlaying 1`] = `
+exports[`VideoPlayerBig Should VideoPlayerBig render correctly 1`] = `
 Array [
   <video
     className="player__video"
     poster="/img/player-poster.jpg"
-    src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4"
+    src=""
   />,
   <a
     className="player__exit"
-    href="/films/29"
+    href="/films/1"
     onClick={[Function]}
     type="button"
   >
@@ -70,7 +70,7 @@ Array [
       <div
         className="player__name"
       >
-        Interstate 60: Episodes of the Road
+        
       </div>
       <button
         className="player__full-screen"

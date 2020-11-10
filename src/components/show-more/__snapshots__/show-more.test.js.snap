@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ShowMore Should ShowMore render correctly 1`] = `
+exports[`ShowMore Should ShowMore render correctly isShown 1`] = `
 <div
   className="catalog__more"
 >

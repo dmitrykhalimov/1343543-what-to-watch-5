@@ -16,12 +16,8 @@ describe(`AddReview`, () => {
         <Provider store={store}>
           <MemoryRouter>
             <AddReview
-              activeFilm={{}}
-              match={{
-                params: {
-                  id: `29`
-                }
-              }}
+              activeFilm={TEST_MOCKS.film}
+              match={TEST_MOCKS.match}
               handlePageLoad={TEST_MOCKS.noop}
             />,
           </MemoryRouter>

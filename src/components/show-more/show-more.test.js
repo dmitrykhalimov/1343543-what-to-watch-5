@@ -4,12 +4,12 @@ import ShowMore from "./show-more";
 import {TEST_MOCKS} from "../../const";
 
 describe(`ShowMore`, () => {
-  it(`Should ShowMore render correctly`, () => {
+  it(`Should ShowMore render correctly isShown`, () => {
     const tree = renderer
       .create(
           <ShowMore
-            rendered={TEST_MOCKS.rendered}
-            filmsQuantity={TEST_MOCKS.filmsQuantity}
+            rendered={1}
+            filmsQuantity={1}
             onShowMore={TEST_MOCKS.noop}
           />
       )
