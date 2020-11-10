@@ -2,7 +2,6 @@
 
 exports[`App Should App render correctly, isFavorite 1`] = `
 Array [
-  "",
   <section
     className="movie-card"
   >

@@ -27,6 +27,7 @@ describe(`Film`, () => {
               films={TEST_MOCKS.films}
               activeFilm={TEST_MOCKS.film}
               match={TEST_MOCKS.match}
+              similarFilms={TEST_MOCKS.films}
             />,
           </MemoryRouter>
         </Provider>
@@ -35,7 +36,7 @@ describe(`Film`, () => {
 
     expect(tree).toMatchSnapshot();
   });
-  it(`Should Film render correctly, !isFavorite`, () => {
+  it(`Should Film render correctly, notisFavorite`, () => {
     const tree = renderer
     .create(
         <Provider store={store}>
@@ -52,6 +53,7 @@ describe(`Film`, () => {
               films={TEST_MOCKS.films}
               activeFilm={TEST_MOCKS.film}
               match={TEST_MOCKS.match}
+              similarFilms={TEST_MOCKS.films}
             />,
           </MemoryRouter>
         </Provider>

@@ -2,7 +2,6 @@
 
 exports[`PageMain Should PageMain render correctly 1`] = `
 Array [
-  "",
   <section
     className="movie-card"
   >

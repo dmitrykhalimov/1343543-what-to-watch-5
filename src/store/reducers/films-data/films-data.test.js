@@ -4,7 +4,7 @@ import {filmsData} from "./films-data";
 import {ActionType} from "../../action";
 import {fetchFilmsList, fetchSingleFilm, fetchFavorites, fetchFilmPromo, fetchComments} from "../../api-actions";
 import {APIPath, TEST_MOCK_COMMENT} from "../../../const";
-import {filmsAdapter, singleFilmAdapter} from "../../../services/adapter";
+import {adaptFilmsToClient, adaptSingleFilmToClient} from "../../../services/adapter";
 import {ACTIVE_FILM_INITIAL_STATE} from "../../../const";
 
 const api = createAPI(() => {});
@@ -69,11 +69,11 @@ describe(`Async operation work correctly`, () => {
         expect(dispatch).toHaveBeenCalledTimes(2);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_FILMS,
-          payload: filmsAdapter(dataMock),
+          payload: adaptFilmsToClient(dataMock),
         });
         expect(dispatch).toHaveBeenNthCalledWith(2, {
           type: ActionType.CREATE_GENRES,
-          payload: filmsAdapter(dataMock),
+          payload: adaptFilmsToClient(dataMock),
         });
       });
   });
@@ -93,7 +93,7 @@ describe(`Async operation work correctly`, () => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_SINGLE_FILM,
-          payload: singleFilmAdapter(dataMock),
+          payload: adaptSingleFilmToClient(dataMock),
         });
       });
   });
@@ -112,7 +112,7 @@ describe(`Async operation work correctly`, () => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_FILM_PROMO,
-          payload: singleFilmAdapter(dataMock),
+          payload: adaptSingleFilmToClient(dataMock),
         });
       });
   });
@@ -151,7 +151,7 @@ describe(`Async operation work correctly`, () => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_FAVORITES,
-          payload: filmsAdapter(dataMock),
+          payload: adaptFilmsToClient(dataMock),
         });
       });
   });
