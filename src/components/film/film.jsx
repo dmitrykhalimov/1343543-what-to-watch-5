@@ -8,7 +8,7 @@ import FilmsList from "../films-list/films-list";
 import Footer from "../footer/footer";
 import PageContent from "../page-content/page-content";
 import MoreLikeThis from "../more-like-this/more-like-this";
-import {getActiveFilm, getFilms, getComments} from "../../store/reducers/selectors";
+import {getActiveFilm, getFilms, getComments, getSimilarFilms} from "../../store/reducers/selectors";
 import {fetchComments, fetchSingleFilm} from "../../store/api-actions";
 import FilmHeader from "../film-header/film-header";
 import FilmTitle from "../film-title/film-title";
@@ -41,24 +41,15 @@ class Film extends PureComponent {
     this._onPageExit();
   }
 
-  filterFilms(film) {
-    return this.props.films.filter((item) => {
-      return (item.genre === film.genre) && (item.id !== film.id);
-    });
-  }
-
   render() {
     const activeFilm = this.props.activeFilm;
     const comments = this.props.comments;
-
-    // TODO: фильтрация при каждом обновлении - перенести в reselect
-    const similarFilms = this.filterFilms(activeFilm);
+    const similarFilms = this.props.similarFilms;
 
     const backgroundStyle = {
       backgroundColor: activeFilm.backgroundColor,
     };
     return (
-
       <React.Fragment>
         <section className="movie-card movie-card--full" style={backgroundStyle}>
           <div className="movie-card__hero">
@@ -103,6 +94,7 @@ Film.propTypes = {
   onPageExit: PropTypes.func.isRequired,
   comments: validComments,
   films: PropTypes.arrayOf(validFilm).isRequired,
+  similarFilms: PropTypes.arrayOf(validFilm).isRequired,
   activeFilm: validFilm,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -115,6 +107,7 @@ const mapStateToProps = (state) => ({
   films: getFilms(state),
   comments: getComments(state),
   activeFilm: getActiveFilm(state),
+  similarFilms: getSimilarFilms(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

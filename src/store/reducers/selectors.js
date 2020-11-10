@@ -1,4 +1,4 @@
-import {filterFilms} from "../../core";
+import {filterFilms, filterSimilarFilms} from "../../core";
 import {createSelector} from 'reselect';
 
 // простые селекторы
@@ -50,3 +50,13 @@ export const getFilteredFilms = createSelector(
       return filterFilms(activeGenre, films);
     }
 );
+
+export const getSimilarFilms = createSelector(
+    getActiveFilm,
+    getFilms,
+    (activeFilm, films) => {
+      return filterSimilarFilms(activeFilm, films);
+    }
+);
+
+
