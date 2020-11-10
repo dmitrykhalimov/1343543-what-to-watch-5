@@ -3,7 +3,6 @@ import {translateMinutesToText} from "../../utils/common";
 import {validFilm} from "../../utils/props";
 
 const FilmDetails = (props) => {
-  // eslint-disable-next-line
   const {film} = props;
   return (
     <React.Fragment>
