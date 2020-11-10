@@ -50,6 +50,10 @@ const VideoPlayerBig = (props) => {
       handlePlayPauseClick();
       videoRef.current.play();
     };
+
+    videoRef.current.onpause = () => {
+      setState(false);
+    };
   }, []);
 
   const changeElapsedTime = () => {
