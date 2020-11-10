@@ -2,7 +2,6 @@ import React from "react";
 import {validFilm} from "../../utils/props";
 
 const FilmOverview = (props) => {
-  // eslint-disable-next-line
   const {film} = props;
   return (
     <React.Fragment>
