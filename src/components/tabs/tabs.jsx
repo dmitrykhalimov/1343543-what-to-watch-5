@@ -15,7 +15,7 @@ const Tabs = (props) => {
   const tabs = Object.values(Tab);
 
   const [activeTab, setState] = useState(Tab.OVERVIEW);
-  const [activeFilm, setActive] = useState(552);
+  const [activeFilm, setActive] = useState(film.id);
 
   const handleSwitchTab = (tabName) => {
     setState(tabName);
