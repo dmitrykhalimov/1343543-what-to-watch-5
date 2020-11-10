@@ -13,8 +13,8 @@ it(`When user click ShowMore`, () => {
 
   const wrapper = shallow(
       <ShowMore
-        rendered={TEST_MOCKS.rendered}
-        filmsQuantity={TEST_MOCKS.filmsQuantity}
+        rendered={1}
+        filmsQuantity={1}
         onShowMore={handleShowMoreClick}
       />
   );

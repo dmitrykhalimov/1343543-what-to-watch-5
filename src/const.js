@@ -116,13 +116,24 @@ export const TEST_MOCK_FILM = {
   votes: 1,
 };
 
+export const TEST_MOCK_COMMENT = {
+  id: 32,
+  user: {
+    id: 52,
+    name: ``,
+  },
+  rating: 1,
+  comment: ``,
+  date: ``,
+};
+
 export const TEST_MOCK_STORE = {
   user: {
-    id: 26,
-    email: `princess-peach@anothercastle.com`,
-    name: `Princess`,
+    id: 1,
+    email: ``,
+    name: ``,
     authorizationStatus: `AUTH`,
-    avatarUrl: `https://i.kym-cdn.com/photos/images/newsfeed/000/607/429/84b.jpg`,
+    avatarUrl: ``,
   },
   filter: {
     activeGenre: `Adventure`
@@ -139,26 +150,6 @@ export const TEST_MOCK_STORE = {
   showMore: {
     rendered: 12
   }
-};
-
-export const TEST_MOCK_USER = {
-  id: 26,
-  email: `princess-peach@anothercastle.com`,
-  name: `Princess`,
-  authorizationStatus: `AUTH`,
-  avatarUrl: `https://i.kym-cdn.com/photos/images/newsfeed/000/607/429/84b.jpg`,
-};
-
-export const TEST_MOCK_COMMENT = {
-  id: 32,
-  user: {
-    id: 52,
-    name: ``,
-  },
-  rating: 1,
-  comment: ``,
-  date: ``,
-  // date: `2020-10-06T19:03:49.657Z`,
 };
 
 export const TEST_MOCKS = {
@@ -181,37 +172,7 @@ export const TEST_MOCKS = {
     authorizationStatus: ``,
     avatarUrl: ``,
   },
-
-
-  boolTrue: true,
-  boolFalse: false,
-  //  descriptionOneElement: ["A look into the daily (or rather, nightly) lives of three vampires who've lived together for over 100 years, in Staten Island."]
-  errorMessage: `Ошибка: перелетные гагары унесли оптоволокно в южные страны`,
-
-  title: TEST_MOCK_FILM.title,
-  background: TEST_MOCK_FILM.background,
-  poster: TEST_MOCK_FILM.poster,
-
   comments: [TEST_MOCK_COMMENT, TEST_MOCK_COMMENT, TEST_MOCK_COMMENT, TEST_MOCK_COMMENT],
-  noData: [],
-  year: TEST_MOCK_FILM.year,
-  genre: TEST_MOCK_FILM.genre,
-  incrementRenderedFilms: 2,
-  maxQuantity: 8,
-  rendered: 12,
-  avatarUrl: TEST_MOCK_STORE.user.avatarUrl,
-
-  filmsQuantity: 5,
-  src: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-  preview: `https://thenewswheel.com/wp-content/uploads/2014/08/Interstate-60-review-BMW-convertible-James-Marsden-8-ball.jpg`,
-  tab: {
-    OVERVIEW: `OVERVIEW`,
-    DETAILS: `DETAILS`,
-    REVIEWS: `REVIEWS`,
-  },
   authorizationStatusTrue: `AUTH`,
   authorizationStatusFalse: `NO_AUTH`,
-  path: `/films/1`,
-
-
 };
