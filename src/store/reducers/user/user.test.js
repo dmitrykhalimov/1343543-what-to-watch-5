@@ -8,13 +8,11 @@ import {adaptUserDataToClient} from "../../../services/adapter";
 
 const api = createAPI(() => {});
 
-// т.к. с сервера приходит результат в camel-case, приходится мокать его именно в кэмел-кейсе
-/* eslint-disable camelcase */
 const mockUserDataServerStyle = {
-  avatar_url: `https://assets.htmlacademy.ru/intensives/javascript-3/avatar/5.jpg`,
-  email: `sfsdf@mail.ru`,
-  id: 1,
-  name: `sfsdf`,
+  "avatar_url": `https://assets.htmlacademy.ru/intensives/javascript-3/avatar/5.jpg`,
+  "email": `sfsdf@mail.ru`,
+  "id": 1,
+  "name": `sfsdf`,
 };
 
 const apiMock = new MockAdapter(api);
