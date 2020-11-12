@@ -17,10 +17,10 @@ const FilmDetails = (props) => {
             <span className="movie-card__details-value">
               {film.cast
                 .split(`,`)
-                .map((item, index) => {
+                .map((item, index, array) => {
                   return (
                     <React.Fragment key={index}>
-                      {`${item},`}
+                      {`${item}${index !== array.length - 1 ? `,` : ``}`}
                       <br />
                     </React.Fragment>
                   );
