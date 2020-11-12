@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import SmallFilmCard from "../small-film-card/small-film-card";
 import {validFilm} from "../../utils/props";
 
-// не предусмотрена кнопка Load More
-
 const FilmsList = (props) => {
   let {films, maxQuantity} = props;
   return (
