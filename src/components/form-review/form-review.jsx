@@ -6,6 +6,8 @@ import ErrorPopup from "../error-popup/error-popup";
 import {extend} from "../../utils/utils";
 
 const RATING_QUANTITY = 5;
+const MIN_REVIEW_LENGTH = 50;
+const MAX_REVIEW_LENGTH = 400;
 
 const FormReview = (props) => {
 
@@ -89,7 +91,7 @@ const FormReview = (props) => {
               <button
                 className="add-review__btn"
                 type="submit"
-                disabled={!(currentState.comment.length >= 50 && currentState.comment.length <= 400 && currentState.rating !== null)}
+                disabled={!(currentState.comment.length >= MIN_REVIEW_LENGTH && currentState.comment.length <= MAX_REVIEW_LENGTH && currentState.rating !== null)}
               >Post</button>
             </div>
           </div>
@@ -99,9 +101,9 @@ const FormReview = (props) => {
             </>
             : ``}
 
-          {!(currentState.comment.length >= 50 && currentState.comment.length <= 400)
+          {!(currentState.comment.length >= MIN_REVIEW_LENGTH && currentState.comment.length <= MAX_REVIEW_LENGTH)
             ? <>
-            <span>Отзыв должен содержать не менее 50 и не более 400 симоволов. </span>
+            <span>Отзыв должен содержать не менее {MIN_REVIEW_LENGTH} и не более {MAX_REVIEW_LENGTH} симоволов. </span>
             </>
             : ``}
 
