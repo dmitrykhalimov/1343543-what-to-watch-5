@@ -86,8 +86,8 @@ SignIn.propTypes = {
   onFormSubmit: PropTypes.func.isRequired,
   initialStateSignIn: PropTypes.shape({
     errorMessage: null,
-    email: ``,
-    password: ``,
+    email: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
   })
 };
 

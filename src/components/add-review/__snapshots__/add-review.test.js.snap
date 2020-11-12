@@ -221,7 +221,7 @@ Array [
               name="review-text"
               onChange={[Function]}
               placeholder="Review text"
-              value="1"
+              value=""
             />
             <div
               className="add-review__submit"
@@ -247,7 +247,7 @@ Array [
           </span>
           <span>
             Символов в отзыве: 
-            1
+            0
           </span>
         </fieldset>
       </form>

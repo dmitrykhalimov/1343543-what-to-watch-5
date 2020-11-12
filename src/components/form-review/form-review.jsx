@@ -16,7 +16,7 @@ const FormReview = (props) => {
   const initialState = {
     errorMessage: null,
     rating: null,
-    comment: `1`,
+    comment: ``,
     isBlocked: false,
   };
 
