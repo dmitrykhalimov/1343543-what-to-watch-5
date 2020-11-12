@@ -108,6 +108,7 @@ export const addFavorite = (id, status, isPromo) => (dispatch, _getState, api) =
       }
     })
     .catch(() => {
+      dispatch(redirectToRoute(AppPath.login));
       throw Error(ErrorMessage.ADD_FAVORITES_FAIL);
     })
 );
