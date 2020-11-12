@@ -4,7 +4,7 @@ import {createAPI} from "../../../services/api";
 import {ActionType} from "../../action";
 import {checkAuth} from "../../api-actions";
 import {APIPath, AuthorizationStatus} from "../../../const";
-import {userDataToClient} from "../../../services/adapter";
+import {adaptUserDataToClient} from "../../../services/adapter";
 
 const api = createAPI(() => {});
 
@@ -34,7 +34,7 @@ describe(`Async user-reducer operation work correctly`, () => {
         expect(dispatch).toHaveBeenCalledTimes(2);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_USER_DATA,
-          payload: userDataToClient(dataMock),
+          payload: adaptUserDataToClient(dataMock),
         });
         expect(dispatch).toHaveBeenNthCalledWith(2, {
           type: ActionType.REQUIRED_AUTHORIZATION,

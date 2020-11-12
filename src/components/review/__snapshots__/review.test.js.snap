@@ -10,7 +10,7 @@ exports[`Review Should Review render correctly 1`] = `
     <p
       className="review__text"
     >
-      Such a nice film! But I haven't seen any mushrooms. Hope to see it in the sequel
+      
     </p>
     <footer
       className="review__details"
@@ -18,20 +18,20 @@ exports[`Review Should Review render correctly 1`] = `
       <cite
         className="review__author"
       >
-        Luigi
+        
       </cite>
       <time
         className="review__date"
-        dateTime="2020-10-6"
+        dateTime="NaN-NaN-NaN"
       >
-        October 6, 2020
+        Invalid Date
       </time>
     </footer>
   </blockquote>
   <div
     className="review__rating"
   >
-    8.3
+    1
   </div>
 </div>
 `;

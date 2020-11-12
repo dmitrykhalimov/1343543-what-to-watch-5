@@ -2,7 +2,6 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import VideoPlayerBig from "../video-player-big/video-player-big";
-import withActivePlayer from "../../hocs/with-active-player/with-active-player";
 import {validFilm} from "../../utils/props";
 import {findByKey} from "../../utils/utils";
 import {getFilms} from "../../store/reducers/selectors";
@@ -10,16 +9,15 @@ import {withRouter} from "react-router";
 
 const Player = (props) => {
   const id = props.match.params.id;
-  const VideoPlayerBigWrapped = withActivePlayer(VideoPlayerBig);
   const {films} = props;
 
   const film = findByKey(films, id);
   return (
     <div className="player">
-      <VideoPlayerBigWrapped
+      <VideoPlayerBig
         film = {film}
         id = {id}
-      ></VideoPlayerBigWrapped>
+      ></VideoPlayerBig>
     </div>
   );
 };

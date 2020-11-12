@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddReview Should AddReview render correctly, isFavorite 1`] = `
+exports[`AddReview Should AddReview render correctly 1`] = `
 Array [
   <section
     className="movie-card movie-card--full"
     style={
       Object {
-        "backgroundColor": "https://i.imgur.com/1OfiOzs.jpg",
+        "backgroundColor": "",
       }
     }
   >
@@ -17,8 +17,8 @@ Array [
         className="movie-card__bg"
       >
         <img
-          alt="Interstate 60: Episodes of the Road"
-          src="#978F7E"
+          alt=""
+          src=""
         />
       </div>
       <h1
@@ -67,7 +67,7 @@ Array [
                 className="breadcrumbs__link"
                 href="movie-page.html"
               >
-                Interstate 60: Episodes of the Road
+                
               </a>
             </li>
             <li
@@ -94,7 +94,7 @@ Array [
               <img
                 alt="User avatar"
                 height="63"
-                src="https://i.kym-cdn.com/photos/images/newsfeed/000/607/429/84b.jpg"
+                src=""
                 width="63"
               />
             </div>
@@ -105,9 +105,9 @@ Array [
         className="movie-card__poster movie-card__poster--small"
       >
         <img
-          alt="Interstate 60: Episodes of the Road poster"
+          alt=" poster"
           height="327"
-          src="https://m.media-amazon.com/images/M/MV5BZDYwYzlhOTAtNDAwMC00ZTBhLWI4M2QtMTA1NmJhYTdiNTkxXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+          src=""
           width="218"
         />
       </div>
@@ -121,111 +121,131 @@ Array [
         className="add-review__form"
         onSubmit={[Function]}
       >
-        <div
-          className="rating"
+        <fieldset
+          disabled={false}
+          style={
+            Object {
+              "border": "none",
+            }
+          }
         >
           <div
-            className="rating__stars"
+            className="rating"
           >
-            <input
-              checked={false}
-              className="rating__input"
-              id="star-1"
-              name="rating"
-              onChange={[Function]}
-              type="radio"
-              value={1}
-            />
-            <label
-              className="rating__label"
-              htmlFor="star-1"
+            <div
+              className="rating__stars"
             >
-              star-1
-            </label>
-            <input
-              checked={false}
-              className="rating__input"
-              id="star-2"
-              name="rating"
-              onChange={[Function]}
-              type="radio"
-              value={2}
-            />
-            <label
-              className="rating__label"
-              htmlFor="star-2"
-            >
-              star-2
-            </label>
-            <input
-              checked={true}
-              className="rating__input"
-              id="star-3"
-              name="rating"
-              onChange={[Function]}
-              type="radio"
-              value={3}
-            />
-            <label
-              className="rating__label"
-              htmlFor="star-3"
-            >
-              star-3
-            </label>
-            <input
-              checked={false}
-              className="rating__input"
-              id="star-4"
-              name="rating"
-              onChange={[Function]}
-              type="radio"
-              value={4}
-            />
-            <label
-              className="rating__label"
-              htmlFor="star-4"
-            >
-              star-4
-            </label>
-            <input
-              checked={false}
-              className="rating__input"
-              id="star-5"
-              name="rating"
-              onChange={[Function]}
-              type="radio"
-              value={5}
-            />
-            <label
-              className="rating__label"
-              htmlFor="star-5"
-            >
-              star-5
-            </label>
+              <input
+                checked={false}
+                className="rating__input"
+                id="star-1"
+                name="rating"
+                onChange={[Function]}
+                type="radio"
+                value={1}
+              />
+              <label
+                className="rating__label"
+                htmlFor="star-1"
+              >
+                star-1
+              </label>
+              <input
+                checked={false}
+                className="rating__input"
+                id="star-2"
+                name="rating"
+                onChange={[Function]}
+                type="radio"
+                value={2}
+              />
+              <label
+                className="rating__label"
+                htmlFor="star-2"
+              >
+                star-2
+              </label>
+              <input
+                checked={false}
+                className="rating__input"
+                id="star-3"
+                name="rating"
+                onChange={[Function]}
+                type="radio"
+                value={3}
+              />
+              <label
+                className="rating__label"
+                htmlFor="star-3"
+              >
+                star-3
+              </label>
+              <input
+                checked={false}
+                className="rating__input"
+                id="star-4"
+                name="rating"
+                onChange={[Function]}
+                type="radio"
+                value={4}
+              />
+              <label
+                className="rating__label"
+                htmlFor="star-4"
+              >
+                star-4
+              </label>
+              <input
+                checked={false}
+                className="rating__input"
+                id="star-5"
+                name="rating"
+                onChange={[Function]}
+                type="radio"
+                value={5}
+              />
+              <label
+                className="rating__label"
+                htmlFor="star-5"
+              >
+                star-5
+              </label>
+            </div>
           </div>
-        </div>
-        <div
-          className="add-review__text"
-        >
-          <textarea
-            className="add-review__textarea"
-            id="review-text"
-            name="review-text"
-            onChange={[Function]}
-            placeholder="Review text"
-            value=""
-          />
           <div
-            className="add-review__submit"
+            className="add-review__text"
           >
-            <button
-              className="add-review__btn"
-              type="submit"
+            <textarea
+              className="add-review__textarea"
+              id="review-text"
+              name="review-text"
+              onChange={[Function]}
+              placeholder="Review text"
+              value="1"
+            />
+            <div
+              className="add-review__submit"
             >
-              Post
-            </button>
+              <button
+                className="add-review__btn"
+                disabled={true}
+                type="submit"
+              >
+                Post
+              </button>
+            </div>
           </div>
-        </div>
+          <p>
+            Необходимо выставить оценку 
+          </p>
+          <span>
+            Отзыв должен содержать не менее 50 и не более 400 симоволов. 
+          </span>
+          <span>
+            Символов в отзыве: 
+            1
+          </span>
+        </fieldset>
       </form>
     </div>
   </section>,

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ErrorPage = () => {
+const NotFound = () => {
   const divStyle = {
     maxWidth: `650px`,
   };
@@ -25,10 +25,7 @@ const ErrorPage = () => {
 
       <div className="sign-in user-page__content" style={divStyle}>
         <p style={pStyle}>
-          Произошла ошибка загрузки данных с сервера.
-        </p>
-        <p style={pStyle}>
-          Пожалуйста, повторите попытку позже.
+          Ошибка 404. Запрашиваемая страница не найдена.
         </p>
       </div>
 
@@ -49,4 +46,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default NotFound;

@@ -32,10 +32,6 @@ export const validComment = PropTypes.shape({
 
 export const validComments = PropTypes.arrayOf(validComment).isRequired;
 
-export const validRef = PropTypes.oneOfType([
-  PropTypes.shape({current: PropTypes.instanceOf(Element)})
-]);
-
 export const validUserData = PropTypes.shape({
   id: PropTypes.number.isRequired,
   authorizationStatus: PropTypes.string.isRequired,

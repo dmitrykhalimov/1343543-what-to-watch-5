@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import {UserBlock} from "./user-block";
 import {MemoryRouter} from 'react-router-dom';
-import {TEST_MOCK_STORE} from "../../const";
+import {TEST_MOCKS} from "../../const";
 
 describe(`UserBlock`, () => {
   it(`Should UserBlock render correctly, isPlaying`, () => {
@@ -10,7 +10,7 @@ describe(`UserBlock`, () => {
       .create(
           <MemoryRouter>
             <UserBlock
-              userData={TEST_MOCK_STORE.user}
+              userData={TEST_MOCKS.userData}
             />
           </MemoryRouter>
       )

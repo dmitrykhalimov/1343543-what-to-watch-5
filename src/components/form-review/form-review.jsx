@@ -1,70 +1,63 @@
-import React, {PureComponent} from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import {addComment} from "../../store/api-actions";
 import {connect} from "react-redux";
 import ErrorPopup from "../error-popup/error-popup";
+import {extend} from "../../utils/utils";
 
 const RATING_QUANTITY = 5;
 
-class FormReview extends PureComponent {
-  constructor(props) {
-    super(props);
+const FormReview = (props) => {
 
-    this.state = {
-      rating: 3,
-      comment: ``,
-      errorMessage: null,
-    };
+  const {onReviewSubmit, id} = props;
 
-    this.onReviewSubmit = this.props.onReviewSubmit;
+  const initialState = {
+    errorMessage: null,
+    rating: null,
+    comment: `1`,
+    isBlocked: false,
+  };
 
-    this.handleRatingChange = this.handleRatingChange.bind(this);
-    this.handleCommentChange = this.handleCommentChange.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.handleError = this.handleError.bind(this);
-    this.handleErrorClose = this.handleErrorClose.bind(this);
-  }
+  const [currentState, setState] = useState(initialState);
 
-  handleRatingChange(evt) {
-    this.setState({
-      rating: Number(evt.target.value),
-    });
-  }
+  const handleRatingChange = (evt) => {
+    setState(extend(currentState, {rating: Number(evt.target.value)}));
+  };
 
-  handleCommentChange(evt) {
-    this.setState({
-      comment: evt.target.value,
-    });
-  }
+  const handleCommentChange = (evt) => {
+    setState(extend(currentState, {comment: evt.target.value}));
+  };
 
-  handleFormSubmit(evt) {
+  const handleFormSubmit = (evt) => {
     evt.preventDefault();
-    this.onReviewSubmit(
-        Number(this.props.id),
+    setState(extend(currentState, {isBlocked: true}));
+    onReviewSubmit(
+        Number(id),
         {
-          rating: this.state.rating,
-          comment: this.state.comment
-        }
+          rating: currentState.rating,
+          comment: currentState.comment
+        },
+        handleError
     );
-  }
+  };
 
-  handleError(message) {
-    this.setState({
-      errorMessage: message,
-    });
-  }
+  const handleError = (message) => {
+    setState(extend(currentState, {errorMessage: message}));
+  };
 
-  handleErrorClose() {
-    this.setState({
-      errorMessage: null,
-    });
-  }
+  const handleErrorClose = () => {
+    setState(extend(currentState, {errorMessage: null}));
+  };
 
-  render() {
-    return (
-      <div className="add-review">
-        {this.state.errorMessage ? <ErrorPopup errorMessage = {this.state.errorMessage} onCloseButtonClick = {this.handleErrorClose}/> : ``}
-        <form action="#" className="add-review__form" onSubmit={this.handleFormSubmit}>
+  return (
+    <div className="add-review">
+      {currentState.errorMessage
+        ? <ErrorPopup
+          errorMessage = {currentState.errorMessage}
+          onCloseButtonClick = {handleErrorClose}/>
+        : ``}
+      <form action="#" className="add-review__form" onSubmit={handleFormSubmit}>
+        <fieldset style={{border: `none`}} disabled={currentState.isBlocked}>
           <div className="rating">
             <div className="rating__stars">
               {Array(RATING_QUANTITY)
@@ -79,8 +72,8 @@ class FormReview extends PureComponent {
                         type="radio"
                         name="rating"
                         value={mark}
-                        checked={this.state.rating === mark}
-                        onChange={this.handleRatingChange}
+                        checked={currentState.rating === mark}
+                        onChange={handleRatingChange}
                       />
                       <label className="rating__label" htmlFor={`star-${mark}`}>{`star-${mark}`}</label>
                     </React.Fragment>
@@ -91,17 +84,33 @@ class FormReview extends PureComponent {
           </div>
 
           <div className="add-review__text">
-            <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" onChange={this.handleCommentChange} value={this.state.comment}></textarea>
+            <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" onChange={handleCommentChange} value={currentState.comment}></textarea>
             <div className="add-review__submit">
-              <button className="add-review__btn" type="submit">Post</button>
+              <button
+                className="add-review__btn"
+                type="submit"
+                disabled={!(currentState.comment.length >= 50 && currentState.comment.length <= 400 && currentState.rating !== null)}
+              >Post</button>
             </div>
           </div>
+          {currentState.rating === null
+            ? <>
+            <p>Необходимо выставить оценку </p>
+            </>
+            : ``}
 
-        </form>
-      </div>
-    );
-  }
-}
+          {!(currentState.comment.length >= 50 && currentState.comment.length <= 400)
+            ? <>
+            <span>Отзыв должен содержать не менее 50 и не более 400 симоволов. </span>
+            </>
+            : ``}
+
+          <span>Символов в отзыве: {currentState.comment.length}</span>
+        </fieldset>
+      </form>
+    </div>
+  );
+};
 
 FormReview.propTypes = {
   onReviewSubmit: PropTypes.func.isRequired,
@@ -109,8 +118,8 @@ FormReview.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onReviewSubmit(id, userData) {
-    dispatch(addComment(id, userData, this.handleError));
+  onReviewSubmit(id, userData, handleError) {
+    dispatch(addComment(id, userData, handleError));
   },
 });
 

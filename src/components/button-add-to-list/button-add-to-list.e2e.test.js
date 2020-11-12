@@ -14,8 +14,8 @@ it(`When user adds to list`, () => {
   const wrapper = shallow(
       <ButtonAddToList
         id={TEST_MOCKS.id}
-        isFavorite={TEST_MOCKS.boolTrue}
-        isPromo={TEST_MOCKS.boolTrue}
+        isFavorite={true}
+        isPromo={true}
         onFavoriteClick={handleAddToListClick}
       />
   );

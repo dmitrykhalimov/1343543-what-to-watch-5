@@ -8,7 +8,7 @@ Array [
     <div
       className="movie-rating__score"
     >
-      7.2
+      1
     </div>
     <p
       className="movie-rating__meta"
@@ -16,12 +16,12 @@ Array [
       <span
         className="movie-rating__level"
       >
-        Good
+        
       </span>
       <span
         className="movie-rating__count"
       >
-        6173
+        1
          ratings
       </span>
     </p>
@@ -29,15 +29,12 @@ Array [
   <div
     className="movie-card__text"
   >
-    <p>
-      Neal Oliver, a very confused young man and an artist, takes a journey of a lifetime on a highway I60 that doesn't exist on any of the maps, going to the places he never even heard of, searching for an answer and his dreamgirl.
-    </p>
     <p
       className="movie-card__director"
     >
       <strong>
         Director: 
-        Bob Gale
+        
       </strong>
     </p>
     <p
@@ -45,7 +42,7 @@ Array [
     >
       <strong>
         Starring: 
-        James Marsden, Gary Oldman, Kurt Russell
+        
       </strong>
     </p>
   </div>,

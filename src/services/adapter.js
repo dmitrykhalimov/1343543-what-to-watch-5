@@ -1,9 +1,7 @@
 import {extend} from "../utils/utils";
 import {translateRatingToText} from "../utils/common";
 
-// TODO: переименовать в соответствии с критериями;
-
-export const singleFilmAdapter = (film) => {
+export const adaptSingleFilmToClient = (film) => {
   const adaptedFilm = extend(film, {
     title: film.name,
     poster: film.poster_image,
@@ -39,19 +37,11 @@ export const singleFilmAdapter = (film) => {
   return adaptedFilm;
 };
 
-export const filmsAdapter = (films) => {
-  return films.map((film) => singleFilmAdapter(film));
+export const adaptFilmsToClient = (films) => {
+  return films.map((film) => adaptSingleFilmToClient(film));
 };
 
-// export const adaptCommentToClient = (comments) => {
-//   return comments.map((comment) => {
-//     const adaptedComment = extend(comment, {
-//       comme
-//     });
-//   });
-// };
-
-export const userDataToClient = (userData) => {
+export const adaptUserDataToClient = (userData) => {
   const adaptedUserData = extend(userData, {
     avatarUrl: userData.avatar_url,
   });

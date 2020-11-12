@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import FilmHeader from "./film-header";
-import {TEST_MOCKS, TEST_MOCK_STORE} from "../../const";
+import {TEST_MOCK_STORE} from "../../const";
 import {MemoryRouter} from 'react-router-dom';
 import configureMockStore from "redux-mock-store";
 import {Provider} from "react-redux";
@@ -16,8 +16,8 @@ describe(`FilmHeader`, () => {
           <Provider store={store}>
             <MemoryRouter>
               <FilmHeader
-                title={TEST_MOCKS.title}
-                background={TEST_MOCKS.background}
+                title={``}
+                background={``}
               />
             </MemoryRouter>
           </Provider>

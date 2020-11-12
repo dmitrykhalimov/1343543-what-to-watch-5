@@ -12,8 +12,8 @@ describe(`PrivateRoute`, () => {
             <PrivateRoute
               authorizationStatus={TEST_MOCKS.authorizationStatusTrue}
               render={TEST_MOCKS.noop}
-              path={TEST_MOCKS.path}
-              exact={TEST_MOCKS.boolTrue}
+              path={``}
+              exact={true}
             />
           </MemoryRouter>
       )
@@ -28,8 +28,8 @@ describe(`PrivateRoute`, () => {
             <PrivateRoute
               authorizationStatus={TEST_MOCKS.authorizationStatusFalse}
               render={TEST_MOCKS.noop}
-              path={TEST_MOCKS.path}
-              exact={TEST_MOCKS.boolTrue}
+              path={``}
+              exact={true}
             />
           </MemoryRouter>
       )

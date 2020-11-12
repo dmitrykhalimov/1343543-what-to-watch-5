@@ -10,7 +10,7 @@ exports[`Tabs Should Tabs render correctly 1`] = `
     <img
       alt="The Grand Budapest Hotel poster"
       height="327"
-      src="https://m.media-amazon.com/images/M/MV5BZDYwYzlhOTAtNDAwMC00ZTBhLWI4M2QtMTA1NmJhYTdiNTkxXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+      src=""
       width="218"
     />
   </div>
@@ -24,14 +24,14 @@ exports[`Tabs Should Tabs render correctly 1`] = `
         className="movie-nav__list"
       >
         <li
-          className="movie-nav__item"
+          className="movie-nav__item movie-nav__item--active"
           onClick={[Function]}
         >
           <a
             className="movie-nav__link"
             href="#"
           >
-            O
+            Overview
           </a>
         </li>
         <li
@@ -42,7 +42,7 @@ exports[`Tabs Should Tabs render correctly 1`] = `
             className="movie-nav__link"
             href="#"
           >
-            V
+            Details
           </a>
         </li>
         <li
@@ -53,67 +53,55 @@ exports[`Tabs Should Tabs render correctly 1`] = `
             className="movie-nav__link"
             href="#"
           >
-            E
-          </a>
-        </li>
-        <li
-          className="movie-nav__item"
-          onClick={[Function]}
-        >
-          <a
-            className="movie-nav__link"
-            href="#"
-          >
-            R
-          </a>
-        </li>
-        <li
-          className="movie-nav__item"
-          onClick={[Function]}
-        >
-          <a
-            className="movie-nav__link"
-            href="#"
-          >
-            V
-          </a>
-        </li>
-        <li
-          className="movie-nav__item"
-          onClick={[Function]}
-        >
-          <a
-            className="movie-nav__link"
-            href="#"
-          >
-            I
-          </a>
-        </li>
-        <li
-          className="movie-nav__item"
-          onClick={[Function]}
-        >
-          <a
-            className="movie-nav__link"
-            href="#"
-          >
-            E
-          </a>
-        </li>
-        <li
-          className="movie-nav__item"
-          onClick={[Function]}
-        >
-          <a
-            className="movie-nav__link"
-            href="#"
-          >
-            W
+            Reviews
           </a>
         </li>
       </ul>
     </nav>
-    <div />
+    <div
+      className="movie-rating"
+    >
+      <div
+        className="movie-rating__score"
+      >
+        1
+      </div>
+      <p
+        className="movie-rating__meta"
+      >
+        <span
+          className="movie-rating__level"
+        >
+          
+        </span>
+        <span
+          className="movie-rating__count"
+        >
+          1
+           ratings
+        </span>
+      </p>
+    </div>
+    <div
+      className="movie-card__text"
+    >
+      <p
+        className="movie-card__director"
+      >
+        <strong>
+          Director: 
+          
+        </strong>
+      </p>
+      <p
+        className="movie-card__starring"
+      >
+        <strong>
+          Starring: 
+          
+        </strong>
+      </p>
+    </div>
   </div>
 </div>
 `;

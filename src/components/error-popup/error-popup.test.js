@@ -8,8 +8,8 @@ describe(`ErrorPopup`, () => {
     const tree = renderer
       .create(
           <ErrorPopup
-            errorMessage={TEST_MOCKS.errorMessage}
-            onCloseButtonClick={TEST_MOCKS.function}
+            errorMessage={``}
+            onCloseButtonClick={TEST_MOCKS.noop}
           />
       )
       .toJSON();

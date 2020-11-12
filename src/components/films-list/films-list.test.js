@@ -1,8 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import FilmsList from "./films-list";
-import {TEST_MOCKS} from "../../const";
 import {MemoryRouter} from 'react-router-dom';
+import {TEST_MOCKS} from "../../const";
 
 describe(`FilmsList`, () => {
   it(`Should FilmsList render correctly`, () => {
@@ -11,7 +11,7 @@ describe(`FilmsList`, () => {
           <MemoryRouter>
             <FilmsList
               films={TEST_MOCKS.films}
-              maxQuantity={TEST_MOCKS.maxQuantity}
+              maxQuantity={8}
             />
           </MemoryRouter>
       )

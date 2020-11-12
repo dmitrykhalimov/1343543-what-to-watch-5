@@ -9,8 +9,6 @@ import {Provider} from "react-redux";
 const mockStore = configureMockStore();
 const store = mockStore(TEST_MOCK_STORE);
 
-// TeamPage.test.js
-
 describe(`MyList`, () => {
   it(`Should MyList render correctly`, () => {
     const tree = renderer

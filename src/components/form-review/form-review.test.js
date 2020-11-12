@@ -9,7 +9,7 @@ describe(`FormReview`, () => {
     .create(
         <FormReview
           onReviewSubmit={TEST_MOCKS.noop}
-          id={String(TEST_MOCKS.id)}
+          id={`1`}
         />
     )
   .toJSON();

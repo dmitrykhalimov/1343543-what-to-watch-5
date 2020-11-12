@@ -57,8 +57,10 @@ exports[`SignIn Should SignIn render correctly, isPlaying 1`] = `
             className="sign-in__input"
             id="user-email"
             name="user-email"
+            onChange={[Function]}
             placeholder="Email address"
             type="email"
+            value=""
           />
           <label
             className="sign-in__label visually-hidden"
@@ -74,8 +76,10 @@ exports[`SignIn Should SignIn render correctly, isPlaying 1`] = `
             className="sign-in__input"
             id="user-password"
             name="user-password"
+            onChange={[Function]}
             placeholder="Password"
             type="password"
+            value=""
           />
           <label
             className="sign-in__label visually-hidden"

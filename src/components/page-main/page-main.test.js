@@ -9,8 +9,6 @@ import {Provider} from "react-redux";
 const mockStore = configureMockStore();
 const store = mockStore(TEST_MOCK_STORE);
 
-// TeamPage.test.js
-
 describe(`PageMain`, () => {
   it(`Should PageMain render correctly`, () => {
     const tree = renderer
@@ -24,7 +22,7 @@ describe(`PageMain`, () => {
               activeGenre={TEST_MOCKS.activeGenre}
               filterChange={TEST_MOCKS.noop}
               genresList={TEST_MOCKS.genres}
-              rendered={TEST_MOCKS.rendered}
+              rendered={8}
               incrementRenderedFilms={TEST_MOCKS.noop}
             />,
           </MemoryRouter>

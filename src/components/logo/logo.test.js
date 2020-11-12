@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Logo from "./logo";
-import {TEST_MOCKS} from "../../const";
 import {MemoryRouter} from 'react-router-dom';
 
 describe(`Logo`, () => {
@@ -10,7 +9,7 @@ describe(`Logo`, () => {
       .create(
           <MemoryRouter>
             <Logo
-              isLight={TEST_MOCKS.boolTrue}
+              isLight={true}
             />
           </MemoryRouter>
       )
@@ -23,7 +22,7 @@ describe(`Logo`, () => {
       .create(
           <MemoryRouter>
             <Logo
-              isLight={TEST_MOCKS.boolFalse}
+              isLight={false}
             />
           </MemoryRouter>
       )
