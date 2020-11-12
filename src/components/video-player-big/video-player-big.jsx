@@ -51,9 +51,14 @@ const VideoPlayerBig = (props) => {
       videoRef.current.play();
     };
 
+    videoRef.current.onpause = () => {
+      setState(false);
+    };
+
     return function cleanUp() {
       videoRef.current.oncanplay = null;
       videoRef.current.ontimeupdate = null;
+      videoRef.current.onpause = null;
     };
   }, []);
 
