@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {PrivateRoute} from "./private-routes";
+import {PrivateRoute} from "./private-route";
 import {MemoryRouter} from 'react-router-dom';
 import {TEST_MOCKS} from "../../const";
 

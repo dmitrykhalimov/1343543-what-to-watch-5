@@ -9,7 +9,7 @@ import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 import ErrorPage from "../error-page/error-page";
 import {AppPath} from "../../const";
-import PrivateRoute from "../private-route/private-routes";
+import PrivateRoute from "../private-route/private-route";
 import browserHistory from "../../browser-history";
 
 const initialStateSignIn = {
