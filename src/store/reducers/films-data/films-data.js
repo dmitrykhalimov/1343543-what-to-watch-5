@@ -10,7 +10,7 @@ const initialState = {
   genresList: [],
   activeFilm: ACTIVE_FILM_INITIAL_STATE,
   activeComments: [],
-  filmPromo: [],
+  filmPromo: {},
   favorites: [],
 };
 
