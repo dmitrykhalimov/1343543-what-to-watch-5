@@ -33,14 +33,14 @@ Promise.all([
 .then(() => {
   ReactDOM.render(
       <Provider store={store}>
-        <App />
+        <App/>
       </Provider>,
       document.querySelector(`#root`)
   );
 })
 .catch(() => {
   ReactDOM.render(
-      <ErrorPage></ErrorPage>,
+      <ErrorPage/>,
       document.querySelector(`#root`)
   );
 });

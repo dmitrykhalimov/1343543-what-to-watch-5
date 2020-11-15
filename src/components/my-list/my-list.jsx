@@ -20,7 +20,7 @@ const MyList = (props) => {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
-        <Logo></Logo>
+        <Logo/>
 
         <h1 className="page-title user-page__title">My list</h1>
 

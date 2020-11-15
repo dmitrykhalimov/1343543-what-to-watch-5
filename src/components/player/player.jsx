@@ -17,7 +17,7 @@ const Player = (props) => {
       <VideoPlayerBig
         film = {film}
         id = {id}
-      ></VideoPlayerBig>
+      />
     </div>
   );
 };

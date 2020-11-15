@@ -42,7 +42,7 @@ const App = () => {
           <NotFound/>
         </Route>
         <Route exact path={AppPath.error}>
-          <ErrorPage></ErrorPage>
+          <ErrorPage/>
         </Route>
         <PrivateRoute
           exact

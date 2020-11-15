@@ -24,7 +24,7 @@ const FilmButtons = (props) => {
         isPromo = {isPromo}
       />
       {!isPromo && userData.authorizationStatus === AuthorizationStatus.AUTH
-        ? <ButtonAddReview id = {id}></ButtonAddReview>
+        ? <ButtonAddReview id = {id}/>
         : ``}
     </div>
   );
