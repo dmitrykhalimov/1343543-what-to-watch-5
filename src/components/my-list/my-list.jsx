@@ -11,10 +11,10 @@ import UserBlock from "../user-block/user-block";
 import {fetchFavorites} from "../../store/api-actions";
 
 const MyList = (props) => {
-  const {films, handlePageLoad} = props;
+  const {films, onPageLoad} = props;
 
   useEffect(() => {
-    handlePageLoad();
+    onPageLoad();
   }, []);
 
   return (
@@ -43,7 +43,7 @@ const MyList = (props) => {
 
 MyList.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
-  handlePageLoad: PropTypes.func.isRequired,
+  onPageLoad: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -51,7 +51,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handlePageLoad() {
+  onPageLoad() {
     dispatch(fetchFavorites());
   },
 });

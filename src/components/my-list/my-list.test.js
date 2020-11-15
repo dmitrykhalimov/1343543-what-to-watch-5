@@ -17,7 +17,7 @@ describe(`MyList`, () => {
           <MemoryRouter>
             <MyList
               films={TEST_MOCKS.films}
-              handlePageLoad={TEST_MOCKS.noop}
+              onPageLoad={TEST_MOCKS.noop}
             />,
           </MemoryRouter>
         </Provider>

@@ -20,10 +20,10 @@ describe(`PageMain`, () => {
               filteredFilms={TEST_MOCKS.films}
               filmPromo={TEST_MOCKS.film}
               activeGenre={TEST_MOCKS.activeGenre}
-              filterChange={TEST_MOCKS.noop}
+              onFilterChange={TEST_MOCKS.noop}
               genresList={TEST_MOCKS.genres}
               rendered={8}
-              incrementRenderedFilms={TEST_MOCKS.noop}
+              onIncrementFilms={TEST_MOCKS.noop}
             />,
           </MemoryRouter>
         </Provider>

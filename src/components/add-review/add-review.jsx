@@ -11,14 +11,14 @@ import {fetchSingleFilm} from "../../store/api-actions";
 
 const AddReview = (props) => {
   const id = props.match.params.id;
-  const {handlePageLoad, activeFilm} = props;
+  const {onPageLoad, activeFilm} = props;
 
   const backgroundStyle = {
     backgroundColor: activeFilm.backgroundColor,
   };
 
   useEffect(() => {
-    handlePageLoad(id);
+    onPageLoad(id);
   }, []);
 
   return (
@@ -61,7 +61,7 @@ const AddReview = (props) => {
 
 AddReview.propTypes = {
   activeFilm: validFilm,
-  handlePageLoad: PropTypes.func.isRequired,
+  onPageLoad: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -74,7 +74,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handlePageLoad(id) {
+  onPageLoad(id) {
     dispatch(fetchSingleFilm(id));
   },
 });

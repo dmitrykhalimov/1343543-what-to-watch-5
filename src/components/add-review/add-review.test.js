@@ -18,7 +18,7 @@ describe(`AddReview`, () => {
             <AddReview
               activeFilm={TEST_MOCKS.film}
               match={TEST_MOCKS.match}
-              handlePageLoad={TEST_MOCKS.noop}
+              onPageLoad={TEST_MOCKS.noop}
             />,
           </MemoryRouter>
         </Provider>

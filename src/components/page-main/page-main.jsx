@@ -24,12 +24,12 @@ const PageMain = (props) => {
   const {
     films,
     activeGenre,
-    filterChange,
+    onFilterChange,
     filteredFilms,
     filmPromo,
     genresList,
     rendered,
-    incrementRenderedFilms,
+    onIncrementFilms,
   } = props;
 
   return (
@@ -62,7 +62,7 @@ const PageMain = (props) => {
           <Filter
             genres = {genresList}
             activeGenre = {activeGenre}
-            onFilterSelect = {filterChange}
+            onFilterSelect = {onFilterChange}
           />
           <FilmsList
             films = {filteredFilms}
@@ -72,7 +72,7 @@ const PageMain = (props) => {
             <ShowMore
               rendered = {rendered}
               filmsQuantity = {films.length}
-              onShowMore = {incrementRenderedFilms}
+              onShowMore = {onIncrementFilms}
             /> : ``}
         </FilmsCatalog>
         <Footer/>
@@ -85,11 +85,11 @@ PageMain.propTypes = {
   films: PropTypes.arrayOf(validFilm).isRequired,
   filteredFilms: PropTypes.arrayOf(validFilm).isRequired,
   activeGenre: PropTypes.string.isRequired,
-  filterChange: PropTypes.func.isRequired,
+  onFilterChange: PropTypes.func.isRequired,
   genresList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   rendered: PropTypes.number.isRequired,
   filmPromo: validFilm,
-  incrementRenderedFilms: PropTypes.func.isRequired,
+  onIncrementFilms: PropTypes.func.isRequired,
   userData: validUserData,
 };
 
@@ -104,12 +104,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  filterChange(genre) {
+  onFilterChange(genre) {
     dispatch(changeGenre(genre));
     dispatch(resetRendered());
   },
 
-  incrementRenderedFilms(increment) {
+  onIncrementFilms(increment) {
     dispatch(incrementRendered(increment));
   }
 });
