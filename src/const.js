@@ -2,11 +2,11 @@ export const ratingRanks = [
   {
     name: `Bad`,
     min: 0,
-    max: 2,
+    max: 3,
   },
   {
     name: `Normal`,
-    min: 2,
+    min: 3,
     max: 5,
   },
   {
