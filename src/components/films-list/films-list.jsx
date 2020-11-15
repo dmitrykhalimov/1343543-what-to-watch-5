@@ -11,7 +11,7 @@ const FilmsList = (props) => {
           .slice(0, Math.min(films.length, maxQuantity))
           .map((film, index) => {
             return <SmallFilmCard
-              key = {film.id + index}
+              key = {film + index}
               preview = {`${film.preview}`}
               title = {film.title}
               id = {film.id}
