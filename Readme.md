@@ -1,11 +1,11 @@
-# Проект «Что посмотреть» [![Build status][travis-image]][travis-url]
+# Проект «Что посмотреть»
 
-* [Проект на сервере:](http://http://what-to-watch.dkha.site/).
+* [Проект на сервере](http://http://what-to-watch.dkha.site/)
 
 ---
 #### Технологии
 
-_`SPA`, `ES2015+`, `React`, `Redux`, `Axios`., `Jest`._
+_`SPA`, `ES2015+`, `React`, `Redux`, `Axios`, `Jest`._
 
 ---
 
